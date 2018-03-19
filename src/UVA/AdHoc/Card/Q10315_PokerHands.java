@@ -9,10 +9,10 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Main {
+class Q10315_PokerHands {
 
   public static void main(String[] st) {
-    Main p = new Main();
+    Q10315_PokerHands p = new Q10315_PokerHands();
     p.solve();
   }
 

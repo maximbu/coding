@@ -54,7 +54,6 @@ class Q10205_StackEmUp {
   }
 
   private void doShuffle(int[] shuffle, String[] cards) {
-
     String[] cardsTmp = new String[52];
     for (int i = 0; i < shuffle.length; i++) {
       cardsTmp[i]= cards[shuffle[i]-1];
