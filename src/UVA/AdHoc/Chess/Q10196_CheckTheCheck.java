@@ -81,11 +81,9 @@ class Q10196_CheckTheCheck {
   }
 
   private boolean knightThreatens(int attackerCell, int kingCell) {
-    boolean op1 = (Math.abs(attackerCell - kingCell) == 10);
-    boolean op2 = (Math.abs(attackerCell - kingCell) == 6);
-    boolean op3 = (Math.abs(attackerCell - kingCell) == 17);
-    boolean op4 = (Math.abs(attackerCell - kingCell) == 15);
-    return op1 || op2 || op3 || op4;
+    int rowDiff = Math.abs(attackerCell/8-kingCell/8);
+    int colDiff = Math.abs(attackerCell%8-kingCell%8);
+    return (rowDiff+colDiff==3) && (rowDiff*colDiff==2);
   }
 
   private boolean queenThreatens(int attackerCell, int kingCell, char[] board) {
@@ -94,12 +92,12 @@ class Q10196_CheckTheCheck {
   }
 
   private boolean bishopThreatens(int attackerCell, int kingCell, char[] board) {
-    boolean sameLeftDiagonal = ((Math.abs(attackerCell - kingCell) % 7) == 0);
-    boolean sameRightDiagonal = ((Math.abs(attackerCell - kingCell) % 9) == 0);
-    if (sameRightDiagonal) {
+    boolean sameLeftDiagonal = ((attackerCell/8 - kingCell/8)==(attackerCell%8 - kingCell%8));
+    boolean sameRightDiagonal = ((attackerCell/8 - kingCell/8)==-1*(attackerCell%8 - kingCell%8));
+    if (sameLeftDiagonal) {
       return hasFreeAttackLine(attackerCell, kingCell, board, 9);
     }
-    if (sameLeftDiagonal) {
+    if (sameRightDiagonal) {
       return hasFreeAttackLine(attackerCell, kingCell, board, 7);
     }
     return false;
