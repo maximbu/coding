@@ -3,56 +3,54 @@ package UVA.AdHoc.Chess;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
-class Main {
+class Q10284_ChessboardInFEN {
+
+  public static final boolean DEBUG = false;
 
   public static void main(String[] st) {
-    Main p = new Main();
+    Q10284_ChessboardInFEN p = new Q10284_ChessboardInFEN();
     p.solve();
   }
 
   private void solve() {
     Scanner sc = new Scanner(System.in);
-    int caseNum = 1;
-    while (true) {
+    while (sc.hasNextLine()) {
       char board[] = new char[64];
-      for (int rowIndex = 0; rowIndex < 8; rowIndex++) {
-        char[] row = sc.next().toCharArray();
-        System.arraycopy(row, 0, board, rowIndex * 8, 8);
-      }
-      if (isEmpty(board)) {
-        return;
+      int ind = 0;
+      char[] rep = sc.nextLine().toCharArray();
+      for (char cell : rep) {
+        if(cell=='/') continue;
+        if (Character.isDigit(cell)) {
+          for (int j = 0; j < cell - '0'; j++) {
+            board[ind++] = '.';
+          }
+        } else {
+          board[ind++] = cell;
+        }
       }
       int ans = solve(board);
-      String king = (ans == 0 ? "no" : ans > 0 ? "white" : "black");
-      System.out.println("Game #" + (caseNum++) + ": " + king + " king is in check.");
+      System.out.println(ans);
     }
   }
 
   private int solve(char[] board) {
-    if (isUnderCheck(board, true))
-      return 1;
-    if (isUnderCheck(board, false))
-      return -1;
-    return 0;
+    return (int)IntStream.range(0, board.length)
+        .filter(i -> board[i] == '.' && !isUnderAttack(i, board)).count();
   }
 
-  private boolean isUnderCheck(char[] board, boolean white) {
-    int kingCell = IntStream.range(0, board.length).filter(i -> board[i] == (white ? 'K' : 'k'))
-        .findFirst().getAsInt();
-    for (int i = 0; i < board.length; i++) {
-      if ((white && Character.isLowerCase(board[i])) || (!white && Character
-          .isUpperCase(board[i]))) {
-        if (isThreatens(i, kingCell, board))
-          return true;
-      }
-    }
-    return false;
+  private boolean isUnderAttack(int cell, char[] board) {
+    return IntStream.range(0, board.length).
+        anyMatch(i ->  isThreatens(i, cell, board));
   }
 
   private boolean isThreatens(int attackerCell, int attackedCell, char[] board) {
     switch (Character.toLowerCase(board[attackerCell])) {
       case 'p': {
-        return pawnThreatens(attackerCell, attackedCell, board);
+        boolean a=  pawnThreatens(attackerCell, attackedCell, board);
+        if(DEBUG && a){
+          System.out.println(board[attackerCell]+" on: "+attackerCell+" attackedCell: "+attackedCell);
+        }
+        return a;
       }
       case 'n': {
         return knightThreatens(attackerCell, attackedCell);
@@ -64,26 +62,33 @@ class Main {
         return rookThreatens(attackerCell, attackedCell, board);
       }
       case 'q': {
-        return queenThreatens(attackerCell, attackedCell, board);
+        boolean a = queenThreatens(attackerCell, attackedCell, board);
+        if(DEBUG && a){
+          System.out.println(board[attackerCell]+" on: "+attackerCell+" attackedCell: "+attackedCell);
+        }
+        return a;
+      }
+      case 'k': {
+        return kingThreatens(attackerCell, attackedCell);
       }
       default:
-        return kingThreatens(attackerCell, attackedCell, board);
+        return false;
     }
   }
 
-  private boolean kingThreatens(int attackerCell, int attackedCell, char[] board) {
-    int rowDiff = Math.abs(attackedCell/8 - attackerCell/8);
-    int colDiff = Math.abs(attackedCell%8 - attackerCell%8);
+  private boolean kingThreatens(int attackerCell, int attackedCell) {
+    int rowDiff = Math.abs(attackedCell / 8 - attackerCell / 8);
+    int colDiff = Math.abs(attackedCell % 8 - attackerCell % 8);
     return rowDiff <= 1 && colDiff <= 1;
   }
 
   private boolean pawnThreatens(int attackerCell, int attackedCell, char[] board) {
-    int diff = attackerCell - attackedCell;
+    int diff = attackedCell-attackerCell;
     if (Character.isUpperCase(board[attackerCell])) {
-      diff = attackedCell - attackerCell;
-
+      diff *= -1;
     }
-    return (diff == 9 || diff == 7);
+    int rowDiff = Math.abs(attackedCell/8-attackerCell/8);
+    return (rowDiff==1)&&(diff == 9 || diff == 7);
   }
 
   private boolean knightThreatens(int attackerCell, int attackedCell) {
@@ -127,12 +132,4 @@ class Main {
     return sameCol && hasFreeAttackLine(attackerCell, attackedCell, board, 8);
   }
 
-  private boolean isEmpty(char[] board) {
-    for (char cell : board) {
-      if (cell != '.') {
-        return false;
-      }
-    }
-    return true;
-  }
 }
