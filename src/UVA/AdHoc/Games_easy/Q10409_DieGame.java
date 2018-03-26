@@ -71,28 +71,4 @@ class Q10409_DieGame {
     }
   }
 
-  private String solve(int[] line) {
-    int day = 0;
-    int height = line[0];
-    int distancePerDay = line[1];
-    int slidePerNight = line[2];
-    int fatigue = line[3];
-    double currPos = 0;
-    double totalFatigue = 0;
-    while (true) {
-      day++;
-
-      currPos += Math.max(0, distancePerDay - totalFatigue);
-
-      if (currPos > height)
-        return "success on day " + day;
-
-      currPos -= slidePerNight;
-
-      if (currPos < 0)
-        return "failure on day " + day;
-
-      totalFatigue += distancePerDay * fatigue / 100.0;
-    }
-  }
 }
