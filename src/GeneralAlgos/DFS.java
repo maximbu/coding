@@ -1,7 +1,7 @@
 package GeneralAlgos;
 
-import utils.Graph;
-import utils.GraphNode;
+import CodingInterviews.utils.Graph;
+import CodingInterviews.utils.GraphNode;
 
 import java.util.Arrays;
 import java.util.HashSet;

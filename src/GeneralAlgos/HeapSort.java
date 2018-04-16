@@ -1,6 +1,6 @@
 package GeneralAlgos;
 
-import utils.BinaryHeap;
+import CodingInterviews.utils.BinaryHeap;
 
 import java.util.Arrays;
 

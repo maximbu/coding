@@ -1,7 +1,7 @@
 package GeneralAlgos;
 
-import utils.BinaryHeap;
-import utils.WeightedGraph;
+import CodingInterviews.utils.BinaryHeap;
+import CodingInterviews.utils.WeightedGraph;
 
 
 import java.util.HashMap;
