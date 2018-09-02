@@ -29,7 +29,7 @@ public class q1_7 {
 
 
     public static void main(String[] args) {
-        int[][] m = Matrix.randomMatrix(3);
+        int[][] m = Matrix.randomMatrix(7);
         System.out.println("rotate(\n"+Matrix.printMatrix(m)+")\n->\n"+ Matrix.printMatrix(rotate(m)));
 
     }

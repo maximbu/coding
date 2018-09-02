@@ -36,6 +36,6 @@ public class q2_4 {
     public static void main(String[] args) {
         MyLinkedListNode<Integer> head = createList(3, 5 , 8, 5 , 10 ,2 ,1);
         String orig = printList(head);
-        System.out.println("partition("+orig+",5)====>"+printList(partition(head,5)));
+        System.out.println("partition("+orig+",5)====>"+printList(partition(head,10)));
     }
 }

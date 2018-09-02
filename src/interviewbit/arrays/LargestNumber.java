@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 public class LargestNumber {
   // DO NOT MODIFY THE LIST
   public String largestNumber(final List<Integer> a) {
-    List<String> a2 =a.stream().map(t->t.toString()).collect(Collectors.toList());
-    a2.sort((o1, o2) -> (o2+o1).compareTo(o1+o2));
+    List<String> a2 = a.stream().map(Object::toString)
+        .sorted((o1, o2) -> (o2 + o1).compareTo(o1 + o2)).collect(Collectors.toList());
     StringBuilder b = new StringBuilder();
     for (String anA : a2) {
       if(!anA.equals("0")) {

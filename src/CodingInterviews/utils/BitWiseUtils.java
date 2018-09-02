@@ -8,8 +8,8 @@ public class BitWiseUtils {
     public static int binToInt(String rep) {
         char[] st = rep.toCharArray();
         int n = 0;
-        for (int i = 0; i < st.length; i++) {
-            n = n * 2 + ((st[i] == '1') ? 1 : 0);
+        for (char aSt : st) {
+            n = n * 2 + ((aSt == '1') ? 1 : 0);
         }
         return n;
     }

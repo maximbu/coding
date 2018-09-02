@@ -10,6 +10,9 @@ import java.util.Set;
  * Created by max on 12/22/2016.
  */
 public class q4_1 {
+
+    // the function and the test are wrong , have no idea why it is as it is.
+    // fixed in later version
     public static boolean routeBetweenNodes(GraphNode a, GraphNode b) {
         Set<GraphNode> encountered = new HashSet<>();
         LinkedList<GraphNode> visit = new LinkedList<>();

@@ -38,10 +38,12 @@ public class q4_4 {
             array[i] = i;
         }
         BinTreeNode<Integer> tree = createMinimalBST(array);
+        boolean b = isBalanced(tree);
         BinTreeNode<Integer> left = new BinTreeNode<Integer>(28);
         tree.setLeft(left);
+        b = isBalanced(tree);
         left.setLeft(new BinTreeNode<Integer>(29));
-        boolean b = isBalanced(tree);
+        b = isBalanced(tree);
     }
 
 

@@ -30,6 +30,6 @@ public class q2_2 {
 
     public static void main(String[] args) {
         MyLinkedListNode<Integer> head = createList(1,2,3,4,2,3,4,4,5,2,6,1);
-        System.out.println("KthToLast("+printList(head)+",4)====>"+KthToLast(head,4));
+        System.out.println("KthToLast("+printList(head)+",4)====>"+KthToLast(head,1));
     }
 }

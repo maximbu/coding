@@ -1,8 +1,10 @@
 package CodingInterviews.P17;
 
-import sun.text.normalizer.Trie;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Stack;
 
 public class Solution {
     private class OccData implements Comparable<OccData>{
