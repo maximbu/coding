@@ -1,14 +1,6 @@
 package interviewbit.Trees;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map.Entry;
 import java.util.Stack;
-import java.util.function.ToIntFunction;
-import java.util.stream.Collectors;
 
 /**
  * Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
@@ -46,10 +38,6 @@ public class BstIterator {
     }
 
     public static void main(String[] st){
-        HashMap<Integer,Integer> map = new HashMap<>();
-        ArrayList<Integer> ans = map.entrySet().stream()
-                .sorted(Comparator.comparingInt((ToIntFunction<Entry<Integer, Integer>>) Entry::getValue).thenComparingInt(Entry::getKey)).map(Entry::getKey)
-                .collect(Collectors.toCollection(ArrayList::new));
         TreeNode root = new TreeNode(2);
         root.left = new TreeNode(1);
         BstIterator i = new BstIterator(root);
