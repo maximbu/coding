@@ -7,13 +7,19 @@ import java.util.List;
  * Clone an undirected graph. Each node in the graph contains a label and a list of its children.
  */
 
-  public class UndirectedGraphNode {
-      int label;
-      List<UndirectedGraphNode> neighbors;
-      UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<>(); }
+  public class TreeWithParentNode {
+
+    int label;
+    TreeWithParentNode parent;
+    List<TreeWithParentNode> children;
+
+    TreeWithParentNode(int x) {
+        label = x;
+        children = new ArrayList<>();
+    }
 
     @Override
     public String toString() {
-        return label+"";
+        return label + "";
     }
 }
