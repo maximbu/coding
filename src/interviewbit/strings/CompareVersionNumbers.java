@@ -1,9 +1,6 @@
 package interviewbit.strings;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 /**
  * Compare two version numbers version1 and version2.

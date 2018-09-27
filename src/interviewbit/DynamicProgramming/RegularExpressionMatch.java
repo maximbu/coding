@@ -44,7 +44,6 @@ public class RegularExpressionMatch {
                 Bi = starIndex + 1;
                 iIndex++;
                 Ai = iIndex;
-
                 continue;
             }
             return 0;
