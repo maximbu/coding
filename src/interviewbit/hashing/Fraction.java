@@ -36,7 +36,9 @@ public class Fraction {
             a = a*10;
             val = a/b;
             if(set.containsKey(a)){
-                return ans.append(dot.toString(), 0, set.get(a)).append("(").append(dot.toString(), set.get(a) , dot.length()).append(")").toString();
+                return ans.append(dot.toString(), 0, set.get(a)).
+                        append("(").append(dot.toString(), set.get(a) , dot.length()).
+                        append(")").toString();
             }else{
                 set.put(a,dot.length());
             }
