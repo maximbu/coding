@@ -23,13 +23,12 @@ public class q2_1 {
     return start;
   }
 
-  private static <T> MyLinkedListNode<T> removeDupsNoExtraMem(MyLinkedListNode<T> head){
+  private static <T> MyLinkedListNode<T> removeDupsNoExtraMem(MyLinkedListNode<T> head) {
     MyLinkedListNode<T> start = head;
-    while(head.getNext() != null){
-      if(isDuplicate(start,head.getNext())){
+    while (head.getNext() != null) {
+      if (isDuplicate(start, head.getNext())) {
         head.setNext(head.getNext().getNext());
-      }
-else{
+      } else {
         head = head.getNext();
       }
     }
@@ -37,7 +36,7 @@ else{
   }
 
 
-  private static <T> boolean isDuplicate(MyLinkedListNode<T> head , MyLinkedListNode<T> toCheck) {
+  private static <T> boolean isDuplicate(MyLinkedListNode<T> head, MyLinkedListNode<T> toCheck) {
     while (head != toCheck) {
       if (head.getData() == toCheck.getData())
         return true;
@@ -48,8 +47,8 @@ else{
 
 
   public static void main(String[] args) {
-    MyLinkedListNode<Integer> head = createList(1,2,3,4,2,3,4,4,5,2,6,1);
-    System.out.println("removeDupsNoExtraMem("+printList(head)+")====>"+printList(removeDupsNoExtraMem(head)));
+    MyLinkedListNode<Integer> head = createList(1, 2, 3, 4, 2, 3, 4, 4, 5, 2, 6, 1);
+    System.out.println("removeDupsNoExtraMem(" + printList(head) + ")====>" + printList(removeDupsNoExtraMem(head)));
   }
 
 }

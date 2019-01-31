@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class q1_1 {
   private static boolean isUniqueNaive(String s){
-    boolean arr [] = new boolean[256];
+    boolean[] arr = new boolean[256];
     for(char ch:s.toCharArray()){
       if(arr[ch]) return false;
       arr[ch] = true;

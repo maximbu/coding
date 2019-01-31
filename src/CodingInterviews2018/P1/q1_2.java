@@ -6,7 +6,7 @@ public class q1_2 {
 
     char[] chars = s1.toCharArray();
     char[] chars2 = s2.toCharArray();
-    int arr[] = new int[256];
+    int[] arr = new int[256];
 
     for(char ch:chars){
       arr[ch]++;

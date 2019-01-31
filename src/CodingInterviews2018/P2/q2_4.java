@@ -6,38 +6,35 @@ import static CodingInterviews.utils.MyLinkedListNode.printList;
 import CodingInterviews.utils.MyLinkedListNode;
 
 public class q2_4 {
-  private static MyLinkedListNode<Integer> partitionList(MyLinkedListNode<Integer> head,int k){
+  private static MyLinkedListNode<Integer> partitionList(MyLinkedListNode<Integer> head,int k) {
     MyLinkedListNode<Integer> smaller = null;
     MyLinkedListNode<Integer> bigger = null;
     MyLinkedListNode<Integer> startSmaller = null;
     MyLinkedListNode<Integer> startBigger = null;
-    while(head != null){
+    while (head != null) {
       MyLinkedListNode<Integer> next = head.getNext();
-      if(head.getData() < k){
-        if(smaller == null){
+      if (head.getData() < k) {
+        if (smaller == null) {
           smaller = head;
           startSmaller = head;
-        }
-        else{
+        } else {
           smaller.setNext(head);
           smaller = smaller.getNext();
         }
         smaller.setNext(null);
-      }
-      else{
-        if(bigger  == null){
+      } else {
+        if (bigger == null) {
           bigger = head;
           startBigger = head;
-        }
-        else{
+        } else {
           bigger.setNext(head);
-          bigger = bigger .getNext();
+          bigger = bigger.getNext();
         }
         bigger.setNext(null);
       }
       head = next;
     }
-    if(smaller != null) {
+    if (smaller != null) {
       smaller.setNext(startBigger);
       return startSmaller;
     }

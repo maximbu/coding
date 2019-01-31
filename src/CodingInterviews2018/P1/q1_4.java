@@ -14,7 +14,30 @@ public class q1_4 {
         }
       }
     }
-    return set.size() < 1;
+    return set.size() < 2;
+  }
+
+  private static boolean isPalindrome(String s) {
+    char[] chars = s.toCharArray();
+    int left=0;
+    int right = s.length()-1;
+    while (right>left){
+      if(!Character.isLetter(chars[left])){
+        left++;
+        continue;
+      }
+      if(!Character.isLetter(chars[right])){
+        right--;
+        continue;
+      }
+
+      if(Character.toLowerCase(chars[left]) != Character.toLowerCase(chars[right])){
+        return false;
+      }
+      left++;
+      right--;
+    }
+    return true;
   }
 
   public static void main(String[] args) {
@@ -22,5 +45,7 @@ public class q1_4 {
     System.out.println("isPalindromePermutation(Tact Coa)"+"->"+isPalindromePermutation("Tact Cot"));
     System.out.println("isPalindromePermutation(ABCca)"+"->"+isPalindromePermutation("ABCca"));
     System.out.println("isPalindromePermutation(ABCcad)"+"->"+isPalindromePermutation("ABCcad"));
+
+    System.out.println("isPalindrome(a oct Coa)"+"->"+isPalindrome("a oct Coa"));
   }
 }

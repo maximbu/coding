@@ -18,8 +18,8 @@ public class q8_4 {
 
     private static HashSet<HashSet<Integer>> addElemToPowerSet(int elemToAdd , HashSet<HashSet<Integer>> set) {
         var ans = new HashSet<HashSet<Integer>>();
-        for(var x : set){
-            var copy = new HashSet<>(x)	;
+        for (var x : set) {
+            var copy = new HashSet<>(x);
             copy.add(elemToAdd);
             ans.add(x);
             ans.add(copy);

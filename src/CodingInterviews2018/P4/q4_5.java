@@ -6,14 +6,18 @@ import CodingInterviews.utils.BinTreeNode;
 import java.util.stream.IntStream;
 
 public class q4_5 {
-    private static boolean validateBST(BinTreeNode<Integer> t) {
+    public static  boolean validateBST (BinTreeNode<Integer> t) {
+        return validateBST(t,null,null);
+    }
+
+    public static  boolean validateBST (BinTreeNode<Integer> t,Integer min,Integer max) {
         if (t == null)
             return true;
-        if (t.getLeft() != null && t.getVal() < t.getLeft().getVal()
-                || t.getRight() != null && t.getVal() > t.getRight().getVal()) {
+        if (min != null && t.getVal() <= min)
             return false;
-        }
-        return validateBST(t.getLeft()) && validateBST(t.getRight());
+        if (max != null && t.getVal() > max)
+            return false;
+        return validateBST(t.getLeft(),min,t.getVal()) && validateBST(t.getRight(),t.getVal(),max);
     }
 
     public static void main(String[] st){
