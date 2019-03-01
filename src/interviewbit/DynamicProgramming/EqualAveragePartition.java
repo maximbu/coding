@@ -1,10 +1,8 @@
 package interviewbit.DynamicProgramming;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import jdk.jshell.spi.ExecutionControl.NotImplementedException;
 
 /**
  * Given an array with non negative numbers, divide the array into two parts such that the average of both the parts is equal.

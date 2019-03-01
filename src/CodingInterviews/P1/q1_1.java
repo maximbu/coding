@@ -1,7 +1,6 @@
 package CodingInterviews.P1;
 
-import sun.security.util.BitArray;
-
+import java.util.BitSet;
 import java.util.HashSet;
 
 /**
@@ -16,7 +15,7 @@ public class q1_1 {
     }
 
     public static boolean uniqueCharsNoSet(String s){
-        BitArray b = new BitArray(128);
+        BitSet b = new BitSet(128);
         for (char c : s.toCharArray()) {
             if (b.get(c)) return false;
             b.set(c,true);

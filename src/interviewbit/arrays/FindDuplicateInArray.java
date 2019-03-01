@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.List;
-import sun.security.util.BitArray;
 
 /**
  * Created by max on 7/13/2017.
@@ -72,7 +71,7 @@ public class FindDuplicateInArray {
   }
 
   private int usingBitArray(List<Integer> a) {
-    BitArray b = new BitArray(a.size()+1);
+    BitSet b = new BitSet(a.size()+1);
     for (Integer anA : a) {
       if (b.get(anA)) {
         return anA;
