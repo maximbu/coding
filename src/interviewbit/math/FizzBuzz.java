@@ -9,31 +9,31 @@ import java.util.ArrayList;
  */
 public class FizzBuzz {
 
-  public static void main(String[] st) {
-    FizzBuzz q = new FizzBuzz();
+    public static void main(String[] st) {
+        FizzBuzz q = new FizzBuzz();
 
-    int N = 5;
-    System.out.println(q.fizzBuzz(N));
-  }
+        int N = 5;
+        System.out.println(q.fizzBuzz(N));
+    }
 
-  private String numToFizzBuzz(int n) {
-    if (n % 3 == 0 && n % 5 == 0) {
-      return ("FizzBuzz");
+    private String numToFizzBuzz(int n) {
+        if (n % 3 == 0 && n % 5 == 0) {
+            return ("FizzBuzz");
+        }
+        if (n % 3 == 0) {
+            return "Fizz";
+        }
+        if (n % 5 == 0) {
+            return "Buzz";
+        }
+        return String.valueOf(n);
     }
-    if (n % 3 == 0) {
-      return "Fizz";
-    }
-    if (n % 5 == 0) {
-      return "Buzz";
-    }
-    return String.valueOf(n);
-  }
 
-  public ArrayList<String> fizzBuzz(int A) {
-    ArrayList<String> X = new ArrayList<>();
-    for (int i = 1; i <= A; i++) {
-      X.add(numToFizzBuzz(i));
+    public ArrayList<String> fizzBuzz(int A) {
+        ArrayList<String> X = new ArrayList<>();
+        for (int i = 1; i <= A; i++) {
+            X.add(numToFizzBuzz(i));
+        }
+        return X;
     }
-    return X;
-  }
 }

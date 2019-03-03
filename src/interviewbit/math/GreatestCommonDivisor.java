@@ -9,30 +9,30 @@ package interviewbit.math;
  NOTE : DO NOT USE LIBRARY FUNCTIONS
  */
 public class GreatestCommonDivisor {
-  public static void main(String[] st) {
-    GreatestCommonDivisor q = new GreatestCommonDivisor();
+    public static void main(String[] st) {
+        GreatestCommonDivisor q = new GreatestCommonDivisor();
 
-    int N = 6;
-    int M = 9;
-    System.out.println(q.gcd(N,M));
+        int N = 6;
+        int M = 9;
+        System.out.println(q.gcd(N,M));
 
-    N = 2;
-    M = 3;
-    System.out.println(q.gcd(N,M));
-  }
-
-  public int gcd(int a, int b) {
-    int bigger = a;
-    int smaller = b;
-    if(a<b){
-      bigger = b;
-      smaller = a;
+        N = 2;
+        M = 3;
+        System.out.println(q.gcd(N,M));
     }
-    while (smaller > 0){
-      int tmp = bigger % smaller;
-      bigger = smaller;
-      smaller = tmp;
+
+    public int gcd(int a, int b) {
+        int bigger = a;
+        int smaller = b;
+        if(a<b){
+            bigger = b;
+            smaller = a;
+        }
+        while (smaller > 0){
+            int tmp = bigger % smaller;
+            bigger = smaller;
+            smaller = tmp;
+        }
+        return bigger;
     }
-    return bigger;
-  }
 }

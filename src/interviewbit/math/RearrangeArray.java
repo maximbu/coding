@@ -10,36 +10,36 @@ import java.util.ArrayList;
  */
 public class RearrangeArray {
 
-  public static void main(String[] st) {
-    RearrangeArray q = new RearrangeArray();
+    public static void main(String[] st) {
+        RearrangeArray q = new RearrangeArray();
 
-    ArrayList<Integer> a = new ArrayList<>();
-    a.add(0);
-    a.add(1);
-    System.out.print(a);
-    System.out.print("->");
-    q.arrange(a);
-    System.out.println(a);
+        ArrayList<Integer> a = new ArrayList<>();
+        a.add(0);
+        a.add(1);
+        System.out.print(a);
+        System.out.print("->");
+        q.arrange(a);
+        System.out.println(a);
 
-    a = new ArrayList<>();
-    a.add(3);
-    a.add(2);
-    a.add(0);
-    a.add(1);
-    System.out.print(a);
-    System.out.print("->");
-    q.arrange(a);
-    System.out.println(a);
-  }
-
-  public void arrange(ArrayList<Integer> a) {
-    int n = a.size();
-    for (int i = 0; i < n; i++) {
-      int val = a.get(i);
-      a.set(i, val + (a.get(val) % n) * n);
+        a = new ArrayList<>();
+        a.add(3);
+        a.add(2);
+        a.add(0);
+        a.add(1);
+        System.out.print(a);
+        System.out.print("->");
+        q.arrange(a);
+        System.out.println(a);
     }
-    for (int i = 0; i < n; i++) {
-      a.set(i, a.get(i) / n);
+
+    public void arrange(ArrayList<Integer> a) {
+        int n = a.size();
+        for (int i = 0; i < n; i++) {
+            int val = a.get(i);
+            a.set(i, val + (a.get(val) % n) * n);
+        }
+        for (int i = 0; i < n; i++) {
+            a.set(i, a.get(i) / n);
+        }
     }
-  }
 }

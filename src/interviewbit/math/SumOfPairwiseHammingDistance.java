@@ -15,52 +15,52 @@ import java.util.List;
  Return the answer modulo 1000000007.
  */
 public class SumOfPairwiseHammingDistance {
-  public static void main(String[] st) {
-    SumOfPairwiseHammingDistance q = new SumOfPairwiseHammingDistance();
+    public static void main(String[] st) {
+        SumOfPairwiseHammingDistance q = new SumOfPairwiseHammingDistance();
 
-    ArrayList<Integer> a = new ArrayList<>();
-    a.add(2); // 0010
-    a.add(4); // 0100
-    a.add(6); // 0110
-    System.out.println(q.hammingDistance(a));
+        ArrayList<Integer> a = new ArrayList<>();
+        a.add(2); // 0010
+        a.add(4); // 0100
+        a.add(6); // 0110
+        System.out.println(q.hammingDistance(a));
 
-    a = new ArrayList<>();
-    a.add(Integer.MAX_VALUE);
-    a.add(0);
-    System.out.println(q.hammingDistance(a));
-    System.out.println(d(Integer.MAX_VALUE,0));
-  }
-
-  public static int d(int x, int y) {
-    int dist = 0;
-    int val = x ^ y;
-
-    // Count the number of set bits (Knuth's algorithm)
-    while (val != 0) {
-      ++dist;
-      val &= val - 1;
+        a = new ArrayList<>();
+        a.add(Integer.MAX_VALUE);
+        a.add(0);
+        System.out.println(q.hammingDistance(a));
+        System.out.println(d(Integer.MAX_VALUE,0));
     }
 
-    return dist;
-  }
+    public static int d(int x, int y) {
+        int dist = 0;
+        int val = x ^ y;
 
-
-  // DO NOT MODIFY THE LIST. IT IS READ ONLY
-  public int hammingDistance(final List<Integer> A) {
-    int cnt =0;
-    int modulo = 1000000007;
-    for (int i = 0; i < 32; i++) {
-      int endsWithZero = 0;
-      int endsWithOne = 0;
-      for (Integer num : A) {
-        if ((num & (1<<i)) == 0) {
-          endsWithZero++;
-        } else {
-          endsWithOne++;
+        // Count the number of set bits (Knuth's algorithm)
+        while (val != 0) {
+            ++dist;
+            val &= val - 1;
         }
-      }
-      cnt = (int)((cnt + (2L*endsWithOne*endsWithZero)) % modulo);
+
+        return dist;
     }
-    return cnt;
-  }
+
+
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public int hammingDistance(final List<Integer> A) {
+        int cnt =0;
+        int modulo = 1000000007;
+        for (int i = 0; i < 32; i++) {
+            int endsWithZero = 0;
+            int endsWithOne = 0;
+            for (Integer num : A) {
+                if ((num & (1<<i)) == 0) {
+                    endsWithZero++;
+                } else {
+                    endsWithOne++;
+                }
+            }
+            cnt = (int)((cnt + (2L*endsWithOne*endsWithZero)) % modulo);
+        }
+        return cnt;
+    }
 }

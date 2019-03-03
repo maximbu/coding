@@ -7,21 +7,21 @@ package interviewbit.math;
  Note: Your solution should be in logarithmic time complexity.
  */
 public class TrailingZerosInFactorial {
-  public static void main(String[] st) {
-    TrailingZerosInFactorial q = new TrailingZerosInFactorial();
+    public static void main(String[] st) {
+        TrailingZerosInFactorial q = new TrailingZerosInFactorial();
 
-    int N = 5;
-    System.out.println(q.trailingZeroes(N));
+        int N = 5;
+        System.out.println(q.trailingZeroes(N));
 
-    N = 25;
-    System.out.println(q.trailingZeroes(N));
-  }
-
-  public int trailingZeroes(int a) {
-    int powersOfFive = 0;
-    for (int i = 5; i <= a; i *= 5) {
-      powersOfFive += a / i;
+        N = 25;
+        System.out.println(q.trailingZeroes(N));
     }
-    return powersOfFive;
-  }
+
+    public int trailingZeroes(int a) {
+        int powersOfFive = 0;
+        for (int i = 5; i <= a; i *= 5) {
+            powersOfFive += a / i;
+        }
+        return powersOfFive;
+    }
 }

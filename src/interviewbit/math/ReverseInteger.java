@@ -7,31 +7,31 @@ package interviewbit.math;
  */
 public class ReverseInteger {
 
-  public static void main(String[] st) {
-    ReverseInteger q = new ReverseInteger();
+    public static void main(String[] st) {
+        ReverseInteger q = new ReverseInteger();
 
-    int N = 12121;
-    System.out.println(q.reverse(N));
+        int N = 12121;
+        System.out.println(q.reverse(N));
 
-    N = 123;
-    System.out.println(q.reverse(N));
-  }
-
-
-  public int reverse(int a) {
-    int mul = 1;
-    if (a < 0) {
-      mul = -1;
-      a *= -1;
+        N = 123;
+        System.out.println(q.reverse(N));
     }
-    long b = 0;
-    while (a > 0) {
-      b = b * 10 + a % 10;
-      a /= 10;
+
+
+    public int reverse(int a) {
+        int mul = 1;
+        if (a < 0) {
+            mul = -1;
+            a *= -1;
+        }
+        long b = 0;
+        while (a > 0) {
+            b = b * 10 + a % 10;
+            a /= 10;
+        }
+        if (b > Integer.MAX_VALUE) {
+            return 0;
+        }
+        return (int) b * mul;
     }
-    if (b > Integer.MAX_VALUE) {
-      return 0;
-    }
-    return (int) b * mul;
-  }
 }

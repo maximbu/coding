@@ -8,24 +8,24 @@ package interviewbit.math;
  Negative numbers are not palindromic.
  */
 public class PalindromeInteger {
-  public static void main(String[] st) {
-    PalindromeInteger q = new PalindromeInteger();
+    public static void main(String[] st) {
+        PalindromeInteger q = new PalindromeInteger();
 
-    int N = 12121;
-    System.out.println(q.isPalindrome(N));
+        int N = 12121;
+        System.out.println(q.isPalindrome(N));
 
-    N = 123;
-    System.out.println(q.isPalindrome(N));
-  }
-
-  public boolean isPalindrome(int a) {
-    if(a<0) return false;
-    int aVal = a;
-    int b = 0;
-    while (a >0){
-      b = b*10 + a%10;
-      a/=10;
+        N = 123;
+        System.out.println(q.isPalindrome(N));
     }
-    return aVal==b;
-  }
+
+    public boolean isPalindrome(int a) {
+        if(a<0) return false;
+        int aVal = a;
+        int b = 0;
+        while (a >0){
+            b = b*10 + a%10;
+            a/=10;
+        }
+        return aVal==b;
+    }
 }

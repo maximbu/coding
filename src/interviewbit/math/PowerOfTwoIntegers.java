@@ -6,24 +6,24 @@ package interviewbit.math;
  */
 public class PowerOfTwoIntegers {
 
-  public static void main(String[] st) {
-    PowerOfTwoIntegers q = new PowerOfTwoIntegers();
+    public static void main(String[] st) {
+        PowerOfTwoIntegers q = new PowerOfTwoIntegers();
 
-    int N = 33;
-    System.out.println(q.isPower(N));
-  }
-
-  public boolean isPower(int a) {
-    if (a == 1)
-      return true;
-    for (int i = 2; i * i <= a; i++) {
-      int p = a;
-      while (p % i == 0) {
-        p /= i;
-      }
-      if (p == 1)
-        return true;
+        int N = 33;
+        System.out.println(q.isPower(N));
     }
-    return false;
-  }
+
+    public boolean isPower(int a) {
+        if (a == 1)
+            return true;
+        for (int i = 2; i * i <= a; i++) {
+            int p = a;
+            while (p % i == 0) {
+                p /= i;
+            }
+            if (p == 1)
+                return true;
+        }
+        return false;
+    }
 }

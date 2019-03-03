@@ -8,25 +8,25 @@ import java.util.ArrayList;
  * Make sure the returned array is sorted.
  */
 public class AllFactors {
-  public static void main(String[] st) {
-    AllFactors q = new AllFactors();
+    public static void main(String[] st) {
+        AllFactors q = new AllFactors();
 
-    int N = 6;
-    System.out.println(q.allFactors(N));
-  }
-
-  public ArrayList<Integer> allFactors(int a) {
-    ArrayList<Integer> ans = new ArrayList<>();
-    int k = 0;
-    for (int i = 1; i * i <= a; i++) {
-      if (a % i == 0) {
-        ans.add(k, i);
-        if (i != a / i) {
-          ans.add(k + 1, a / i);
-        }
-        k++;
-      }
+        int N = 6;
+        System.out.println(q.allFactors(N));
     }
-    return ans;
-  }
+
+    public ArrayList<Integer> allFactors(int a) {
+        ArrayList<Integer> ans = new ArrayList<>();
+        int k = 0;
+        for (int i = 1; i * i <= a; i++) {
+            if (a % i == 0) {
+                ans.add(k, i);
+                if (i != a / i) {
+                    ans.add(k + 1, a / i);
+                }
+                k++;
+            }
+        }
+        return ans;
+    }
 }
