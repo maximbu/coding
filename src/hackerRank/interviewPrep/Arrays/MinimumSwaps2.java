@@ -1,31 +1,41 @@
 package hackerRank.interviewPrep.Arrays;
 
+import java.util.stream.IntStream;
+
 public class MinimumSwaps2 {
 
+    // [7, 1, 3, 2, 4, 5, 6]
+    // [1, 7, 3, 2, 4, 5, 6] [1,7]
+    // [1, 2, 3, 7, 4, 5, 6] [2,7]
+    // [1, 2, 3, 4, 7, 5, 6] [4,7]
+    // [1, 2, 3, 4, 5, 7, 6] [5,7]
+    // [1, 2, 3, 4, 5, 6, 7] [6,7]
+
     static int minimumSwaps(int[] arr) {
-        int n = 0;
+        int n;
+        int[] ind = new int[arr.length + 1];
         for (int i = 0; i < arr.length; i++) {
-            int minElemInd = findMinElemInd(arr, i);
-            if (minElemInd != i) {
-                int tmp =  arr[i];
-                arr[i] = arr[minElemInd];
-                arr[minElemInd] = tmp;
-                n++;
-            }
+            ind[arr[i]] = i;
         }
-        return n;
+        return (int) IntStream.range(0, arr.length).filter(i -> wasSwapped(arr, ind, i)).count();
     }
 
-    private static int findMinElemInd(int[] arr, int from) {
-        int min = Integer.MAX_VALUE;
-        int ind = from;
-        for (int i = from; i < arr.length; i++) {
-            if(min > arr[i]){
-                min = arr[i];
-                ind = i;
-            }
+    private static boolean wasSwapped(int[] arr, int[] ind, int i) {
+        if (arr[i] != i + 1) {
+            int tmp = arr[i];
+            arr[i] = i + 1;
+            arr[ind[i + 1]] = tmp;
+            ind[tmp] = ind[i + 1];
+            return true;
         }
-        return ind;
+        return false;
     }
 
+
+    public static void main(String[] args) {
+        //int[] arr = {7, 1, 3, 2, 4, 5, 6};
+        //int[] arr = {4,3,1,2};
+        int[] arr = {2 ,3 ,4 ,1 ,5};
+        System.out.println(minimumSwaps(arr));
+    }
 }
