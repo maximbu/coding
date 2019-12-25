@@ -17,6 +17,6 @@ public class q1_3 {
   }
 
   public static void main(String[] args) {
-    System.out.println("urlify(Mr John Smith    )"+"->"+urlify("Mr John Smith    ".toCharArray(),13));
+    System.out.println("urlify(Mr John Smith    )" + "->" + urlify("Mr John Smith    ".toCharArray(), 13));
   }
 }

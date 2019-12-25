@@ -5,18 +5,18 @@ import java.util.Set;
 
 public class q8_4 {
     private static HashSet<HashSet<Integer>> addElemToPowerSet(Set<Integer> set) {
-        if(set == null){
+        if (set == null) {
             return null;
         }
         var ans = new HashSet<HashSet<Integer>>();
         ans.add(new HashSet<>());
-        for(int x : set){
-            ans = addElemToPowerSet(x,ans);
+        for (int x : set) {
+            ans = addElemToPowerSet(x, ans);
         }
         return ans;
     }
 
-    private static HashSet<HashSet<Integer>> addElemToPowerSet(int elemToAdd , HashSet<HashSet<Integer>> set) {
+    private static HashSet<HashSet<Integer>> addElemToPowerSet(int elemToAdd, HashSet<HashSet<Integer>> set) {
         var ans = new HashSet<HashSet<Integer>>();
         for (var x : set) {
             var copy = new HashSet<>(x);
@@ -28,7 +28,7 @@ public class q8_4 {
     }
 
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         var a = new HashSet<Integer>();
         a.add(1);
         a.add(2);

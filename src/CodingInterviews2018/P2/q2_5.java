@@ -1,14 +1,14 @@
 package CodingInterviews2018.P2;
 
+import CodingInterviews.utils.MyLinkedListNode;
+
 import static CodingInterviews.utils.MyLinkedListNode.createList;
 import static CodingInterviews.utils.MyLinkedListNode.printList;
-
-import CodingInterviews.utils.MyLinkedListNode;
 
 public class q2_5 {
 
     private static MyLinkedListNode<Integer> sumLists(MyLinkedListNode<Integer> l1,
-            MyLinkedListNode<Integer> l2) {
+                                                      MyLinkedListNode<Integer> l2) {
         int carry = 0;
         MyLinkedListNode<Integer> ans = null;
         MyLinkedListNode<Integer> start = null;
@@ -36,7 +36,7 @@ public class q2_5 {
     }
 
     private static MyLinkedListNode<Integer> sumLists2(MyLinkedListNode<Integer> l1,
-            MyLinkedListNode<Integer> l2) {
+                                                       MyLinkedListNode<Integer> l2) {
         MyLinkedListNode<Integer> ans = reverse(sumLists(reverse(l1), reverse(l2)));
         reverse(l1);
         reverse(l2);

@@ -5,13 +5,13 @@ import java.util.HashMap;
 
 public class q8_8 {
 
-        private static ArrayList<String> permWithDups(String s) {
-        var map = new HashMap<Character,Integer>();
+    private static ArrayList<String> permWithDups(String s) {
+        var map = new HashMap<Character, Integer>();
         for (char ch : s.toCharArray()) {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
         var ans = new ArrayList<String>();
-        permWithDups(map,"",s.length(),ans);
+        permWithDups(map, "", s.length(), ans);
         return ans;
     }
 
@@ -30,8 +30,8 @@ public class q8_8 {
         }
     }
 
-    public static void main (String[] st){
-       var ans = permWithDups("abab");
+    public static void main(String[] st) {
+        var ans = permWithDups("abab");
     }
 
 }

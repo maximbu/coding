@@ -13,7 +13,7 @@ public class q4_2 {
     }
 
     private static BinTreeNode<Integer> minimalTree(int[] arr, int left,
-            int right) {
+                                                    int right) {
         if (right < left)
             return null;
         int mid = (left + right) / 2;

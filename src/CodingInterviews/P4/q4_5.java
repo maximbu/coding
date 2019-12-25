@@ -8,21 +8,21 @@ import static CodingInterviews.P4.q4_2.createMinimalBST;
  * Created by max on 12/23/2016.
  */
 public class q4_5 {
-    public static  boolean isBST (BinTreeNode<Integer> t) {
-        return isBST(t,null,null);
+    public static boolean isBST(BinTreeNode<Integer> t) {
+        return isBST(t, null, null);
     }
 
-    public static  boolean isBST (BinTreeNode<Integer> t,Integer min,Integer max) {
+    public static boolean isBST(BinTreeNode<Integer> t, Integer min, Integer max) {
         if (t == null)
             return true;
         if (min != null && t.getVal() <= min)
             return false;
         if (max != null && t.getVal() > max)
             return false;
-        return isBST(t.getLeft(),min,t.getVal()) && isBST(t.getRight(),t.getVal(),max);
+        return isBST(t.getLeft(), min, t.getVal()) && isBST(t.getRight(), t.getVal(), max);
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         int[] array = new int[27];
         for (int i = 0; i < 27; i++) {
             array[i] = i;

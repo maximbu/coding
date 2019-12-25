@@ -44,7 +44,7 @@ public class q3_5 {
         String before = s.toString();
         sort(s);
         String after = s.toString();
-        System.out.println("before:"+before+" after:"+after);
+        System.out.println("before:" + before + " after:" + after);
     }
 
 }

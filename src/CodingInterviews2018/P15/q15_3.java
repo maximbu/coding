@@ -9,30 +9,30 @@ public class q15_3 {
         private Lock lock = new ReentrantLock();
         boolean wasLocked = false;
 
-        public boolean pickUp(){
+        public boolean pickUp() {
             wasLocked = lock.tryLock();
             return wasLocked;
         }
 
-        public void putDown(){
-            if(wasLocked) {
+        public void putDown() {
+            if (wasLocked) {
                 wasLocked = false;
                 lock.unlock();
             }
         }
     }
 
-    private static class Philiosoper extends Thread{
+    private static class Philiosoper extends Thread {
         private int bites = 10;
-        private Chopstick left , right;
+        private Chopstick left, right;
 
-        public Philiosoper(Chopstick left , Chopstick right){
+        public Philiosoper(Chopstick left, Chopstick right) {
             this.left = left;
             this.right = right;
         }
 
         public void eat() {
-            if(pickUp()) {
+            if (pickUp()) {
                 chew();
                 putDown();
             }
@@ -52,11 +52,10 @@ public class q15_3 {
         }
 
         private boolean pickUp() {
-            if(left.pickUp()){
-                if(right.pickUp()){
+            if (left.pickUp()) {
+                if (right.pickUp()) {
                     return true;
-                }
-                else{
+                } else {
                     left.putDown();
                 }
             }
@@ -70,13 +69,13 @@ public class q15_3 {
     }
 
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         int n = 8;
         var ch = IntStream.range(0, n).mapToObj(i -> new Chopstick()).toArray(Chopstick[]::new);
-        var ph = IntStream.range(0, n).mapToObj(i -> new Philiosoper(ch[i], ch[(i + 1)% n])).toArray(Philiosoper[]::new);
+        var ph = IntStream.range(0, n).mapToObj(i -> new Philiosoper(ch[i], ch[(i + 1) % n])).toArray(Philiosoper[]::new);
 
-        for (var p:ph) {
-            p.run();
+        for (var p : ph) {
+            p.start();
         }
     }
 }

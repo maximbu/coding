@@ -17,7 +17,7 @@ import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
-public class MyArrayList<E>  extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable{
+public class MyArrayList<E>  extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable {
 
   private static final long serialVersionUID = 8683452581122892189L;
   private static final int DEFAULT_CAPACITY = 10;
@@ -44,9 +44,9 @@ public class MyArrayList<E>  extends AbstractList<E> implements List<E>, RandomA
   /**
    * Constructs an empty list with the specified initial capacity.
    *
-   * @param  initialCapacity  the initial capacity of the list
+   * @param initialCapacity the initial capacity of the list
    * @throws IllegalArgumentException if the specified initial capacity
-   *         is negative
+   *                                  is negative
    */
   public MyArrayList(int initialCapacity) {
     if (initialCapacity > 0) {
@@ -54,8 +54,8 @@ public class MyArrayList<E>  extends AbstractList<E> implements List<E>, RandomA
     } else if (initialCapacity == 0) {
       this.elementData = EMPTY_ELEMENTDATA;
     } else {
-      throw new IllegalArgumentException("Illegal Capacity: "+
-          initialCapacity);
+      throw new IllegalArgumentException("Illegal Capacity: " +
+              initialCapacity);
     }
   }
 
@@ -165,8 +165,8 @@ public class MyArrayList<E>  extends AbstractList<E> implements List<E>, RandomA
     int newCapacity = oldCapacity + (oldCapacity >> 1);
     if (newCapacity - minCapacity > 0) {
       return (newCapacity - MAX_ARRAY_SIZE <= 0)
-          ? newCapacity
-          : hugeCapacity(minCapacity);
+              ? newCapacity
+              : hugeCapacity(minCapacity);
     }
     if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA)
       return Math.max(DEFAULT_CAPACITY, minCapacity);
@@ -179,8 +179,8 @@ public class MyArrayList<E>  extends AbstractList<E> implements List<E>, RandomA
     if (minCapacity < 0) // overflow
       throw new OutOfMemoryError();
     return (minCapacity > MAX_ARRAY_SIZE)
-        ? Integer.MAX_VALUE
-        : MAX_ARRAY_SIZE;
+            ? Integer.MAX_VALUE
+            : MAX_ARRAY_SIZE;
   }
 
 
@@ -188,10 +188,11 @@ public class MyArrayList<E>  extends AbstractList<E> implements List<E>, RandomA
   public boolean remove(Object o) {
     final Object[] es = elementData;
     int i = indexOf(o);
-    if(i < 0) return false;
+    if (i < 0) return false;
     fastRemove(es, i);
     return true;
   }
+
   private void fastRemove(Object[] es, int i) {
     modCount++;
     final int newSize;
@@ -240,8 +241,8 @@ public class MyArrayList<E>  extends AbstractList<E> implements List<E>, RandomA
     int numMoved = s - index;
     if (numMoved > 0)
       System.arraycopy(elementData, index,
-          elementData, index + numNew,
-          numMoved);
+              elementData, index + numNew,
+              numMoved);
     System.arraycopy(a, 0, elementData, index, numNew);
     size = s + numNew;
     return true;
@@ -372,7 +373,7 @@ public class MyArrayList<E>  extends AbstractList<E> implements List<E>, RandomA
   }
 
   public static void main(String[] args) {
-    List l = Arrays.asList("a","b","c");
+    List l = Arrays.asList("a", "b", "c");
     var ml = new MyArrayList(l);
     var ml2 = new ArrayList(l);
   }

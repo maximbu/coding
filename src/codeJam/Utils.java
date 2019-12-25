@@ -14,7 +14,7 @@ public class Utils {
         try {
             List<String> lines = Files.readAllLines(path);
             int line = 0;
-            int tests = Integer.valueOf(lines.get(line++));
+            int tests = Integer.parseInt(lines.get(line++));
             int linesPerCase = lines.size()/tests;
             StringBuilder finalAns = new StringBuilder();
             int currCase = 1;

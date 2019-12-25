@@ -6,14 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class q4_3 {
-    public static <T> List<List<TreeNode<T>>> createLists(TreeNode<T> t)
-    {
+    public static <T> List<List<TreeNode<T>>> createLists(TreeNode<T> t) {
         List<List<TreeNode<T>>> lists = new LinkedList<>();
         List<TreeNode<T>> currLevel = new LinkedList<>();
         List<TreeNode<T>> nextLevel = new LinkedList<>();
         currLevel.add(t);
-        while(!currLevel.isEmpty())
-        {
+        while (!currLevel.isEmpty()) {
             currLevel.stream().map(TreeNode::getChildren).forEach(nextLevel::addAll);
             lists.add(new ArrayList<>(currLevel));
             currLevel = new ArrayList<>(nextLevel);
@@ -23,7 +21,7 @@ public class q4_3 {
     }
 
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         TreeNode<String> t = new TreeNode<>("root");
         TreeNode<String> l1 = new TreeNode<>("l1");
         t.addChild(l1);

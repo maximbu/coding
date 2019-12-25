@@ -20,7 +20,7 @@ public class q8_1 {
     }
 
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         for (int i = 0; i < 30; i++) {
             System.out.println(i + ": " + tripleStep(i));
         }

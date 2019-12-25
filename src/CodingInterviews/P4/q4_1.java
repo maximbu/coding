@@ -32,7 +32,7 @@ public class q4_1 {
         return false;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         GraphNode a = new GraphNode("a");
         GraphNode n1 = new GraphNode("n1");
         GraphNode n2 = new GraphNode("n2");
@@ -47,9 +47,9 @@ public class q4_1 {
         n1.addNeighbor(n3);
         n6.addNeighbor(n4);
         n6.addNeighbor(n5);
-        boolean connected = routeBetweenNodes(a,b);
+        boolean connected = routeBetweenNodes(a, b);
         n5.addNeighbor(n2);
-        connected = routeBetweenNodes(a,b);
+        connected = routeBetweenNodes(a, b);
     }
 
 }

@@ -12,7 +12,7 @@ public class p17_q2 {
         CardValue val;
         CardSuit suit;
 
-        public Card(CardValue val,CardSuit s){
+        public Card(CardValue val, CardSuit s) {
             this.val = val;
             this.suit = s;
         }
@@ -45,30 +45,30 @@ public class p17_q2 {
     public static class Desk {
         Card[] cards;
 
-        public Desk(){
+        public Desk() {
             cards = new Card[54];
             init();
         }
 
         private void init() {
-            int i =0;
+            int i = 0;
             for (CardSuit s : CardSuit.values()) {
                 for (CardValue v : CardValue.values()) {
-                    if(v != CardValue.JOKER) {
+                    if (v != CardValue.JOKER) {
                         cards[i++] = new Card(v, s);
                     }
                 }
             }
-            cards[i++] = new Card(CardValue.JOKER,CardSuit.HEARTS);
-            cards[i] = new Card(CardValue.JOKER,CardSuit.SPADES);
+            cards[i++] = new Card(CardValue.JOKER, CardSuit.HEARTS);
+            cards[i] = new Card(CardValue.JOKER, CardSuit.SPADES);
         }
 
-        public void shuffle(){
+        public void shuffle() {
             init();
             Random r = new Random();
             int ind = 53;
-            while (ind > 0){
-                int tmp = r.nextInt(ind+1);
+            while (ind > 0) {
+                int tmp = r.nextInt(ind + 1);
                 Card tmpCard = cards[ind];
                 cards[ind] = cards[tmp];
                 cards[tmp] = tmpCard;
@@ -86,14 +86,14 @@ public class p17_q2 {
     }
 
 
-    public enum CardSuit{
+    public enum CardSuit {
         HEARTS,
         SPADES,
         DIAMONDS,
         CLUBS
     }
 
-    public enum CardValue{
+    public enum CardValue {
         TWO,
         THREE,
         FOUR,
@@ -110,7 +110,7 @@ public class p17_q2 {
         JOKER
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         Desk d = new Desk();
         System.out.println(d);
         d.shuffle();

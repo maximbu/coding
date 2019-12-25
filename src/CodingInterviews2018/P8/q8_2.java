@@ -22,7 +22,7 @@ public class q8_2 {
     }
 
     private static String printPath(ArrayList<Point> list) {
-        return list.stream().map(p -> "(" + p.x + "," + p.y + ")").collect(Collectors.joining( "->"));
+        return list.stream().map(p -> "(" + p.x + "," + p.y + ")").collect(Collectors.joining("->"));
     }
 
     private static Optional<ArrayList<Point>> getPath(boolean[][] maze) {

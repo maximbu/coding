@@ -1,10 +1,11 @@
 package CodingInterviews2018.P2;
 
+import CodingInterviews.utils.MyLinkedListNode;
+
+import java.util.ArrayList;
+
 import static CodingInterviews.utils.MyLinkedListNode.createList;
 import static CodingInterviews.utils.MyLinkedListNode.printList;
-
-import CodingInterviews.utils.MyLinkedListNode;
-import java.util.ArrayList;
 
 public class q2_6 {
 

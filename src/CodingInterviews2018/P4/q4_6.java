@@ -1,31 +1,29 @@
 package CodingInterviews2018.P4;
 
 import CodingInterviews.utils.ParentBinTreeNode;
-import java.util.HashSet;
 
 public class q4_6 {
-    private static ParentBinTreeNode<Integer> successor(ParentBinTreeNode<Integer> node){
-        if(node.getRight() == null){
+    private static ParentBinTreeNode<Integer> successor(ParentBinTreeNode<Integer> node) {
+        if (node.getRight() == null) {
             var parent = node.getParent();
-            while(parent != null){
-              if(parent.getLeft()==node) {
-                  break;
-              }
-              node = parent;
-              parent = parent.getParent();
+            while (parent != null) {
+                if (parent.getLeft() == node) {
+                    break;
+                }
+                node = parent;
+                parent = parent.getParent();
             }
             return parent;
         }
         node = node.getRight();
-        while(node.getLeft() != null){
+        while (node.getLeft() != null) {
             node = node.getLeft();
         }
         return node;
     }
 
 
-
-    public static void main(String[] st){
+    public static void main(String[] st) {
         ParentBinTreeNode<Integer> n20 = new ParentBinTreeNode<>(20);
         ParentBinTreeNode<Integer> n8 = new ParentBinTreeNode<>(8);
         ParentBinTreeNode<Integer> n22 = new ParentBinTreeNode<>(22);

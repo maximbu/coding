@@ -4,14 +4,16 @@ import java.util.ArrayList;
 
 public class SpecialPalindromeAgain {
 
-    static class Node{
+    static class Node {
         int count;
         char c;
-        Node(char c,int cnt){
+
+        Node(char c, int cnt) {
             this.c = c;
             this.count = cnt;
         }
     }
+
     // Complete the substrCount function below.
     static long substrCount(int n, String s) {
         ArrayList<Node> arr = createOccArr(s);
@@ -40,12 +42,12 @@ public class SpecialPalindromeAgain {
         for (int i = 0; i < arr.size(); i++) {
             // aaaa -> a=4 + aa=3 + aaa=2 + aaaa=1 => n*(1+n)/2
             ans += ((1 + arr.get(i).count) * arr.get(i).count) / 2;
-            ans += checkSpecialCase(arr,i);
+            ans += checkSpecialCase(arr, i);
         }
         return ans;
     }
 
-    static long checkSpecialCase(ArrayList<Node> arr,int i) {
+    static long checkSpecialCase(ArrayList<Node> arr, int i) {
         if (arr.get(i).count != 1 || i == 0 || i == arr.size() - 1) {
             return 0;
         }
@@ -54,7 +56,7 @@ public class SpecialPalindromeAgain {
         return pre.c == next.c ? Math.min(pre.count, next.count) : 0;
     }
 
-    public static void main(String[] st){
-        substrCount(5,"asasd");
+    public static void main(String[] st) {
+        substrCount(5, "asasd");
     }
 }

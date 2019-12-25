@@ -10,20 +10,20 @@ import java.util.List;
  * Created by max on 12/24/2016.
  */
 public class q4_9 {
-    public static ArrayList<LinkedList<Integer>> printAllBST (BinTreeNode<Integer> root){
+    public static ArrayList<LinkedList<Integer>> printAllBST(BinTreeNode<Integer> root) {
         ArrayList<LinkedList<Integer>> list = new ArrayList<>();
-        if(root == null){
+        if (root == null) {
             list.add(new LinkedList<>());
             return list;
         }
         LinkedList<Integer> prefix = new LinkedList<>();
         prefix.add(root.getVal());
-        ArrayList<LinkedList<Integer>> leftSeq = printAllBST(root.getLeft()) ;
-        ArrayList<LinkedList<Integer>> rightSeq = printAllBST(root.getRight()) ;
-        for(List<Integer> leftList : leftSeq){
-            for(List<Integer> rightList : rightSeq){
+        ArrayList<LinkedList<Integer>> leftSeq = printAllBST(root.getLeft());
+        ArrayList<LinkedList<Integer>> rightSeq = printAllBST(root.getRight());
+        for (List<Integer> leftList : leftSeq) {
+            for (List<Integer> rightList : rightSeq) {
                 ArrayList<LinkedList<Integer>> tmpRes = new ArrayList<>();
-                combineLists(leftList,rightList,prefix,tmpRes);
+                combineLists(leftList, rightList, prefix, tmpRes);
                 list.addAll(tmpRes);
             }
         }
@@ -31,26 +31,26 @@ public class q4_9 {
     }
 
     private static void combineLists(List<Integer> l1, List<Integer> l2, LinkedList<Integer> prefix, ArrayList<LinkedList<Integer>> res) {
-        if(l1.isEmpty() || l2.isEmpty()){
+        if (l1.isEmpty() || l2.isEmpty()) {
             LinkedList<Integer> newRes = (LinkedList<Integer>) prefix.clone();
             newRes.addAll(l1);
             newRes.addAll(l2);
             res.add(newRes);
             return;
         }
-        moveFirstToPrefex(l1,l1, l2, prefix, res);
-        moveFirstToPrefex(l2,l1, l2, prefix, res);
+        moveFirstToPrefex(l1, l1, l2, prefix, res);
+        moveFirstToPrefex(l2, l1, l2, prefix, res);
     }
 
-    private static void moveFirstToPrefex(List<Integer> removeFrom,List<Integer> l1, List<Integer> l2, LinkedList<Integer> prefix, ArrayList<LinkedList<Integer>> res) {
+    private static void moveFirstToPrefex(List<Integer> removeFrom, List<Integer> l1, List<Integer> l2, LinkedList<Integer> prefix, ArrayList<LinkedList<Integer>> res) {
         Integer h = removeFrom.remove(0);
         prefix.add(h);
-        combineLists(l1,l2,prefix,res);
+        combineLists(l1, l2, prefix, res);
         prefix.removeLast();
-        removeFrom.add(0,h);
+        removeFrom.add(0, h);
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
 
         BinTreeNode<Integer> n50 = new BinTreeNode<>(50);
         BinTreeNode<Integer> n20 = new BinTreeNode<>(20);

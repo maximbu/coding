@@ -4,7 +4,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class q15_6 {
-    private static class FBThread extends Thread{
+    private static class FBThread extends Thread {
         private static final Object lock = new Object();
         protected static int curr = 1;
         private int max;
@@ -15,13 +15,13 @@ public class q15_6 {
             this.printer = printer;
         }
 
-        public void run(){
-            while (true){
-                synchronized (lock){
-                    if(curr > max){
+        public void run() {
+            while (true) {
+                synchronized (lock) {
+                    if (curr > max) {
                         return;
                     }
-                    if(validate.test(curr)){
+                    if (validate.test(curr)) {
                         System.out.println(printer.apply(curr));
                         curr++;
                     }
@@ -30,8 +30,7 @@ public class q15_6 {
         }
 
         private Predicate<Integer> validate;
-        private Function<Integer,String> printer;
-
+        private Function<Integer, String> printer;
 
 
     }
@@ -48,7 +47,7 @@ public class q15_6 {
         }
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         fizzBuzz(100);
     }
 }

@@ -10,8 +10,8 @@ public class MinMaxRiddle {
         long[] ans = new long[arr.length];
         PriorityQueue<Long> pq = new PriorityQueue<>();
         for (int i = 1; i <= ans.length; i++) {
-            pq.add(arr[i-1]);
-            ans[i - 1] = minMaxOfWindow(arr, i,pq);
+            pq.add(arr[i - 1]);
+            ans[i - 1] = minMaxOfWindow(arr, i, pq);
         }
         return ans;
     }
@@ -27,7 +27,7 @@ public class MinMaxRiddle {
         return max;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         System.out.println(Arrays.toString(riddle(new long[]{3, 5, 4, 7, 6, 2})));
     }
 }

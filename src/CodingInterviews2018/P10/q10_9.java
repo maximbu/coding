@@ -4,16 +4,15 @@ import CodingInterviews.utils.Matrix;
 import java.awt.Point;
 
 public class q10_9 {
-    private static Point findInMatrix(int[][] arr,int x) {
-        int i=0 , j=arr[i].length-1;
-        while(i<arr.length && j >=0){
-            if(arr[i][j] == x) {
-                return new Point(i,j);
+    private static Point findInMatrix(int[][] arr, int x) {
+        int i = 0, j = arr[i].length - 1;
+        while (i < arr.length && j >= 0) {
+            if (arr[i][j] == x) {
+                return new Point(i, j);
             }
-            if(arr[i][j]<x){
+            if (arr[i][j] < x) {
                 i++;
-            }
-            else{
+            } else {
                 j--;
             }
         }
@@ -32,7 +31,6 @@ public class q10_9 {
         }
 
         System.out.println(Matrix.printMatrix(matrix));
-
 
 
         for (int i = 0; i < M; i++) {

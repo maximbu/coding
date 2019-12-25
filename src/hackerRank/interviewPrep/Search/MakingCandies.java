@@ -49,7 +49,7 @@ public class MakingCandies {
     }
 
     public static void main(String[] st) {
-        System.out.println(minimumPasses(1 ,1 ,6 ,45));
-        System.out.println(minimumPasses(1 ,100 ,10000000000L ,1000000000000L));
+        System.out.println(minimumPasses(1, 1, 6, 45));
+        System.out.println(minimumPasses(1, 100, 10000000000L, 1000000000000L));
     }
 }

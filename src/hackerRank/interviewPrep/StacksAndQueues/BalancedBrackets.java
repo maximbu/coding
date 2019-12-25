@@ -31,7 +31,7 @@ public class BalancedBrackets {
         return opening.isEmpty() ? "YES" : "NO";
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         System.out.println(isBalanced("{[()]}"));
     }
 

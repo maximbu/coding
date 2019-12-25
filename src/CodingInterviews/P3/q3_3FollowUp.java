@@ -8,35 +8,35 @@ import java.util.Stack;
  * Created by max on 12/21/2016.
  */
 public class q3_3FollowUp {
-    public static class StackOfPiles<T>{
-        int  threshold;
+    public static class StackOfPiles<T> {
+        int threshold;
         List<Stack<T>> stacks;
-        int lastStackUsed ;
+        int lastStackUsed;
 
-        public StackOfPiles(int threshold){
+        public StackOfPiles(int threshold) {
             this.threshold = threshold;
             stacks = new ArrayList<>();
             stacks.add(new Stack<>());
-            lastStackUsed =0;
+            lastStackUsed = 0;
         }
 
-        public void push(T obj){
-            if(stacks.get(lastStackUsed).size() >= threshold){
+        public void push(T obj) {
+            if (stacks.get(lastStackUsed).size() >= threshold) {
                 stacks.add(new Stack<>());
-                lastStackUsed ++;
+                lastStackUsed++;
             }
             stacks.get(lastStackUsed).push(obj);
         }
 
-        public T pop(){
+        public T pop() {
             return popAt(lastStackUsed);
         }
 
-        private boolean shouldRemoveStack(int stackIndex){
+        private boolean shouldRemoveStack(int stackIndex) {
             return stackIndex != 0 && stacks.get(stackIndex).size() == 1;
         }
 
-        private T popAndRemoveStack(int stackIndex){
+        private T popAndRemoveStack(int stackIndex) {
             Stack<T> stack = stacks.get(stackIndex);
             T val = stack.pop();
             stacks.remove(stack);

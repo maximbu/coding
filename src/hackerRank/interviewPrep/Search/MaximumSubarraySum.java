@@ -7,15 +7,15 @@ public class MaximumSubarraySum {
     static long maximumSum2(long[] a, long m) {
         long curr = 0;
         long[] prefix = new long[a.length];
-        for(int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) {
             curr = (a[i] + curr) % m;
             prefix[i] = curr;
         }
         long ret = 0;
-        for(int i = 0; i < a.length; i++) {
-            long calc = prefix[i]+m;
-            for(int j = i-1; j >= 0; j--) {
-                if(prefix[j] > prefix[i]) {
+        for (int i = 0; i < a.length; i++) {
+            long calc = prefix[i] + m;
+            for (int j = i - 1; j >= 0; j--) {
+                if (prefix[j] > prefix[i]) {
                     ret = Math.max(ret, (calc - prefix[j]) % m);
                 }
             }
@@ -31,7 +31,7 @@ public class MaximumSubarraySum {
         for (long x : a) {
             currentSum = (currentSum + x) % m;
             Long next = prefix.higher(currentSum);
-            if(next != null){
+            if (next != null) {
                 maxSum = Math.max(maxSum, (currentSum - next + m) % m);
             }
 

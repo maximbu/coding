@@ -7,14 +7,14 @@ import java.util.Random;
  * Created by max on 12/24/2016.
  */
 public class q4_11 {
-    public static class RandomTreeNode<T extends Comparable<T>>{
+    public static class RandomTreeNode<T extends Comparable<T>> {
 
         private RandomTreeNode<T> left;
         private RandomTreeNode<T> right;
         private T val;
         private int size;
 
-        private static class SearchNodeData<T extends Comparable<T>>{
+        private static class SearchNodeData<T extends Comparable<T>> {
             public RandomTreeNode<T> node;
             public RandomTreeNode<T> parent;
         }
@@ -22,7 +22,7 @@ public class q4_11 {
 
         public RandomTreeNode(T val) {
             this.val = val;
-            this.size= 1;
+            this.size = 1;
         }
 
         public RandomTreeNode(RandomTreeNode<T> left, RandomTreeNode<T> right, T val) {
@@ -34,9 +34,9 @@ public class q4_11 {
             updateSize(right);
         }
 
-        private void updateSize(RandomTreeNode<T> n){
-            if(n != null){
-                size+= n.getSize();
+        private void updateSize(RandomTreeNode<T> n) {
+            if (n != null) {
+                size += n.getSize();
             }
         }
 
@@ -74,20 +74,17 @@ public class q4_11 {
             this.val = val;
         }
 
-        public void insert(T n){
-            if(n.compareTo(val)<0){
-                if(left == null){
+        public void insert(T n) {
+            if (n.compareTo(val) < 0) {
+                if (left == null) {
                     left = new RandomTreeNode<T>(n);
-                }
-                else{
+                } else {
                     left.insert(n);
                 }
-            }
-            else{
-                if(right == null){
+            } else {
+                if (right == null) {
                     right = new RandomTreeNode<T>(n);
-                }
-                else{
+                } else {
                     right.insert(n);
                 }
             }
@@ -95,38 +92,38 @@ public class q4_11 {
         }
 
 
-        public RandomTreeNode<T> find(T n){
+        public RandomTreeNode<T> find(T n) {
             SearchNodeData<T> searchNodeData = new SearchNodeData<T>();
-            findInternal(n,searchNodeData);
+            findInternal(n, searchNodeData);
             return searchNodeData.node;
         }
 
-        protected void findInternal(T n, SearchNodeData<T> searchNodeData){
-            if(n.compareTo(val)==0){
+        protected void findInternal(T n, SearchNodeData<T> searchNodeData) {
+            if (n.compareTo(val) == 0) {
                 searchNodeData.node = this;
-                return ;
+                return;
             }
-            if(size == 0){
+            if (size == 0) {
                 searchNodeData.node = this;
-                return ;
+                return;
             }
 
             searchNodeData.parent = this;
-            if(left != null) {
-                left.findInternal(n,searchNodeData);
+            if (left != null) {
+                left.findInternal(n, searchNodeData);
                 if (searchNodeData.node != null) {
                     return;
                 }
             }
             if (right != null) {
-                right.findInternal(n,searchNodeData);
+                right.findInternal(n, searchNodeData);
             }
         }
 
-        public RandomTreeNode<T> remove(T n){
+        public RandomTreeNode<T> remove(T n) {
             SearchNodeData<T> searchNodeData = new SearchNodeData<T>();
-            findInternal(n,searchNodeData);
-            if(searchNodeData.node == null){
+            findInternal(n, searchNodeData);
+            if (searchNodeData.node == null) {
                 return null;
             }
 //            if(searchNodeData.node.size == 0){
@@ -146,14 +143,13 @@ public class q4_11 {
         }
 
 
-        public RandomTreeNode<T> getRandomNode(){
+        public RandomTreeNode<T> getRandomNode() {
             Random random = new Random();
-            int leftSize =(left == null)? 0 : left.size;
+            int leftSize = (left == null) ? 0 : left.size;
             int index = random.nextInt(size);
-            if(index<leftSize){
+            if (index < leftSize) {
                 return left.getRandomNode();
-            }
-            else if(index == leftSize){
+            } else if (index == leftSize) {
                 return this;
             }
             return right.getRandomNode();

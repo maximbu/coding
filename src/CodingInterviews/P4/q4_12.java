@@ -6,27 +6,27 @@ import CodingInterviews.utils.BinTreeNode;
  * Created by max on 12/25/2016.
  */
 public class q4_12 {
-    public static int pathsWithSum(BinTreeNode<Integer> n, int sum){
-        if(n == null){
+    public static int pathsWithSum(BinTreeNode<Integer> n, int sum) {
+        if (n == null) {
             return 0;
         }
-        int curr = findPathsWithSumFromRoot(n,sum,0);
-        int left = pathsWithSum(n.getLeft(),sum);
-        int right = pathsWithSum(n.getRight(),sum);
+        int curr = findPathsWithSumFromRoot(n, sum, 0);
+        int left = pathsWithSum(n.getLeft(), sum);
+        int right = pathsWithSum(n.getRight(), sum);
         return curr + left + right;
     }
 
-    private static int findPathsWithSumFromRoot(BinTreeNode<Integer> n, int sum, int currSum){
-        int cnt =0;
-        if(n == null){
+    private static int findPathsWithSumFromRoot(BinTreeNode<Integer> n, int sum, int currSum) {
+        int cnt = 0;
+        if (n == null) {
             return 0;
         }
         int totalSum = n.getVal() + currSum;
-        if(totalSum  == sum){
+        if (totalSum == sum) {
             cnt++;
         }
-        cnt += findPathsWithSumFromRoot(n.getLeft(),sum,totalSum);
-        cnt += findPathsWithSumFromRoot(n.getRight(),sum,totalSum);
+        cnt += findPathsWithSumFromRoot(n.getLeft(), sum, totalSum);
+        cnt += findPathsWithSumFromRoot(n.getRight(), sum, totalSum);
         return cnt;
     }
 
@@ -52,7 +52,7 @@ public class q4_12 {
         n3.setRight(nm2);
         n2.setRight(n1);
 
-        int cnt = pathsWithSum(n10,8);
+        int cnt = pathsWithSum(n10, 8);
 
     }
 

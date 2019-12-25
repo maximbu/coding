@@ -6,7 +6,7 @@ import CodingInterviews.utils.ParentBinTreeNode;
  * Created by max on 12/23/2016.
  */
 public class q4_6 {
-    public static <T> ParentBinTreeNode<T> successor (ParentBinTreeNode<T> t) {
+    public static <T> ParentBinTreeNode<T> successor(ParentBinTreeNode<T> t) {
         if (t == null)
             return null;
         if (t.getRight() != null) {
@@ -21,7 +21,7 @@ public class q4_6 {
     }
 
     private static <T> ParentBinTreeNode<T> getLeftMostNode(ParentBinTreeNode<T> currNode) {
-        if(currNode == null)
+        if (currNode == null)
             return null;
         while (currNode.getLeft() != null) {
             currNode = currNode.getLeft();
@@ -29,7 +29,7 @@ public class q4_6 {
         return currNode;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         ParentBinTreeNode<Integer> n20 = new ParentBinTreeNode<>(20);
         ParentBinTreeNode<Integer> n8 = new ParentBinTreeNode<>(8);
         ParentBinTreeNode<Integer> n22 = new ParentBinTreeNode<>(22);

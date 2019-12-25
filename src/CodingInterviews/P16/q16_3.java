@@ -70,24 +70,24 @@ public class q16_3 {
         }
 
         public Point intercept(LineSegment l) {
-            double x = (B-l.B)/(l.A-A);
-            if(Double.isInfinite(x)) return null;
-            double y = A*x+B;
-            return new Point(x,y);
+            double x = (B - l.B) / (l.A - A);
+            if (Double.isInfinite(x)) return null;
+            double y = A * x + B;
+            return new Point(x, y);
         }
     }
 
-    public Point interception (Point x1,Point x2, Point y1,Point y2){
-        LineSegment l1 = new LineSegment(x1,x2);
-        LineSegment l2 = new LineSegment(y1,y2);
-        if(l1.isSameLine(l2)) return x1;
+    public Point interception(Point x1, Point x2, Point y1, Point y2) {
+        LineSegment l1 = new LineSegment(x1, x2);
+        LineSegment l2 = new LineSegment(y1, y2);
+        if (l1.isSameLine(l2)) return x1;
         Point p = l1.intercept(l2);
-        if(p!= null && l1.isOnLineSegment(p) && l2.isOnLineSegment(p)) return p;
+        if (p != null && l1.isOnLineSegment(p) && l2.isOnLineSegment(p)) return p;
         return null;
     }
 
-    public static void main(String[] s){
+    public static void main(String[] s) {
         q16_3 q = new q16_3();
-        System.out.println(q.interception(new Point(1,7),new Point(7,3),new Point(3,3),new Point(5,5)));
+        System.out.println(q.interception(new Point(1, 7), new Point(7, 3), new Point(3, 3), new Point(5, 5)));
     }
 }

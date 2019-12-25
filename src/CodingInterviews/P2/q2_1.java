@@ -13,7 +13,7 @@ import static CodingInterviews.utils.MyLinkedListNode.printList;
  */
 public class q2_1 {
 
-    public static <T> MyLinkedListNode<T> removeDups(MyLinkedListNode<T> l){
+    public static <T> MyLinkedListNode<T> removeDups(MyLinkedListNode<T> l) {
         HashSet<T> set = new HashSet<T>();
         MyLinkedListNode<T> curr = l;
         MyLinkedListNode<T> last = curr;
@@ -21,7 +21,7 @@ public class q2_1 {
             if (set.add(curr.getData())) {
                 last = curr;
             } else {
-               last.setNext(curr.getNext());
+                last.setNext(curr.getNext());
             }
             curr = curr.getNext();
         }
@@ -29,10 +29,8 @@ public class q2_1 {
     }
 
 
-
-
     public static void main(String[] args) {
-        MyLinkedListNode<Integer> head = createList(1,2,3,4,2,3,4,4,5,2,6,1);
-        System.out.println("removeDups("+printList(head)+")====>"+printList(removeDups(head)));
+        MyLinkedListNode<Integer> head = createList(1, 2, 3, 4, 2, 3, 4, 4, 5, 2, 6, 1);
+        System.out.println("removeDups(" + printList(head) + ")====>" + printList(removeDups(head)));
     }
 }

@@ -1,25 +1,23 @@
 package CodingInterviews2018.P4;
 
-import static CodingInterviews2018.P4.q4_2.minimalTree;
-
 import CodingInterviews.utils.BinTreeNode;
 
+import static CodingInterviews2018.P4.q4_2.minimalTree;
+
 public class q4_4 {
-    private static <T> boolean checkBalanced(BinTreeNode<T> t)
-    {
+    private static <T> boolean checkBalanced(BinTreeNode<T> t) {
         return checkBalancedRec(t) != -1;
     }
 
-    private static <T> int checkBalancedRec(BinTreeNode<T> t){
-        if(t == null) return 0;
+    private static <T> int checkBalancedRec(BinTreeNode<T> t) {
+        if (t == null) return 0;
         int left = checkBalancedRec(t.getLeft());
         int right = checkBalancedRec(t.getRight());
         if (left == -1 || right == -1 || Math.abs(left - right) > 1) {
             return -1;
         }
-        return 1+Math.max(left,right);
+        return 1 + Math.max(left, right);
     }
-
 
 
     public static void main(String[] st) {
@@ -38,7 +36,7 @@ public class q4_4 {
         var root = new BinTreeNode<>(1);
         left = new BinTreeNode<>(2);
         root.setLeft(left);
-         b = checkBalanced(root);
+        b = checkBalanced(root);
 
         var leftLeft = new BinTreeNode<>(3);
         left.setLeft(leftLeft);

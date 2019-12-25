@@ -27,8 +27,8 @@ public class q5_4 {
         return n;
     }
 
-    public static int prevNumber(int n){
-       return ~nextNumber(~n);
+    public static int prevNumber(int n) {
+        return ~nextNumber(~n);
     }
 
     public static void main(String[] st) {

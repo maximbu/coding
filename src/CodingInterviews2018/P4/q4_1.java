@@ -5,17 +5,17 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 public class q4_1 {
-    private static boolean hasRoute(GraphNode n1, GraphNode n2){
+    private static boolean hasRoute(GraphNode n1, GraphNode n2) {
         var set = new HashSet<GraphNode>();
         var traversal = new LinkedList<GraphNode>();
-        if(n1 == n2) return true;
+        if (n1 == n2) return true;
         traversal.add(n1);
         set.add(n1);
-        while(!traversal.isEmpty()){
+        while (!traversal.isEmpty()) {
             var currNode = traversal.remove();
-            for(var node:currNode.getNeighbors()){
-                if(node == n2) return true;
-                if(set.add(node)){
+            for (var node : currNode.getNeighbors()) {
+                if (node == n2) return true;
+                if (set.add(node)) {
                     traversal.add(node);
                 }
             }
@@ -23,7 +23,7 @@ public class q4_1 {
         return false;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         GraphNode a = new GraphNode("a");
         GraphNode n1 = new GraphNode("n1");
         GraphNode n2 = new GraphNode("n2");
@@ -43,10 +43,10 @@ public class q4_1 {
         n6.addNeighbor(n2);
         n6.addNeighbor(b);
 
-        boolean connected = hasRoute(a,b);
+        boolean connected = hasRoute(a, b);
         System.out.println("expected false , got: " + connected);
         n3.addNeighbor(n4);
-        connected = hasRoute(a,b);
+        connected = hasRoute(a, b);
         System.out.println("expected true , got: " + connected);
     }
 }

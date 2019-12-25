@@ -7,32 +7,32 @@ public class q3_2 {
         private Stack<Integer> stack = new Stack<>();
         private Stack<Integer> minStack = new Stack<>();
 
-        public void push(int val){
+        public void push(int val) {
             stack.push(val);
-            if(minStack.empty() || val <= minStack.peek()){
+            if (minStack.empty() || val <= minStack.peek()) {
                 minStack.push(val);
             }
         }
 
-        public int pop(){
+        public int pop() {
             int val = stack.pop();
-            if(val == minStack.peek()){
+            if (val == minStack.peek()) {
                 minStack.pop();
             }
             return val;
         }
 
-        public int min(){
+        public int min() {
             return minStack.peek();
         }
 
-        public void print(){
+        public void print() {
             System.out.println(stack.toString());
         }
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         StackMin s = new StackMin();
         s.push(3);
         s.push(5);
@@ -43,31 +43,31 @@ public class q3_2 {
         s.push(8);
         s.print();
         int min = s.min();
-        System.out.println("min is "+ min);
+        System.out.println("min is " + min);
         s.pop();
         min = s.min();
         s.print();
-        System.out.println("min is "+ min);
+        System.out.println("min is " + min);
         s.pop();
         min = s.min();
         s.print();
-        System.out.println("min is "+ min);
+        System.out.println("min is " + min);
         s.pop();
         min = s.min();
         s.print();
-        System.out.println("min is "+ min);
+        System.out.println("min is " + min);
         s.pop();
         min = s.min();
         s.print();
-        System.out.println("min is "+ min);
+        System.out.println("min is " + min);
         s.pop();
         min = s.min();
         s.print();
-        System.out.println("min is "+ min);
+        System.out.println("min is " + min);
         s.pop();
         min = s.min();
         s.print();
-        System.out.println("min is "+ min);
+        System.out.println("min is " + min);
         s.pop();
 //        min = s.min();
         s.print();

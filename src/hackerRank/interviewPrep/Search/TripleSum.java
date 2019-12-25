@@ -17,13 +17,13 @@ public class TripleSum {
             if (biggerC < 0) {
                 biggerC *= -1;
             }
-            ans += (long)biggerA * biggerC;
+            ans += (long) biggerA * biggerC;
         }
         return ans;
     }
 
-    public static void main(String[] st){
-        System.out.println(triplets(new int[]{1,3,5},new int[]{2,3},new int[]{1,2,3}));
-        System.out.println(triplets(new int[]{1,4,5},new int[]{2,3,3},new int[]{1,2,3}));
+    public static void main(String[] st) {
+        System.out.println(triplets(new int[]{1, 3, 5}, new int[]{2, 3}, new int[]{1, 2, 3}));
+        System.out.println(triplets(new int[]{1, 4, 5}, new int[]{2, 3, 3}, new int[]{1, 2, 3}));
     }
 }

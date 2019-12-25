@@ -32,8 +32,8 @@ public class q8_13 {
     private static double stackOfBoxes(List<Box> boxes) {
         if (boxes == null || boxes.isEmpty())
             return 0;
-        Collections.sort(boxes,Collections.reverseOrder());
-        return stackOfBoxes(boxes, 0, 0, new Box(Double.MAX_VALUE,Double.MAX_VALUE,Double.MAX_VALUE));
+        Collections.sort(boxes, Collections.reverseOrder());
+        return stackOfBoxes(boxes, 0, 0, new Box(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
     }
 
     private static double stackOfBoxes(List<Box> boxes, int currInd, double maxHeight, Box topBox) {
@@ -50,14 +50,14 @@ public class q8_13 {
     }
 
 
-    public static void main(String[] st){
-        Box b3 = new Box(4,6,1);
-        Box b1 = new Box(1,2,3);
-        Box b2 = new Box(2,3,4);
+    public static void main(String[] st) {
+        Box b3 = new Box(4, 6, 1);
+        Box b1 = new Box(1, 2, 3);
+        Box b2 = new Box(2, 3, 4);
 
-        Box[] boxList = { new Box(6, 4, 4), new Box(8, 6, 2), new Box(5, 3, 3), new Box(7, 8, 3), new Box(4, 2, 2), new Box(9, 7, 3)};
+        Box[] boxList = {new Box(6, 4, 4), new Box(8, 6, 2), new Box(5, 3, 3), new Box(7, 8, 3), new Box(4, 2, 2), new Box(9, 7, 3)};
 
-        double height =  stackOfBoxes(Arrays.asList(boxList));
+        double height = stackOfBoxes(Arrays.asList(boxList));
         System.out.println(height);
     }
 }

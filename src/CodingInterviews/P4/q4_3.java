@@ -18,16 +18,14 @@ public class q4_3 {
         currLevel.add(t);
         lists.add(currLevel.stream().map(TreeNode::getValue).collect(Collectors.toList()));
         boolean done = false;
-        while(!done){
+        while (!done) {
             nextLevel.clear();
-            while(!currLevel.isEmpty()){
+            while (!currLevel.isEmpty()) {
                 nextLevel.addAll(currLevel.remove().getChildren());
             }
-            if(nextLevel.isEmpty()){
+            if (nextLevel.isEmpty()) {
                 done = true;
-            }
-            else{
-                currLevel.clear();
+            } else {
                 lists.add(nextLevel.stream().map(TreeNode::getValue).collect(Collectors.toList()));
                 currLevel.addAll(nextLevel);
             }
@@ -36,7 +34,7 @@ public class q4_3 {
     }
 
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         TreeNode<String> t = new TreeNode<>("root");
         TreeNode<String> l1 = new TreeNode<>("l1");
         t.addChild(l1);
@@ -57,10 +55,9 @@ public class q4_3 {
         l32.addChild(l41);
         l33.addChild(l42);
 
-        List<List<String>>  ans = createLists(t);
+        List<List<String>> ans = createLists(t);
 
     }
-
 
 
 }

@@ -13,10 +13,10 @@ public class q10_1 {
     }
 
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         int[] a = {2, 3, 4, 5, 6, 8, 10, 100, 0, 0, 0, 0, 0, 0};
         int[] b = {1, 4, 6, 7, 7, 7};
-        sortedMerge(a,b);
+        sortedMerge(a, b);
         System.out.print(Arrays.toString(a));
     }
 }

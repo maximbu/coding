@@ -10,35 +10,32 @@ public class q10_10 {
             RankTreeNode left;
             RankTreeNode right;
 
-            public RankTreeNode (int val){
+            public RankTreeNode(int val) {
                 this.val = val;
             }
 
-            public void add(int x){
-                if(val < x){
-                    if(right == null){
-                        right = new RankTreeNode(x) ;
-                    }
-                    else{
+            public void add(int x) {
+                if (val < x) {
+                    if (right == null) {
+                        right = new RankTreeNode(x);
+                    } else {
                         right.add(x);
                     }
-                }
-                else{
+                } else {
                     rank++;
-                    if(left == null){
-                        left = new RankTreeNode(x) ;
-                    }
-                    else{
+                    if (left == null) {
+                        left = new RankTreeNode(x);
+                    } else {
                         left.add(x);
                     }
                 }
             }
 
-            public int getTotalRank(int x){
-                return getTotalRank(this,x,0);
+            public int getTotalRank(int x) {
+                return getTotalRank(this, x, 0);
             }
 
-            private int getTotalRank(RankTreeNode node , int x,int total) {
+            private int getTotalRank(RankTreeNode node, int x, int total) {
                 if (node == null)
                     return -1;
                 if (x == node.val)
@@ -53,17 +50,17 @@ public class q10_10 {
                 return rank;
             }
         }
+
         private RankTreeNode tree;
 
-        public int getRankOfNumber(int x){
-          return tree.getTotalRank(x);
+        public int getRankOfNumber(int x) {
+            return tree.getTotalRank(x);
         }
 
-        public void track(int x){
-            if(tree == null){
+        public void track(int x) {
+            if (tree == null) {
                 tree = new RankTreeNode(x);
-            }
-            else{
+            } else {
                 tree.add(x);
             }
         }
@@ -76,7 +73,7 @@ public class q10_10 {
         int size = 100;
         int[] list = new int[size];
         for (int i = 0; i < size; i++) {
-            list[i] = (int)(Math.random()*size);
+            list[i] = (int) (Math.random() * size);
             st.track(list[i]);
         }
 

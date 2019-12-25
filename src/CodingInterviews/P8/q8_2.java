@@ -11,12 +11,12 @@ import java.util.HashSet;
  */
 public class q8_2 {
     public static ArrayList<Point> getPath(boolean[][] maze) {
-        if(maze == null || maze.length == 0){
+        if (maze == null || maze.length == 0) {
             return null;
         }
         ArrayList<Point> path = new ArrayList<>();
         HashSet<Point> visited = new HashSet<Point>();
-        if (getPath(maze, maze.length - 1, maze[0].length - 1, path,visited)) {
+        if (getPath(maze, maze.length - 1, maze[0].length - 1, path, visited)) {
             return path;
         }
         return null;
@@ -44,7 +44,7 @@ public class q8_2 {
     public static void main(String[] args) {
         int size = 4;
         boolean[][] maze = Matrix.randomBooleanMatrix(size);
-        maze[0][0] = maze[size-1][size-1] = true;
+        maze[0][0] = maze[size - 1][size - 1] = true;
 
         Matrix.printMatrix(maze);
 

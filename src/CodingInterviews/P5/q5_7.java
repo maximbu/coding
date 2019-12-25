@@ -8,7 +8,7 @@ import CodingInterviews.utils.BitWiseUtils;
  */
 public class q5_7 {
     public static int pairSwap(int n) {
-        return ( ((n & 0xaaaaaaaa) >>> 1) | ((n & 0x55555555) << 1) );
+        return (((n & 0xaaaaaaaa) >>> 1) | ((n & 0x55555555) << 1));
     }
 
 

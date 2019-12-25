@@ -1,15 +1,12 @@
 package CodingInterviews.P1;
 
-import java.util.Arrays;
-import java.util.stream.IntStream;
-
 /**
  * Created by max on 12/16/2016.
  */
 public class q1_3 {
-    public static String urlify(char[] st,int realLength) {
+    public static String urlify(char[] st, int realLength) {
         int spaces = 0;
-        for (int i=0;i<realLength;i++) {
+        for (int i = 0; i < realLength; i++) {
             if (st[i] == ' ')
                 spaces++;
         }
@@ -27,8 +24,7 @@ public class q1_3 {
     }
 
 
-
     public static void main(String[] args) {
-        System.out.println("urlify(Mr John Smith    )"+"->"+urlify("Mr John Smith    ".toCharArray(),13));
+        System.out.println("urlify(Mr John Smith    )" + "->" + urlify("Mr John Smith    ".toCharArray(), 13));
     }
 }

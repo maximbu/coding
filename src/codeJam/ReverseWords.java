@@ -5,7 +5,7 @@ package codeJam;
  */
 public class ReverseWords implements ISolution {
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         Utils.solve("B-large-practice.in", new ReverseWords());
     }
 
@@ -13,9 +13,9 @@ public class ReverseWords implements ISolution {
     public String handleTest(String[] params) {
         String[] prices = params[0].split(" ");
         StringBuilder sb = new StringBuilder();
-        for (int i = prices.length-1; i >=0 ; i--) {
+        for (int i = prices.length - 1; i >= 0; i--) {
             sb.append(prices[i]);
-            if(i !=0 ) sb.append(" ");
+            if (i != 0) sb.append(" ");
         }
         return sb.toString();
     }

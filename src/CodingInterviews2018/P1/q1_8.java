@@ -8,9 +8,9 @@ public class q1_8 {
 
   private static int[][] zero(int[][] matrix) {
     boolean firstRowZero = IntStream.range(0, matrix[0].length).
-        anyMatch(i -> matrix[0][i] == 0);
+            anyMatch(i -> matrix[0][i] == 0);
     boolean firstColZero = Arrays.stream(matrix).
-        anyMatch(aMatrix -> aMatrix[0] == 0);
+            anyMatch(aMatrix -> aMatrix[0] == 0);
 
     for (int i = 1; i < matrix.length; i++) {
       for (int j = 1; j < matrix[i].length; j++) {
@@ -50,7 +50,7 @@ public class q1_8 {
     int[][] m = Matrix.randomMatrix(4, 6);
     m[1][1] = 0;
     System.out.println(
-        "rotate(\n" + Matrix.printMatrix(m) + ")\n->\n" + Matrix.printMatrix(zero(m)));
+            "rotate(\n" + Matrix.printMatrix(m) + ")\n->\n" + Matrix.printMatrix(zero(m)));
 
   }
 

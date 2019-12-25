@@ -7,6 +7,7 @@ import CodingInterviews.utils.WeightedGraph;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by max on 1/1/2017.
@@ -35,7 +36,7 @@ public class Dijkstra_WIP {
 
             DNode dNode = (DNode) o;
 
-            return id != null ? id.equals(dNode.id) : dNode.id == null;
+            return Objects.equals(id, dNode.id);
         }
 
         @Override

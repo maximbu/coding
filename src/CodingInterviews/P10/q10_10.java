@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Created by max on 12/31/2016.
  */
 public class q10_10 {
-    public static class RankTreeNode{
+    public static class RankTreeNode {
         RankTreeNode left;
         RankTreeNode right;
         int val;
@@ -75,16 +75,17 @@ public class q10_10 {
             }
         }
 
-        public int getTotalRank(int t){
+        public int getTotalRank(int t) {
             int r = 0;
             RankTreeNode curr = this;
-            while (curr != null){
-                if(t == curr.val){return r+curr.rank;}
-                if(t < curr.val){
-                    curr = curr.left;
+            while (curr != null) {
+                if (t == curr.val) {
+                    return r + curr.rank;
                 }
-                else {
-                    r+=curr.rank;
+                if (t < curr.val) {
+                    curr = curr.left;
+                } else {
+                    r += curr.rank;
                     curr = curr.right;
                 }
             }
@@ -112,7 +113,7 @@ public class q10_10 {
         int size = 100;
         int[] list = new int[size];
         for (int i = 0; i < size; i++) {
-            list[i] = (int)(Math.random()*size);
+            list[i] = (int) (Math.random() * size);
             track(list[i]);
         }
 

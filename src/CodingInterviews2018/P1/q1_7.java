@@ -24,6 +24,6 @@ public class q1_7 {
   public static void main(String[] args) {
     int[][] m = Matrix.randomMatrix(5);
     System.out
-        .println("rotate(\n" + Matrix.printMatrix(m) + ")\n->\n" + Matrix.printMatrix(rotate(m)));
+            .println("rotate(\n" + Matrix.printMatrix(m) + ")\n->\n" + Matrix.printMatrix(rotate(m)));
   }
 }

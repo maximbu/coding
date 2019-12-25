@@ -11,14 +11,17 @@ public class q3_6 {
     public static class ShelterAnimal {
         private Timestamp date;
         private String name;
-        public ShelterAnimal (String name){
+
+        public ShelterAnimal(String name) {
             date = new Timestamp(System.currentTimeMillis());
-            this.name= name;
+            this.name = name;
         }
-        public Timestamp getDate(){
+
+        public Timestamp getDate() {
             return date;
         }
-        public String getName(){
+
+        public String getName() {
             return name;
         }
 
@@ -32,55 +35,56 @@ public class q3_6 {
     }
 
     public static class ShelterDog extends ShelterAnimal {
-        public ShelterDog(String name){
+        public ShelterDog(String name) {
             super(name);
         }
     }
 
-    public static  class ShelterCat extends ShelterAnimal {
-        public ShelterCat(String name){
+    public static class ShelterCat extends ShelterAnimal {
+        public ShelterCat(String name) {
             super(name);
         }
     }
 
-    public static class Shelter{
+    public static class Shelter {
         LinkedList<ShelterDog> dogs;
         LinkedList<ShelterCat> cats;
-        public Shelter(){
+
+        public Shelter() {
             dogs = new LinkedList<>();
             cats = new LinkedList<>();
         }
 
-        public void add(ShelterAnimal a){
-            if(a instanceof ShelterDog){
-                dogs.add((ShelterDog)a);
+        public void add(ShelterAnimal a) {
+            if (a instanceof ShelterDog) {
+                dogs.add((ShelterDog) a);
             }
-            if(a instanceof ShelterCat){
-                cats.add((ShelterCat)a);
+            if (a instanceof ShelterCat) {
+                cats.add((ShelterCat) a);
             }
 
         }
 
-        public ShelterCat getCat(){
+        public ShelterCat getCat() {
             return cats.remove();
         }
-        public ShelterDog getDog(){
+
+        public ShelterDog getDog() {
             return dogs.remove();
         }
 
-        public ShelterAnimal getLatest(){
-            if(cats.isEmpty()){
+        public ShelterAnimal getLatest() {
+            if (cats.isEmpty()) {
                 return dogs.remove();
             }
-            if(dogs.isEmpty()){
+            if (dogs.isEmpty()) {
                 return cats.remove();
             }
-            if(dogs.peek().getDate().before(cats.peek().getDate())){
+            if (dogs.peek().getDate().before(cats.peek().getDate())) {
                 return dogs.remove();
             }
             return cats.remove();
         }
-
 
 
     }

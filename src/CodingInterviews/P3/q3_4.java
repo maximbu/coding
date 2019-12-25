@@ -21,7 +21,7 @@ public class q3_4 {
 
         }
 
-        public T peek(){
+        public T peek() {
             copyItems(stack, helperStack);
             return helperStack.peek();
         }
@@ -48,7 +48,7 @@ public class q3_4 {
         q.enqueue(1);
         q.enqueue(2);
         Integer a = q.peek();
-        a= q.peek();
+        a = q.peek();
 
         for (int i = 0; i < 10; i++) {
             q.enqueue(i);

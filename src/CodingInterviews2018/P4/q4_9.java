@@ -6,19 +6,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class q4_9 {
-    private static List<List<Integer>> printAllBST (BinTreeNode<Integer> root){
+    private static List<List<Integer>> printAllBST(BinTreeNode<Integer> root) {
         List<List<Integer>> list = new ArrayList<>();
-        if(root == null){
+        if (root == null) {
             list.add(new LinkedList<>());
             return list;
         }
         var left = printAllBST(root.getLeft());
         var right = printAllBST(root.getRight());
-        for(List<Integer> leftList : left){
-            for(List<Integer> rightList : right){
+        for (List<Integer> leftList : left) {
+            for (List<Integer> rightList : right) {
                 var prefix = new ArrayList<Integer>();
                 prefix.add(root.getVal());
-                var tmpRes = combineLists(leftList, rightList , prefix);
+                var tmpRes = combineLists(leftList, rightList, prefix);
                 list.addAll(tmpRes);
             }
         }
@@ -26,14 +26,14 @@ public class q4_9 {
     }
 
     private static List<List<Integer>> combineLists(List<Integer> l1, List<Integer> l2, List<Integer> prefix) {
-        if(l1.isEmpty() || l2.isEmpty()){
+        if (l1.isEmpty() || l2.isEmpty()) {
             return handleEmptyList(l1, l2, prefix);
         }
 
         List<List<Integer>> ans = new ArrayList<>();
 
-        ans.addAll(moveFirstToPrefix(l1,l1, l2, prefix));
-        ans.addAll(moveFirstToPrefix(l2,l1, l2, prefix));
+        ans.addAll(moveFirstToPrefix(l1, l1, l2, prefix));
+        ans.addAll(moveFirstToPrefix(l2, l1, l2, prefix));
         return ans;
     }
 
@@ -46,16 +46,16 @@ public class q4_9 {
         return ans;
     }
 
-    private static List<List<Integer>> moveFirstToPrefix(List<Integer> removeFrom,List<Integer> l1, List<Integer> l2, List<Integer> prefix) {
+    private static List<List<Integer>> moveFirstToPrefix(List<Integer> removeFrom, List<Integer> l1, List<Integer> l2, List<Integer> prefix) {
         Integer h = removeFrom.remove(0);
         prefix.add(h);
-        var ans = combineLists(l1,l2,prefix);
-        prefix.remove(prefix.size()-1);
-        removeFrom.add(0,h);
+        var ans = combineLists(l1, l2, prefix);
+        prefix.remove(prefix.size() - 1);
+        removeFrom.add(0, h);
         return ans;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
 
         BinTreeNode<Integer> n50 = new BinTreeNode<>(50);
         BinTreeNode<Integer> n20 = new BinTreeNode<>(20);

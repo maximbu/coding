@@ -1,11 +1,12 @@
 package CodingInterviews2018.P2;
 
-import static CodingInterviews.utils.MyLinkedListNode.createList;
-import static CodingInterviews.utils.MyLinkedListNode.printList;
-
 import CodingInterviews.utils.MyLinkedListNode;
+
 import java.util.HashSet;
 import java.util.Set;
+
+import static CodingInterviews.utils.MyLinkedListNode.createList;
+import static CodingInterviews.utils.MyLinkedListNode.printList;
 
 public class q2_1 {
 

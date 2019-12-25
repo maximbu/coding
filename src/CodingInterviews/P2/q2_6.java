@@ -11,12 +11,11 @@ import static CodingInterviews.utils.MyLinkedListNode.printList;
  */
 public class q2_6 {
 
-    public static <T>  boolean palindrome(MyLinkedListNode<T> l) {
+    public static <T> boolean palindrome(MyLinkedListNode<T> l) {
         MyLinkedListNode<T> copied = copy(l);
         MyLinkedListNode<T> reversed = reverse(copied);
-        while (reversed != null)
-        {
-            if(reversed.getData() != l.getData())
+        while (reversed != null) {
+            if (reversed.getData() != l.getData())
                 return false;
             reversed = reversed.getNext();
             l = l.getNext();
@@ -25,13 +24,12 @@ public class q2_6 {
     }
 
     private static <T> MyLinkedListNode<T> copy(MyLinkedListNode<T> l) {
-        if(l == null)
+        if (l == null)
             return null;
         MyLinkedListNode<T> newHead = new MyLinkedListNode<T>(l.getData());
         MyLinkedListNode<T> curr = newHead;
-        l=l.getNext();
-        while (l != null)
-        {
+        l = l.getNext();
+        while (l != null) {
             curr.setNext(new MyLinkedListNode<T>(l.getData()));
             curr = curr.getNext();
             l = l.getNext();
@@ -40,14 +38,12 @@ public class q2_6 {
     }
 
 
-    public static <T> MyLinkedListNode<T> reverse (MyLinkedListNode<T> l)
-    {
-        if(l == null)
+    public static <T> MyLinkedListNode<T> reverse(MyLinkedListNode<T> l) {
+        if (l == null)
             return null;
         MyLinkedListNode<T> prev = null;
         MyLinkedListNode<T> curr = l;
-        while (curr!=null)
-        {
+        while (curr != null) {
             MyLinkedListNode<T> next = curr.getNext();
             curr.setNext(prev);
             prev = curr;
@@ -57,11 +53,11 @@ public class q2_6 {
     }
 
     public static void main(String[] args) {
-        MyLinkedListNode<Integer> head = createList(1,2,3,4,3,2,1);
-        System.out.println("palindrome("+printList(head)+")====>"+palindrome(head));
-        head = createList(1,2,3,4,4,3,2,1);
-        System.out.println("palindrome("+printList(head)+")====>"+palindrome(head));
-        head = createList(1,2,3,4,4,4,2,1);
-        System.out.println("palindrome("+printList(head)+")====>"+palindrome(head));
+        MyLinkedListNode<Integer> head = createList(1, 2, 3, 4, 3, 2, 1);
+        System.out.println("palindrome(" + printList(head) + ")====>" + palindrome(head));
+        head = createList(1, 2, 3, 4, 4, 3, 2, 1);
+        System.out.println("palindrome(" + printList(head) + ")====>" + palindrome(head));
+        head = createList(1, 2, 3, 4, 4, 4, 2, 1);
+        System.out.println("palindrome(" + printList(head) + ")====>" + palindrome(head));
     }
 }

@@ -7,51 +7,55 @@ import java.util.Stack;
  * Created by max on 12/18/2016.
  */
 public class q3_2 {
-    public static class StackMin{
+    public static class StackMin {
 
         private Stack<Integer> st;
         private Stack<Integer> mins;
 
         LinkedList<String> l;
 
-        public StackMin(){
+        public StackMin() {
             st = new Stack<>();
             mins = new Stack<>();
         }
 
-        public void push(int val){
-          st.push(val);
-          if(mins.isEmpty() || val < mins.peek()){
-              mins.push(val);
-          }
+        public void push(int val) {
+            st.push(val);
+            if (mins.isEmpty() || val < mins.peek()) {
+                mins.push(val);
+            }
         }
-        public int pop(){
+
+        public int pop() {
             Integer val = st.pop();
-            if(val == mins.peek())
-            {
+            if (val.equals(mins.peek())) {
                 mins.pop();
             }
             return val;
         }
+
         public int pick() {
             return st.peek();
         }
-        public boolean isEmpty(){
-           return st.isEmpty();
+
+        public boolean isEmpty() {
+            return st.isEmpty();
         }
-        public int getMin(){
-            if(mins.isEmpty())
+
+        public int getMin() {
+            if (mins.isEmpty())
                 return Integer.MAX_VALUE;
             return mins.peek();
         }
+
         @Override
-        public String toString(){
-          return st.toString();
+        public String toString() {
+            return st.toString();
         }
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         StackMin s = new StackMin();
         s.push(3);
         s.push(5);

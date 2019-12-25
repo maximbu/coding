@@ -1,26 +1,27 @@
 package CodingInterviews2018.P4;
 
-import static CodingInterviews2018.P4.q4_2.minimalTree;
-
 import CodingInterviews.utils.BinTreeNode;
+
 import java.util.stream.IntStream;
 
+import static CodingInterviews2018.P4.q4_2.minimalTree;
+
 public class q4_5 {
-    public static  boolean validateBST (BinTreeNode<Integer> t) {
-        return validateBST(t,null,null);
+    public static boolean validateBST(BinTreeNode<Integer> t) {
+        return validateBST(t, null, null);
     }
 
-    public static  boolean validateBST (BinTreeNode<Integer> t,Integer min,Integer max) {
+    public static boolean validateBST(BinTreeNode<Integer> t, Integer min, Integer max) {
         if (t == null)
             return true;
         if (min != null && t.getVal() <= min)
             return false;
         if (max != null && t.getVal() > max)
             return false;
-        return validateBST(t.getLeft(),min,t.getVal()) && validateBST(t.getRight(),t.getVal(),max);
+        return validateBST(t.getLeft(), min, t.getVal()) && validateBST(t.getRight(), t.getVal(), max);
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         int[] array = IntStream.range(0, 27).toArray();
         BinTreeNode<Integer> tree = minimalTree(array);
         boolean t = validateBST(tree);

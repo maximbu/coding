@@ -26,7 +26,7 @@ public class SwapNodes {
         int[][] ans = new int[queries.length][indexes.length];
 
         for (int i = 0; i < queries.length; i++) {
-            doSwaps(levelToNode,queries[i],indexes.length);
+            doSwaps(levelToNode, queries[i], indexes.length);
             ans[i] = inOrder(head);
             //doSwaps(levelToNode,queries[i],indexes.length);
         }
@@ -34,7 +34,7 @@ public class SwapNodes {
     }
 
     private static void doSwaps(HashMap<Integer, List<Node>> levelToNode, int levelMul, int maxLevel) {
-        for (int i = levelMul; i <= maxLevel; i+=levelMul) {
+        for (int i = levelMul; i <= maxLevel; i += levelMul) {
             for (Node n : levelToNode.getOrDefault(i, Collections.emptyList())) {
                 Node tmp = n.left;
                 n.left = n.right;
@@ -60,7 +60,7 @@ public class SwapNodes {
         for (int i = 0; i < indexes.length; i++) {
             int[] children = indexes[i];
             for (int j = 0; j < 2; j++) {
-                if (!idToNode.containsKey(children[j])){
+                if (!idToNode.containsKey(children[j])) {
                     idToNode.put(children[j], new Node(children[j]));
                 }
             }
@@ -74,7 +74,6 @@ public class SwapNodes {
         }
         return idToNode.get(1);
     }
-
 
 
     private static int[] inOrder(Node head) {

@@ -1,12 +1,10 @@
 package CodingInterviews.P8;
 
-import java.util.Objects;
-
 /**
  * Created by max on 12/28/2016.
  */
 public class q8_14 {
-    public static int boolEval(String exp,boolean res) {
+    public static int boolEval(String exp, boolean res) {
         if (exp.length() == 0) return 0;
         if (exp.length() == 1) {
             return res ^ exp.equals("0") ? 1 : 0;
@@ -38,7 +36,7 @@ public class q8_14 {
         return ways;
     }
 
-    public static void main (String[] st){
+    public static void main(String[] st) {
         int e10 = boolEval("0&0&0&1^l|0", true);
         int e2 = boolEval("l^0|0|1", false);
     }

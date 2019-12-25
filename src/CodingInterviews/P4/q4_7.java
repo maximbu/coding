@@ -9,39 +9,38 @@ import java.util.*;
  * Created by max on 12/23/2016.
  */
 public class q4_7 {
-    public static List<String> buildOrder (Graph g){
+    public static List<String> buildOrder(Graph g) {
         List<String> l = new ArrayList<String>();
-        if(g == null) {
+        if (g == null) {
             return null;
         }
 
         Set<GraphNode> visited = new HashSet<GraphNode>();
         Set<GraphNode> circleCheck = new HashSet<GraphNode>();
-        for (GraphNode node:g.getNodes()){
-            dfs(node, l,visited,circleCheck);
+        for (GraphNode node : g.getNodes()) {
+            dfs(node, l, visited, circleCheck);
         }
         Collections.reverse(l);
         return l;
     }
 
     private static void dfs(GraphNode node, List<String> l, Set<GraphNode> visited, Set<GraphNode> circleCheck) {
-        if(!visited.add(node)){
-            if(!circleCheck.contains(node)){
+        if (!visited.add(node)) {
+            if (!circleCheck.contains(node)) {
                 throw new IllegalArgumentException("Graph contains a cycle.");
-            }
-            else{
+            } else {
                 return;
             }
         }
 
-        for (GraphNode n : node.getNeighbors()){
-            dfs(n, l,visited,circleCheck);
+        for (GraphNode n : node.getNeighbors()) {
+            dfs(n, l, visited, circleCheck);
         }
         l.add(node.getName());
         circleCheck.add(node);
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         GraphNode a = new GraphNode("a");
         GraphNode b = new GraphNode("b");
         GraphNode c = new GraphNode("c");

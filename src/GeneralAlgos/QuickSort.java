@@ -28,9 +28,9 @@ public class QuickSort {
     }
 
 
-    public static void sortRec(int[] a){
-        if(a.length < 2) return;
-        sortRec(a,0,a.length-1);
+    public static void sortRec(int[] a) {
+        if (a.length < 2) return;
+        sortRec(a, 0, a.length - 1);
     }
 
     private static void sortRec(int[] a, int start, int end) {
@@ -59,20 +59,20 @@ public class QuickSort {
         return start;
     }
 
-    public static void main (String[] st){
+    public static void main(String[] st) {
         int size = 1000;
         int[] list = new int[size];
         for (int i = 0; i < size; i++) {
-            list[i] = (int)(Math.random()*size);
+            list[i] = (int) (Math.random() * size);
         }
-        int[] list2 = Arrays.copyOf(list,size);
-        String orig = "list:"+ Arrays.toString(list);
-        String orig2 = "list2:"+ Arrays.toString(list2);
+        int[] list2 = Arrays.copyOf(list, size);
+        String orig = "list:" + Arrays.toString(list);
+        String orig2 = "list2:" + Arrays.toString(list2);
         sortRec(list);
         sort(list2);
         System.out.println(orig);
-        System.out.println("sorted:"+ Arrays.toString(list));
+        System.out.println("sorted:" + Arrays.toString(list));
         System.out.println(orig2);
-        System.out.println("sorted2:"+ Arrays.toString(list2));
+        System.out.println("sorted2:" + Arrays.toString(list2));
     }
 }

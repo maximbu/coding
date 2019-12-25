@@ -2,7 +2,7 @@ package GeneralAlgos;
 
   public class Z {
 
-    private int[] calculateZ(char input[]) {
+    private int[] calculateZ(char[] input) {
       int[] Z = new int[input.length];
       int left = 0;
       int right = 0;

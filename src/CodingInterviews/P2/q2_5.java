@@ -11,7 +11,7 @@ import static CodingInterviews.utils.MyLinkedListNode.printList;
  */
 public class q2_5 {
 
-    public static  MyLinkedListNode<Integer> sumLists1(MyLinkedListNode<Integer> l1,MyLinkedListNode<Integer> l2) {
+    public static MyLinkedListNode<Integer> sumLists1(MyLinkedListNode<Integer> l1, MyLinkedListNode<Integer> l2) {
         MyLinkedListNode<Integer> head = null;
         MyLinkedListNode<Integer> curr = null;
         Integer val;
@@ -42,8 +42,7 @@ public class q2_5 {
             }
 
         }
-        if(carry)
-        {
+        if (carry) {
             curr.setNext(new MyLinkedListNode<>(1));
         }
 
@@ -51,12 +50,10 @@ public class q2_5 {
     }
 
 
-    public static MyLinkedListNode<Integer> reverse (MyLinkedListNode<Integer> l)
-    {
+    public static MyLinkedListNode<Integer> reverse(MyLinkedListNode<Integer> l) {
         MyLinkedListNode<Integer> prev = null;
         MyLinkedListNode<Integer> curr = l;
-        while (curr!=null)
-        {
+        while (curr != null) {
             MyLinkedListNode<Integer> next = curr.getNext();
             curr.setNext(prev);
             prev = curr;
@@ -65,7 +62,7 @@ public class q2_5 {
         return prev;
     }
 
-    public static  MyLinkedListNode<Integer> sumLists2(MyLinkedListNode<Integer> l1,MyLinkedListNode<Integer> l2) {
+    public static MyLinkedListNode<Integer> sumLists2(MyLinkedListNode<Integer> l1, MyLinkedListNode<Integer> l2) {
         MyLinkedListNode<Integer> tmpL1 = reverse(l1);
         MyLinkedListNode<Integer> tmpL2 = reverse(l2);
         MyLinkedListNode<Integer> ans = reverse(sumLists1(tmpL1, tmpL2));
@@ -75,19 +72,17 @@ public class q2_5 {
     }
 
 
-
-
     public static void main(String[] args) {
-        MyLinkedListNode<Integer> l1 = createList(7,1,6);
-        MyLinkedListNode<Integer> l2 = createList(5,9,4);
+        MyLinkedListNode<Integer> l1 = createList(7, 1, 6);
+        MyLinkedListNode<Integer> l2 = createList(5, 9, 4);
         String l1s = printList(l1);
         String l2s = printList(l2);
-        System.out.println("sumLists1("+l1s+","+l2s+")====>"+printList(sumLists1(l1,l2)));
+        System.out.println("sumLists1(" + l1s + "," + l2s + ")====>" + printList(sumLists1(l1, l2)));
 
-        MyLinkedListNode<Integer> l3 = createList(6,1,7);
-        MyLinkedListNode<Integer> l4 = createList(3,9,5);
+        MyLinkedListNode<Integer> l3 = createList(6, 1, 7);
+        MyLinkedListNode<Integer> l4 = createList(3, 9, 5);
         String l3s = printList(l3);
         String l4s = printList(l4);
-        System.out.println("sumLists2("+l3s+","+l4s+")====>"+printList(sumLists2(l3,l4)));
+        System.out.println("sumLists2(" + l3s + "," + l4s + ")====>" + printList(sumLists2(l3, l4)));
     }
 }

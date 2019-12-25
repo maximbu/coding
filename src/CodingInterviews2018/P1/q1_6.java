@@ -21,9 +21,9 @@ public class q1_6 {
   }
 
   public static void main(String[] args) {
-    System.out.println("compress(aabcccccaaa)"+"->"+compress("aabcccccaaa"));
-    System.out.println("compress(aabcccccaaaaxy)"+"->"+compress("aabcccccaaaaxy"));
-    System.out.println("compress(aabccaa)"+"->"+compress("aabccaa"));
+    System.out.println("compress(aabcccccaaa)" + "->" + compress("aabcccccaaa"));
+    System.out.println("compress(aabcccccaaaaxy)" + "->" + compress("aabcccccaaaaxy"));
+    System.out.println("compress(aabccaa)" + "->" + compress("aabccaa"));
 
   }
 

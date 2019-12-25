@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class SherlockAndTheValidString {
     static String isValid(String s) {
-        int[] cnt = new int['z'-'a'+1];
-        for(char c:s.toCharArray()){
-            cnt[c-'a']++;
+        int[] cnt = new int['z' - 'a' + 1];
+        for (char c : s.toCharArray()) {
+            cnt[c - 'a']++;
         }
         Arrays.sort(cnt);
 
@@ -58,7 +58,7 @@ public class SherlockAndTheValidString {
         return true;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         isValid("aabbc");
     }
 }

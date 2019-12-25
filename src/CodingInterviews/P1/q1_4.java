@@ -8,19 +8,18 @@ import java.util.BitSet;
 public class q1_4 {
     public static boolean palindromePermutation(String st) {
         BitSet occurrences = new BitSet(128);
-        for (int i=0;i<st.length();i++){
+        for (int i = 0; i < st.length(); i++) {
             char letter = st.charAt(i);
-            if(Character.isLetter(letter)) occurrences.flip(Character.toLowerCase(letter));
+            if (Character.isLetter(letter)) occurrences.flip(Character.toLowerCase(letter));
         }
         return occurrences.cardinality() < 2;
     }
 
 
-
     public static void main(String[] args) {
-        System.out.println("palindromePermutation(Tact Coa)"+"->"+palindromePermutation("Tact Coa"));
-        System.out.println("palindromePermutation(Tact Coa)"+"->"+palindromePermutation("Tact Cot"));
-        System.out.println("palindromePermutation(ABCca)"+"->"+palindromePermutation("ABCca"));
-        System.out.println("palindromePermutation(ABCcad)"+"->"+palindromePermutation("ABCcad"));
+        System.out.println("palindromePermutation(Tact Coa)" + "->" + palindromePermutation("Tact Coa"));
+        System.out.println("palindromePermutation(Tact Coa)" + "->" + palindromePermutation("Tact Cot"));
+        System.out.println("palindromePermutation(ABCca)" + "->" + palindromePermutation("ABCca"));
+        System.out.println("palindromePermutation(ABCcad)" + "->" + palindromePermutation("ABCcad"));
     }
 }

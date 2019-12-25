@@ -11,14 +11,13 @@ import static CodingInterviews.utils.MyLinkedListNode.printList;
  */
 public class q2_2 {
 
-    public static <T> T KthToLast(MyLinkedListNode<T> l,int k){
+    public static <T> T KthToLast(MyLinkedListNode<T> l, int k) {
         MyLinkedListNode<T> curr = l;
         MyLinkedListNode<T> kToLast = curr;
         for (int i = 0; i < k; i++) {
             curr = curr.getNext();
         }
-        while (curr != null)
-        {
+        while (curr != null) {
             curr = curr.getNext();
             kToLast = kToLast.getNext();
         }
@@ -26,10 +25,8 @@ public class q2_2 {
     }
 
 
-
-
     public static void main(String[] args) {
-        MyLinkedListNode<Integer> head = createList(1,2,3,4,2,3,4,4,5,2,6,1);
-        System.out.println("KthToLast("+printList(head)+",4)====>"+KthToLast(head,1));
+        MyLinkedListNode<Integer> head = createList(1, 2, 3, 4, 2, 3, 4, 4, 5, 2, 6, 1);
+        System.out.println("KthToLast(" + printList(head) + ",4)====>" + KthToLast(head, 1));
     }
 }

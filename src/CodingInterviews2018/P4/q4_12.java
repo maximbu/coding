@@ -25,11 +25,11 @@ public class q4_12 {
     }
 
     private static int pathsWithSumOpt(BinTreeNode<Integer> root, int sum) {
-        return pathsWithSumOpt(root, sum,0,  new HashMap<>());
+        return pathsWithSumOpt(root, sum, 0, new HashMap<>());
     }
 
     private static int pathsWithSumOpt(BinTreeNode<Integer> node, int sum, int sumSoFar,
-            HashMap<Integer, Integer> map) {
+                                       HashMap<Integer, Integer> map) {
         if (node == null)
             return 0;
 
@@ -69,7 +69,7 @@ public class q4_12 {
         n2.setRight(n1);
 
         int cnt = pathsWithSum(n10, 8);
-        cnt =  pathsWithSumOpt(n10, 8);
+        cnt = pathsWithSumOpt(n10, 8);
 
     }
 

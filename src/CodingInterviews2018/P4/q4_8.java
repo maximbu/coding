@@ -1,13 +1,14 @@
 package CodingInterviews2018.P4;
 
-import static CodingInterviews2018.P4.q4_2.minimalTree;
-
 import CodingInterviews.utils.BinTreeNode;
 import CodingInterviews.utils.ParentBinTreeNode;
+
 import java.util.stream.IntStream;
 
+import static CodingInterviews2018.P4.q4_2.minimalTree;
+
 public class q4_8 {
-    private static <T> ParentBinTreeNode<T> commonAncessor(ParentBinTreeNode<T> a , ParentBinTreeNode<T> b) {
+    private static <T> ParentBinTreeNode<T> commonAncessor(ParentBinTreeNode<T> a, ParentBinTreeNode<T> b) {
         int hA = getHeight(a);
         int hB = getHeight(b);
         while (hA > hB) {
@@ -26,7 +27,7 @@ public class q4_8 {
     }
 
 
-    private static <T> BinTreeNode<T> commonAncessorNoParent(BinTreeNode<T> root , BinTreeNode<T> a , BinTreeNode<T> b) {
+    private static <T> BinTreeNode<T> commonAncessorNoParent(BinTreeNode<T> root, BinTreeNode<T> a, BinTreeNode<T> b) {
         if (root == null || a == null || b == null || root == a || root == b)
             return root;
         boolean isAOnLeft = reachable(root.getLeft(), a);
@@ -38,14 +39,14 @@ public class q4_8 {
         return commonAncessorNoParent(isAOnLeft ? root.getLeft() : root.getRight(), a, b);
     }
 
-    private static <T> boolean reachable(BinTreeNode<T> root , BinTreeNode<T> a) {
-        return a == null || root != null && (root == a || reachable(root.getLeft(), a) || reachable(root.getRight(),a));
+    private static <T> boolean reachable(BinTreeNode<T> root, BinTreeNode<T> a) {
+        return a == null || root != null && (root == a || reachable(root.getLeft(), a) || reachable(root.getRight(), a));
     }
 
 
-    private static <T> int getHeight(ParentBinTreeNode<T> a){
+    private static <T> int getHeight(ParentBinTreeNode<T> a) {
         int ans = -1;
-        while(a != null){
+        while (a != null) {
             a = a.getParent();
             ans++;
         }
@@ -53,7 +54,7 @@ public class q4_8 {
     }
 
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         ParentBinTreeNode<Integer> n20 = new ParentBinTreeNode<>(20);
         ParentBinTreeNode<Integer> n8 = new ParentBinTreeNode<>(8);
         ParentBinTreeNode<Integer> n22 = new ParentBinTreeNode<>(22);
@@ -74,7 +75,7 @@ public class q4_8 {
 
 
         BinTreeNode<Integer> tree = minimalTree(IntStream.range(0, 27).toArray());
-        BinTreeNode<Integer> t = commonAncessorNoParent(tree,tree.getLeft().getLeft().getLeft(),tree.getLeft().getRight().getLeft());
+        BinTreeNode<Integer> t = commonAncessorNoParent(tree, tree.getLeft().getLeft().getLeft(), tree.getLeft().getRight().getLeft());
 
 
         BinTreeNode<Integer> n_20 = new BinTreeNode<>(20);
@@ -85,7 +86,7 @@ public class q4_8 {
         n_20.setLeft(n_10);
         n_20.setRight(n_30);
         n_10.setRight(n_25);
-        BinTreeNode<Integer> t2 = commonAncessorNoParent(n_20,n_10,n_25);
+        BinTreeNode<Integer> t2 = commonAncessorNoParent(n_20, n_10, n_25);
 
     }
 }

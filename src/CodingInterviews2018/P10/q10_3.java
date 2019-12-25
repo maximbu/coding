@@ -29,8 +29,8 @@ public class q10_3 {
     }
 
     public static void main(String[] args) {
-        int[] a = { 2, 3, 1, 2, 2, 2, 2, 2 , 2 , 2 };
-        int[] b = { 15, 16, 19, 20, 25, 1, 3, 4, 5, 7, 10, 14};
+        int[] a = {2, 3, 1, 2, 2, 2, 2, 2, 2, 2};
+        int[] b = {15, 16, 19, 20, 25, 1, 3, 4, 5, 7, 10, 14};
 
         System.out.println(searchInRotatedArray(a, 2));
         System.out.println(searchInRotatedArray(a, 3));

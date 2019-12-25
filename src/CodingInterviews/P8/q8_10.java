@@ -4,7 +4,8 @@ package CodingInterviews.P8;
  * Created by max on 12/28/2016.
  */
 public class q8_10 {
-    public enum Color {None("-"), Red("R"), Green("G");
+    public enum Color {
+        None("-"), Red("R"), Green("G");
 
         private final String repString;
 
@@ -40,14 +41,15 @@ public class q8_10 {
     }
 
     public static void PrintScreen(Color[][] screen) {
-        for (int r = 0; r < screen.length; r++) {
+        for (Color[] colors : screen) {
             for (int c = 0; c < screen[0].length; c++) {
-                System.out.print(screen[r][c]);
+                System.out.print(colors[c]);
             }
             System.out.println();
         }
     }
-    public static void main(String[] st){
+
+    public static void main(String[] st) {
         int N = 10;
         Color[][] screen = new Color[N][N];
         for (int i = 0; i < N; i++) {
@@ -55,8 +57,8 @@ public class q8_10 {
                 screen[i][j] = Color.None;
             }
         }
-        for (int i = 0; i <40; i++) {
-            screen[(int)(Math.random()*N)][(int)(Math.random()*N)] = Color.Green;
+        for (int i = 0; i < 40; i++) {
+            screen[(int) (Math.random() * N)][(int) (Math.random() * N)] = Color.Green;
         }
         PrintScreen(screen);
         fill(screen, 2, 2, Color.Red);

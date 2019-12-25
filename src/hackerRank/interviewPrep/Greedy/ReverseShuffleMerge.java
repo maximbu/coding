@@ -21,7 +21,7 @@ public class ReverseShuffleMerge {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < occ.length; i++) {
             for (int k = 0; k < occ[i] / 2; k++) {
-                sb.append((char)( 'a' + i));
+                sb.append((char) ('a' + i));
             }
         }
         char[] tmp = sb.toString().toCharArray();
@@ -32,23 +32,23 @@ public class ReverseShuffleMerge {
     //abcd -> abdc -> acbd -> acdb -> adbc -> adcb -> bacd
     private static String nextInorder(String sorted) {
         char[] chars = sorted.toCharArray();
-        int right = chars.length-1;
-        while (right>0 && chars[right]<chars[right-1]) {
+        int right = chars.length - 1;
+        while (right > 0 && chars[right] < chars[right - 1]) {
             right--;
         }
         right--;
         if (right == 0) return sorted;
-        int left = right+1;
+        int left = right + 1;
         for (int i = left; i < chars.length; i++) {
-            if(chars[i]>chars[right]){
+            if (chars[i] > chars[right]) {
                 left = i;
             }
         }
         char tmp = chars[left];
-        chars[left]=chars[right];
-        chars[right]=tmp;
+        chars[left] = chars[right];
+        chars[right] = tmp;
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(chars,right+1,chars.length-right-1).reverse();
+        sb2.append(chars, right + 1, chars.length - right - 1).reverse();
         return String.valueOf(chars, 0, right + 1)
                 + sb2;
     }
@@ -67,7 +67,7 @@ public class ReverseShuffleMerge {
         return i == reversed.length();
     }
 
-    public static void main(String[] s){
+    public static void main(String[] s) {
         System.out.println(reverseShuffleMerge("aeiouuoiea"));
         System.out.println(reverseShuffleMerge("abcdefgabcdefg"));
         System.out.println(reverseShuffleMerge("eggegg"));

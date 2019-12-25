@@ -11,8 +11,8 @@ public class SockMerchant2 {
     static int sockMerchant(int n, int[] ar) {
         HashSet<Integer> set = new HashSet<>();
         int cnt = 0;
-        for(int a:ar){
-            if(!set.add(a)){
+        for (int a : ar) {
+            if (!set.add(a)) {
                 cnt++;
                 set.remove(a);
             }

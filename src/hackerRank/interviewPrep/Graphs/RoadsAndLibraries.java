@@ -25,9 +25,9 @@ public class RoadsAndLibraries {
         LinkedList<Integer> nodes = new LinkedList<>();
         nodes.add(city);
         long roadsNeeded = -1;
-        while(!nodes.isEmpty()){
+        while (!nodes.isEmpty()) {
             int origin = nodes.removeFirst();
-            if(!canReachLib[origin]) {
+            if (!canReachLib[origin]) {
                 canReachLib[origin] = true;
                 roadsNeeded++;
                 for (int i = 1; i <= canReachLib.length; i++) {

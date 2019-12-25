@@ -2,27 +2,25 @@ package CodingInterviews2018.P5;
 
 public class q5_2 {
     private static String binToString(double x) {
-        if(x<0 || x> 1){
+        if (x < 0 || x > 1) {
             throw new IllegalArgumentException();
         }
         double frac = 0.5;
         var s = new StringBuilder();
         s.append('.');
-        while (x > 0){
-            if(s.length() > 32){
+        while (x > 0) {
+            if (s.length() > 32) {
                 return "ERROR";
             }
-            if(x >= frac) {
+            if (x >= frac) {
                 s.append(1);
                 x -= frac;
-            }
-            else{
+            } else {
                 s.append(0);
             }
             frac /= 2;
         }
         return s.toString();
-
 
 
     }

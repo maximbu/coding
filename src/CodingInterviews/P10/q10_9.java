@@ -6,7 +6,7 @@ import CodingInterviews.utils.Matrix;
  * Created by max on 12/30/2016.
  */
 public class q10_9 {
-    public static class Coord{
+    public static class Coord {
         int row;
         int col;
 
@@ -24,16 +24,16 @@ public class q10_9 {
         }
     }
 
-    public static Coord sortedMatrixSearch(int[][] m,int x){
+    public static Coord sortedMatrixSearch(int[][] m, int x) {
         int r = 0;
-        int c = m[0].length-1;
-        while (r<m.length && c>=0){
-            if(m[r][c]==x){
-                return new Coord(r,c);
+        int c = m[0].length - 1;
+        while (r < m.length && c >= 0) {
+            if (m[r][c] == x) {
+                return new Coord(r, c);
             }
-            if(m[r][c] > x){
+            if (m[r][c] > x) {
                 c--;
-            }else {
+            } else {
                 r++;
             }
         }
@@ -51,7 +51,6 @@ public class q10_9 {
         }
 
         System.out.println(Matrix.printMatrix(matrix));
-
 
 
         for (int i = 0; i < M; i++) {
