@@ -5,13 +5,13 @@ public class RemoveNthNodeFromListEnd {
     public ListNode removeNthFromEnd(ListNode A, int B) {
         ListNode bth = A;
         ListNode head = A;
-        while(A != null && B-- >0){
+        while (A != null && B-- > 0) {
             A = A.next;
         }
-        if(A == null){
+        if (A == null) {
             return head.next;
         }
-        while(A.next != null){
+        while (A.next != null) {
             A = A.next;
             bth = bth.next;
         }

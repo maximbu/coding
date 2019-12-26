@@ -14,7 +14,7 @@ import java.util.List;
 // out : 133 241 22 258 187 150 79 207 196 401 366 335 198 10 126 95 171 91 139 223 310 39 97 12 79 374 112 401 55 260 363 14 318 178 296 333 296 45 37
 public class SpiralOrderMatrix {
 
-  private enum TraverseDirection{
+  private enum TraverseDirection {
     RIGHT,
     BOTTOM,
     LEFT,
@@ -24,7 +24,7 @@ public class SpiralOrderMatrix {
   public class TraverseState {
     int row = 0;
     int col = 0;
-    HashMap<TraverseDirection,Integer> bounds = new HashMap<>(4);
+    HashMap<TraverseDirection, Integer> bounds = new HashMap<>(4);
     TraverseDirection direction = TraverseDirection.RIGHT;
 
     public TraverseState(int n, int m) {
@@ -34,8 +34,8 @@ public class SpiralOrderMatrix {
       bounds.put(TraverseDirection.LEFT, 0);
     }
 
-    public boolean tryToMove(){
-      switch (direction){
+    public boolean tryToMove() {
+      switch (direction) {
         case RIGHT:
           return tryGoRight();
         case BOTTOM:
@@ -54,7 +54,7 @@ public class SpiralOrderMatrix {
         col++;
         return true;
       }
-      bounds.replace(direction,bound-1);
+      bounds.replace(direction, bound - 1);
       direction = TraverseDirection.BOTTOM;
       return false;
     }
@@ -65,7 +65,7 @@ public class SpiralOrderMatrix {
         col--;
         return true;
       }
-      bounds.replace(direction,bound+1);
+      bounds.replace(direction, bound + 1);
       direction = TraverseDirection.TOP;
       return false;
     }
@@ -76,7 +76,7 @@ public class SpiralOrderMatrix {
         row++;
         return true;
       }
-      bounds.replace(direction,bound-1);
+      bounds.replace(direction, bound - 1);
       direction = TraverseDirection.LEFT;
       return false;
     }
@@ -87,7 +87,7 @@ public class SpiralOrderMatrix {
         row--;
         return true;
       }
-      bounds.replace(direction,bound+1);
+      bounds.replace(direction, bound + 1);
       direction = TraverseDirection.RIGHT;
       return false;
     }
@@ -100,10 +100,10 @@ public class SpiralOrderMatrix {
     int n = a.get(0).size();
 
     result.add(a.get(0).get(0));
-    TraverseState state = new TraverseState(n,m);
+    TraverseState state = new TraverseState(n, m);
 
     while (result.size() < m * n) {
-      if(state.tryToMove()) {
+      if (state.tryToMove()) {
         result.add(a.get(state.row).get(state.col));
       }
     }
@@ -111,7 +111,7 @@ public class SpiralOrderMatrix {
     return result;
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     SpiralOrderMatrix q = new SpiralOrderMatrix();
 
     List<ArrayList<Integer>> input = new ArrayList<>(3);

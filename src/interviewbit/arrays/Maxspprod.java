@@ -29,20 +29,20 @@ public class Maxspprod {
 
         Stack<Integer> q = new Stack<>();
         q.push(0);
-        for(int i = 1; i < n; i++){
+        for (int i = 1; i < n; i++) {
             updateSpecial(A, left, q, i);
         }
         q.clear();
         q.push(n - 1);
-        for(int i = n - 2; i >= 0; i--){
+        for (int i = n - 2; i >= 0; i--) {
             updateSpecial(A, right, q, i);
         }
 
         long mx = -1;
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             mx = Long.max(mx, (long) left[i] * right[i]);
         }
-        return (int)(mx % 1000000007);
+        return (int) (mx % 1000000007);
     }
 
     private void updateSpecial(ArrayList<Integer> A, int[] special, Stack<Integer> q, int i) {
@@ -57,14 +57,14 @@ public class Maxspprod {
 
     public int maxSpecialProductNaive(ArrayList<Integer> A) {
         long max = 0;
-        for(int i=1;i<A.size()-1;i++){
+        for (int i = 1; i < A.size() - 1; i++) {
             int ind = i;
             int left = IntStream.iterate(i - 1, j -> j >= 0, j -> j - 1).filter(j -> A.get(j) > A.get(ind)).findFirst().orElse(0);
             int right = IntStream.range(i + 1, A.size()).filter(j -> A.get(j) > A.get(ind)).findFirst().orElse(0);
             long mul = left * right;
-            max = Math.max(max,mul);
+            max = Math.max(max, mul);
         }
-        return (int)(max%1000000007);
+        return (int) (max % 1000000007);
     }
 
 }

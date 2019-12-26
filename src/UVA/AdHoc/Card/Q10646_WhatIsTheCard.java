@@ -37,7 +37,7 @@ class Q10646_WhatIsTheCard {
         cards = cards.stream().skip(1 + 10 - X).collect(Collectors.toList());
       }
       for (int i = 24; i >= 0; i--) {
-        cards.add(0,hand.get(i));
+        cards.add(0, hand.get(i));
       }
       String guess = cards.get(cards.size() - Y);
       System.out.println("Case " + currCase + ": " + guess);

@@ -37,15 +37,15 @@ public class KthSmallestElementInTree {
     return 1 + count(A.left) + count(A.right);
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     KthSmallestElementInTree q = new KthSmallestElementInTree();
     TreeNode root = new TreeNode(1);
-    System.out.println(q.kthsmallest(root,1));
+    System.out.println(q.kthsmallest(root, 1));
     root = new TreeNode(3);
     root.right = new TreeNode(4);
-    System.out.println(q.kthsmallest(root,2));
+    System.out.println(q.kthsmallest(root, 2));
     root = new TreeNode(3);
     root.left = new TreeNode(2);
-    System.out.println(q.kthsmallest(root,1));
+    System.out.println(q.kthsmallest(root, 1));
   }
 }

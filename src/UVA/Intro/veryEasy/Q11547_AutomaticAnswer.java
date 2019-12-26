@@ -1,10 +1,10 @@
 package UVA.Intro.veryEasy;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
-
 import java.util.Arrays;
 import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 class Q11547_AutomaticAnswer {
   public static void main(String[] st) {
@@ -26,6 +26,6 @@ class Q11547_AutomaticAnswer {
 
   private int solve(int[] line) {
     long x = line[0];
-    return (int) Math.abs((x*315+36962)%100)/10;
+    return (int) Math.abs((x * 315 + 36962) % 100) / 10;
   }
 }

@@ -1,9 +1,9 @@
 package UVA.Intro.veryEasy;
 
+import java.util.Scanner;
+
 import static java.lang.System.in;
 import static java.lang.System.out;
-
-import java.util.Scanner;
 
 class Q12403_SaveSetu {
   public static void main(String[] st) {
@@ -18,10 +18,9 @@ class Q12403_SaveSetu {
     long total = 0;
     while (n-- > 0) {
       String line = sc.nextLine();
-      if(line.equals("report")){
+      if (line.equals("report")) {
         out.println(total);
-      }
-      else {
+      } else {
         total += Integer.parseInt(line.split("\\s+")[1]);
       }
     }

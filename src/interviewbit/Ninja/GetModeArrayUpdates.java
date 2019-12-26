@@ -40,11 +40,11 @@ import java.util.PriorityQueue;
  * 1 ≤ j, Ai ≤ 109
  */
 public class GetModeArrayUpdates {
-  class Data{
+  static class Data {
     int num;
     int cnt;
 
-    public Data(int n,int c){
+    public Data(int n, int c) {
       num = n;
       cnt = c;
     }
@@ -82,35 +82,34 @@ public class GetModeArrayUpdates {
       int newX = change.get(1);
       A.set(change.get(0) - 1, newX);
 
-      updateVal(pq, map, oldX,-1);
-      updateVal(pq, map, newX,1);
+      updateVal(pq, map, oldX, -1);
+      updateVal(pq, map, newX, 1);
 
       ans.add(pq.peek().num);
     }
     return ans;
   }
 
-  private void updateVal(PriorityQueue<Data> pq, HashMap<Integer, Data> map, int val,int change) {
+  private void updateVal(PriorityQueue<Data> pq, HashMap<Integer, Data> map, int val, int change) {
     if (map.containsKey(val)) {
       Data d = map.get(val);
-      d.cnt+=change;
+      d.cnt += change;
       pq.remove(d);
       pq.add(d);
-    }
-    else {
+    } else {
       Data d = new Data(val, change);
       map.put(val, d);
       pq.add(d);
     }
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     GetModeArrayUpdates q = new GetModeArrayUpdates();
     ArrayList<ArrayList<Integer>> updates = new ArrayList<>();
-    updates.add(new ArrayList<>(Arrays.asList(1,3)));
-    updates.add(new ArrayList<>(Arrays.asList(5,4)));
-    updates.add(new ArrayList<>(Arrays.asList(2,4)));
-    System.out.println(q.getMode(new ArrayList<>(Arrays.asList(2, 2, 2, 3, 3)),updates));
+    updates.add(new ArrayList<>(Arrays.asList(1, 3)));
+    updates.add(new ArrayList<>(Arrays.asList(5, 4)));
+    updates.add(new ArrayList<>(Arrays.asList(2, 4)));
+    System.out.println(q.getMode(new ArrayList<>(Arrays.asList(2, 2, 2, 3, 3)), updates));
   }
 }
 

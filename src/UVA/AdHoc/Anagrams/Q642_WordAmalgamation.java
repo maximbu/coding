@@ -1,14 +1,8 @@
 package UVA.AdHoc.Anagrams;
 
-import static java.lang.System.in;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import static java.lang.System.in;
 
 class Q642_WordAmalgamation {
 
@@ -19,36 +13,35 @@ class Q642_WordAmalgamation {
 
   private void solve() {
     Scanner sc = new Scanner(in);
-      List<String> words = new ArrayList<>();
+    List<String> words = new ArrayList<>();
     String word = sc.nextLine();
-      while (!word.equals("XXXXXX")){
-        words.add(word);
-        word = sc.nextLine();
-      }
-      List<String> testWords = new ArrayList<>();
+    while (!word.equals("XXXXXX")) {
+      words.add(word);
       word = sc.nextLine();
-      while (!word.equals("XXXXXX")) {
-        testWords.add(word);
-        word = sc.nextLine();
+    }
+    List<String> testWords = new ArrayList<>();
+    word = sc.nextLine();
+    while (!word.equals("XXXXXX")) {
+      testWords.add(word);
+      word = sc.nextLine();
+    }
+    Map<String, List<String>> ans = solve(words, testWords);
+    for (String testWord : testWords) {
+      List<String> vals = ans.get(testWord);
+      if (vals == null) {
+        System.out.println("NOT A VALID WORD");
+      } else {
+        Collections.sort(vals);
+        for (String val : vals) {
+          System.out.println(val);
+        }
       }
-      Map<String, List<String>> ans = solve(words,testWords);
-      for (String testWord : testWords) {
-        List<String> vals = ans.get(testWord);
-        if(vals == null){
-          System.out.println("NOT A VALID WORD");
-        }
-        else {
-          Collections.sort(vals);
-          for (String val : vals) {
-            System.out.println(val);
-          }
-        }
-        System.out.println("******");
+      System.out.println("******");
     }
   }
 
   private Map<String, List<String>> solve(List<String> words,
-      List<String> testWords) {
+                                          List<String> testWords) {
     Map<String, List<String>> ans = new HashMap<>();
     List<String> sorted = new ArrayList<>();
     for (String word1 : words) {

@@ -13,12 +13,12 @@ class Q11494_Queen {
   private void solve() {
     Scanner sc = new Scanner(System.in);
     while (true) {
-        String[] input = sc.nextLine().split("\\s+");
-        int[] line = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
-        if(Arrays.stream(line).sum()==0) return;
-        int ans = solve(line);
-        System.out.println(ans);
-      }
+      String[] input = sc.nextLine().split("\\s+");
+      int[] line = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
+      if (Arrays.stream(line).sum() == 0) return;
+      int ans = solve(line);
+      System.out.println(ans);
+    }
   }
 
   private int solve(int[] line) {

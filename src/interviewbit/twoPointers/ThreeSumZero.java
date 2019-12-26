@@ -22,39 +22,38 @@ public class ThreeSumZero {
         HashSet<Integer> neg = new HashSet<>();
         HashSet<Integer> pos = new HashSet<>();
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
-        int posInd=0;
+        int posInd = 0;
         int zeroes = 0;
-        for(int x:A){
-            if(x<0){
+        for (int x : A) {
+            if (x < 0) {
                 neg.add(x);
                 posInd++;
-            }
-            else{
-                if(x == 0){
+            } else {
+                if (x == 0) {
                     zeroes++;
                 }
                 pos.add(x);
             }
         }
 
-        findTrippets(A, 0,posInd, pos, ans);
-        findTrippets(A, posInd,A.size(), neg, ans);
+        findTrippets(A, 0, posInd, pos, ans);
+        findTrippets(A, posInd, A.size(), neg, ans);
 
-        if(zeroes >= 3){
-            ans.add(new ArrayList<>(Arrays.asList(0,0,0)));
+        if (zeroes >= 3) {
+            ans.add(new ArrayList<>(Arrays.asList(0, 0, 0)));
         }
 
         return ans;
     }
 
-    private void findTrippets(ArrayList<Integer> A, int from ,int to, HashSet<Integer> pos, ArrayList<ArrayList<Integer>> ans) {
-        for(int i=from;i<to;i++){
-            for(int j=i+1;j<to;j++){
-                int sum = A.get(i)+A.get(j);
-                if(pos.contains(-1*sum)){
-                    ArrayList<Integer> tmp = new ArrayList<>(Arrays.asList(A.get(i),A.get(j),-1*sum));
+    private void findTrippets(ArrayList<Integer> A, int from, int to, HashSet<Integer> pos, ArrayList<ArrayList<Integer>> ans) {
+        for (int i = from; i < to; i++) {
+            for (int j = i + 1; j < to; j++) {
+                int sum = A.get(i) + A.get(j);
+                if (pos.contains(-1 * sum)) {
+                    ArrayList<Integer> tmp = new ArrayList<>(Arrays.asList(A.get(i), A.get(j), -1 * sum));
                     tmp.sort(Integer::compareTo);
-                    if(!containsSolution(ans,tmp)){
+                    if (!containsSolution(ans, tmp)) {
                         ans.add(tmp);
                     }
                 }
@@ -63,9 +62,9 @@ public class ThreeSumZero {
     }
 
     private boolean containsSolution(ArrayList<ArrayList<Integer>> solutions, ArrayList<Integer> newSolution) {
-        for (ArrayList<Integer> sol:solutions) {
+        for (ArrayList<Integer> sol : solutions) {
             boolean contains = IntStream.range(0, sol.size()).allMatch(i -> sol.get(i).equals(newSolution.get(i)));
-            if(contains) return true;
+            if (contains) return true;
         }
         return false;
     }

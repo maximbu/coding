@@ -46,7 +46,7 @@ import java.util.Stack;
  */
 public class ValidPath {
 
-    private class Point {
+    private static class Point {
 
         int x;
         int y;
@@ -82,7 +82,7 @@ public class ValidPath {
     }
 
     public String solve(int A, int B, int C, int D, ArrayList<Integer> E, ArrayList<Integer> F) {
-        return canFindPath(A, B, D,E, F, new HashSet<>()) ? "YES" : "NO";
+        return canFindPath(A, B, D, E, F, new HashSet<>()) ? "YES" : "NO";
     }
 
     private boolean canFindPath(int X, int Y, int R, ArrayList<Integer> cX, ArrayList<Integer> cY, HashSet<Point> seen) {
@@ -123,9 +123,9 @@ public class ValidPath {
         ValidPath q = new ValidPath();
         String ans = q.solve(2, 3, 1, 1, new ArrayList<>(Arrays.asList(2)), new ArrayList<>(Arrays.asList(3)));
         System.out.println(ans);
-        String ans2 = q.solve(82, 85, 9, 6, new ArrayList<>(Arrays.asList(65 ,19 ,38 ,56 ,19 ,79 ,74 ,8 ,56)), new ArrayList<>(Arrays.asList(25 ,46 ,54 ,11 ,63 ,80 ,37 ,45 ,52)));
+        String ans2 = q.solve(82, 85, 9, 6, new ArrayList<>(Arrays.asList(65, 19, 38, 56, 19, 79, 74, 8, 56)), new ArrayList<>(Arrays.asList(25, 46, 54, 11, 63, 80, 37, 45, 52)));
         System.out.println(ans2);
-        String ans3 = q.solve(41, 67, 5, 0, new ArrayList<>(Arrays.asList(17 ,16 ,12 ,0 ,40)), new ArrayList<>(Arrays.asList(52 ,61 ,61 ,25 ,31)));
+        String ans3 = q.solve(41, 67, 5, 0, new ArrayList<>(Arrays.asList(17, 16, 12, 0, 40)), new ArrayList<>(Arrays.asList(52, 61, 61, 25, 31)));
         System.out.println(ans3);
     }
 

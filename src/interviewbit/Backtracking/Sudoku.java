@@ -39,7 +39,7 @@ public class Sudoku {
 
             for (int i = 1; i < 10; i++) {
                 putChar(a, ind, (char) (i + '0'));
-                if (valid(a ,ind) && solveSudokuInternal(a)) {
+                if (valid(a, ind) && solveSudokuInternal(a)) {
                     return true;
                 }
                 putChar(a, ind, '.');
@@ -50,13 +50,12 @@ public class Sudoku {
     }
 
 
-
-    private char getInd(ArrayList<ArrayList<Character>> a,int ind){
+    private char getInd(ArrayList<ArrayList<Character>> a, int ind) {
         return a.get(ind / a.size()).get(ind % a.get(0).size());
     }
 
-    private void putChar(ArrayList<ArrayList<Character>> a,int ind , char c){
-        a.get(ind / a.size()).set(ind % a.get(0).size() , c);
+    private void putChar(ArrayList<ArrayList<Character>> a, int ind, char c) {
+        a.get(ind / a.size()).set(ind % a.get(0).size(), c);
     }
 
     private boolean valid(ArrayList<ArrayList<Character>> a, int ind) {
@@ -64,7 +63,7 @@ public class Sudoku {
                 && validSquares(a, ind);
     }
 
-    private boolean validRows(ArrayList<ArrayList<Character>> a, int ind){
+    private boolean validRows(ArrayList<ArrayList<Character>> a, int ind) {
         return checkValid(a.get(ind / a.size()));
     }
 
@@ -76,19 +75,19 @@ public class Sudoku {
         return checkValid(tmp);
     }
 
-    private boolean validSquares(ArrayList<ArrayList<Character>> a, int ind){
-        int row = 3*((ind / a.size()) /3);
-        int col = 3*((ind % a.size()) /3);
+    private boolean validSquares(ArrayList<ArrayList<Character>> a, int ind) {
+        int row = 3 * ((ind / a.size()) / 3);
+        int col = 3 * ((ind % a.size()) / 3);
         ArrayList<Character> tmp = new ArrayList<>();
-        for(int i=row;i<row+3;i++){
-            for(int j=col;j<col+3;j++){
+        for (int i = row; i < row + 3; i++) {
+            for (int j = col; j < col + 3; j++) {
                 tmp.add(a.get(i).get(j));
             }
         }
         return checkValid(tmp);
     }
 
-    private boolean checkValid(ArrayList<Character> a){
+    private boolean checkValid(ArrayList<Character> a) {
         HashSet<Character> set = new HashSet<>();
         return a.stream().noneMatch(c -> c != '.' && !set.add(c));
     }
@@ -111,7 +110,7 @@ public class Sudoku {
         System.out.println(A);
     }
 
-    private static ArrayList<Character> toArr(String s){
+    private static ArrayList<Character> toArr(String s) {
         ArrayList<Character> chars = new ArrayList<>();
         for (char c : s.toCharArray()) {
             chars.add(c);

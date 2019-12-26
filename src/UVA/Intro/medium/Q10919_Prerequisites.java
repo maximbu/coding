@@ -34,7 +34,7 @@ class Q10919_Prerequisites {
         int[] line = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
         int minCourses = line[1];
         int cnt = (int) IntStream.range(2, line.length).filter(j -> courses.contains(line[j]))
-            .count();
+                .count();
         if (cnt < minCourses) {
           meetsReq = false;
         }

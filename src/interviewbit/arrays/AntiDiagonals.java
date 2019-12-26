@@ -22,7 +22,7 @@ import java.util.ArrayList;
  ]
  */
 public class AntiDiagonals {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     AntiDiagonals q = new AntiDiagonals();
 
     ArrayList<ArrayList<Integer>> X = new ArrayList<ArrayList<Integer>>();
@@ -47,13 +47,13 @@ public class AntiDiagonals {
 
   public ArrayList<ArrayList<Integer>> diagonal(ArrayList<ArrayList<Integer>> a) {
     ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
-    for (int i = 0; i < a.size()*2-1; i++) {
+    for (int i = 0; i < a.size() * 2 - 1; i++) {
       ArrayList<Integer> diag = new ArrayList<>();
       ans.add(diag);
-      int startJ = Math.min(i,a.size()-1);
-      int startI = i -startJ;
+      int startJ = Math.min(i, a.size() - 1);
+      int startI = i - startJ;
       for (int j = 0; j <= i; j++) {
-        if(startI+j < a.size() && startJ-j >= 0) {
+        if (startI + j < a.size() && startJ - j >= 0) {
           diag.add(a.get(startI + j).get(startJ - j));
         }
       }

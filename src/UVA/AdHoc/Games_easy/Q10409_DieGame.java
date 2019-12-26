@@ -15,10 +15,10 @@ class Q10409_DieGame {
     Scanner sc = new Scanner(System.in);
     while (true) {
       int cases = sc.nextInt();
-      if(cases == 0) return;
+      if (cases == 0) return;
       sc.nextLine();
       List<String> directions = new ArrayList<>();
-      while (cases-- > 0){
+      while (cases-- > 0) {
         String direction = sc.nextLine();
         directions.add(direction);
       }
@@ -28,9 +28,9 @@ class Q10409_DieGame {
   }
 
   private int solve(List<String> directions) {
-    int[] die = {1,2,3,5,4,6};
-    for (String dir:directions) {
-      die = rotate(die,dir);
+    int[] die = {1, 2, 3, 5, 4, 6};
+    for (String dir : directions) {
+      die = rotate(die, dir);
     }
     return die[0];
   }
@@ -38,36 +38,37 @@ class Q10409_DieGame {
   private int[] rotate(int[] die, String dir) {
     int[] tmp = new int[6];
     System.arraycopy(die, 0, tmp, 0, 6);
-    switch (dir){
-      case "north":{
-        tmp[0]=die[3];
-        tmp[3]=die[5];
-        tmp[5]=die[1];
-        tmp[1]=die[0];
+    switch (dir) {
+      case "north": {
+        tmp[0] = die[3];
+        tmp[3] = die[5];
+        tmp[5] = die[1];
+        tmp[1] = die[0];
         return tmp;
       }
-      case "west":{
-        tmp[0]=die[4];
-        tmp[4]=die[5];
-        tmp[5]=die[2];
-        tmp[2]=die[0];
+      case "west": {
+        tmp[0] = die[4];
+        tmp[4] = die[5];
+        tmp[5] = die[2];
+        tmp[2] = die[0];
         return tmp;
       }
-      case "south":{
-        tmp[0]=die[1];
-        tmp[1]=die[5];
-        tmp[5]=die[3];
-        tmp[3]=die[0];
+      case "south": {
+        tmp[0] = die[1];
+        tmp[1] = die[5];
+        tmp[5] = die[3];
+        tmp[3] = die[0];
         return tmp;
       }
-      case "east":{
-        tmp[0]=die[2];
-        tmp[2]=die[5];
-        tmp[5]=die[4];
-        tmp[4]=die[0];
+      case "east": {
+        tmp[0] = die[2];
+        tmp[2] = die[5];
+        tmp[5] = die[4];
+        tmp[4] = die[0];
         return tmp;
       }
-      default:return die;
+      default:
+        return die;
     }
   }
 

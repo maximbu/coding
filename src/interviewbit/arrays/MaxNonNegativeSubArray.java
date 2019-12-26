@@ -62,14 +62,14 @@ public class MaxNonNegativeSubArray {
     a = new ArrayList<>();
     a.add(336465782);
     a.add(-278722862);
-    a.add( -2145174067);
+    a.add(-2145174067);
     a.add(1101513929);
     a.add(1315634022);
     a.add(-1369133069);
-    a.add( 1059961393);
+    a.add(1059961393);
     a.add(628175011);
     a.add(-1131176229);
-    a.add( -859484421); // 1101513929 1315634022
+    a.add(-859484421); // 1101513929 1315634022
 
     System.out.println(q.maxset(a));
 
@@ -78,11 +78,11 @@ public class MaxNonNegativeSubArray {
 
   public ArrayList<Integer> maxset(ArrayList<Integer> a) {
     ArrayList<Integer> ans = new ArrayList<>();
-    int tempI ;
+    int tempI;
     int bestI = 0;
-    int tempJ ;
+    int tempJ;
     int bestJ = 0;
-    long max =  Long.MIN_VALUE;
+    long max = Long.MIN_VALUE;
     long tempMax;
 
     for (int i = 0; i < a.size(); i++) {
@@ -101,7 +101,7 @@ public class MaxNonNegativeSubArray {
       }
     }
 
-    if(max>=0) {
+    if (max >= 0) {
       for (int i = bestI; i <= bestJ; i++) {
         ans.add(a.get(i));
       }

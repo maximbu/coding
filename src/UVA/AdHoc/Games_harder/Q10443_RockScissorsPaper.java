@@ -53,9 +53,7 @@ class Q10443_RockScissorsPaper {
       }
 
       for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-          board[i][j] = newBoard[i][j];
-        }
+        System.arraycopy(newBoard[i], 0, board[i], 0, cols);
       }
     }
   }

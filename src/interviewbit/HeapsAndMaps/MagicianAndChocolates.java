@@ -2,7 +2,6 @@ package interviewbit.HeapsAndMaps;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -35,6 +34,6 @@ public class MagicianAndChocolates {
             A--;
             pq.add(t / 2);
         }
-        return (int)sum;
+        return (int) sum;
     }
 }

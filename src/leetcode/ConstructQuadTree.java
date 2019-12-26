@@ -29,7 +29,7 @@ package leetcode;
  * If you want to know more about the quad tree, you can refer to its wiki.
  */
 public class ConstructQuadTree {
-  class Node {
+  static class Node {
     public boolean val;
     public boolean isLeaf;
     public Node topLeft;
@@ -37,9 +37,10 @@ public class ConstructQuadTree {
     public Node bottomLeft;
     public Node bottomRight;
 
-    public Node() {}
+    public Node() {
+    }
 
-    public Node(boolean _val,boolean _isLeaf,Node _topLeft,Node _topRight,Node _bottomLeft,Node _bottomRight) {
+    public Node(boolean _val, boolean _isLeaf, Node _topLeft, Node _topRight, Node _bottomLeft, Node _bottomRight) {
       val = _val;
       isLeaf = _isLeaf;
       topLeft = _topLeft;
@@ -48,37 +49,38 @@ public class ConstructQuadTree {
       bottomRight = _bottomRight;
     }
   }
+
   public Node construct(int[][] grid) {
-    return construct(grid,0,0,grid.length,grid.length);
+    return construct(grid, 0, 0, grid.length, grid.length);
   }
 
-  public Node construct(int[][] grid,int fromI , int fromJ, int toI , int toJ) {
-    if(fromI==toI && fromJ == toJ){
-      return new Node(grid[toI][toJ]==1,true,null,null,null,null);
+  public Node construct(int[][] grid, int fromI, int fromJ, int toI, int toJ) {
+    if (fromI == toI && fromJ == toJ) {
+      return new Node(grid[toI][toJ] == 1, true, null, null, null, null);
     }
-    int same = allSame(grid,fromI,fromJ,toI,toJ);
-    if(same != -1){
-      return new Node(same==1,true,null,null,null,null);
+    int same = allSame(grid, fromI, fromJ, toI, toJ);
+    if (same != -1) {
+      return new Node(same == 1, true, null, null, null, null);
     }
-    return new Node(false,false,
-            construct(grid,fromI,fromJ,(fromI+toI)/2,(fromJ+toJ)/2),
-            construct(grid,fromI,(fromJ+toJ)/2,(fromI+toI)/2,toJ),
-            construct(grid,(fromI+toI)/2,fromJ,toI,(fromJ+toJ)/2),
-            construct(grid,(fromI+toI)/2,(fromJ+toJ)/2,toI,toJ));
+    return new Node(false, false,
+            construct(grid, fromI, fromJ, (fromI + toI) / 2, (fromJ + toJ) / 2),
+            construct(grid, fromI, (fromJ + toJ) / 2, (fromI + toI) / 2, toJ),
+            construct(grid, (fromI + toI) / 2, fromJ, toI, (fromJ + toJ) / 2),
+            construct(grid, (fromI + toI) / 2, (fromJ + toJ) / 2, toI, toJ));
   }
 
-  private int allSame(int[][] grid,int fromI , int fromJ, int toI , int toJ){
+  private int allSame(int[][] grid, int fromI, int fromJ, int toI, int toJ) {
     int val = grid[fromI][fromJ];
-    for(int i=fromI;i<toI;i++){
-      for(int j=fromJ;j<toJ;j++){
-        if(grid[i][j]!= val) return -1;
+    for (int i = fromI; i < toI; i++) {
+      for (int j = fromJ; j < toJ; j++) {
+        if (grid[i][j] != val) return -1;
       }
     }
     return val;
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     ConstructQuadTree q = new ConstructQuadTree();
-    System.out.println(q.construct(new int[][]{{1,0},{1,0}}));
+    System.out.println(q.construct(new int[][]{{1, 0}, {1, 0}}));
   }
 }

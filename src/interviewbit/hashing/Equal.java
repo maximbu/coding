@@ -69,9 +69,9 @@ public class Equal {
     return 0;
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     Equal q = new Equal();
     System.out.println(q.equal(new ArrayList<>(Arrays.asList(3, 4, 7, 1, 2, 9, 8))));
-    System.out.println(q.equal(new ArrayList<>(Arrays.asList(1, 1, 1, 1, 1 ))));
+    System.out.println(q.equal(new ArrayList<>(Arrays.asList(1, 1, 1, 1, 1))));
   }
 }

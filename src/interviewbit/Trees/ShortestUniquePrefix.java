@@ -24,27 +24,27 @@ public class ShortestUniquePrefix {
         MultiNodeCharTree t = new MultiNodeCharTree();
         t.addAll(A);
         ArrayList<String> ans = new ArrayList<>();
-        for (String st:A) {
+        for (String st : A) {
             ans.add(t.unique(st));
         }
         return ans;
     }
 
-    private class MultiNodeCharTree {
-        HashMap<Character,MultiNodeCharTree> children;
+    private static class MultiNodeCharTree {
+        HashMap<Character, MultiNodeCharTree> children;
 
-        public MultiNodeCharTree(){
+        public MultiNodeCharTree() {
             children = new HashMap<>();
         }
 
         public void addAll(List<String> list) {
-            for (String s:list) {
+            for (String s : list) {
                 add(s);
             }
         }
 
         public void add(String s) {
-             add(s,0);
+            add(s, 0);
         }
 
         private void add(String s, int i) {
@@ -63,18 +63,18 @@ public class ShortestUniquePrefix {
         }
 
         public String unique(String st) {
-            return unique(st,0);
+            return unique(st, 0);
         }
 
-        private String unique(String st , int i) {
+        private String unique(String st, int i) {
             if (st.length() <= i)
                 return st;
             char c = st.charAt(i);
             MultiNodeCharTree child = children.get(c);
-            if(child.children.size() == 1 && onlyChild(st,i)){
-                return st.substring(0,i+1);
+            if (child.children.size() == 1 && onlyChild(st, i)) {
+                return st.substring(0, i + 1);
             }
-            return child.unique(st,i+1);
+            return child.unique(st, i + 1);
         }
 
         private boolean onlyChild(String st, int i) {
@@ -82,11 +82,11 @@ public class ShortestUniquePrefix {
                 return true;
             char c = st.charAt(i);
             MultiNodeCharTree child = children.get(c);
-            return (child.children.size() < 2) && child.onlyChild(st,i+1);
+            return (child.children.size() < 2) && child.onlyChild(st, i + 1);
         }
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         ShortestUniquePrefix q = new ShortestUniquePrefix();
         System.out.println(q.prefix(new ArrayList<>(Arrays.asList("zebra", "dog", "duck", "dove"))));
         System.out.println(q.prefix(new ArrayList<>(Arrays.asList("bearcat", "bert"))));

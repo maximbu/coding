@@ -18,13 +18,13 @@ public class SumOfFibonacciNumbers {
         ArrayList<Integer> arr = new ArrayList<>();
         arr.add(1);
         arr.add(1);
-        while(arr.get(arr.size()-1) <= A){
-            arr.add(arr.get(arr.size()-1)+arr.get(arr.size()-2));
+        while (arr.get(arr.size() - 1) <= A) {
+            arr.add(arr.get(arr.size() - 1) + arr.get(arr.size() - 2));
         }
         int cnt = 0;
-        int ind = arr.size()-1;
-        while(A > 0){
-            if(arr.get(ind) > A){
+        int ind = arr.size() - 1;
+        while (A > 0) {
+            if (arr.get(ind) > A) {
                 ind--;
                 continue;
             }

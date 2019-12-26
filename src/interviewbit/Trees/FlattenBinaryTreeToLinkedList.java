@@ -28,26 +28,25 @@ package interviewbit.Trees;
  * Note that the left child of all nodes should be NULL.
  */
 public class FlattenBinaryTreeToLinkedList {
-    public class Solution {
+    public static class Solution {
         public TreeNode flatten(TreeNode a) {
-            if(a == null){
+            if (a == null) {
                 return null;
             }
             TreeNode left = flatten(a.left);
             TreeNode right = flatten(a.right);
             a.left = null;
             a.right = left;
-            if(left != null){
+            if (left != null) {
                 getLastChild(left).right = right;
-            }
-            else{
+            } else {
                 a.right = right;
             }
             return a;
         }
 
         private TreeNode getLastChild(TreeNode a) {
-            while(a.right != null){
+            while (a.right != null) {
                 a = a.right;
             }
             return a;

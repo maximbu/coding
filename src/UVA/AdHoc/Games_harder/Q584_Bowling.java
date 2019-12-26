@@ -64,7 +64,7 @@ class Q584_Bowling {
       return 20 + value(nextNext);
     }
     return isSpare(nextNext) ? 20 : 10 + value(next)
-        + value(nextNext);
+            + value(nextNext);
   }
 
 

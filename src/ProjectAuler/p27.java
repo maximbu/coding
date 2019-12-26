@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 /**
@@ -26,16 +25,16 @@ Find the product of the coefficients, a and b, for the quadratic expression that
     public int questionNaive(int n) {
         int longest = 0;
         int longestProd = 0;
-        Set<Integer> primes = getPrimesTill(n).stream().collect(Collectors.toSet());
-        for (int b:primes) {
+        Set<Integer> primes = new HashSet<>(getPrimesTill(n));
+        for (int b : primes) {
             for (int a = -n; a < n; a++) {
-                if(!primes.contains(a+b+1)){
+                if (!primes.contains(a + b + 1)) {
                     continue;
                 }
-                int seqLen = getSeqLen(a,b,primes);
-                if(seqLen > longest){
+                int seqLen = getSeqLen(a, b, primes);
+                if (seqLen > longest) {
                     longest = seqLen;
-                    longestProd = a*b;
+                    longestProd = a * b;
                 }
             }
         }
@@ -44,32 +43,31 @@ Find the product of the coefficients, a and b, for the quadratic expression that
     }
 
     private int getSeqLen(int a, int b, Set<Integer> primes) {
-        int i=1;
-        while(true){
-            int y = i*i+a*i+b;
-            if(primes.contains(y)) {
+        int i = 1;
+        while (true) {
+            int y = i * i + a * i + b;
+            if (primes.contains(y)) {
                 i++;
-            }
-            else{
+            } else {
                 return i;
             }
         }
     }
 
 
-    private List<Integer> getPrimesTill(int n){
-        boolean[] nonPrimes = new boolean[n+1];
+    private List<Integer> getPrimesTill(int n) {
+        boolean[] nonPrimes = new boolean[n + 1];
         List<Integer> list = new ArrayList<>();
         list.add(2);
-        for (int i = 3; i < n+1; i+=2) {
-            if(!nonPrimes[i]){
+        for (int i = 3; i < n + 1; i += 2) {
+            if (!nonPrimes[i]) {
                 list.add(i);
-                for (int j = 2*i; j < n+1; j+=i) {
-                    nonPrimes[j]=true;
+                for (int j = 2 * i; j < n + 1; j += i) {
+                    nonPrimes[j] = true;
                 }
             }
         }
-         return list;
+        return list;
     }
 
 

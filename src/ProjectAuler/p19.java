@@ -1,9 +1,6 @@
 package ProjectAuler;
 
-import java.time.DayOfWeek;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by max on 1/27/2017.
@@ -22,7 +19,7 @@ And on leap years, twenty-nine.
 A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
 How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
      */
-    private static Calendar cal= Calendar.getInstance();
+    private static Calendar cal = Calendar.getInstance();
 
     public static int questionNaive() {
         int sundays = 1;
@@ -38,7 +35,7 @@ How many Sundays fell on the first of the month during the twentieth century (1 
         return sundays;
     }
 
-    public static Calendar createDateInstance(int month, int year, int date){
+    public static Calendar createDateInstance(int month, int year, int date) {
         cal.set(Calendar.YEAR, year);
         cal.set(Calendar.MONTH, month);
         cal.set(Calendar.DATE, date);

@@ -15,26 +15,26 @@ class Q141_TheSpotGame {
   private void solve() {
     Scanner sc = new Scanner(System.in);
 
-    while(true){
+    while (true) {
       int N = sc.nextInt();
-      if(N == 0) return;
+      if (N == 0) return;
       sc.nextLine();
-      int movesNum = 2*N;
+      int movesNum = 2 * N;
       List<Move> moves = new ArrayList<>();
-      while (movesNum-- > 0){
+      while (movesNum-- > 0) {
         int x = sc.nextInt();
         int y = sc.nextInt();
         boolean add = sc.nextLine().trim().equals("+");
-        Move m = new Move(x,y,add);
+        Move m = new Move(x, y, add);
         moves.add(m);
       }
-      String ret = solve(N,moves);
+      String ret = solve(N, moves);
       System.out.println(ret);
     }
 
   }
 
-  private String solve(int N,List<Move> moves) {
+  private String solve(int N, List<Move> moves) {
     int currPlayer = 1;
 
     List<Board> seenMoves = new ArrayList<>();
@@ -45,7 +45,7 @@ class Q141_TheSpotGame {
       board.move(currMove);
       currPlayer = 3 - currPlayer;
       if (seenMoves.contains(board)) {
-        return "Player " + currPlayer + " wins on move " + (i+1);
+        return "Player " + currPlayer + " wins on move " + (i + 1);
       }
       seenMoves.add(board.copy());
 
@@ -58,7 +58,7 @@ class Q141_TheSpotGame {
     private final int n;
     boolean[][] board;
 
-    public Board(int N){
+    public Board(int N) {
       n = N;
       board = new boolean[N][N];
     }
@@ -66,7 +66,7 @@ class Q141_TheSpotGame {
     public Board copy() {
       Board nb = new Board(n);
       IntStream.range(0, n)
-          .forEach(i -> System.arraycopy(board[i], 0, nb.board[i], 0, n));
+              .forEach(i -> System.arraycopy(board[i], 0, nb.board[i], 0, n));
       return nb;
     }
 
@@ -93,16 +93,16 @@ class Q141_TheSpotGame {
       }
       Board board1 = (Board) o;
       return same(board, board1.board) ||
-          same(board, rotate(board1.board,1)) ||
-          same(board, rotate(board1.board,2)) ||
-          same(board, rotate(board1.board,3));
+              same(board, rotate(board1.board, 1)) ||
+              same(board, rotate(board1.board, 2)) ||
+              same(board, rotate(board1.board, 3));
 
     }
 
     private boolean same(boolean[][] b1, boolean[][] b2) {
       for (int i = 0; i < b1.length; i++) {
         for (int j = 0; j < b1.length; j++) {
-          if(b1[i][j] != b2[i][j]) return false;
+          if (b1[i][j] != b2[i][j]) return false;
         }
       }
       return true;
@@ -113,18 +113,18 @@ class Q141_TheSpotGame {
       boolean[][] ans = new boolean[N][N];
       for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-          boolean val =false;
+          boolean val = false;
           switch (numOf90Rotations) {
             case 1: {
               val = board[j][N - i - 1];
               break;
             }
             case 2: {
-              val = board[N-i-1][N-j-1];
+              val = board[N - i - 1][N - j - 1];
               break;
             }
             case 3: {
-              val = board[N-j-1][i];
+              val = board[N - j - 1][i];
               break;
             }
           }
@@ -136,7 +136,7 @@ class Q141_TheSpotGame {
 
 
     public void move(Move currMove) {
-      board[currMove.x-1][currMove.y-1] = currMove.add;
+      board[currMove.x - 1][currMove.y - 1] = currMove.add;
     }
   }
 
@@ -155,10 +155,10 @@ class Q141_TheSpotGame {
     @Override
     public String toString() {
       return "Move{" +
-          "x=" + x +
-          ", y=" + y +
-          ", add=" + add +
-          '}';
+              "x=" + x +
+              ", y=" + y +
+              ", add=" + add +
+              '}';
     }
   }
 }

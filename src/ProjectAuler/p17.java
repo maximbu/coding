@@ -1,7 +1,5 @@
 package ProjectAuler;
 
-import java.math.BigInteger;
-
 /**
  * Created by max on 1/27/2017.
  */
@@ -16,26 +14,25 @@ NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-
 
 
     public static int questionNaive(int n) {
-       int sum = 0;
+        int sum = 0;
         for (int i = 1; i <= n; i++) {
-            sum+=numOfLetters(i);
+            sum += numOfLetters(i);
         }
 
-       return sum;
+        return sum;
     }
 
     private static int numOfLetters(int n) {
-        if (n<20) return LESS_THAN_20[n].length();
-        if(n<100) return TENS[n/10].length()+LESS_THAN_20[n%10].length();
-        if(n<1000) {
-            if(n%100 != 0) {
+        if (n < 20) return LESS_THAN_20[n].length();
+        if (n < 100) return TENS[n / 10].length() + LESS_THAN_20[n % 10].length();
+        if (n < 1000) {
+            if (n % 100 != 0) {
                 return LESS_THAN_20[n / 100].length() + "hundred".length() + "and".length() + numOfLetters(n % 100);
-            }
-            else{
+            } else {
                 return LESS_THAN_20[n / 100].length() + "hundred".length();
             }
         }
-        return LESS_THAN_20[n/1000].length()+"thousand".length()+numOfLetters(n%1000);
+        return LESS_THAN_20[n / 1000].length() + "thousand".length() + numOfLetters(n % 1000);
     }
 
 

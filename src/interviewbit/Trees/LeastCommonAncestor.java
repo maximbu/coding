@@ -39,9 +39,9 @@ public class LeastCommonAncestor {
         }
     }
 
-    private boolean exist (TreeNode A, int B){
-        if(A == null) return false;
-        if(A.val == B) return true;
-        return exist(A.left,B) || exist(A.right,B);
+    private boolean exist(TreeNode A, int B) {
+        if (A == null) return false;
+        if (A.val == B) return true;
+        return exist(A.left, B) || exist(A.right, B);
     }
 }

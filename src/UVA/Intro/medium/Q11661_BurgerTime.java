@@ -13,7 +13,7 @@ class Q11661_BurgerTime {
     Scanner sc = new Scanner(System.in);
     while (true) {
       int len = sc.nextInt();
-      if(len == 0) return;
+      if (len == 0) return;
       sc.nextLine();
       String road = sc.nextLine();
       int ans = solve(road);
@@ -35,7 +35,7 @@ class Q11661_BurgerTime {
           closestDist = Math.min(closestDist, i - prevLoc);
         }
         prevLoc = i;
-        cToFind = (chars[i] == 'R')?'D':'R';
+        cToFind = (chars[i] == 'R') ? 'D' : 'R';
 
       }
     }

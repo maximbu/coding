@@ -2,6 +2,7 @@ package interviewbit.twoPointers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Given two sorted integer arrays A and B, merge B into A as one sorted array.
@@ -41,19 +42,19 @@ public class MergeTwoSortedListsII {
     public static void main(String[] st) {
         MergeTwoSortedListsII q = new MergeTwoSortedListsII();
 
-        ArrayList<Integer> a =new ArrayList<>(Arrays.asList(1,2));
-        ArrayList<Integer> b =new ArrayList<>(Arrays.asList(-1,2));
-        q.merge(a,b);
+        ArrayList<Integer> a = new ArrayList<>(Arrays.asList(1, 2));
+        ArrayList<Integer> b = new ArrayList<>(Arrays.asList(-1, 2));
+        q.merge(a, b);
         System.out.println(a);
 
-        a =new ArrayList<>(Arrays.asList(-4,3));
-        b =new ArrayList<>(Arrays.asList(-2,2));
-        q.merge(a,b);
+        a = new ArrayList<>(Arrays.asList(-4, 3));
+        b = new ArrayList<>(Arrays.asList(-2, 2));
+        q.merge(a, b);
         System.out.println(a);
 
-        a =new ArrayList<>(Arrays.asList(-4,-3,0));
-        b =new ArrayList<>(Arrays.asList(2));
-        q.merge(a,b);
+        a = new ArrayList<>(Arrays.asList(-4, -3, 0));
+        b = new ArrayList<>(Collections.singletonList(2));
+        q.merge(a, b);
         System.out.println(a);
     }
 }

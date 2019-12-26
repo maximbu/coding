@@ -24,7 +24,7 @@ public class CloneGraph {
                 }
                 UndirectedGraphNode parent = map.get(copied);
                 parent.neighbors.add(clone);
-                if(!handled.contains(n) && copied != n) {
+                if (!handled.contains(n) && copied != n) {
                     q.add(n);
                 }
             }

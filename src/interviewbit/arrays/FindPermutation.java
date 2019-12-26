@@ -36,7 +36,7 @@ public class FindPermutation {
   // DO NOT MODIFY THE LIST. IT IS READ ONLY
   public ArrayList<Integer> findPerm(final String A, int B) {
     ArrayList<Integer> ans = new ArrayList<>();
-    int highestRem  = B;
+    int highestRem = B;
     int smallestRem = 1;
 
     for (char ch : A.toCharArray()) {

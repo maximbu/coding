@@ -1,8 +1,5 @@
 package interviewbit.Trees;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
  *
@@ -23,17 +20,17 @@ import java.util.List;
 public class SumRootToLeafNumbers {
 
     public int sumNumbers(TreeNode A) {
-        return sumNumbersBfs(A,0);
+        return sumNumbersBfs(A, 0);
     }
 
     private int sumNumbersBfs(TreeNode a, int sum) {
         if (a == null) return 0;
-        sum = (sum*10 + a.val) % 1003;
+        sum = (sum * 10 + a.val) % 1003;
 
-        if(a.left == null && a.right == null){
+        if (a.left == null && a.right == null) {
             return sum;
         }
-        return (sumNumbersBfs(a.left,sum) + sumNumbersBfs(a.right,sum)) % 1003;
+        return (sumNumbersBfs(a.left, sum) + sumNumbersBfs(a.right, sum)) % 1003;
     }
 /*
     public int sumNumbers2(TreeNode A) {
@@ -82,7 +79,7 @@ public class SumRootToLeafNumbers {
     }
 */
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         SumRootToLeafNumbers q = new SumRootToLeafNumbers();
         TreeNode root = new TreeNode(1);
         root.right = new TreeNode(2);

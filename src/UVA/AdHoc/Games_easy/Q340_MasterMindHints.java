@@ -29,7 +29,7 @@ class Q340_MasterMindHints {
         int[] line = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
         if (Arrays.stream(line).sum() == 0)
           break;
-        String ans = solve(cypher , line);
+        String ans = solve(cypher, line);
         System.out.println(ans);
       }
     }
@@ -61,8 +61,6 @@ class Q340_MasterMindHints {
 
     return String.format("    (%d,%d)", strong, weak);
   }
-
-
 
 
 }

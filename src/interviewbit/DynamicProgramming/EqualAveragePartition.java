@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
  */
 public class EqualAveragePartition {
 
-    class dpHelper {
+    static class dpHelper {
 
         int val;
         ArrayList<Integer> items;
@@ -61,7 +61,7 @@ public class EqualAveragePartition {
     }
 
     private ArrayList<Integer> subsetOfSizeWithVal(int size, int val, ArrayList<Integer> A) {
-            throw new RuntimeException(); // TODO: continue
+        throw new RuntimeException(); // TODO: continue
     }
 
 

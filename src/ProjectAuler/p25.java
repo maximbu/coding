@@ -1,9 +1,6 @@
 package ProjectAuler;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
 /**
@@ -35,17 +32,14 @@ What is the index of the first term in the Fibonacci sequence to contain 1000 di
         BigInteger nMinus2 = new BigInteger("1");
         BigInteger nMinus1 = new BigInteger("1");
         int ind = 2;
-        while (true){
+        while (true) {
             BigInteger curr = nMinus1.add(nMinus2);
-            if(curr.toString().length() >= n) return ind+1;
-            nMinus2=nMinus1;
+            if (curr.toString().length() >= n) return ind + 1;
+            nMinus2 = nMinus1;
             nMinus1 = curr;
             ind++;
         }
     }
-
-
-
 
 
     public static void main(String[] st) {

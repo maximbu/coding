@@ -14,7 +14,7 @@ import java.util.ArrayList;
  Warning : DO NOT USE LIBRARY FUNCTION FOR NEXT PERMUTATION. Use of Library functions will disqualify your submission retroactively and will give you penalty points.
  */
 public class NextPermutation {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     NextPermutation q = new NextPermutation();
 
     ArrayList<Integer> X = new ArrayList<>();
@@ -22,7 +22,7 @@ public class NextPermutation {
     X.add(2);
     X.add(3);
 
-    System.out.print(X+" -> ");
+    System.out.print(X + " -> ");
     q.nextPermutation(X);
     System.out.println(X);
 
@@ -31,7 +31,7 @@ public class NextPermutation {
     X.add(2);
     X.add(1);
 
-    System.out.print(X+" -> ");
+    System.out.print(X + " -> ");
     q.nextPermutation(X);
     System.out.println(X);
 
@@ -40,7 +40,7 @@ public class NextPermutation {
     X.add(1);
     X.add(5);
 
-    System.out.print(X+" -> ");
+    System.out.print(X + " -> ");
     q.nextPermutation(X);
     System.out.println(X);
 
@@ -49,15 +49,15 @@ public class NextPermutation {
     X.add(50);
     X.add(113);
 
-    System.out.print(X+" -> ");
+    System.out.print(X + " -> ");
     q.nextPermutation(X);
     System.out.println(X);
   }
 
-  public void swap(int i,int j ,ArrayList<Integer> a){
+  public void swap(int i, int j, ArrayList<Integer> a) {
     int tmp = a.get(i);
-    a.set(i,a.get(j));
-    a.set(j,tmp);
+    a.set(i, a.get(j));
+    a.set(j, tmp);
   }
 
   public void nextPermutation(ArrayList<Integer> a) {

@@ -2,9 +2,6 @@ package interviewbit.GraphDataStructure;
 
 import interviewbit.LinkedLists.ListNode;
 import interviewbit.Trees.TreeNode;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
@@ -25,15 +22,15 @@ public class ConvertSortedListToBinarySearchTree {
         int len = 0;
         ListNode head = a;
 
-        while(a != null){
+        while (a != null) {
             a = a.next;
             len++;
         }
 
-        return sortedListToBST(head,0,len-1);
+        return sortedListToBST(head, 0, len - 1);
     }
 
-    private TreeNode sortedListToBST(ListNode a,int from , int to) {
+    private TreeNode sortedListToBST(ListNode a, int from, int to) {
         if (from > to)
             return null;
         int mid = (from + to) / 2;

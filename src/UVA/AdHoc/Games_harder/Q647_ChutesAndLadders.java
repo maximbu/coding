@@ -24,7 +24,7 @@ class Q647_ChutesAndLadders {
     }
     sc.nextLine();
     while (true) {
-      int playersNum = Integer.valueOf(sc.nextLine());
+      int playersNum = Integer.parseInt(sc.nextLine());
       if (playersNum == 0)
         return;
       HashMap<Integer, Integer> ladders = new HashMap<>();
@@ -40,7 +40,7 @@ class Q647_ChutesAndLadders {
       HashSet<Integer> extraTurns = new HashSet<>();
       HashSet<Integer> skipTurns = new HashSet<>();
       while (true) {
-        int cell = Integer.valueOf(sc.nextLine());
+        int cell = Integer.parseInt(sc.nextLine());
         if (cell == 0)
           break;
         if (cell > 0) {
@@ -55,7 +55,7 @@ class Q647_ChutesAndLadders {
   }
 
   private int solve(List<Integer> rolls, int playersNum, HashMap<Integer, Integer> ladders,
-      HashSet<Integer> extraTurns, HashSet<Integer> skipTurns) {
+                    HashSet<Integer> extraTurns, HashSet<Integer> skipTurns) {
     int[] players = new int[playersNum];
     boolean[] skipTurn = new boolean[playersNum];
     int currPlayer = 0;

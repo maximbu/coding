@@ -28,7 +28,6 @@ How many different ways can £2 be made using any number of coins?
     }
 
 
-
     public static void main(String[] st) {
         p31 q = new p31();
         System.out.println(q.questionNaive(200));

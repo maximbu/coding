@@ -1,9 +1,6 @@
 package ProjectAuler;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by max on 1/27/2017.
  */
@@ -20,10 +17,10 @@ What is the largest 1 to 9 pandigital 9-digit number that can be formed as the c
 
 
     public int questionNaive() {
-       int largest = 0;
+        int largest = 0;
         for (int i = 1; i < 10000; i++) {
             int p = getLargestProduct(i);
-            if(largest < p && isPandigital(p)){
+            if (largest < p && isPandigital(p)) {
                 largest = p;
             }
         }
@@ -35,38 +32,35 @@ What is the largest 1 to 9 pandigital 9-digit number that can be formed as the c
         long ans = 0;
         long prevHighest = 0;
         for (int j = 1; j < 10; j++) {
-            ans = Long.valueOf(String.valueOf(ans)+String.valueOf(j*i));
-            if(ans>987654321){
+            ans = Long.parseLong(String.valueOf(ans) + j * i);
+            if (ans > 987654321) {
                 ans = prevHighest;
                 break;
             }
             prevHighest = ans;
         }
-        return (int)ans;
+        return (int) ans;
     }
 
     private boolean isPandigital(int p) {
         boolean[] digits = new boolean[10];
-        while(p>0){
-            int d = p%10;
-            if(d == 0) return false;
-            if(digits[d]) return false;
-            digits[d]=true;
-            p/=10;
+        while (p > 0) {
+            int d = p % 10;
+            if (d == 0) return false;
+            if (digits[d]) return false;
+            digits[d] = true;
+            p /= 10;
         }
         int i = 9;
-        while (i >0) {
-            if(!digits[i--]) return false;
+        while (i > 0) {
+            if (!digits[i--]) return false;
         }
         return true;
     }
 
 
-
-
-
     public static void main(String[] st) {
         p38 q = new p38();
         System.out.println(q.questionNaive());
-}
+    }
 }

@@ -3,7 +3,6 @@ package interviewbit.arrays;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by max on 6/25/2017.
@@ -13,7 +12,7 @@ import java.util.List;
 
 public class SpiralOrderMatrix2 {
 
-  private enum TraverseDirection{
+  private enum TraverseDirection {
     RIGHT,
     BOTTOM,
     LEFT,
@@ -23,7 +22,7 @@ public class SpiralOrderMatrix2 {
   private class TraverseState {
     int row = 0;
     int col = 0;
-    HashMap<TraverseDirection,Integer> bounds = new HashMap<>(4);
+    HashMap<TraverseDirection, Integer> bounds = new HashMap<>(4);
     TraverseDirection direction = TraverseDirection.RIGHT;
 
     public TraverseState(int n, int m) {
@@ -33,8 +32,8 @@ public class SpiralOrderMatrix2 {
       bounds.put(TraverseDirection.LEFT, 0);
     }
 
-    public boolean tryToPut(){
-      switch (direction){
+    public boolean tryToPut() {
+      switch (direction) {
         case RIGHT:
           return tryGoRight();
         case BOTTOM:
@@ -53,7 +52,7 @@ public class SpiralOrderMatrix2 {
         col++;
         return true;
       }
-      bounds.replace(direction,bound-1);
+      bounds.replace(direction, bound - 1);
       direction = TraverseDirection.BOTTOM;
       return false;
     }
@@ -64,7 +63,7 @@ public class SpiralOrderMatrix2 {
         col--;
         return true;
       }
-      bounds.replace(direction,bound+1);
+      bounds.replace(direction, bound + 1);
       direction = TraverseDirection.TOP;
       return false;
     }
@@ -75,7 +74,7 @@ public class SpiralOrderMatrix2 {
         row++;
         return true;
       }
-      bounds.replace(direction,bound-1);
+      bounds.replace(direction, bound - 1);
       direction = TraverseDirection.LEFT;
       return false;
     }
@@ -86,7 +85,7 @@ public class SpiralOrderMatrix2 {
         row--;
         return true;
       }
-      bounds.replace(direction,bound+1);
+      bounds.replace(direction, bound + 1);
       direction = TraverseDirection.RIGHT;
       return false;
     }
@@ -97,21 +96,21 @@ public class SpiralOrderMatrix2 {
     for (int i = 0; i < a; i++) {
       ans.add(new ArrayList<>(Collections.nCopies(a, 0)));
     }
-    ans.get(0).set(0,1);
-    TraverseState st =new TraverseState(a,a);
-    for (int i = 2; i < a*a+1;) {
-      if(st.tryToPut()){
-        ans.get(st.row).set(st.col,i);
+    ans.get(0).set(0, 1);
+    TraverseState st = new TraverseState(a, a);
+    for (int i = 2; i < a * a + 1; ) {
+      if (st.tryToPut()) {
+        ans.get(st.row).set(st.col, i);
         i++;
       }
     }
     return ans;
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     SpiralOrderMatrix2 q = new SpiralOrderMatrix2();
 
-    
+
     System.out.println(q.generateMatrix(3));
   }
 }

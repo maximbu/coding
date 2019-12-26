@@ -28,24 +28,23 @@ public class p8 {
 71636269561882670428252483600823257530420752963450
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
      */
-    public static long questionNaive(String s,int num){
+    public static long questionNaive(String s, int num) {
         long mult = 0;
         int ind = 0;
         char[] digits = s.toCharArray();
-        while (ind < digits.length-num+1){
+        while (ind < digits.length - num + 1) {
             long currMult = 1;
-            for (int i = ind; i < ind+num; i++) {
-                currMult*=digits[i]-'0';
+            for (int i = ind; i < ind + num; i++) {
+                currMult *= digits[i] - '0';
             }
-            if(currMult > mult) mult = currMult;
+            if (currMult > mult) mult = currMult;
             ind++;
         }
         return mult;
     }
 
 
-
-    public static void main(String[] st){
+    public static void main(String[] st) {
         p8 q = new p8();
         String s = "73167176531330624919225119674426574742355349194934" +
                 "96983520312774506326239578318016984801869478851843" +
@@ -67,6 +66,6 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
                 "84580156166097919133875499200524063689912560717606" +
                 "05886116467109405077541002256983155200055935729725" +
                 "71636269561882670428252483600823257530420752963450";
-        System.out.println(questionNaive(s,13));
+        System.out.println(questionNaive(s, 13));
     }
 }

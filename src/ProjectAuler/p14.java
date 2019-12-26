@@ -1,6 +1,5 @@
 package ProjectAuler;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 
 /**
@@ -17,14 +16,14 @@ public class p14 {
     Which starting number, under one million, produces the longest chain?
      */
 
-    static HashMap<Integer,Integer> lens = new HashMap<>();
+    static HashMap<Integer, Integer> lens = new HashMap<>();
 
     public static int questionNaive(int nums) {
-       int longestI  = 1;
-        int longestVal  = 1;
-        for (int i = 2; i <nums ; i++) {
+        int longestI = 1;
+        int longestVal = 1;
+        for (int i = 2; i < nums; i++) {
             int len = chainLen(i);
-            if(len > longestVal){
+            if (len > longestVal) {
                 longestI = i;
                 longestVal = len;
             }
@@ -36,22 +35,21 @@ public class p14 {
         int orig = i;
         int len = 1;
         long curr = i;
-        while (curr != 1){
-            if(lens.containsKey(curr)) {
-                int ans =  len+lens.get(curr);
-                lens.put(orig,ans);
+        while (curr != 1) {
+            if (lens.containsKey(curr)) {
+                int ans = len + lens.get(curr);
+                lens.put(orig, ans);
                 return ans;
             }
             len++;
-            if(curr%2 == 0) {
-                curr = curr/2;
-            }
-            else{
-                curr = curr*3+1;
+            if (curr % 2 == 0) {
+                curr = curr / 2;
+            } else {
+                curr = curr * 3 + 1;
             }
 
         }
-        lens.put(orig,len);
+        lens.put(orig, len);
         return len;
     }
 

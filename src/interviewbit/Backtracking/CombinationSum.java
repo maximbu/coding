@@ -52,7 +52,7 @@ public class CombinationSum {
 
     public static void main(String[] st) {
         CombinationSum q = new CombinationSum();
-        ArrayList<ArrayList<Integer>> ans = q.combinationSum(new ArrayList<>(Arrays.asList(8, 10, 6, 11, 1, 16, 8)),28);
+        ArrayList<ArrayList<Integer>> ans = q.combinationSum(new ArrayList<>(Arrays.asList(8, 10, 6, 11, 1, 16, 8)), 28);
         System.out.println(ans);
     }
 }

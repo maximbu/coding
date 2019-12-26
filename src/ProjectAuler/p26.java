@@ -1,6 +1,5 @@
 package ProjectAuler;
 
-import java.math.BigInteger;
 import java.util.HashSet;
 
 
@@ -29,9 +28,8 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
         int longestI = 1;
         for (int i = 2; i < n; i++) {
             int reoc = numOfReoc(i);
-            if(reoc>longest)
-            {
-                longest =reoc;
+            if (reoc > longest) {
+                longest = reoc;
                 longestI = i;
             }
         }
@@ -42,10 +40,10 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
         HashSet<Integer> set = new HashSet<>();
         int len = 0;
         int r = 10;
-        while(true){
-            r =  10*(r%i);
-            if(r == 0) return len;
-            if(set.contains(r)) return len;
+        while (true) {
+            r = 10 * (r % i);
+            if (r == 0) return len;
+            if (set.contains(r)) return len;
             set.add(r);
             len++;
         }

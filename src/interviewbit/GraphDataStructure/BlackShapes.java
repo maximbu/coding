@@ -33,7 +33,7 @@ import java.util.Objects;
  */
 public class BlackShapes {
 
-    private class Point {
+    private static class Point {
 
         int x;
         int y;

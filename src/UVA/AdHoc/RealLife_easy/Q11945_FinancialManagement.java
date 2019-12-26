@@ -1,11 +1,11 @@
 package UVA.AdHoc.RealLife_easy;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 class Q11945_FinancialManagement {
 
@@ -18,14 +18,14 @@ class Q11945_FinancialManagement {
     Scanner sc = new Scanner(in);
     int cases = sc.nextInt();
     sc.nextLine();
-    int i=1;
+    int i = 1;
     while (cases-- > 0) {
       double sum = 0;
       for (int j = 0; j < 12; j++) {
-        sum+= Double.parseDouble(sc.nextLine());
+        sum += Double.parseDouble(sc.nextLine());
       }
 
-      out.printf(String.format("%d $%,.2f%n", i++, round(sum/12,2)));
+      out.print(String.format("%d $%,.2f%n", i++, round(sum / 12, 2)));
     }
   }
 

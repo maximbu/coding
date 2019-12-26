@@ -1,8 +1,6 @@
 package interviewbit.arrays;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Created by max on 6/26/2017.
@@ -11,8 +9,8 @@ import java.util.Collections;
  */
 public class MaximumAbsoluteDifference {
 
-  private int dist(ArrayList<Integer> A , int i,int j){
-    return Math.abs(A.get(i)-A.get(j))+j-i;
+  private int dist(ArrayList<Integer> A, int i, int j) {
+    return Math.abs(A.get(i) - A.get(j)) + j - i;
   }
 
   public int maxArr(ArrayList<Integer> A) {
@@ -32,27 +30,27 @@ public class MaximumAbsoluteDifference {
   }
 
   private int lessNaiveStillBad(ArrayList<Integer> A) {
-    int maxVal =  Integer.MIN_VALUE;
+    int maxVal = Integer.MIN_VALUE;
     int maxInd = 0;
     int minVal = Integer.MAX_VALUE;
     int minInd = 0;
     for (int i = 0; i < A.size(); i++) {
-      int val =A.get(i);
-     if(val >= maxVal) {
-       maxInd = i;
-       maxVal = val;
-     }
-     if(val<minVal){
-       minInd = i;
-       minVal = val;
-     }
+      int val = A.get(i);
+      if (val >= maxVal) {
+        maxInd = i;
+        maxVal = val;
+      }
+      if (val < minVal) {
+        minInd = i;
+        minVal = val;
+      }
     }
-    int max =  Math.abs(maxVal-minVal)+Math.abs(maxInd-minInd);
-    int excludeFrom = Math.min(minInd,maxInd);
-    int excludeTo = Math.max(minInd,maxInd);
+    int max = Math.abs(maxVal - minVal) + Math.abs(maxInd - minInd);
+    int excludeFrom = Math.min(minInd, maxInd);
+    int excludeTo = Math.max(minInd, maxInd);
     for (int i = 0; i <= excludeFrom; i++) {
       for (int j = excludeTo; j < A.size(); j++) {
-        max = Math.max(max,dist(A,i,j));
+        max = Math.max(max, dist(A, i, j));
       }
     }
     return max;
@@ -61,14 +59,14 @@ public class MaximumAbsoluteDifference {
   private int naiveSolution(ArrayList<Integer> A) {
     int max = Integer.MIN_VALUE;
     for (int i = 0; i < A.size(); i++) {
-      for (int j = i+1; j < A.size(); j++) {
-        max = Math.max(max,dist(A,i,j));
+      for (int j = i + 1; j < A.size(); j++) {
+        max = Math.max(max, dist(A, i, j));
       }
     }
     return max;
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     MaximumAbsoluteDifference q = new MaximumAbsoluteDifference();
 
     ArrayList<Integer> X = new ArrayList<>();

@@ -1,7 +1,6 @@
 package ProjectAuler;
 
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,11 +40,11 @@ Find the first four consecutive integers to have four distinct prime factors eac
 
     private int getPrimesFactorCount(int start, List<Integer> primes) {
         int primeFactorCount = 0;
-        for (int i = 0; i < primes.size(); i++) {
-            if (start % primes.get(i) == 0) {
+        for (Integer prime : primes) {
+            if (start % prime == 0) {
                 primeFactorCount++;
-                while (start % primes.get(i) == 0) {
-                    start /= primes.get(i);
+                while (start % prime == 0) {
+                    start /= prime;
                     if (start == 1) return primeFactorCount;
                 }
             }

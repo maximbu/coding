@@ -57,7 +57,7 @@ public class SortedPermutationRankWithRepeats {
             }
             c[o(ch)]--;
         }
-        return (int)(rank + 1) % M;
+        return (int) (rank + 1) % M;
     }
 
     private int o(char ch) {

@@ -54,10 +54,10 @@ public class MaxContinuousSeriesOf1s {
     public static void main(String[] st) {
         MaxContinuousSeriesOf1s q = new MaxContinuousSeriesOf1s();
         var a = new ArrayList<>(Arrays.asList(1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0));
-        System.out.println(q.maxone(a,4));
+        System.out.println(q.maxone(a, 4));
         a = new ArrayList<>(Arrays.asList(0, 1, 1, 1));
-        System.out.println(q.maxone(a,0));
+        System.out.println(q.maxone(a, 0));
         a = new ArrayList<>(Arrays.asList(1, 1, 0));
-        System.out.println(q.maxone(a,2));
+        System.out.println(q.maxone(a, 2));
     }
 }

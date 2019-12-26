@@ -35,20 +35,18 @@ By starting at the top of the triangle below and moving to adjacent numbers on t
      */
 
     public static int questionNaive(int[][] triangle) {
-       int len = triangle.length;
-       int[] currLevelBest = new int[len];
+        int len = triangle.length;
+        int[] currLevelBest = new int[len];
         int[] prevLevelBest = new int[len];
-        for (int i = 0; i < len; i++) {
-            prevLevelBest[i]= triangle[len-1][i];
-        }
-        for (int i = triangle.length-2; i >= 0; i--) {
+        System.arraycopy(triangle[len - 1], 0, prevLevelBest, 0, len);
+        for (int i = triangle.length - 2; i >= 0; i--) {
             for (int j = 0; j <= i; j++) {
-                currLevelBest[j] = triangle[i][j]+Math.max(prevLevelBest[j],prevLevelBest[j+1]);
+                currLevelBest[j] = triangle[i][j] + Math.max(prevLevelBest[j], prevLevelBest[j + 1]);
             }
-            prevLevelBest= Arrays.copyOf(currLevelBest,currLevelBest.length);
+            prevLevelBest = Arrays.copyOf(currLevelBest, currLevelBest.length);
         }
 
-       return currLevelBest[0];
+        return currLevelBest[0];
     }
 
 
@@ -74,9 +72,9 @@ By starting at the top of the triangle below and moving to adjacent numbers on t
 
         int[][] triangle2 = {
                 {3},
-                {7,4},
-                {2,4,6},
-                {8,5,9,3}
+                {7, 4},
+                {2, 4, 6},
+                {8, 5, 9, 3}
         };
         System.out.println(questionNaive(triangle));
     }

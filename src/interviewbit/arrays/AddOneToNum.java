@@ -19,14 +19,14 @@ public class AddOneToNum {
       ans.add(0, carry);
     }
 
-    for (int i = 0; i < ans.size() && (ans.get(i) == 0);) {
+    for (int i = 0; i < ans.size() && (ans.get(i) == 0); ) {
       ans.remove(i);
     }
 
     return ans;
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     AddOneToNum q = new AddOneToNum();
 
     ArrayList<Integer> X = new ArrayList<>();

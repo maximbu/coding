@@ -1,12 +1,9 @@
 package UVA.AdHoc.RealLife_harder;
 
+import java.util.Scanner;
+
 import static java.lang.System.in;
 import static java.lang.System.out;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 
 class Main {
 
@@ -19,34 +16,34 @@ class Main {
     Scanner sc = new Scanner(in);
     char[][] grid = createGrid();
     while (sc.hasNextLine()) {
-     String line = sc.nextLine();
-     String[] args = line.split("\\s+");
-     switch (args[0]){
-       case ".C":
-         center(grid,args[1].equals("C1"),Integer.valueOf(args[2]),args[3]);
-         break;
-       case ".R":
-         rightJustify(grid,args[1].equals("C1"),Integer.valueOf(args[2]),args[3]);
-         break;
-       case ".L":
-         leftJustify(grid,args[1].equals("C1"),Integer.valueOf(args[2]),args[3]);
-         break;
-       case ".P":
-         place(grid,args[1].equals("C1"),Integer.valueOf(args[2]),Integer.valueOf(args[3]),args[4]);
-         break;
-       case ".EOP":
-         printGrid(grid);
-         grid = createGrid();
-         break;
-     }
+      String line = sc.nextLine();
+      String[] args = line.split("\\s+");
+      switch (args[0]) {
+        case ".C":
+          center(grid, args[1].equals("C1"), Integer.parseInt(args[2]), args[3]);
+          break;
+        case ".R":
+          rightJustify(grid, args[1].equals("C1"), Integer.parseInt(args[2]), args[3]);
+          break;
+        case ".L":
+          leftJustify(grid, args[1].equals("C1"), Integer.parseInt(args[2]), args[3]);
+          break;
+        case ".P":
+          place(grid, args[1].equals("C1"), Integer.parseInt(args[2]), Integer.parseInt(args[3]), args[4]);
+          break;
+        case ".EOP":
+          printGrid(grid);
+          grid = createGrid();
+          break;
+      }
     }
   }
 
   private char[][] createGrid() {
-    char[][] grid =  new char[60][60];
+    char[][] grid = new char[60][60];
     for (int i = 0; i < 60; i++) {
       for (int j = 0; j < 60; j++) {
-        grid[i][j]='.';
+        grid[i][j] = '.';
       }
     }
     return grid;
@@ -62,14 +59,14 @@ class Main {
   }
 
   private void place(char[][] grid, boolean c1, int row, int col, String string) {
-      if(c1){
-        for (int i = 0; i < string.length(); i++) {
-          if(col+i-1 >= 0 && col+i-1 < 60 && string.charAt(i) != ' ')
-            grid[row][col+i-1] = string.charAt(i);
-        }
-
-
+    if (c1) {
+      for (int i = 0; i < string.length(); i++) {
+        if (col + i - 1 >= 0 && col + i - 1 < 60 && string.charAt(i) != ' ')
+          grid[row][col + i - 1] = string.charAt(i);
       }
+
+
+    }
   }
 
   private void rightJustify(char[][] grid, boolean c1, int row, String string) {
@@ -142,10 +139,10 @@ class Main {
     throw new RuntimeException();
   }
 
-  char[][] createArray(String[] s){
+  char[][] createArray(String[] s) {
     char[][] tmp = new char[5][5];
     for (int i = 0; i < 5; i++) {
-      tmp[i]=s[i].toCharArray();
+      tmp[i] = s[i].toCharArray();
     }
     return tmp;
   }

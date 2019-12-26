@@ -28,7 +28,7 @@ public class SumOfPairwiseHammingDistance {
         a.add(Integer.MAX_VALUE);
         a.add(0);
         System.out.println(q.hammingDistance(a));
-        System.out.println(d(Integer.MAX_VALUE,0));
+        System.out.println(d(Integer.MAX_VALUE, 0));
     }
 
     public static int d(int x, int y) {
@@ -47,19 +47,19 @@ public class SumOfPairwiseHammingDistance {
 
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int hammingDistance(final List<Integer> A) {
-        int cnt =0;
+        int cnt = 0;
         int modulo = 1000000007;
         for (int i = 0; i < 32; i++) {
             int endsWithZero = 0;
             int endsWithOne = 0;
             for (Integer num : A) {
-                if ((num & (1<<i)) == 0) {
+                if ((num & (1 << i)) == 0) {
                     endsWithZero++;
                 } else {
                     endsWithOne++;
                 }
             }
-            cnt = (int)((cnt + (2L*endsWithOne*endsWithZero)) % modulo);
+            cnt = (int) ((cnt + (2L * endsWithOne * endsWithZero)) % modulo);
         }
         return cnt;
     }

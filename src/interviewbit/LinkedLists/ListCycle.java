@@ -21,18 +21,18 @@ public class ListCycle {
     public ListNode detectCycle(ListNode a) {
         ListNode fast = a;
         ListNode slow = a;
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
-            if(slow == fast){
+            if (slow == fast) {
                 break;
             }
         }
-        if(fast == null || fast.next == null)
+        if (fast == null || fast.next == null)
             return null;
 
         slow = a;
-        while(slow != fast){
+        while (slow != fast) {
             fast = fast.next;
             slow = slow.next;
         }

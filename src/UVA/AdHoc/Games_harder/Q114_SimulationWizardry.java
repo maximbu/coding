@@ -53,17 +53,17 @@ class Q114_SimulationWizardry {
   }
 
   private List<Integer> solve(List<Ball> balls, int wallCost, int[][] bumpersPoints,
-      int[][] bumpersCost, boolean[][] hasBumper) {
+                              int[][] bumpersCost, boolean[][] hasBumper) {
     return balls.stream()
-        .map(ball -> simulate(ball, wallCost, bumpersPoints, bumpersCost, hasBumper))
-        .collect(Collectors.toList());
+            .map(ball -> simulate(ball, wallCost, bumpersPoints, bumpersCost, hasBumper))
+            .collect(Collectors.toList());
   }
 
-  int xChange[] = {1, 0, -1, 0};
-  int yChange[] = {0, 1, 0, -1};
+  int[] xChange = {1, 0, -1, 0};
+  int[] yChange = {0, 1, 0, -1};
 
   private int simulate(Ball ball, int wallCost, int[][] bumpersPoints, int[][] bumpersCost,
-      boolean[][] hasBumper) {
+                       boolean[][] hasBumper) {
     int points = 0;
     while (ball.lifeTime > 0) {
       ball.lifeTime--;
@@ -104,11 +104,11 @@ class Q114_SimulationWizardry {
     @Override
     public String toString() {
       return "Ball{" +
-          "x=" + x +
-          ", y=" + y +
-          ", lifeTime=" + lifeTime +
-          ", direction=" + direction +
-          '}';
+              "x=" + x +
+              ", y=" + y +
+              ", lifeTime=" + lifeTime +
+              ", direction=" + direction +
+              '}';
     }
   }
 }

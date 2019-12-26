@@ -2,8 +2,6 @@ package interviewbit.binarySearch;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,30 +26,30 @@ public class SearchForARange {
     A.add(8);
     A.add(10);
     int target = 8;
-    System.out.println(q.searchRange(A,target));
+    System.out.println(q.searchRange(A, target));
   }
+
   // DO NOT MODIFY THE LIST
   public ArrayList<Integer> searchRange(final List<Integer> a, int b) {
     ArrayList<Integer> ans = new ArrayList<>();
-    ans.add(startingPosition(a,b));
-    ans.add(endingPosition(a,b));
+    ans.add(startingPosition(a, b));
+    ans.add(endingPosition(a, b));
     return ans;
   }
 
   private Integer endingPosition(List<Integer> a, int b) {
     int start = 0;
-    int end = a.size()-1;
+    int end = a.size() - 1;
     int mid;
-    while (start <= end){
-      mid = (start+end)/2;
-      if (a.get(mid) == b && (mid == a.size()-1 || a.get(mid + 1) != b)) {
+    while (start <= end) {
+      mid = (start + end) / 2;
+      if (a.get(mid) == b && (mid == a.size() - 1 || a.get(mid + 1) != b)) {
         return mid;
       }
-      if (a.get(mid)>b){
-        end = mid -1;
-      }
-      else{
-        start = mid +1;
+      if (a.get(mid) > b) {
+        end = mid - 1;
+      } else {
+        start = mid + 1;
       }
     }
     return -1;
@@ -59,18 +57,17 @@ public class SearchForARange {
 
   private Integer startingPosition(List<Integer> a, int b) {
     int start = 0;
-    int end = a.size()-1;
+    int end = a.size() - 1;
     int mid;
-    while (start <= end){
-      mid = (start+end)/2;
+    while (start <= end) {
+      mid = (start + end) / 2;
       if (a.get(mid) == b && (mid == 0 || a.get(mid - 1) != b)) {
         return mid;
       }
-      if (a.get(mid)>=b){
-        end = mid -1;
-      }
-      else{
-        start = mid +1;
+      if (a.get(mid) >= b) {
+        end = mid - 1;
+      } else {
+        start = mid + 1;
       }
     }
     return -1;

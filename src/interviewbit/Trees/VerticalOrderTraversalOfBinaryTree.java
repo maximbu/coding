@@ -30,7 +30,7 @@ import java.util.LinkedList;
  */
 public class VerticalOrderTraversalOfBinaryTree {
 
-  class LevelNode {
+  static class LevelNode {
 
     int level;
     TreeNode node;
@@ -62,7 +62,7 @@ public class VerticalOrderTraversalOfBinaryTree {
     while (!curr.isEmpty()) {
       next = new LinkedList<>();
       for (LevelNode n : curr) {
-        map.putIfAbsent(n.level,new ArrayList<>());
+        map.putIfAbsent(n.level, new ArrayList<>());
         map.get(n.level).add(n.node.val);
         if (n.node.left != null) {
           next.add(new LevelNode(n.level - 1, n.node.left));

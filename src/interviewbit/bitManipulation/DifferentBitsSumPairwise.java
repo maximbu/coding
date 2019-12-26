@@ -23,18 +23,18 @@ import java.util.ArrayList;
  */
 public class DifferentBitsSumPairwise {
     public int cntBits(ArrayList<Integer> A) {
-        int cnt =0;
+        int cnt = 0;
         for (int i = 0; i < 32; i++) {
             int iBitIsZero = 0;
             int iBitIsOne = 0;
             for (Integer num : A) {
-                if ((num & (1<<i)) == 0) {
+                if ((num & (1 << i)) == 0) {
                     iBitIsZero++;
                 } else {
                     iBitIsOne++;
                 }
             }
-            cnt = (int)((cnt + (2L*iBitIsOne*iBitIsZero)) % 1000000007);
+            cnt = (int) ((cnt + (2L * iBitIsOne * iBitIsZero)) % 1000000007);
         }
         return cnt;
     }

@@ -1,8 +1,8 @@
 package interviewbit.GraphDataStructure;
 
 import interviewbit.Trees.TreeNode;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.stream.Collectors;
 
 /**
@@ -33,19 +33,19 @@ public class LevelOrder {
         currLevel.add(A);
         ArrayList<TreeNode> prevLevel = currLevel;
 
-        while(true){
+        while (true) {
             ans.add(new ArrayList<>(currLevel.stream().map(t -> t.val).collect(Collectors.toList())));
             currLevel = new ArrayList<>();
-            for(TreeNode p : prevLevel){
-                if(p.left != null){
-                    currLevel.add(p.left) ;
+            for (TreeNode p : prevLevel) {
+                if (p.left != null) {
+                    currLevel.add(p.left);
                 }
-                if(p.right != null){
-                    currLevel.add(p.right) ;
+                if (p.right != null) {
+                    currLevel.add(p.right);
                 }
             }
             prevLevel = currLevel;
-            if(currLevel.isEmpty()){
+            if (currLevel.isEmpty()) {
                 return ans;
             }
         }

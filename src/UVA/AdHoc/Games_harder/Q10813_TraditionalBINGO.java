@@ -62,14 +62,14 @@ class Q10813_TraditionalBINGO {
     }
     int sum = 0;
     for (int i = 0; i < 5; i++) {
-      sum+= board[i][i];
+      sum += board[i][i];
     }
-    if(sum == 0) return true;
+    if (sum == 0) return true;
     sum = 0;
     for (int i = 0; i < 5; i++) {
-      sum+= board[i][5-i-1];
+      sum += board[i][5 - i - 1];
     }
-    if(sum == 0) return true;
+    if (sum == 0) return true;
     return false;
   }
 

@@ -1,7 +1,6 @@
 package interviewbit.Backtracking;
 
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 
 /**
  * Given a collection of numbers, return all possible permutations.
@@ -25,22 +24,22 @@ import java.util.PriorityQueue;
  */
 public class Permutations {
     public ArrayList<ArrayList<Integer>> permute(ArrayList<Integer> A) {
-        return permute(A,0);
+        return permute(A, 0);
     }
 
-    private ArrayList<ArrayList<Integer>> permute(ArrayList<Integer> A,int ind) {
-        if(ind == A.size()){
+    private ArrayList<ArrayList<Integer>> permute(ArrayList<Integer> A, int ind) {
+        if (ind == A.size()) {
             ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
             ans.add(new ArrayList<>());
             return ans;
         }
         int val = A.get(ind);
-        ArrayList<ArrayList<Integer>> withoutVal = permute(A,ind+1);
+        ArrayList<ArrayList<Integer>> withoutVal = permute(A, ind + 1);
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
-        for(ArrayList<Integer> arr : withoutVal){
-            for(int i=0;i<=arr.size();i++){
+        for (ArrayList<Integer> arr : withoutVal) {
+            for (int i = 0; i <= arr.size(); i++) {
                 ArrayList<Integer> withVal = new ArrayList<>(arr);
-                withVal.add(i,val);
+                withVal.add(i, val);
                 ans.add(withVal);
             }
         }

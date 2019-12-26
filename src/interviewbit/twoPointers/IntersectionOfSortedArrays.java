@@ -26,16 +26,14 @@ import java.util.List;
 public class IntersectionOfSortedArrays {
     public ArrayList<Integer> intersect(final List<Integer> A, final List<Integer> B) {
         ArrayList<Integer> ans = new ArrayList<>();
-        int i=0;
-        int j=0;
-        while (i < A.size() && j<B.size()){
-            if(A.get(i) < B.get(j)){
+        int i = 0;
+        int j = 0;
+        while (i < A.size() && j < B.size()) {
+            if (A.get(i) < B.get(j)) {
                 i++;
-            }
-            else if(A.get(i) > B.get(j)){
+            } else if (A.get(i) > B.get(j)) {
                 j++;
-            }
-            else if(A.get(i).equals(B.get(j))){
+            } else if (A.get(i).equals(B.get(j))) {
                 ans.add(A.get(i));
                 i++;
                 j++;
@@ -50,6 +48,6 @@ public class IntersectionOfSortedArrays {
         a.add(1000);
         var b = new ArrayList<Integer>();
         b.add(1000);
-        System.out.println(q.intersect(a,b));
+        System.out.println(q.intersect(a, b));
     }
 }

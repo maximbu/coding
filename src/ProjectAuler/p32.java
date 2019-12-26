@@ -17,16 +17,16 @@ HINT: Some products can be obtained in more than one way so be sure to only incl
 
     public long questionNaive() {
         HashSet<Integer> pandigital = new HashSet<>();
-        for (int i = 0; i < 9876 ; i++) {
-            for (int j = i+1; j < 9876 ; j++) {
-                if(isPandigal(i*j, i, j)){
-                    pandigital.add(i*j);
+        for (int i = 0; i < 9876; i++) {
+            for (int j = i + 1; j < 9876; j++) {
+                if (isPandigal(i * j, i, j)) {
+                    pandigital.add(i * j);
                 }
             }
         }
         long sum = 0;
-        for (int p:pandigital) {
-            sum+=p;
+        for (int p : pandigital) {
+            sum += p;
         }
         return sum;
     }
@@ -34,28 +34,28 @@ HINT: Some products can be obtained in more than one way so be sure to only incl
     private boolean isPandigal(int mul, int a, int b) {
         boolean[] digits = new boolean[10];
         boolean p = true;
-        while (a > 0){
-            int digit = a%10;
-            a/=10;
-            if(digits[digit]) p = false;
+        while (a > 0) {
+            int digit = a % 10;
+            a /= 10;
+            if (digits[digit]) p = false;
             digits[digit] = true;
         }
 
-        while (b > 0){
-            int digit = b%10;
-            b/=10;
-            if(digits[digit]) p = false;
+        while (b > 0) {
+            int digit = b % 10;
+            b /= 10;
+            if (digits[digit]) p = false;
             digits[digit] = true;
         }
 
-        while (mul > 0){
-            int digit = mul%10;
-            mul/=10;
-            if(digits[digit]) p = false;
+        while (mul > 0) {
+            int digit = mul % 10;
+            mul /= 10;
+            if (digits[digit]) p = false;
             digits[digit] = true;
         }
 
-        if(digits[0]) return false;
+        if (digits[0]) return false;
 
         for (int i = 1; i < digits.length; i++) {
             boolean digit = digits[i];

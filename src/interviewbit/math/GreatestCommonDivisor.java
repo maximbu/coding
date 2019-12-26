@@ -14,21 +14,21 @@ public class GreatestCommonDivisor {
 
         int N = 6;
         int M = 9;
-        System.out.println(q.gcd(N,M));
+        System.out.println(q.gcd(N, M));
 
         N = 2;
         M = 3;
-        System.out.println(q.gcd(N,M));
+        System.out.println(q.gcd(N, M));
     }
 
     public int gcd(int a, int b) {
         int bigger = a;
         int smaller = b;
-        if(a<b){
+        if (a < b) {
             bigger = b;
             smaller = a;
         }
-        while (smaller > 0){
+        while (smaller > 0) {
             int tmp = bigger % smaller;
             bigger = smaller;
             smaller = tmp;

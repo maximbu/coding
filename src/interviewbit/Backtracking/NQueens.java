@@ -30,27 +30,27 @@ import java.util.List;
 
 public class NQueens {
     public ArrayList<ArrayList<String>> solveNQueens(int a) {
-        int [] cols = new int[a];
+        int[] cols = new int[a];
         List<int[]> solutions = new ArrayList<>();
-        solveQueens(cols,0,a,solutions);
+        solveQueens(cols, 0, a, solutions);
         return printSolutions(solutions);
     }
 
 
-    private  void solveQueens(int[] cols , int row , int n , List<int []> sol){
-        if(row == n){
+    private void solveQueens(int[] cols, int row, int n, List<int[]> sol) {
+        if (row == n) {
             sol.add(cols.clone());
             return;
         }
-        for(int i=0;i<n;i++){
-            if(canPlace(cols , row, i)){
+        for (int i = 0; i < n; i++) {
+            if (canPlace(cols, row, i)) {
                 cols[row] = i;
-                solveQueens(cols , row +1 , n , sol);
+                solveQueens(cols, row + 1, n, sol);
             }
         }
     }
 
-    private boolean canPlace(int [] ans, int row, int col) {
+    private boolean canPlace(int[] ans, int row, int col) {
         for (int r = 0; r < row; r++) {
             if (ans[r] == col || Math.abs(row - r) == Math.abs(col - ans[r])) {
                 return false;
@@ -68,9 +68,9 @@ public class NQueens {
         return arrayLists;
     }
 
-    private ArrayList<String> printSolution(int[] s){
+    private ArrayList<String> printSolution(int[] s) {
         ArrayList<String> arr = new ArrayList<>();
-        int n =s.length;
+        int n = s.length;
         for (int value : s) {
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < n; j++) {

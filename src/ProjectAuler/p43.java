@@ -33,27 +33,27 @@ Find the sum of all 0 to 9 pandigital numbers with this property.
             for (int i = 2; i < 9; i++) {
                 if (createNumber(digits, i, i + 2) % primes[i - 2] != 0) break;
                 if (i == 8) {
-                    sum += Long.valueOf(p);
+                    sum += Long.parseLong(p);
                 }
             }
         }
         return sum;
     }
 
-    public static Set<String> getPermutations (String st){
-        return permutations(st,st.length()-1);
+    public static Set<String> getPermutations(String st) {
+        return permutations(st, st.length() - 1);
     }
 
     private static Set<String> permutations(String st, int i) {
         if (i == 0) {
             HashSet<String> h = new HashSet<>();
-            h.add(st.substring(0,1));
+            h.add(st.substring(0, 1));
             return h;
         }
-        Set<String> withoutI = permutations(st,i-1);
+        Set<String> withoutI = permutations(st, i - 1);
         char c = st.charAt(i);
         HashSet<String> ans = new HashSet<>();
-        for (String s:withoutI){
+        for (String s : withoutI) {
             for (int j = 0; j <= i; j++) {
                 ans.add(s.substring(0, j) + c + s.substring(j, i));
 
@@ -64,8 +64,8 @@ Find the sum of all 0 to 9 pandigital numbers with this property.
 
     private int createNumber(char[] digits, int i, int j) {
         int ans = 0;
-        for (int k = i-1; k < j; k++) {
-            ans = ans * 10 + digits[k]-'0';
+        for (int k = i - 1; k < j; k++) {
+            ans = ans * 10 + digits[k] - '0';
         }
         return ans;
     }

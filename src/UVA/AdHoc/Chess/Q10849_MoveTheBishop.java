@@ -22,11 +22,10 @@ class Q10849_MoveTheBishop {
       while (currBoardCases-- > 0) {
         String[] input = sc.nextLine().split("\\s+");
         long[] line = Arrays.stream(input).mapToLong(Long::parseLong).toArray();
-        int ans = solve(n,line);
-        if(ans == -1){
+        int ans = solve(n, line);
+        if (ans == -1) {
           System.out.println("no move");
-        }
-        else {
+        } else {
           System.out.println(ans);
         }
       }
@@ -40,7 +39,7 @@ class Q10849_MoveTheBishop {
       return 0;
     long diff1 = Math.abs(line[0] - line[2]);
     long diff2 = Math.abs(line[1] - line[3]);
-    if(diff1 == diff2) return 1;
+    if (diff1 == diff2) return 1;
     return diff1 % 2 == diff2 % 2 ? 2 : -1;
   }
 

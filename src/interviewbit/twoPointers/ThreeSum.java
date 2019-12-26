@@ -42,8 +42,8 @@ public class ThreeSum {
         return (int) bestSum;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         ThreeSum q = new ThreeSum();
-        System.out.println(q.threeSumClosest(new ArrayList<>(Arrays.asList(5, -2, -1, -10, 10)),5));
+        System.out.println(q.threeSumClosest(new ArrayList<>(Arrays.asList(5, -2, -1, -10, 10)), 5));
     }
 }

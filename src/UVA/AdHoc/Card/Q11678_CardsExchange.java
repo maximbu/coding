@@ -19,10 +19,10 @@ class Q11678_CardsExchange {
     while (!sc.nextLine().equals("0 0")) {
       String[] input = sc.nextLine().split("\\s+");
       Set<Integer> setA = Arrays.stream(input).map(Integer::parseInt)
-          .collect(Collectors.toSet());
+              .collect(Collectors.toSet());
       input = sc.nextLine().split("\\s+");
       Set<Integer> setB = Arrays.stream(input).map(Integer::parseInt)
-          .collect(Collectors.toSet());
+              .collect(Collectors.toSet());
 
       System.out.println(Math.min(getUniqueCount(setB, setA), getUniqueCount(setA, setB)));
     }

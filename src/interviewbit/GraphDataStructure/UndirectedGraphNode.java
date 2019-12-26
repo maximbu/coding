@@ -8,12 +8,16 @@ import java.util.List;
  */
 
   public class UndirectedGraphNode {
-      int label;
-      List<UndirectedGraphNode> neighbors;
-      UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<>(); }
+    int label;
+    List<UndirectedGraphNode> neighbors;
+
+    UndirectedGraphNode(int x) {
+        label = x;
+        neighbors = new ArrayList<>();
+    }
 
     @Override
     public String toString() {
-        return label+"";
+        return label + "";
     }
 }

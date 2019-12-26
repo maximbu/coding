@@ -23,7 +23,7 @@ class Q10324_ZerosAndOnes {
         if (chars[i] != chars[i - 1]) {
           c++;
         }
-        changes[i]=c;
+        changes[i] = c;
       }
       int cases = sc.nextInt();
       sc.nextLine();
@@ -32,7 +32,7 @@ class Q10324_ZerosAndOnes {
         int ind1 = sc.nextInt();
         int ind2 = sc.nextInt();
         sc.nextLine();
-        if (changes[Math.min(ind1,ind2)] == changes[Math.max(ind1,ind2)]) {
+        if (changes[Math.min(ind1, ind2)] == changes[Math.max(ind1, ind2)]) {
           System.out.println("Yes");
         } else {
           System.out.println("No");

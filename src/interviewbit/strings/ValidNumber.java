@@ -39,13 +39,13 @@ public class ValidNumber {
         boolean hasE = false;
         String a = A.trim();
         int i = 0;
-        if(a.length() == 0) return 0;
-        if(a.charAt(0)=='-' || a.charAt(0)=='+'){
+        if (a.length() == 0) return 0;
+        if (a.charAt(0) == '-' || a.charAt(0) == '+') {
             i++;
         }
-        while(i<a.length()){
+        while (i < a.length()) {
             char c = a.charAt(i++);
-            if(c == '.'){
+            if (c == '.') {
                 if (hasDot || hasE || i >= a.length()
                         || !Character.isDigit(a.charAt(i))) {
                     return 0;
@@ -53,19 +53,19 @@ public class ValidNumber {
                 hasDot = true;
                 continue;
             }
-            if(c == 'e' || c == 'E'){
-                if(hasE || i>=a.length()) return 0;
+            if (c == 'e' || c == 'E') {
+                if (hasE || i >= a.length()) return 0;
                 hasE = true;
-                if(a.charAt(i)=='-' || a.charAt(i)=='+'){
+                if (a.charAt(i) == '-' || a.charAt(i) == '+') {
                     i++;
                 }
                 continue;
             }
-            if(!Character.isDigit(c)){
+            if (!Character.isDigit(c)) {
                 return 0;
             }
         }
-        return Character.isDigit(a.charAt(a.length()-1))?1:0;
+        return Character.isDigit(a.charAt(a.length() - 1)) ? 1 : 0;
     }
 
     public static void main(String[] st) {

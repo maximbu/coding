@@ -11,16 +11,16 @@ package interviewbit.strings;
  */
 public class MinimumCharactersRequiredToMakeAStringPalindromic {
     public int solve(String A) {
-        if(A == null) return 0;
+        if (A == null) return 0;
         char[] ch = A.toCharArray();
-        for(int i=0;i<ch.length;i++){
-            if(isPolindrom(ch,ch.length-i-1))
+        for (int i = 0; i < ch.length; i++) {
+            if (isPalindrome(ch, ch.length - i - 1))
                 return i;
         }
         return 0;
     }
 
-    private boolean isPolindrom(char[] ch , int to) {
+    private boolean isPalindrome(char[] ch, int to) {
         for (int i = 0; i < to; i++) {
             if (ch[i] != ch[to--])
                 return false;

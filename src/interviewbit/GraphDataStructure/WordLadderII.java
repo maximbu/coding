@@ -33,19 +33,24 @@ public class WordLadderII {
     private class UndirectedGraphNode {
         String label;
         List<UndirectedGraphNode> neighbors;
-        public void addNeighbor(UndirectedGraphNode n){
+
+        public void addNeighbor(UndirectedGraphNode n) {
             neighbors.add(n);
             n.neighbors.add(this);
         }
-        UndirectedGraphNode(String x) { label = x; neighbors = new ArrayList<>(); }
+
+        UndirectedGraphNode(String x) {
+            label = x;
+            neighbors = new ArrayList<>();
+        }
     }
 
-    private class NodeDiff{
+    private class NodeDiff {
         UndirectedGraphNode node;
         int diff;
         ArrayList<String> path;
 
-        NodeDiff(UndirectedGraphNode node , int diff , ArrayList<String> prevPath){
+        NodeDiff(UndirectedGraphNode node, int diff, ArrayList<String> prevPath) {
             this.diff = diff;
             this.node = node;
             this.path = new ArrayList<>(prevPath);
@@ -54,36 +59,35 @@ public class WordLadderII {
     }
 
     public ArrayList<ArrayList<String>> findLadders(String start, String end, ArrayList<String> dict) {
-        HashMap<String,UndirectedGraphNode> map = new HashMap<>();
-        for(String s:dict){
+        HashMap<String, UndirectedGraphNode> map = new HashMap<>();
+        for (String s : dict) {
             addToGraph(s, map);
         }
-        UndirectedGraphNode startNode = addToGraph(start,map);
-        UndirectedGraphNode endNode = addToGraph(end,map);
+        UndirectedGraphNode startNode = addToGraph(start, map);
+        UndirectedGraphNode endNode = addToGraph(end, map);
         ArrayList<ArrayList<String>> ans = new ArrayList<>();
-        bfs(startNode,endNode,ans);
+        bfs(startNode, endNode, ans);
         return ans;
     }
 
-    private void bfs(UndirectedGraphNode startNode, UndirectedGraphNode endNode , ArrayList<ArrayList<String>> ans) {
+    private void bfs(UndirectedGraphNode startNode, UndirectedGraphNode endNode, ArrayList<ArrayList<String>> ans) {
         ArrayList<NodeDiff> q = new ArrayList<>();
         HashSet<UndirectedGraphNode> seen = new HashSet<>();
-        q.add(new NodeDiff(startNode,0,new ArrayList<>()));
+        q.add(new NodeDiff(startNode, 0, new ArrayList<>()));
         int minDiff = Integer.MAX_VALUE;
-        while (!q.isEmpty()){
+        while (!q.isEmpty()) {
             NodeDiff nodeDiff = q.remove(0);
-            int dist = nodeDiff.diff+1;
-            if(dist > minDiff){
+            int dist = nodeDiff.diff + 1;
+            if (dist > minDiff) {
                 return;
             }
-            if(nodeDiff.node == endNode){
+            if (nodeDiff.node == endNode) {
                 ans.add(nodeDiff.path);
                 minDiff = dist;
-            }
-            else{
-                for (UndirectedGraphNode neig :nodeDiff.node.neighbors){
-                    if (!seen.contains(neig)){
-                        q.add(new NodeDiff(neig,dist,nodeDiff.path));
+            } else {
+                for (UndirectedGraphNode neig : nodeDiff.node.neighbors) {
+                    if (!seen.contains(neig)) {
+                        q.add(new NodeDiff(neig, dist, nodeDiff.path));
                     }
                 }
                 seen.add(nodeDiff.node);
@@ -92,25 +96,25 @@ public class WordLadderII {
     }
 
     private UndirectedGraphNode addToGraph(String s, HashMap<String, UndirectedGraphNode> map) {
-        if(map.containsKey(s)){
+        if (map.containsKey(s)) {
             return map.get(s);
         }
         UndirectedGraphNode node = new UndirectedGraphNode(s);
-        for(String w:map.keySet()){
-            if(isOneCharAway(w,s)){
+        for (String w : map.keySet()) {
+            if (isOneCharAway(w, s)) {
                 node.addNeighbor(map.get(w));
             }
         }
-        map.put(s,node);
+        map.put(s, node);
         return node;
     }
 
     private boolean isOneCharAway(String w, String s) {
         int diff = 0;
         for (int i = 0; i < w.length(); i++) {
-            if(w.charAt(i) != s.charAt(i)){
+            if (w.charAt(i) != s.charAt(i)) {
                 diff++;
-                if(diff > 1){
+                if (diff > 1) {
                     return false;
                 }
             }

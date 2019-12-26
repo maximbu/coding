@@ -3,9 +3,7 @@ package ProjectAuler;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -18,28 +16,28 @@ For example, when the list is sorted into alphabetical order, COLIN, which is wo
 What is the total of all the name scores in the file?
      */
 
-    public  long questionNaive(String[] names) {
+    public long questionNaive(String[] names) {
         long sum = 0;
         Arrays.sort(names);
         for (int i = 0; i < names.length; i++) {
-            sum+=lettersVal(names[i])*(i+1);
+            sum += lettersVal(names[i]) * (i + 1);
         }
         return sum;
     }
 
-    private  int lettersVal(String name) {
+    private int lettersVal(String name) {
         int sum = 0;
-        for (char c:name.toCharArray()) {
-            sum+=c-'A'+1;
+        for (char c : name.toCharArray()) {
+            sum += c - 'A' + 1;
         }
         return sum;
     }
 
 
-    private  String[] readNames(){
+    private String[] readNames() {
         try {
             List<String> names = Files.readAllLines(Paths.get("C:\\Users\\max\\IdeaProjects\\CodingInterviews\\out\\production\\CodingInterviews\\ProjectAuler\\p022_names.txt"));
-            return names.get(0).replace("\"","").split(",");
+            return names.get(0).replace("\"", "").split(",");
         } catch (IOException e) {
             throw new RuntimeException();
         }
@@ -47,6 +45,6 @@ What is the total of all the name scores in the file?
 
     public static void main(String[] st) {
         p22 q = new p22();
-        System.out.println(q.questionNaive( q.readNames()));
+        System.out.println(q.questionNaive(q.readNames()));
     }
 }

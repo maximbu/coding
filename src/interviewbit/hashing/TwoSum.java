@@ -18,13 +18,13 @@ import java.util.List;
  */
 public class TwoSum {
     public ArrayList<Integer> twoSum(final List<Integer> A, int B) {
-        HashMap<Integer,Integer> map = new HashMap<>();
-        for(int i=0;i<A.size();i++){
-            if(map.containsKey(B-A.get(i))){
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < A.size(); i++) {
+            if (map.containsKey(B - A.get(i))) {
                 return new ArrayList<>(Arrays.asList(map.get(B - A.get(i)), i + 1));
             }
-            if(!map.containsKey(A.get(i))){
-                map.put(A.get(i),i+1);
+            if (!map.containsKey(A.get(i))) {
+                map.put(A.get(i), i + 1);
             }
         }
         return new ArrayList<>();

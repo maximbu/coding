@@ -22,19 +22,19 @@ import java.util.Arrays;
  */
 public class MinXorValue {
     public int findMinXor(ArrayList<Integer> A) {
-        return findMinXor(A,30);
+        return findMinXor(A, 30);
 
     }
 
-    public int findMinXor(ArrayList<Integer> A , int msbDigit) {
+    public int findMinXor(ArrayList<Integer> A, int msbDigit) {
         int minXor = Integer.MAX_VALUE;
-        if(A.size() < 4 || msbDigit == 0){
-            for(int i=0;i<A.size();i++){
-                for(int j=i+1;j<A.size();j++){
-                    int ans = A.get(i)^A.get(j);
-                    if(ans < minXor){
+        if (A.size() < 4 || msbDigit == 0) {
+            for (int i = 0; i < A.size(); i++) {
+                for (int j = i + 1; j < A.size(); j++) {
+                    int ans = A.get(i) ^ A.get(j);
+                    if (ans < minXor) {
                         minXor = ans;
-                        System.out.println("Xor of "+ A.get(i) + " and "+ A.get(j) + " is the new min: " + ans);
+                        System.out.println("Xor of " + A.get(i) + " and " + A.get(j) + " is the new min: " + ans);
                     }
                 }
             }
@@ -42,7 +42,7 @@ public class MinXorValue {
         }
         ArrayList<Integer> msb1 = new ArrayList<Integer>();
         ArrayList<Integer> msb0 = new ArrayList<Integer>();
-        int d = 1<<msbDigit;
+        int d = 1 << msbDigit;
         for (Integer aA : A) {
             if ((aA & d) == 0) {
                 msb0.add(aA);
@@ -50,7 +50,7 @@ public class MinXorValue {
                 msb1.add(aA);
             }
         }
-        return Math.min(findMinXor(msb0,msbDigit-1),findMinXor(msb1,msbDigit-1));
+        return Math.min(findMinXor(msb0, msbDigit - 1), findMinXor(msb1, msbDigit - 1));
 
     }
 

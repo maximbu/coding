@@ -21,22 +21,22 @@ import java.util.ArrayList;
 public class GrayCode {
 
     public ArrayList<Integer> grayCode(int a) {
-       if(a == 1){
-           ArrayList<Integer> ans = new ArrayList<>();
-           ans.add(0);
-           ans.add(1);
-           return ans;
-       }
-        ArrayList<Integer> prev = grayCode(a-1);
+        if (a == 1) {
+            ArrayList<Integer> ans = new ArrayList<>();
+            ans.add(0);
+            ans.add(1);
+            return ans;
+        }
+        ArrayList<Integer> prev = grayCode(a - 1);
         ArrayList<Integer> ans = new ArrayList<>(prev);
         for (int i = prev.size() - 1; i >= 0; i--) {
-            ans.add((int) Math.pow(2, a-1) + prev.get(i));
+            ans.add((int) Math.pow(2, a - 1) + prev.get(i));
         }
         return ans;
     }
 
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         GrayCode q = new GrayCode();
         System.out.println(q.grayCode(2));
     }

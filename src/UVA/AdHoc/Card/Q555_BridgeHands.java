@@ -41,7 +41,7 @@ class Q555_BridgeHands {
 
       for (int i = 0; i < 4; i++) {
         cards[i].sort(Comparator.comparing(t -> indexOf(suits, t.toString().charAt(0)))
-            .thenComparing(t -> indexOf(ranks, t.toString().charAt(1))));
+                .thenComparing(t -> indexOf(ranks, t.toString().charAt(1))));
         System.out.print(dir[i] + ":");
         for (String card : cards[i]) {
           System.out.print(" " + card);

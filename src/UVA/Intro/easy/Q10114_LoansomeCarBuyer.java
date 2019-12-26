@@ -1,4 +1,4 @@
-package UVA.easy;
+package UVA.Intro.easy;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -38,7 +38,7 @@ class Q10114_LoansomeCarBuyer {
   }
 
   private int solve(double loanAmount, double downPayment, double monthlyPayment,
-      double[] depreciationRate) {
+                    double[] depreciationRate) {
     double buyerOwns = loanAmount;
     double carWorth = (loanAmount + downPayment) * (1 - depreciationRate[0]);
     if (carWorth > buyerOwns)

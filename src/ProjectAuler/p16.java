@@ -16,8 +16,8 @@ What is the sum of the digits of the number 2^1000?
     public static long questionNaive(int pow) {
         char[] digits = new BigInteger("2").pow(pow).toString().toCharArray();
         int sum = 0;
-        for (int i = 0; i < digits.length; i++) {
-            sum+=digits[i]-'0';
+        for (char digit : digits) {
+            sum += digit - '0';
         }
         return sum;
     }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
  */
 public class TripletsWithSumBetweenGivenRange {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     TripletsWithSumBetweenGivenRange q = new TripletsWithSumBetweenGivenRange();
 
     ArrayList<String> X = new ArrayList<>();
@@ -45,7 +45,7 @@ public class TripletsWithSumBetweenGivenRange {
     double midMax = Double.MIN_VALUE;
     double bigMin = Double.MAX_VALUE;
     for (String aA : A) {
-      Double d = Double.parseDouble(aA);
+      double d = Double.parseDouble(aA);
       if (d < 2.0 / 3) {
         if (d >= smallMax1) {
           smallMax3 = smallMax2;
@@ -112,11 +112,11 @@ public class TripletsWithSumBetweenGivenRange {
     return 0;
   }
 
-  private boolean isValid(double d1, double d2, double d3){
-    if(d1 == Double.MAX_VALUE  || d1 == Double.MIN_VALUE) return false;
-    if(d2 == Double.MAX_VALUE  || d2 == Double.MIN_VALUE) return false;
-    if(d3 == Double.MAX_VALUE  || d3 == Double.MIN_VALUE) return false;
-    double sum = d1+d2+d3;
-    return  sum < 2 && sum > 1;
+  private boolean isValid(double d1, double d2, double d3) {
+    if (d1 == Double.MAX_VALUE || d1 == Double.MIN_VALUE) return false;
+    if (d2 == Double.MAX_VALUE || d2 == Double.MIN_VALUE) return false;
+    if (d3 == Double.MAX_VALUE || d3 == Double.MIN_VALUE) return false;
+    double sum = d1 + d2 + d3;
+    return sum < 2 && sum > 1;
   }
 }

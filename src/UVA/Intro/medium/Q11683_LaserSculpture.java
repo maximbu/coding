@@ -20,16 +20,16 @@ class Q11683_LaserSculpture {
       sc.nextLine();
       String[] input = sc.nextLine().split("\\s+");
       long[] line = Arrays.stream(input).mapToLong(Long::parseLong).toArray();
-      long ans = solve(height,line);
+      long ans = solve(height, line);
       System.out.println(ans);
     }
   }
 
   private long solve(long height, long[] line) {
-    long cnt = height-line[0];
+    long cnt = height - line[0];
     for (int i = 1; i < line.length; i++) {
-      if(line[i] < line[i-1]){
-        cnt+= line[i-1]-line[i];
+      if (line[i] < line[i - 1]) {
+        cnt += line[i - 1] - line[i];
       }
     }
     return cnt;

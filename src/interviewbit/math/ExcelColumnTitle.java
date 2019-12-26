@@ -21,9 +21,9 @@ public class ExcelColumnTitle {
         StringBuilder sb = new StringBuilder();
         int maxCh = 'Z' - 'A' + 1;
         while (a > 0) {
-            char c = (char) ((a-1) % maxCh + 'A');
+            char c = (char) ((a - 1) % maxCh + 'A');
             sb.append(c);
-            a = (a-1) / maxCh;
+            a = (a - 1) / maxCh;
         }
         return sb.reverse().toString();
     }

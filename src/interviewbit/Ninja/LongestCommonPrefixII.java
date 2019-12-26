@@ -37,7 +37,7 @@ public class LongestCommonPrefixII {
     String prev = "";
     for (int i = 0; i < A.size(); i++) {
       for (int j = i; j < A.size(); j++) {
-        prev = (j == i) ? A.get(i).substring(0,B) : common(prev, A.get(j));
+        prev = (j == i) ? A.get(i).substring(0, B) : common(prev, A.get(j));
         if (prev.length() == B) {
           sum = (sum + 1) % 1000000007;
         } else
@@ -52,35 +52,33 @@ public class LongestCommonPrefixII {
     int till = 0;
     for (int i = 0; i < A.size(); i++) {
       int good = 0;
-      int bad = A.size()-1;
-      if(A.size()<=till || common(A.get(i),A.get(till)).length()>=B){
+      int bad = A.size() - 1;
+      if (A.size() <= till || common(A.get(i), A.get(till)).length() >= B) {
         good = till;
-      }
-      else {
+      } else {
         bad = till;
       }
-      till = findLastRelevant(A,i,B,good,bad);
+      till = findLastRelevant(A, i, B, good, bad);
       sum = (sum + till) % 1000000007;
     }
     return sum;
   }
 
-  private int findLastRelevant(ArrayList<String> a, int i, int b,int good,int bad) {
-    int till = a.size()-1;
-    if(commonLen(a,i,till)>=b){
-      return till-i+1;
+  private int findLastRelevant(ArrayList<String> a, int i, int b, int good, int bad) {
+    int till = a.size() - 1;
+    if (commonLen(a, i, till) >= b) {
+      return till - i + 1;
     }
 
-    while(good+1 < bad){
-      till = (good+bad)/2;
-      if(commonLen(a,i,till)>=b){
-          good=till;
-      }
-      else{
+    while (good + 1 < bad) {
+      till = (good + bad) / 2;
+      if (commonLen(a, i, till) >= b) {
+        good = till;
+      } else {
         bad = till;
       }
     }
-    return good-i+1;
+    return good - i + 1;
   }
 
   private int commonLen(ArrayList<String> a, int start, int till) {

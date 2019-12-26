@@ -3,7 +3,6 @@ package interviewbit.hashing;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * Find the largest continuous sequence in a array which sums to zero.
@@ -50,7 +49,7 @@ public class LargestContinuousSequenceZeroSum {
 
         for (int i = 0; i < A.size(); i++) {
             long sum = A.get(i);
-            if(sum == 0) {
+            if (sum == 0) {
                 hasZero = true;
             }
             for (int j = i + 1; j < A.size(); j++) {
@@ -66,17 +65,17 @@ public class LargestContinuousSequenceZeroSum {
             for (int i = from; i <= from + longest; i++) {
                 ans.add(A.get(i));
             }
-        }else if (hasZero) {
+        } else if (hasZero) {
             ans.add(0);
         }
         return ans;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         LargestContinuousSequenceZeroSum q = new LargestContinuousSequenceZeroSum();
         System.out.println(q.lszero(new ArrayList<>(Arrays.asList(1, 2, -3, 3))));
         System.out.println(q.lszero(new ArrayList<>(Arrays.asList(0, -10, 20, 3, 23, 10, -20, 2, 19, -29, 0))));
-        System.out.println(q.lszero(new ArrayList<>(Arrays.asList( -25, -6, 22, -28, 21, 8, -17, -9, -11, -4, -25, 0, 13, -10, -15, 15, 26, 27, 24, 0, 2))));
+        System.out.println(q.lszero(new ArrayList<>(Arrays.asList(-25, -6, 22, -28, 21, 8, -17, -9, -11, -4, -25, 0, 13, -10, -15, 15, 26, 27, 24, 0, 2))));
         System.out.println(q.lszero(new ArrayList<>(Arrays.asList(1, 2, -2, 4, -4))));
     }
 }

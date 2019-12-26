@@ -1,4 +1,4 @@
-package UVA.easy;
+package UVA.Intro.easy;
 
 import java.util.HashMap;
 import java.util.LinkedList;

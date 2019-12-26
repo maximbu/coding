@@ -57,13 +57,13 @@ public class DistinctInitialMatrices {
         ans = (ans + pow(fact(i), n / i)) % 1000000007;
       }
     }
-    return (int)ans;
+    return (int) ans;
   }
 
   private boolean isValidCut(ArrayList<Integer> A, int cutSize) {
     for (int start = 0; start < A.size(); start += cutSize) {
-      for (int j = start+1; j < start + cutSize; j++) {
-        if (A.get(j-1) > A.get(j)) {
+      for (int j = start + 1; j < start + cutSize; j++) {
+        if (A.get(j - 1) > A.get(j)) {
           return false;
         }
       }
@@ -71,9 +71,9 @@ public class DistinctInitialMatrices {
     return true;
   }
 
-  private long pow(long x, int y){
+  private long pow(long x, int y) {
     long ans = 1;
-    while(y>0){
+    while (y > 0) {
       ans = (ans * x) % 1000000007;
       y--;
     }
@@ -89,10 +89,10 @@ public class DistinctInitialMatrices {
     return ans;
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     DistinctInitialMatrices q = new DistinctInitialMatrices();
     System.out.println(q.cntMatrix(new ArrayList<>(Arrays.asList(1, 3, 2, 4))));
-    System.out.println(q.cntMatrix(new ArrayList<>(Arrays.asList(1, 2, 3, 4,5,6))));
+    System.out.println(q.cntMatrix(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6))));
     System.out.println(q.cntMatrix(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 46, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 25, 47, 48, 49, 50))));
     //784534666
   }

@@ -1,14 +1,9 @@
 package UVA.AdHoc.Anagrams;
 
-import static java.lang.System.in;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.lang.System.in;
 
 class Q10098_GeneratingFast {
 
@@ -76,7 +71,7 @@ class Q10098_GeneratingFast {
 
   private void swap(char[] a, int startInd, int j) {
     char tmp = a[startInd];
-    a[startInd]= a[j];
+    a[startInd] = a[j];
     a[j] = tmp;
   }
 

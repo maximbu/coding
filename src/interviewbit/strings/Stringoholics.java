@@ -58,12 +58,11 @@ import java.util.stream.Collectors;
  */
 public class Stringoholics {
     public int solve(ArrayList<String> A) {
-        List<Integer> ans =A.stream().map(this::findEquals).collect(Collectors.toList());
-        return (int)lcm(ans);
+        List<Integer> ans = A.stream().map(this::findEquals).collect(Collectors.toList());
+        return (int) lcm(ans);
     }
 
-    public long lcm(List<Integer> ans)
-    {
+    public long lcm(List<Integer> ans) {
         long lcm = 1;
         int divisor = 2;
         while (true) {
@@ -76,20 +75,19 @@ public class Stringoholics {
             }
 
             if (divisible) {
-                lcm = (lcm * divisor)%1000000007;
-            }
-            else {
+                lcm = (lcm * divisor) % 1000000007;
+            } else {
                 divisor++;
             }
 
-            if (ans.stream().allMatch(x->x == 1)) {
+            if (ans.stream().allMatch(x -> x == 1)) {
                 return lcm;
             }
         }
     }
 
 
-    private String rotated(String A , int i) {
+    private String rotated(String A, int i) {
         char[] chars = A.toCharArray();
         char[] ans = new char[A.length()];
         for (int j = 0; j < ans.length; j++) {
@@ -107,7 +105,7 @@ public class Stringoholics {
         return 2 * st.length();
     }
 
-    public static void main(String[] st2){
+    public static void main(String[] st2) {
         Stringoholics q = new Stringoholics();
         System.out.println(q.solve(new ArrayList<>(Arrays.asList("a", "ababa", "aba"))));
     }

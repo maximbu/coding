@@ -23,6 +23,6 @@ public class Lexer {
                 currIn++;
             }
         }
-        return ans.toArray(new String[ans.size()]);
+        return ans.toArray(new String[0]);
     }
 }

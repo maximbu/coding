@@ -1,9 +1,9 @@
 package UVA.AdHoc.Games_harder;
 
+import java.util.Scanner;
+
 import static java.lang.System.in;
 import static java.lang.System.out;
-
-import java.util.Scanner;
 
 class Q10363_TicTacToe {
 
@@ -24,8 +24,8 @@ class Q10363_TicTacToe {
         board[i] = sc.nextLine().toCharArray();
       }
 
-      if(DEBUG){
-        for (int i = 0; i <3; i++) {
+      if (DEBUG) {
+        for (int i = 0; i < 3; i++) {
           for (int j = 0; j < 3; j++) {
             out.print(board[i][j]);
           }
@@ -37,7 +37,7 @@ class Q10363_TicTacToe {
         sc.nextLine();
       }
       boolean result = solve(board);
-      if(!DEBUG) {
+      if (!DEBUG) {
         out.println(result ? "yes" : "no");
       }
     }

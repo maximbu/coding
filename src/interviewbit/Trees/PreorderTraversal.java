@@ -23,12 +23,12 @@ public class PreorderTraversal {
         ArrayList<Integer> ans = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         stack.add(A);
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             TreeNode t = stack.pop();
             ans.add(t.val);
-            if(t.right != null)
+            if (t.right != null)
                 stack.push(t.right);
-            if(t.left != null)
+            if (t.left != null)
                 stack.push(t.left);
         }
         return ans;

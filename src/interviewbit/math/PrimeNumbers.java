@@ -18,13 +18,13 @@ public class PrimeNumbers {
 
     public ArrayList<Integer> sieve(int a) {
         ArrayList<Integer> ans = new ArrayList<>();
-        if(a<2) return ans;
+        if (a < 2) return ans;
         BitSet notPrimes = new BitSet(a);
         ans.add(2);
-        for (int i = 3; i <= a ; i+=2) {
-            if(!notPrimes.get(i)){
+        for (int i = 3; i <= a; i += 2) {
+            if (!notPrimes.get(i)) {
                 ans.add(i);
-                for (int j = 2*i; j <= a; j+=i) {
+                for (int j = 2 * i; j <= a; j += i) {
                     notPrimes.set(j);
                 }
             }

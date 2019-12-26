@@ -25,41 +25,42 @@ import java.util.HashMap;
  *          get(5)        returns -1
  */
 public class LruCache {
-    class Entity{
+    static class Entity {
         int key;
         int value;
         Entity next;
         Entity prev;
 
-        Entity(){
+        Entity() {
 
         }
 
-        Entity(int k , int v){
+        Entity(int k, int v) {
             key = k;
             value = v;
         }
 
-        void removeSelf(){
+        void removeSelf() {
             Entity tmp = next;
             prev.next = next;
             tmp.prev = prev;
         }
 
-        void addAfter(Entity p){
+        void addAfter(Entity p) {
             next = p.next;
-            prev= p;
+            prev = p;
             p.next = this;
-            if(next != null) {
+            if (next != null) {
                 next.prev = this;
             }
 
         }
     }
+
     int max;
-    Entity first ;
-    Entity last ;
-    HashMap<Integer,Entity> map = new HashMap<>();
+    Entity first;
+    Entity last;
+    HashMap<Integer, Entity> map = new HashMap<>();
 
     public LruCache(int capacity) {
         max = capacity;
@@ -69,7 +70,7 @@ public class LruCache {
     }
 
     public int get(int key) {
-        if(!map.containsKey(key)){
+        if (!map.containsKey(key)) {
             return -1;
         }
         Entity e = map.get(key);
@@ -79,14 +80,14 @@ public class LruCache {
     }
 
     public void set(int key, int value) {
-        Entity e = new Entity(key,value);
-        if(map.containsKey(key)) {
+        Entity e = new Entity(key, value);
+        if (map.containsKey(key)) {
             Entity old = map.get(key);
             old.removeSelf();
         }
         e.addAfter(first);
-        map.put(key,e);
-        if(map.keySet().size()>max){
+        map.put(key, e);
+        if (map.keySet().size() > max) {
             Entity t = last.prev;
             t.removeSelf();
             map.remove(t.key);
@@ -95,10 +96,10 @@ public class LruCache {
 
     public static void main(String[] st) {
         LruCache q = new LruCache(1);
-        q.set(2,1);
-        q.set(2,2);
+        q.set(2, 1);
+        q.set(2, 2);
         System.out.println(q.get(2));
-        q.set(1,3);
+        q.set(1, 3);
         System.out.println(q.get(2));
     }
 }

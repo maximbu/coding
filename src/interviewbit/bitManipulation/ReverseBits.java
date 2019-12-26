@@ -24,13 +24,13 @@ package interviewbit.bitManipulation;
 public class ReverseBits {
     public long reverse(long a) {
         long ans = 0;
-        for(int i=0;i<32;i++){
-            ans = (ans<<1)|(a>>i&1);
+        for (int i = 0; i < 32; i++) {
+            ans = (ans << 1) | (a >> i & 1);
         }
         return ans;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         ReverseBits q = new ReverseBits();
         System.out.println(q.reverse(0));
         System.out.println(q.reverse(1));

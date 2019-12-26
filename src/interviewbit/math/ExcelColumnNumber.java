@@ -16,7 +16,7 @@ public class ExcelColumnNumber {
     }
 
     public int titleToNumber(String a) {
-        int cnt =0;
+        int cnt = 0;
         char[] ch = a.toCharArray();
         int maxCh = ('Z' - 'A' + 1);
         for (char aCh : ch) {

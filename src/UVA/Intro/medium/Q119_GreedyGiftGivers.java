@@ -14,7 +14,7 @@ class Q119_GreedyGiftGivers {
     Scanner sc = new Scanner(System.in);
     boolean first = true;
     while (sc.hasNextLine()) {
-      if(!first){
+      if (!first) {
         System.out.println();
       }
       first = false;
@@ -31,7 +31,7 @@ class Q119_GreedyGiftGivers {
         String name = line[0];
         int amount = Integer.parseInt(line[1]);
         int paysTo = Integer.parseInt(line[2]);
-        if(paysTo > 0) {
+        if (paysTo > 0) {
           ownings[map.get(name)] -= paysTo * (amount / paysTo);
           for (int j = 3; j < line.length; j++) {
             ownings[map.get(line[j])] += (amount / paysTo);

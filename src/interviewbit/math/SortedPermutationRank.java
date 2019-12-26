@@ -23,22 +23,22 @@ public class SortedPermutationRank {
         System.out.println(q.findRank(input));
     }
 
-    private int letterOrder(ArrayList<Character> chars,char c){
+    private int letterOrder(ArrayList<Character> chars, char c) {
         return chars.indexOf(c);
     }
 
     public ArrayList<Character> convertStringToArraylist(String str) {
         ArrayList<Character> charList = new ArrayList<>();
-        for(int i = 0; i<str.length();i++){
+        for (int i = 0; i < str.length(); i++) {
             charList.add(str.charAt(i));
         }
         return charList;
     }
 
-    private long factorial(int x){
+    private long factorial(int x) {
         long ans = 1;
-        while (x>0){
-            ans=(x*ans)% 1000003;
+        while (x > 0) {
+            ans = (x * ans) % 1000003;
             x--;
         }
         return ans;
@@ -50,7 +50,7 @@ public class SortedPermutationRank {
         long rank = 1;
         for (int i = 0; i < a.length(); i++) {
             int order = letterOrder(ordered, a.charAt(i));
-            rank = (rank + (order * factorial(ordered.size()-1) % 1000003))% 1000003;
+            rank = (rank + (order * factorial(ordered.size() - 1) % 1000003)) % 1000003;
             ordered.remove(order);
         }
         return (int) (rank % 1000003);

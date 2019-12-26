@@ -1,8 +1,6 @@
 package ProjectAuler;
 
 
-import java.util.HashSet;
-
 /**
  * Created by max on 1/27/2017.
  */
@@ -22,11 +20,11 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 
 
     public long questionNaive(int n) {
-      long sum = 0;
-      long max = getMaxNum(n);
-        for (long i = 10; i <=max; i++) {
-            long powSum = digitsPowSum(i,n);
-            if(i == powSum) {
+        long sum = 0;
+        long max = getMaxNum(n);
+        for (long i = 10; i <= max; i++) {
+            long powSum = digitsPowSum(i, n);
+            if (i == powSum) {
                 sum += i;
             }
         }
@@ -36,20 +34,20 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
     private long getMaxNum(int n) {
         long num = 10;
         int digits = 1;
-        while (true){
-            long maxNum = (long)Math.pow(9,n)*digits;
-            if( maxNum < num) return maxNum;
+        while (true) {
+            long maxNum = (long) Math.pow(9, n) * digits;
+            if (maxNum < num) return maxNum;
             digits++;
-            num*=10;
+            num *= 10;
         }
     }
 
     private long digitsPowSum(long i, int n) {
         long ans = 0;
-        while (i>0){
-            int digit = (int)i%10;
-            i/=10;
-            ans+=Math.pow(digit,n);
+        while (i > 0) {
+            int digit = (int) i % 10;
+            i /= 10;
+            ans += Math.pow(digit, n);
         }
         return ans;
     }

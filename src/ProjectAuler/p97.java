@@ -19,10 +19,8 @@ Find the last ten digits of this prime number.
         BigInteger pow = new BigInteger(String.valueOf(7830457));
         BigInteger mod = new BigInteger(String.valueOf(10000000000L));
         BigInteger mul = new BigInteger(String.valueOf(28433));
-        return two.modPow(pow,mod).multiply(mul).add(BigInteger.ONE).mod(mod).toString();
+        return two.modPow(pow, mod).multiply(mul).add(BigInteger.ONE).mod(mod).toString();
     }
-
-
 
 
     public static void main(String[] st) {

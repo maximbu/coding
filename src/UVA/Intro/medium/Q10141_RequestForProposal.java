@@ -34,13 +34,13 @@ class Q10141_RequestForProposal {
         for (int j = 0; j < fitReq; j++) {
           sc.nextLine();
         }
-        if(fitReq > bestFit || (fitReq == bestFit && price < bestPrice)){
+        if (fitReq > bestFit || (fitReq == bestFit && price < bestPrice)) {
           bestFit = fitReq;
           bestPrice = price;
           bestName = name;
         }
       }
-      if(seq > 1)
+      if (seq > 1)
         System.out.println();
       System.out.println("RFP #" + (seq++));
       System.out.println(bestName);

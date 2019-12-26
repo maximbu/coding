@@ -6,18 +6,18 @@ import java.util.HashMap;
 public class MaxSumPathInBinaryTree {
     public int maxPathSum(TreeNode A) {
         if (A == null) return 0;
-        HashMap<TreeNode , Integer> map = new HashMap<>();
-        int calcPathWithA = A.val + highestSumToChild(A.left,map) + highestSumToChild(A.right,map);
-        int ans =  Math.max(calcPathWithA,Math.max(maxPathSum(A.right),maxPathSum(A.left)));
+        HashMap<TreeNode, Integer> map = new HashMap<>();
+        int calcPathWithA = A.val + highestSumToChild(A.left, map) + highestSumToChild(A.right, map);
+        int ans = Math.max(calcPathWithA, Math.max(maxPathSum(A.right), maxPathSum(A.left)));
         return ans == 0 ? maxValue(A) : ans;
     }
 
     private int maxValue(TreeNode A) {
-        if(A == null) return Integer.MIN_VALUE;
-        return Math.max(A.val,Math.max(maxValue(A.left),maxValue(A.right)));
+        if (A == null) return Integer.MIN_VALUE;
+        return Math.max(A.val, Math.max(maxValue(A.left), maxValue(A.right)));
     }
 
-    private int highestSumToChild(TreeNode A , HashMap<TreeNode , Integer> map) {
+    private int highestSumToChild(TreeNode A, HashMap<TreeNode, Integer> map) {
         if (A == null)
             return 0;
         if (map.containsKey(A)) {

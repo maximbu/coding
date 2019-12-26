@@ -56,14 +56,14 @@ public class RegularExpressionMatch {
         return Bi == B.length() ? 1 : 0;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         RegularExpressionMatch q = new RegularExpressionMatch();
-        System.out.println(q.isMatch("cacab","**bcbbac?ba"));
-        System.out.println(q.isMatch("cbcc","*??c*?c*b?"));
-        System.out.println(q.isMatch("a","?"));
-        System.out.println(q.isMatch("aa","?"));
-        System.out.println(q.isMatch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","a**************************************************************************************"));
-        System.out.println(q.isMatch("aabbaaabbbaa","a*bbb*aaa"));
-        System.out.println(q.isMatch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","*b"));
+        System.out.println(q.isMatch("cacab", "**bcbbac?ba"));
+        System.out.println(q.isMatch("cbcc", "*??c*?c*b?"));
+        System.out.println(q.isMatch("a", "?"));
+        System.out.println(q.isMatch("aa", "?"));
+        System.out.println(q.isMatch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "a**************************************************************************************"));
+        System.out.println(q.isMatch("aabbaaabbbaa", "a*bbb*aaa"));
+        System.out.println(q.isMatch("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "*b"));
     }
 }

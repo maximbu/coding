@@ -72,18 +72,18 @@ class Q339_SameGameSimulation {
   private void makeMove(Move move, int[][] board) {
     int val = board[move.x][move.y];
     if (val == EMPTY) return;
-    if (hasNeighbours(move.x,move.y,board)){
-      remove(board,move.x,move.y,val);
+    if (hasNeighbours(move.x, move.y, board)) {
+      remove(board, move.x, move.y, val);
       shrink(board);
     }
   }
 
   private boolean hasNeighbours(int x, int y, int[][] board) {
     int val = board[x][y];
-    if(x+1 < board.length && board[x+1][y] == val) return true;
-    if(y+1 < board[0].length && board[x][y+1] == val) return true;
-    if(y-1 >= 0 && board[x][y-1] == val) return true;
-    if(x-1 >= 0 && board[x-1][y] == val) return true;
+    if (x + 1 < board.length && board[x + 1][y] == val) return true;
+    if (y + 1 < board[0].length && board[x][y + 1] == val) return true;
+    if (y - 1 >= 0 && board[x][y - 1] == val) return true;
+    if (x - 1 >= 0 && board[x - 1][y] == val) return true;
     return false;
   }
 
@@ -91,7 +91,7 @@ class Q339_SameGameSimulation {
     for (int col = 0; col < board[0].length; col++) {
       for (int row = 1; row <= board.length - 1; row++) {
         int currRow = row;
-        while (board[currRow][col] == EMPTY && currRow>0) {
+        while (board[currRow][col] == EMPTY && currRow > 0) {
           board[currRow][col] = board[currRow - 1][col];
           board[currRow - 1][col] = EMPTY;
           currRow--;
@@ -101,8 +101,8 @@ class Q339_SameGameSimulation {
 
     for (int col = board[0].length - 2; col > -1; col--) {
       int currCol = col;
-      while(emptyCol(board,currCol) && currCol < board[0].length-1){
-        moveCol(board,currCol+1);
+      while (emptyCol(board, currCol) && currCol < board[0].length - 1) {
+        moveCol(board, currCol + 1);
         currCol++;
       }
     }
@@ -121,7 +121,7 @@ class Q339_SameGameSimulation {
   }
 
   private void remove(int[][] board, int x, int y, int val) {
-    if (x < 0 || y < 0 || x > board.length-1 || y > board[0].length-1)
+    if (x < 0 || y < 0 || x > board.length - 1 || y > board[0].length - 1)
       return;
     if (board[x][y] != val)
       return;
@@ -147,11 +147,10 @@ class Q339_SameGameSimulation {
     for (int[] row : board) {
       System.out.print("    ");
       for (int i = 0; i < row.length; i++) {
-        if(i>0) System.out.print(" ");
+        if (i > 0) System.out.print(" ");
         if (row[i] == EMPTY) {
           System.out.print(" ");
-        }
-        else {
+        } else {
           System.out.print(row[i]);
         }
       }
@@ -172,9 +171,9 @@ class Q339_SameGameSimulation {
     @Override
     public String toString() {
       return "Move{" +
-          "x=" + x +
-          ", y=" + y +
-          '}';
+              "x=" + x +
+              ", y=" + y +
+              '}';
     }
   }
 }

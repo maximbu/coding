@@ -27,11 +27,11 @@ class Q10279_MineSweeper {
       for (int i = 0; i < N; i++) {
         String line = sc.nextLine();
         char[] input = line.toCharArray();
-        for (int j = 0; j <input.length ; j++) {
-          touched[i][j] = (input[j]=='x');
+        for (int j = 0; j < input.length; j++) {
+          touched[i][j] = (input[j] == 'x');
         }
       }
-      char[][] ans = solve(board,touched);
+      char[][] ans = solve(board, touched);
       if (ind++ > 0)
         System.out.println();
       for (int i = 0; i < N; i++) {

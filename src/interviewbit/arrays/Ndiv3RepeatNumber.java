@@ -13,7 +13,7 @@ import java.util.List;
  If there are multiple solutions, return any one.
  */
 public class Ndiv3RepeatNumber {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     Ndiv3RepeatNumber q = new Ndiv3RepeatNumber();
     ArrayList<Integer> X = new ArrayList<>();
     X.add(1);
@@ -43,11 +43,11 @@ public class Ndiv3RepeatNumber {
   // DO NOT MODIFY THE LIST
   public int repeatedNumber(final List<Integer> a) {
     int size = a.size();
-    int x1=Integer.MIN_VALUE , x2=Integer.MIN_VALUE , cnt1 =0 , cnt2=0;
-    if(size == 1) return a.get(0);
-    if(size == 2) return a.get(0).compareTo(a.get(1))==0?a.get(0):-1;
+    int x1 = Integer.MIN_VALUE, x2 = Integer.MIN_VALUE, cnt1 = 0, cnt2 = 0;
+    if (size == 1) return a.get(0);
+    if (size == 2) return a.get(0).compareTo(a.get(1)) == 0 ? a.get(0) : -1;
     for (Integer anA : a) {
-      if (x1 == Integer.MIN_VALUE && anA != x2 ) {
+      if (x1 == Integer.MIN_VALUE && anA != x2) {
         x1 = anA;
       }
       if (x2 == Integer.MIN_VALUE && anA != x1) {
@@ -82,11 +82,11 @@ public class Ndiv3RepeatNumber {
       }
     }
 
-    if(cnt1>size/3){
+    if (cnt1 > size / 3) {
       return x1;
     }
 
-    if(cnt2>size/3){
+    if (cnt2 > size / 3) {
       return x2;
     }
     return -1;

@@ -18,9 +18,9 @@ public class RemoveDuplicatesFromSortedArray {
     public int removeDuplicates(ArrayList<Integer> a) {
         int newLen = 0;
         int prev = Integer.MAX_VALUE;
-        for(int x:a){
-            if(x!=prev){
-                a.set(newLen++,x);
+        for (int x : a) {
+            if (x != prev) {
+                a.set(newLen++, x);
             }
             prev = x;
         }

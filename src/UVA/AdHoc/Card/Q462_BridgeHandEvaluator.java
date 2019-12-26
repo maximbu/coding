@@ -34,7 +34,7 @@ class Q462_BridgeHandEvaluator {
         rankCount.put(rank, rankCount.getOrDefault(rank, 0) + 1);
         suitCount.put(suit, suitCount.getOrDefault(suit, 0) + 1);
         highestSuit.put(suit, Math.max(rankScore.getOrDefault(rank, 0)
-            , highestSuit.getOrDefault(suit, 0)));
+                , highestSuit.getOrDefault(suit, 0)));
       }
 
       for (String card : cards) {
@@ -57,7 +57,7 @@ class Q462_BridgeHandEvaluator {
         if (suitVal < 2)
           score += 2;
 
-        int suitAmount = highestSuit.getOrDefault(suit,0);
+        int suitAmount = highestSuit.getOrDefault(suit, 0);
         if (suitAmount < 2)
           allStopped = false;
         if (suitAmount == 2) {
@@ -70,8 +70,7 @@ class Q462_BridgeHandEvaluator {
 
       if (allStopped && stoppedScore > 15) {
         System.out.println("BID NO-TRUMP");
-      }
-      else if (score > 13) {
+      } else if (score > 13) {
         char bidSuit = ' ';
         int bidSuitVal = 0;
         for (char suit : suits) {

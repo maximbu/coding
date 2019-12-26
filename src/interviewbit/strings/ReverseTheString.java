@@ -15,7 +15,7 @@ package interviewbit.strings;
  */
 public class ReverseTheString {
     public String reverseWords(String a) {
-        StringBuilder sb= new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         String[] words = a.trim().split(" ");
         for (int i = words.length - 1; i >= 0; i--) {
             String w = words[i];

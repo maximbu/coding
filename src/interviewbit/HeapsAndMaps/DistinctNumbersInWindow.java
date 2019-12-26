@@ -27,17 +27,17 @@ import java.util.HashMap;
 public class DistinctNumbersInWindow {
     public ArrayList<Integer> dNums(ArrayList<Integer> A, int B) {
         ArrayList<Integer> ans = new ArrayList<>();
-        if(B > A.size()){
+        if (B > A.size()) {
             return ans;
         }
-        HashMap<Integer,Integer> map = new HashMap<>();
-        for(int i=0 ; i < B ; i++){
-            map.put(A.get(i),map.getOrDefault(A.get(i),0)+1);
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < B; i++) {
+            map.put(A.get(i), map.getOrDefault(A.get(i), 0) + 1);
         }
         ans.add(map.keySet().size());
-        for(int i=B ; i < A.size() ; i++){
-            removePrev(map, A.get(i-B));
-            map.put(A.get(i),map.getOrDefault(A.get(i),0)+1);
+        for (int i = B; i < A.size(); i++) {
+            removePrev(map, A.get(i - B));
+            map.put(A.get(i), map.getOrDefault(A.get(i), 0) + 1);
             ans.add(map.keySet().size());
         }
         return ans;
@@ -51,7 +51,7 @@ public class DistinctNumbersInWindow {
         }
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         DistinctNumbersInWindow q = new DistinctNumbersInWindow();
         ArrayList<Integer> a = new ArrayList<>();
         a.add(1);
@@ -60,6 +60,6 @@ public class DistinctNumbersInWindow {
         a.add(3);
         a.add(4);
         a.add(3);
-        System.out.println(q.dNums(a,3));
+        System.out.println(q.dNums(a, 3));
     }
 }

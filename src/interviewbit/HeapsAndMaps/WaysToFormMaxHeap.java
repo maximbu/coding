@@ -47,23 +47,23 @@ public class WaysToFormMaxHeap {
         ans.add(1);
         int h = 0;
         for (int i = 2; i <= A; i++) {
-            if((2<<h) <= i){
+            if ((2 << h) <= i) {
                 h++;
             }
-            int m = i - (1<<h)+1;
-            int c = 1<<(h-1);
-            int l =  c-1+Math.min(m , c);
-            int r =  c-1+Math.min(0 ,m- c);
-            ans.add((comb(l,i-1)*ans.get(l)*ans.get(r))%1000000007);
+            int m = i - (1 << h) + 1;
+            int c = 1 << (h - 1);
+            int l = c - 1 + Math.min(m, c);
+            int r = c - 1 + Math.min(0, m - c);
+            ans.add((comb(l, i - 1) * ans.get(l) * ans.get(r)) % 1000000007);
         }
         return ans.get(A);
     }
 
     private int comb(int total, int choose) {
-        if(total < choose)
+        if (total < choose)
             return 0;
-        if(choose == 0 || choose == total)
+        if (choose == 0 || choose == total)
             return 1;
-        return comb(total-1,choose-1)+comb(total-1,choose);
+        return comb(total - 1, choose - 1) + comb(total - 1, choose);
     }
 }

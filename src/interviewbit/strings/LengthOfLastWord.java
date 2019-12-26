@@ -18,13 +18,13 @@ package interviewbit.strings;
 public class LengthOfLastWord {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int lengthOfLastWord(final String A) {
-        int len =0;
-        int start = A.length()-1;
-        while (start >= 0 && A.charAt(start)==' '){
+        int len = 0;
+        int start = A.length() - 1;
+        while (start >= 0 && A.charAt(start) == ' ') {
             start--;
         }
-        while (start>=0) {
-            if(A.charAt(start)==' ') return len;
+        while (start >= 0) {
+            if (A.charAt(start) == ' ') return len;
             len++;
             start--;
         }

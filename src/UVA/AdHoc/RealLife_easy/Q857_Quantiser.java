@@ -1,14 +1,9 @@
 package UVA.AdHoc.RealLife_easy;
 
+import java.util.*;
+
 import static java.lang.System.in;
 import static java.lang.System.out;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
 
 class Q857_Quantiser {
 
@@ -30,7 +25,7 @@ class Q857_Quantiser {
       for (int i = 0; i < size; i++) {
         String[] input = sc.nextLine().split("\\s+");
         int[] data = Arrays.stream(input).mapToInt(s -> Integer.parseInt(s.trim())).toArray();
-        notes.add(new Note(data[0],data[1],data[2],data[3],data[4]));
+        notes.add(new Note(data[0], data[1], data[2], data[3], data[4]));
       }
       List<Note> ans = solve(notes);
       out.println(ans.size());
@@ -99,9 +94,9 @@ class Q857_Quantiser {
       }
       Note note1 = (Note) o;
       return note == note1.note &&
-          m == note1.m &&
-          b == note1.b &&
-          t == note1.t;
+              m == note1.m &&
+              b == note1.b &&
+              t == note1.t;
     }
 
     @Override

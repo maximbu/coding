@@ -16,9 +16,9 @@ import java.util.ArrayList;
 public class RemoveElementFromArray {
     public int removeElement(ArrayList<Integer> a, int b) {
         int newLen = 0;
-        for(int x:a){
-            if(x!=b){
-                a.set(newLen++,x);
+        for (int x : a) {
+            if (x != b) {
+                a.set(newLen++, x);
             }
         }
         return newLen;

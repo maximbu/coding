@@ -19,41 +19,40 @@ import java.util.List;
  */
 public class SubstringConcatenation {
     public ArrayList<Integer> findSubstring(String A, final List<String> B) {
-        HashMap<String,Integer> map = new HashMap<>();
-        for (String s:B) {
-            map.put(s,map.getOrDefault(s,0)+1);
+        HashMap<String, Integer> map = new HashMap<>();
+        for (String s : B) {
+            map.put(s, map.getOrDefault(s, 0) + 1);
         }
         int wLen = B.get(0).length();
         ArrayList<Integer> ans = new ArrayList<>();
-        for(int i=0;i<=A.length()-B.size()*wLen;i++){
-            if(isValid(A.substring(i),B.size(),(HashMap<String,Integer>)map.clone(),wLen)){
+        for (int i = 0; i <= A.length() - B.size() * wLen; i++) {
+            if (isValid(A.substring(i), B.size(), (HashMap<String, Integer>) map.clone(), wLen)) {
                 ans.add(i);
             }
         }
         return ans;
     }
 
-    private boolean isValid(String A ,int words , HashMap<String,Integer> map , int wLen){
-        for(int i=0;i<words*wLen;i+=wLen){
-            String w = A.substring(i,i+wLen);
-            if(!map.containsKey(w)){
+    private boolean isValid(String A, int words, HashMap<String, Integer> map, int wLen) {
+        for (int i = 0; i < words * wLen; i += wLen) {
+            String w = A.substring(i, i + wLen);
+            if (!map.containsKey(w)) {
                 return false;
             }
             int occ = map.get(w);
-            if(occ == 1){
+            if (occ == 1) {
                 map.remove(w);
-            }
-            else {
-                map.put(w,occ-1);
+            } else {
+                map.put(w, occ - 1);
             }
         }
         return map.isEmpty();
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         SubstringConcatenation q = new SubstringConcatenation();
         String A = "abbaccaaabcabbbccbabbccabbacabcacbbaabbbbbaaabaccaacbccabcbababbbabccabacbbcabbaacaccccbaabcabaabaaaabcaabcacabaa";
-        List<String> B = Arrays.asList( "cac", "aaa", "aba", "aab", "abc" );
-        System.out.println(q.findSubstring(A,B));
+        List<String> B = Arrays.asList("cac", "aaa", "aba", "aab", "abc");
+        System.out.println(q.findSubstring(A, B));
     }
 }

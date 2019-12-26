@@ -1,4 +1,4 @@
-package UVA.easy;
+package UVA.Intro.easy;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -15,10 +15,10 @@ class Q12468_Zapping {
     while (true) {
       String[] input = sc.nextLine().split("\\s+");
       int[] line = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
-      if(line[0] == -1 && line[1] == -1) return;
+      if (line[0] == -1 && line[1] == -1) return;
       int a = line[0];
       int b = line[1];
-      System.out.println(Math.min(Math.floorMod(a - b, 100),Math.floorMod(b - a, 100)));
+      System.out.println(Math.min(Math.floorMod(a - b, 100), Math.floorMod(b - a, 100)));
     }
   }
 }

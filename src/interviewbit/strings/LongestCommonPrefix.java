@@ -28,20 +28,20 @@ import java.util.ArrayList;
  */
 public class LongestCommonPrefix {
     public String longestCommonPrefix(ArrayList<String> A) {
-        if (A == null || A.size() ==0) return "";
+        if (A == null || A.size() == 0) return "";
         String longestCommon = A.get(0);
-        for(int i=1;i<A.size();i++){
-            longestCommon = findLongest(longestCommon,A.get(i));
+        for (int i = 1; i < A.size(); i++) {
+            longestCommon = findLongest(longestCommon, A.get(i));
         }
         return longestCommon;
     }
 
-    private String findLongest(String a , String b){
-        if(a == null || b==null || a.length() == 0 || b.length() == 0)
+    private String findLongest(String a, String b) {
+        if (a == null || b == null || a.length() == 0 || b.length() == 0)
             return "";
-        for(int i=0;i<Math.min(a.length(),b.length());i++){
-            if(a.charAt(i) != b.charAt(i)){
-                return a.substring(0,i);
+        for (int i = 0; i < Math.min(a.length(), b.length()); i++) {
+            if (a.charAt(i) != b.charAt(i)) {
+                return a.substring(0, i);
             }
         }
         return a.length() < b.length() ? a : b;

@@ -1,8 +1,6 @@
 package interviewbit.binarySearch;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 
 /**
@@ -16,7 +14,7 @@ import java.util.Collections;
  Return the ans % 10000003
  */
 public class PaintersPartitionProblem {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     PaintersPartitionProblem q = new PaintersPartitionProblem();
 
     int numOfPainters = 2;
@@ -25,7 +23,7 @@ public class PaintersPartitionProblem {
     L.add(1);
     L.add(10);
 
-    System.out.println(q.paint(numOfPainters,timeTakenToPaintOneBoard,L));
+    System.out.println(q.paint(numOfPainters, timeTakenToPaintOneBoard, L));
 
     numOfPainters = 1;
     timeTakenToPaintOneBoard = 1000000;
@@ -33,34 +31,33 @@ public class PaintersPartitionProblem {
     L.add(1000000);
     L.add(1000000);
 
-    System.out.println(q.paint(numOfPainters,timeTakenToPaintOneBoard,L));
+    System.out.println(q.paint(numOfPainters, timeTakenToPaintOneBoard, L));
   }
 
   public int paint(int a, int b, ArrayList<Integer> c) {
-    long min = c.stream().min(Integer::compareTo).get()*(long)b;
-    long max = c.stream().mapToInt(m -> m).sum()*(long)b;
+    long min = c.stream().min(Integer::compareTo).get() * (long) b;
+    long max = c.stream().mapToInt(m -> m).sum() * (long) b;
     long mid;
-    while (max >=min){
-      mid = min + (max - min)/2;
-      if(canPaintIn(mid,a,b,c)){
-        max = mid-1;
-      }
-      else{
-        min=mid+1;
+    while (max >= min) {
+      mid = min + (max - min) / 2;
+      if (canPaintIn(mid, a, b, c)) {
+        max = mid - 1;
+      } else {
+        min = mid + 1;
       }
     }
-    return (int)(min % 10000003);
+    return (int) (min % 10000003);
   }
 
-  private boolean canPaintIn(long t, int a,int b, ArrayList<Integer> c) {
+  private boolean canPaintIn(long t, int a, int b, ArrayList<Integer> c) {
     int board = 0;
     for (int i = 0; i < a; i++) {
       long left = t;
-      while((board < c.size()) && (c.get(board)*(long)b<=left)){
-        left-=c.get(board)*(long)b;
+      while ((board < c.size()) && (c.get(board) * (long) b <= left)) {
+        left -= c.get(board) * (long) b;
         board++;
       }
-      if(board == c.size()) return true;
+      if (board == c.size()) return true;
     }
     return false;
   }

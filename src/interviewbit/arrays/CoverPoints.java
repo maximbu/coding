@@ -13,16 +13,16 @@ public class CoverPoints {
   public int coverPoints(ArrayList<Integer> X, ArrayList<Integer> Y) {
     int steps = 0;
     for (int i = 1; i < X.size(); i++) {
-      steps += distance(X.get(i),Y.get(i),X.get(i-1),Y.get(i-1));
+      steps += distance(X.get(i), Y.get(i), X.get(i - 1), Y.get(i - 1));
     }
     return steps;
   }
 
-  private int distance(int x1 , int y1 , int x2, int y2){
-    return Math.max(Math.abs(x1-x2), Math.abs(y1-y2));
+  private int distance(int x1, int y1, int x2, int y2) {
+    return Math.max(Math.abs(x1 - x2), Math.abs(y1 - y2));
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     CoverPoints q = new CoverPoints();
 
     ArrayList<Integer> X = new ArrayList<>();
@@ -33,7 +33,7 @@ public class CoverPoints {
     Y.add(0);
     Y.add(1);
     Y.add(2);
-    System.out.println(q.coverPoints(X,Y));
+    System.out.println(q.coverPoints(X, Y));
   }
 
 }

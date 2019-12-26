@@ -37,7 +37,7 @@ public class ColorfulNumber {
         }
         HashSet<Integer> seen = new HashSet<>();
         for (String t : l) {
-            int n = Integer.valueOf(t);
+            int n = Integer.parseInt(t);
             int mul = 1;
             while (n > 0) {
                 mul *= n % 10;
@@ -50,7 +50,7 @@ public class ColorfulNumber {
         return 1;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         ColorfulNumber q = new ColorfulNumber();
         System.out.println(q.colorful(99));
     }

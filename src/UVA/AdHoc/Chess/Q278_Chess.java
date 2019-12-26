@@ -16,7 +16,7 @@ class Q278_Chess {
     sc.nextLine();
     while (cases > 0) {
       String[] input = sc.nextLine().split("\\s+");
-      if(input.length == 3) {
+      if (input.length == 3) {
         int ans = solve(input);
         System.out.println(ans);
         cases--;
@@ -27,11 +27,15 @@ class Q278_Chess {
   private int solve(String[] line) {
     int m = Integer.parseInt(line[1]);
     int n = Integer.parseInt(line[2]);
-    switch (line[0]){
-      case "r": return solveRook(m,n);
-      case "k": return solveKnight(m,n);
-      case "Q": return solveQueen(m,n);
-      case "K": return solveKing(m,n);
+    switch (line[0]) {
+      case "r":
+        return solveRook(m, n);
+      case "k":
+        return solveKnight(m, n);
+      case "Q":
+        return solveQueen(m, n);
+      case "K":
+        return solveKing(m, n);
     }
     return 0;
   }
@@ -45,7 +49,7 @@ class Q278_Chess {
 
    */
   private int solveKing(int m, int n) {
-    return ((m+1)/2) * ((n+1)/2);
+    return ((m + 1) / 2) * ((n + 1) / 2);
   }
 
 
@@ -57,7 +61,7 @@ class Q278_Chess {
 
    */
   private int solveQueen(int m, int n) {
-    return  Math.min(m, n);
+    return Math.min(m, n);
   }
 
   /*
@@ -79,7 +83,7 @@ class Q278_Chess {
           x
    */
   private int solveRook(int m, int n) {
-    return Math.min(m,n);
+    return Math.min(m, n);
   }
 
 

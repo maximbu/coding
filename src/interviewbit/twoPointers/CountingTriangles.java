@@ -36,9 +36,9 @@ public class CountingTriangles {
         return ans;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         CountingTriangles q = new CountingTriangles();
-        System.out.println(q.nTriang(new ArrayList<>(Arrays.asList( 1, 1, 1, 2, 2))));
+        System.out.println(q.nTriang(new ArrayList<>(Arrays.asList(1, 1, 1, 2, 2))));
 
     }
 }

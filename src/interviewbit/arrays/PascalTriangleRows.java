@@ -9,14 +9,14 @@ import java.util.ArrayList;
  * Pascal’s triangle : To generate A[C] in row R, sum up A’[C] and A’[C-1] from previous row R - 1.
  */
 public class PascalTriangleRows {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     PascalTriangleRows q = new PascalTriangleRows();
     System.out.println(q.generate(5));
   }
 
   public ArrayList<ArrayList<Integer>> generate(int a) {
-    ArrayList ans = new ArrayList();
-    if(a == 0) return ans;
+    ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+    if (a == 0) return ans;
     ArrayList<Integer> prevRow = new ArrayList<>();
     prevRow.add(1);
     ans.add(prevRow);
@@ -25,7 +25,7 @@ public class PascalTriangleRows {
       ans.add(row);
       row.add(1);
       for (int j = 1; j < i; j++) {
-        row.add(prevRow.get(j)+prevRow.get(j-1));
+        row.add(prevRow.get(j) + prevRow.get(j - 1));
       }
       row.add(1);
       prevRow = row;

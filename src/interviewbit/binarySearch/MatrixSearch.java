@@ -38,16 +38,16 @@ public class MatrixSearch {
     X.add(row2);
 
     int target = 3;
-    System.out.println(q.searchMatrix(X,target));
+    System.out.println(q.searchMatrix(X, target));
 
     target = 16;
-    System.out.println(q.searchMatrix(X,target));
+    System.out.println(q.searchMatrix(X, target));
 
     target = 7;
-    System.out.println(q.searchMatrix(X,target));
+    System.out.println(q.searchMatrix(X, target));
 
     target = 4;
-    System.out.println(q.searchMatrix(X,target));
+    System.out.println(q.searchMatrix(X, target));
 
     X = new ArrayList<>();
     X.add(new ArrayList<>(Collections.singletonList(3)));
@@ -64,26 +64,25 @@ public class MatrixSearch {
     X.add(new ArrayList<>(Arrays.asList(44, 44, 47, 49, 51, 55, 57)));
     X.add(new ArrayList<>(Arrays.asList(57, 60, 60, 61, 61, 62, 63)));
     target = 1;
-    System.out.println(q.searchMatrix(X,target));
+    System.out.println(q.searchMatrix(X, target));
 
     target = 63;
-    System.out.println(q.searchMatrix(X,target));
+    System.out.println(q.searchMatrix(X, target));
   }
 
   public int searchMatrix(ArrayList<ArrayList<Integer>> a, int b) {
     int min = 0;
-    int max = a.size()-1;
-    int mid ;
-    while (max >= min){
-      mid = (max + min)/2;
-      if(a.get(mid).get(0) == b) return 1;
-      if(a.get(mid).get(0) < b && a.get(mid).get(a.get(mid).size()-1) >= b)
-        return searchInRow(a.get(mid),b);
-      if(a.get(mid).get(0)<b){
+    int max = a.size() - 1;
+    int mid;
+    while (max >= min) {
+      mid = (max + min) / 2;
+      if (a.get(mid).get(0) == b) return 1;
+      if (a.get(mid).get(0) < b && a.get(mid).get(a.get(mid).size() - 1) >= b)
+        return searchInRow(a.get(mid), b);
+      if (a.get(mid).get(0) < b) {
         min = mid + 1;
-      }
-      else{
-        max = mid-1;
+      } else {
+        max = mid - 1;
       }
     }
     return 0;
@@ -91,15 +90,14 @@ public class MatrixSearch {
 
   private int searchInRow(ArrayList<Integer> integers, int b) {
     int min = 0;
-    int max = integers.size()-1;
+    int max = integers.size() - 1;
     int mid;
-    while (max >= min){
-      mid = (max + min)/2;
-      if(integers.get(mid) == b) return 1;
-      if(integers.get(mid)<b){
-        min = mid+1;
-      }
-      else{
+    while (max >= min) {
+      mid = (max + min) / 2;
+      if (integers.get(mid) == b) return 1;
+      if (integers.get(mid) < b) {
+        min = mid + 1;
+      } else {
         max = mid - 1;
       }
     }

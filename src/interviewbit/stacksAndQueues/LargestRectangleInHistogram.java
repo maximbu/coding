@@ -20,6 +20,6 @@ public class LargestRectangleInHistogram {
 
     public static void main(String[] st) {
         LargestRectangleInHistogram q = new LargestRectangleInHistogram();
-        System.out.println(q.largestRectangleArea(new int[]{2,1,5,6,2,3}));
+        System.out.println(q.largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3}));
     }
 }

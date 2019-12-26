@@ -45,11 +45,11 @@ public class ScrambleString {
     public int isScramble(final String A, final String B) {
         if (A.equals(B)) return 1;
 
-        if( A.length() != B.length()) {
+        if (A.length() != B.length()) {
             return 0;
         }
         int[] l = new int[256];
-        for (int i=0; i<A.length(); i++) {
+        for (int i = 0; i < A.length(); i++) {
             l[A.charAt(i)]++;
             l[B.charAt(i)]--;
         }
@@ -58,12 +58,12 @@ public class ScrambleString {
                 return 0;
             }
         }
-        for (int i=1; i<A.length(); i++) {
+        for (int i = 1; i < A.length(); i++) {
             if (isScramble(A.substring(0, i), B.substring(0, i))
                     * isScramble(A.substring(i), B.substring(i)) == 1
                     ||
                     isScramble(A.substring(0, i), B.substring(B.length() - i))
-                    * isScramble(A.substring(i), B.substring(0, B.length() - i)) == 1) {
+                            * isScramble(A.substring(i), B.substring(0, B.length() - i)) == 1) {
                 return 1;
             }
         }
@@ -71,9 +71,9 @@ public class ScrambleString {
     }
 
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         ScrambleString q = new ScrambleString();
-        System.out.println(q.isScramble("abbbcbaaccacaacc","acaaaccabcabcbcb"));
-        System.out.println(q.isScramble("ABCDE","CAEBD"));
+        System.out.println(q.isScramble("abbbcbaaccacaacc", "acaaaccabcabcbcb"));
+        System.out.println(q.isScramble("ABCDE", "CAEBD"));
     }
 }

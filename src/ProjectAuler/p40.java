@@ -1,8 +1,6 @@
 package ProjectAuler;
 
 
-import java.util.HashSet;
-
 /**
  * Created by max on 1/27/2017.
  */
@@ -19,23 +17,22 @@ d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
     public int questionNaive(int n) {
         int cnt = 1;
         StringBuilder sb = new StringBuilder();
-        int i=1;
-        while (sb.length() < n){
+        int i = 1;
+        while (sb.length() < n) {
             sb.append(i);
             i++;
         }
         int t = 1;
-        while (t < n){
-            cnt *= sb.charAt(t-1)-'0';
-            t*=10;
+        while (t < n) {
+            cnt *= sb.charAt(t - 1) - '0';
+            t *= 10;
         }
         return cnt;
     }
 
 
-
     public static void main(String[] st) {
         p40 q = new p40();
         System.out.println(q.questionNaive(1000000));
-}
+    }
 }

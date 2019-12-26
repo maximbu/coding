@@ -41,10 +41,10 @@ public class Combinations {
 
         for (ArrayList<Integer> prev : combinePrev) {
             for (int i = 1; i <= A; i++) {
-                int l = Collections.binarySearch(prev,i);
-                if (l<0) {
+                int l = Collections.binarySearch(prev, i);
+                if (l < 0) {
                     ArrayList<Integer> tmp = new ArrayList<>(prev);
-                    tmp.add(-1*(l+1),i);
+                    tmp.add(-1 * (l + 1), i);
                     ans.add(tmp);
                 }
             }
@@ -61,7 +61,7 @@ public class Combinations {
     }
 
     private void combine(int A, int B, int start, LinkedList<Integer> curr,
-            ArrayList<ArrayList<Integer>> ans) {
+                         ArrayList<ArrayList<Integer>> ans) {
         if (curr.size() == B) {
             ans.add(new ArrayList<>(curr));
             return;
@@ -69,7 +69,7 @@ public class Combinations {
 
         for (int i = start; i <= A; i++) {
             curr.addLast(i);
-            combine(A, B, i + 1,curr, ans);
+            combine(A, B, i + 1, curr, ans);
             curr.removeLast();
         }
     }

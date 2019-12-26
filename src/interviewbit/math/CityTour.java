@@ -3,6 +3,7 @@ package interviewbit.math;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -48,18 +49,17 @@ public class CityTour {
         CityTour q = new CityTour();
 
         int A = 6;
-        ArrayList<Integer> B = new ArrayList<>(Arrays.asList(2,5));
-        System.out.println(q.solve(A,B));
+        ArrayList<Integer> B = new ArrayList<>(Arrays.asList(2, 5));
+        System.out.println(q.solve(A, B));
 
         A = 3;
-        B = new ArrayList<>(Arrays.asList(1));
-        System.out.println(q.solve(A,B));
+        B = new ArrayList<>(Collections.singletonList(1));
+        System.out.println(q.solve(A, B));
     }
 
     public int solve2(int A, ArrayList<Integer> B) {
-        int options = options(A,B);
-        int ans = fact2(options).mod(new BigInteger("1000000007")).intValue();
-        return ans;
+        int options = options(A, B);
+        return fact2(options).mod(new BigInteger("1000000007")).intValue();
     }
 
     private int options(int a, ArrayList<Integer> b) {
@@ -74,8 +74,9 @@ public class CityTour {
                 mul *= 2;
             }
         }
-        return mul-1;
+        return mul - 1;
     }
+
     int MOD = 1000000007;
 
     public int solve(int a, ArrayList<Integer> b) {
@@ -97,7 +98,8 @@ public class CityTour {
         return (c1 * c2 * fact(l1 + l2)) / (fact(l1) * fact(l2)) % MOD;
     }
 
-    HashMap<Long,Long> map = new HashMap<>();
+    HashMap<Long, Long> map = new HashMap<>();
+
     private long fact(long i) {
         if (map.containsKey(i)) return map.get(i);
         long f = 1;
@@ -112,7 +114,7 @@ public class CityTour {
 
     public static BigInteger fact2(int x) {
         BigInteger temp = BigInteger.ONE;
-        for (int i = 1; i <=x ; i++) {
+        for (int i = 1; i <= x; i++) {
             temp = temp.multiply(BigInteger.valueOf(i));
         }
         return temp;

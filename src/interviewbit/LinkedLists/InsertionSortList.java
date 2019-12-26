@@ -19,23 +19,22 @@ public class InsertionSortList {
     public ListNode insertionSortList(ListNode A) {
         ListNode head = A;
         ListNode tmp;
-        while(A != null){
+        while (A != null) {
             tmp = A.next;
-            head = insertSorted(head,A);
+            head = insertSorted(head, A);
             A = tmp;
         }
         return head;
     }
 
-    public ListNode insertSorted(ListNode A , ListNode toInsert) {
+    public ListNode insertSorted(ListNode A, ListNode toInsert) {
         ListNode head = A;
         ListNode prev = null;
-        while(A!= null && A != toInsert){
-            if (toInsert.val < A.val){
-                if(prev == null){
+        while (A != null && A != toInsert) {
+            if (toInsert.val < A.val) {
+                if (prev == null) {
                     head = toInsert;
-                }
-                else{
+                } else {
                     prev.next = toInsert;
                 }
                 toInsert.next = A;
@@ -44,7 +43,7 @@ public class InsertionSortList {
             prev = A;
             A = A.next;
         }
-        if(A == null) {
+        if (A == null) {
             prev.next = toInsert;
         }
         toInsert.next = null;
@@ -56,7 +55,7 @@ public class InsertionSortList {
         ListNode l = new ListNode(1);
         ListNode h = l;
         Random r = new Random();
-        for(int i = 2;i<8;i++){
+        for (int i = 2; i < 8; i++) {
             l.next = new ListNode(r.nextInt(100));
             l = l.next;
         }

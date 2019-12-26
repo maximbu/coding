@@ -1,11 +1,11 @@
 package UVA.AdHoc.RealLife_harder;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 class Q139_TelephoneTangles {
 
@@ -33,25 +33,24 @@ class Q139_TelephoneTangles {
       for (Area area : areas) {
         if (number.startsWith(area.id) && valid(number, area)) {
           out.println(String.format("%-16s%-25s%10s%5d%6.2f%7.2f",
-              number, area.name, number.substring(area.id.length()),
-              duration, area.price / 100.0,
-              duration * area.price / 100.0));
+                  number, area.name, number.substring(area.id.length()),
+                  duration, area.price / 100.0,
+                  duration * area.price / 100.0));
           found = true;
           break;
         }
       }
-      if(!found){
-        if(number.startsWith("0")) {
+      if (!found) {
+        if (number.startsWith("0")) {
           out.println(String.format("%-16s%-35s%5d%13.2f",
-              number,
-              "Unknown",
-              duration, -1.0));
-        }
-        else {
+                  number,
+                  "Unknown",
+                  duration, -1.0));
+        } else {
           out.println(String.format("%-16s%-25s%10s%5d%6.2f%7.2f",
-              number, "Local", number,
-              duration, 0.0,
-              0.0));
+                  number, "Local", number,
+                  duration, 0.0,
+                  0.0));
         }
 
       }
@@ -63,7 +62,7 @@ class Q139_TelephoneTangles {
   private boolean valid(String number, Area area) {
     int realNumberLen = number.substring(area.id.length()).length();
     return area.id.length() == 0 || area.id.startsWith("00") && realNumberLen < 11 && realNumberLen > 3
-        || area.id.startsWith("0") && realNumberLen < 8 && realNumberLen > 3;
+            || area.id.startsWith("0") && realNumberLen < 8 && realNumberLen > 3;
   }
 
   private class Area {
@@ -81,10 +80,10 @@ class Q139_TelephoneTangles {
     @Override
     public String toString() {
       return "Area{" +
-          "id='" + id + '\'' +
-          ", name='" + name + '\'' +
-          ", price=" + price +
-          '}';
+              "id='" + id + '\'' +
+              ", name='" + name + '\'' +
+              ", price=" + price +
+              '}';
     }
   }
 

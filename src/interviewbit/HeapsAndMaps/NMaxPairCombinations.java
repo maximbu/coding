@@ -1,11 +1,6 @@
 package interviewbit.HeapsAndMaps;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Given two arrays A & B of size N each.
@@ -28,7 +23,7 @@ import java.util.PriorityQueue;
  */
 public class NMaxPairCombinations {
 
-  class Res implements Comparable<Res> {
+  static class Res implements Comparable<Res> {
 
     int a;
     int b;
@@ -46,7 +41,6 @@ public class NMaxPairCombinations {
     }
 
 
-    @Override
     public boolean equals(Object o) {
       Res r = (Res) o;
       return a == r.a && b == r.b;

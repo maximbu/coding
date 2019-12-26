@@ -1,8 +1,8 @@
 package UVA.AdHoc.Palindrome;
 
-import static java.lang.System.in;
-
 import java.util.Scanner;
+
+import static java.lang.System.in;
 
 class Q11221_MagicSquarePalindromes {
 
@@ -13,7 +13,7 @@ class Q11221_MagicSquarePalindromes {
 
   private void solve() {
     Scanner sc = new Scanner(in);
-    int cases = Integer.valueOf(sc.nextLine());
+    int cases = Integer.parseInt(sc.nextLine());
     int c = 0;
     while (c++ < cases) {
       String input = sc.nextLine().trim();

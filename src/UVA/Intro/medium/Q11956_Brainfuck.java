@@ -17,7 +17,7 @@ class Q11956_Brainfuck {
     while (cases-- > 0) {
       String input = sc.nextLine();
       String res = solve(input);
-      System.out.println("Case "+(currCase++) +": "+res);
+      System.out.println("Case " + (currCase++) + ": " + res);
     }
   }
 

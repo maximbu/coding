@@ -1,4 +1,4 @@
-package UVA.easy;
+package UVA.Intro.easy;
 
 import java.util.Scanner;
 
@@ -13,19 +13,19 @@ class Q11332_SummingDigits {
     while (true) {
       int num = sc.nextInt();
       sc.nextLine();
-      if(num == 0) return;
+      if (num == 0) return;
       int ans = solve(num);
       System.out.println(ans);
     }
   }
 
   private int solve(int num) {
-    if(num < 10)
+    if (num < 10)
       return num;
     int sum = 0;
-    while (num > 0){
-      sum+= num%10;
-      num/= 10;
+    while (num > 0) {
+      sum += num % 10;
+      num /= 10;
     }
     return solve(sum);
   }

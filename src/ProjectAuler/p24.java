@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static java.util.Arrays.asList;
-
 
 /**
  * Created by max on 1/27/2017.
@@ -20,23 +18,23 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 
     public int[] questionNaive(int n) {
         int[] digits = new int[10];
-        List<Integer> list = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9));
+        List<Integer> list = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
         for (int j = 0; j < digits.length; j++) {
-            long maxAvalibleNum = permutationsForDigitInIndexI(j+1);
-            int digit = (int)(n/maxAvalibleNum);
+            long maxAmalieNumb = permutationsForDigitInIndexI(j + 1);
+            int digit = (int) (n / maxAmalieNumb);
             digits[j] = list.get(digit);
             list.remove(digit);
-            n -= digit * maxAvalibleNum;
+            n -= digit * maxAmalieNumb;
         }
 
-       return digits;
+        return digits;
     }
 
 
-    private long permutationsForDigitInIndexI(int i){
+    private long permutationsForDigitInIndexI(int i) {
         int ans = 1;
-        for (int j = 10-i; j >1 ; j--) {
-            ans*=j;
+        for (int j = 10 - i; j > 1; j--) {
+            ans *= j;
         }
         return ans;
     }
@@ -45,6 +43,6 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
     public static void main(String[] st) {
         p24 q = new p24();
 
-        System.out.println(Arrays.toString(q.questionNaive(1000000-1)));
+        System.out.println(Arrays.toString(q.questionNaive(1000000 - 1)));
     }
 }

@@ -23,14 +23,14 @@ public class CompareVersionNumbers {
 
         int i = 0;
         for (; i < Math.min(4, Math.min(aVer.length, bVer.length)); i++) {
-            int x = compare(skipZeroes(aVer[i]),skipZeroes(bVer[i]));
+            int x = compare(skipZeroes(aVer[i]), skipZeroes(bVer[i]));
             if (x != 0) return x;
         }
 
         return Integer.compare(Integer.compare(nonZeroIndFromI(aVer, i), nonZeroIndFromI(bVer, i)), 0);
     }
 
-    private int compare(String a , String b) {
+    private int compare(String a, String b) {
         int len = Integer.compare(a.length(), b.length());
         if (len != 0) return len;
         return Integer.compare(a.compareTo(b), 0);
@@ -40,17 +40,17 @@ public class CompareVersionNumbers {
         int zeroes = 0;
         while (i < aVer.length) {
             if (!skipZeroes(aVer[i]).equals("0")) {
-                return i-zeroes;
+                return i - zeroes;
             }
             i++;
             zeroes++;
         }
-        return i-1-zeroes;
+        return i - 1 - zeroes;
     }
 
     private String skipZeroes(String s) {
         for (int i = 0; i < s.length(); i++) {
-            if(s.charAt(i)!='0'){
+            if (s.charAt(i) != '0') {
                 return s.substring(i);
             }
         }
@@ -59,11 +59,11 @@ public class CompareVersionNumbers {
 
     public static void main(String[] st) {
         CompareVersionNumbers q = new CompareVersionNumbers();
-        System.out.println(q.compareVersion("4444371174137455","5.168"));
-        System.out.println(q.compareVersion("2","4"));
-        System.out.println(q.compareVersion("1.0","1"));
-        System.out.println(q.compareVersion("444444444444444444444444","4444444444444444444444444"));
-        System.out.println(q.compareVersion("13.0","13.0.8"));
-        System.out.println(q.compareVersion("01","1"));
+        System.out.println(q.compareVersion("4444371174137455", "5.168"));
+        System.out.println(q.compareVersion("2", "4"));
+        System.out.println(q.compareVersion("1.0", "1"));
+        System.out.println(q.compareVersion("444444444444444444444444", "4444444444444444444444444"));
+        System.out.println(q.compareVersion("13.0", "13.0.8"));
+        System.out.println(q.compareVersion("01", "1"));
     }
 }

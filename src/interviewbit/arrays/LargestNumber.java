@@ -1,7 +1,6 @@
 package interviewbit.arrays;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,18 +18,18 @@ public class LargestNumber {
   // DO NOT MODIFY THE LIST
   public String largestNumber(final List<Integer> a) {
     List<String> a2 = a.stream().map(Object::toString)
-        .sorted((o1, o2) -> (o2 + o1).compareTo(o1 + o2)).collect(Collectors.toList());
+            .sorted((o1, o2) -> (o2 + o1).compareTo(o1 + o2)).collect(Collectors.toList());
     StringBuilder b = new StringBuilder();
     for (String anA : a2) {
-      if(!anA.equals("0")) {
+      if (!anA.equals("0")) {
         b.append(anA);
       }
     }
-    if(b.length() == 0) return "0";
+    if (b.length() == 0) return "0";
     return b.toString();
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     LargestNumber q = new LargestNumber();
 
     ArrayList<Integer> X = new ArrayList<>();

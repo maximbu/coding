@@ -11,33 +11,37 @@ import java.util.Stack;
  * Try to optimize the additional space complexity apart from the amortized time complexity.
  */
 public class BstIterator {
-    Stack<TreeNode> min ;
+    Stack<TreeNode> min;
 
     public BstIterator(TreeNode root) {
         min = new Stack<>();
         storeMin(root);
     }
 
-    /** @return whether we have a next smallest number */
+    /**
+     * @return whether we have a next smallest number
+     */
     public boolean hasNext() {
         return !min.isEmpty();
     }
 
-    private void storeMin(TreeNode root){
-        while(root != null){
+    private void storeMin(TreeNode root) {
+        while (root != null) {
             min.push(root);
             root = root.left;
         }
     }
 
-    /** @return the next smallest number */
+    /**
+     * @return the next smallest number
+     */
     public int next() {
         TreeNode node = min.pop();
         storeMin(node.right);
         return node.val;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         TreeNode root = new TreeNode(2);
         root.left = new TreeNode(1);
         BstIterator i = new BstIterator(root);

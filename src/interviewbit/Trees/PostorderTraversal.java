@@ -26,9 +26,9 @@ public class PostorderTraversal {
         Stack<TreeNode> st = new Stack<>();
         HashSet<TreeNode> seen = new HashSet<>();
         st.add(A);
-        while(!st.isEmpty()){
+        while (!st.isEmpty()) {
             TreeNode n = st.peek();
-            if(seen.add(n)) {
+            if (seen.add(n)) {
                 if (n.right != null) {
                     st.push(n.right);
                 }
@@ -36,7 +36,7 @@ public class PostorderTraversal {
                     st.push(n.left);
                 }
             }
-            if((n.left == null || seen.contains(n.left)) && (n.right==null || seen.contains(n.right))){
+            if ((n.left == null || seen.contains(n.left)) && (n.right == null || seen.contains(n.right))) {
                 path.add(st.pop().val);
             }
         }
@@ -44,7 +44,7 @@ public class PostorderTraversal {
         return path;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         PostorderTraversal q = new PostorderTraversal();
         TreeNode t7 = new TreeNode(7);
         TreeNode t6 = new TreeNode(6);
@@ -55,10 +55,10 @@ public class PostorderTraversal {
         TreeNode t1 = new TreeNode(1);
         t1.right = t3;
         t1.left = t2;
-        t2.left=t4;
-        t2.right=t5;
-        t3.left=t6;
-        t3.right=t7;
+        t2.left = t4;
+        t2.right = t5;
+        t3.left = t6;
+        t3.right = t7;
         System.out.println(q.postorderTraversal(t1));
     }
 }

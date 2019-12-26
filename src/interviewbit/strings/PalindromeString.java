@@ -12,25 +12,25 @@ Example:
 Return 0 / 1 ( 0 for false, 1 for true ) for this problem
  **/
 public class PalindromeString {
-        public int isPalindrome(String A) {
-            if(A == null) return 0;
-            char[] ch = A.toCharArray();
-            int left =0;
-            int right = ch.length-1;
-            while(left < right){
-                while(left < right && !Character.isLetterOrDigit(ch[left])){
-                    left++;
-                }
-                while(left < right && !Character.isLetterOrDigit(ch[right])){
-                    right--;
-                }
-                if(left == right) return 1;
-                if(Character.toLowerCase(ch[left++]) != Character.toLowerCase(ch[right--])){
-                    return 0;
-                }
+    public int isPalindrome(String A) {
+        if (A == null) return 0;
+        char[] ch = A.toCharArray();
+        int left = 0;
+        int right = ch.length - 1;
+        while (left < right) {
+            while (left < right && !Character.isLetterOrDigit(ch[left])) {
+                left++;
             }
-            return 1;
+            while (left < right && !Character.isLetterOrDigit(ch[right])) {
+                right--;
+            }
+            if (left == right) return 1;
+            if (Character.toLowerCase(ch[left++]) != Character.toLowerCase(ch[right--])) {
+                return 0;
+            }
         }
+        return 1;
+    }
 
     public static void main(String[] st) {
         PalindromeString q = new PalindromeString();

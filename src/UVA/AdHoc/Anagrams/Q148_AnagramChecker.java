@@ -1,11 +1,11 @@
 package UVA.AdHoc.Anagrams;
 
-import static java.lang.System.in;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.IntStream;
+
+import static java.lang.System.in;
 
 class Q148_AnagramChecker {
 
@@ -79,7 +79,7 @@ class Q148_AnagramChecker {
   }
 
   private void allOptionsOfSize(List<String> words, int i, String st, String full,
-      List<String> currOp, List<List<String>> ops) {
+                                List<String> currOp, List<List<String>> ops) {
     int len = currOp.stream().mapToInt(String::length).sum();
     if (len == st.length() && isAnagram(st, currOp)) {
       ops.add(currOp);
@@ -95,14 +95,14 @@ class Q148_AnagramChecker {
     }
 
     IntStream.range(i + 1, words.size()).filter(j -> goodWord(words.get(j), st, full, currOp, len))
-        .findFirst().ifPresent(j -> allOptionsOfSize(words, j, st, full, currOp, ops));
+            .findFirst().ifPresent(j -> allOptionsOfSize(words, j, st, full, currOp, ops));
 
   }
 
   private boolean goodWord(String word, String st, String full, List<String> currOp,
-      int len) {
+                           int len) {
     return notWordInSt(full, word) && st.length() >= (len + word.length()) && canBeAnagram(st,
-        currOp, word);
+            currOp, word);
   }
 
   private boolean canBeAnagram(String s, List<String> currOp, String newWord) {
@@ -118,7 +118,7 @@ class Q148_AnagramChecker {
 
   private boolean notWordInSt(String s, String word) {
     return !s.contains(" " + word + " ") && !s.startsWith(word + " ") && !s.equals(word) && !s
-        .endsWith(" " + word);
+            .endsWith(" " + word);
   }
 
 

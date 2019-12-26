@@ -19,41 +19,40 @@ Find the sum of all the positive integers which cannot be written as the sum of 
     public long questionNaive(int n) {
         long sum = 0;
         for (int i = 1; i < n; i++) {
-            if(i<divisorsSum(i)){
+            if (i < divisorsSum(i)) {
                 abundant.add(i);
             }
         }
-        boolean nums[] = new boolean[n+1];
-        for (Integer n2:abundant) {
-            for (Integer n3:abundant) {
-                if(n2+n3 < n+1) { // nums[24] = true
-                    nums[n2+n3]=true;
+        boolean[] nums = new boolean[n + 1];
+        for (Integer n2 : abundant) {
+            for (Integer n3 : abundant) {
+                if (n2 + n3 < n + 1) { // nums[24] = true
+                    nums[n2 + n3] = true;
                 }
             }
         }
 
-        for (int i = 1; i < n+1; i++) {
-            if(!nums[i]) sum+=i;
+        for (int i = 1; i < n + 1; i++) {
+            if (!nums[i]) sum += i;
         }
         return sum;
     }
 
     private static long divisorsSum(int n) {
         long sum = 1;
-        for (int j = 2; j*j <= n; j++) {
-            if(n%j == 0) {
-                sum+=j;
-                if(j != n/j) sum+=n/j;
+        for (int j = 2; j * j <= n; j++) {
+            if (n % j == 0) {
+                sum += j;
+                if (j != n / j) sum += n / j;
             }
         }
         return sum;
     }
 
 
-
     public static void main(String[] st) {
         p23 q = new p23();
         int num = 20162;
-        System.out.println(q.questionNaive( num ));
+        System.out.println(q.questionNaive(num));
     }
 }

@@ -1,4 +1,4 @@
-package UVA.easy;
+package UVA.Intro.easy;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,7 +19,7 @@ class Q11799_HorrorDash {
       String[] input = sc.nextLine().split("\\s+");
       int[] line = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
       System.out
-          .println("Case " + (caseNum++) + ": " + Arrays.stream(line).skip(1).max().getAsInt());
+              .println("Case " + (caseNum++) + ": " + Arrays.stream(line).skip(1).max().getAsInt());
     }
   }
 }

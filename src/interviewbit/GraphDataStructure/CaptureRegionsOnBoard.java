@@ -25,21 +25,21 @@ import java.util.HashSet;
  */
 public class CaptureRegionsOnBoard {
     public void solve(ArrayList<ArrayList<Character>> a) {
-        HashMap<Integer,Boolean> hasPath = new HashMap<>();
-        for(int i=0;i<a.size();i++){
-            for(int j=0;j<a.get(0).size();j++){
-                if(i == 0 || j == 0){
+        HashMap<Integer, Boolean> hasPath = new HashMap<>();
+        for (int i = 0; i < a.size(); i++) {
+            for (int j = 0; j < a.get(0).size(); j++) {
+                if (i == 0 || j == 0) {
                     continue;
                 }
-                if(a.get(i).get(j)=='O' && hasPathToEdge(a,i,j,hasPath, new HashSet<>() ,true)){
+                if (a.get(i).get(j) == 'O' && hasPathToEdge(a, i, j, hasPath, new HashSet<>(), true)) {
                     continue;
                 }
-                a.get(i).set(j,'X');
+                a.get(i).set(j, 'X');
             }
         }
     }
 
-    private boolean hasPathToEdge(ArrayList<ArrayList<Character>> a ,int i,int j,HashMap<Integer,Boolean> hasPath , HashSet<Integer> seen , boolean orig ) {
+    private boolean hasPathToEdge(ArrayList<ArrayList<Character>> a, int i, int j, HashMap<Integer, Boolean> hasPath, HashSet<Integer> seen, boolean orig) {
         int index = i * a.get(0).size() + j;
         if (hasPath.containsKey(index)) {
             return hasPath.get(index);
@@ -49,7 +49,7 @@ public class CaptureRegionsOnBoard {
             hasPath.put(index, false);
             return false;
         }
-        if (i == 0 || i == a.size()-1 || j == 0 || j == a.get(0).size()-1) {
+        if (i == 0 || i == a.size() - 1 || j == 0 || j == a.get(0).size() - 1) {
             hasPath.put(index, true);
             return true;
         }
@@ -58,21 +58,21 @@ public class CaptureRegionsOnBoard {
         }
         seen.add(index);
 
-        boolean ans = hasPathToEdge(a, i - 1, j, hasPath, seen,false) || hasPathToEdge(a, i + 1, j, hasPath, seen,false)
-                || hasPathToEdge(a, i, j - 1, hasPath, seen,false) || hasPathToEdge(a, i, j + 1, hasPath, seen,false);
+        boolean ans = hasPathToEdge(a, i - 1, j, hasPath, seen, false) || hasPathToEdge(a, i + 1, j, hasPath, seen, false)
+                || hasPathToEdge(a, i, j - 1, hasPath, seen, false) || hasPathToEdge(a, i, j + 1, hasPath, seen, false);
 
-        if(ans || orig) {
+        if (ans || orig) {
             hasPath.put(index, ans);
         }
         return ans;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         CaptureRegionsOnBoard q = new CaptureRegionsOnBoard();
         ArrayList<ArrayList<Character>> A = new ArrayList<>();
-        A.add(new ArrayList<>(Arrays.asList('X','X','X')));
-        A.add(new ArrayList<>(Arrays.asList('X','O','X')));
-        A.add(new ArrayList<>(Arrays.asList('X','X','X')));
+        A.add(new ArrayList<>(Arrays.asList('X', 'X', 'X')));
+        A.add(new ArrayList<>(Arrays.asList('X', 'O', 'X')));
+        A.add(new ArrayList<>(Arrays.asList('X', 'X', 'X')));
         System.out.println(A);
         q.solve(A);
         System.out.println(A);
@@ -93,7 +93,7 @@ public class CaptureRegionsOnBoard {
 
     private static ArrayList<Character> convertStringToArraylist(String str) {
         ArrayList<Character> charList = new ArrayList<>();
-        for(int i = 0; i<str.length();i++){
+        for (int i = 0; i < str.length(); i++) {
             charList.add(str.charAt(i));
         }
         return charList;

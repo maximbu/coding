@@ -16,30 +16,30 @@ public class SimplifyDirectoryPath {
     public String simplifyPath(String A) {
         Stack<String> st = new Stack<>();
         String[] dirs = A.split("/");
-        for(String d:dirs){
-            if(d.equals(".") || d.length() == 0){
+        for (String d : dirs) {
+            if (d.equals(".") || d.length() == 0) {
                 continue;
             }
-            if(d.equals("..")){
-                if(!st.isEmpty()) {
+            if (d.equals("..")) {
+                if (!st.isEmpty()) {
                     st.pop();
                 }
                 continue;
             }
             st.push(d);
         }
-        if(st.isEmpty()){
+        if (st.isEmpty()) {
             return "/";
         }
 
         StringBuilder ans = new StringBuilder();
-        while(!st.isEmpty()){
+        while (!st.isEmpty()) {
             ans.insert(0, "/" + st.pop());
         }
         return ans.toString();
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         SimplifyDirectoryPath q = new SimplifyDirectoryPath();
         System.out.println(q.simplifyPath("/../"));
         System.out.println(q.simplifyPath("/a/b/c"));

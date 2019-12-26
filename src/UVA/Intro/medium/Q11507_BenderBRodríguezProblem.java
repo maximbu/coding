@@ -30,7 +30,7 @@ class Q11507_BenderBRodríguezProblem {
     return currDir;
   }
 
-  private String handle(String currDir , String bend) {
+  private String handle(String currDir, String bend) {
     String[] yRotation = {"+x", "+y", "-x", "-y"};
     String[] zRotation = {"+x", "+z", "-x", "-z"};
     switch (bend) {
@@ -49,8 +49,8 @@ class Q11507_BenderBRodríguezProblem {
 
   private String newDir(String[] arr, String currDir, int inc) {
     for (int i = 0; i < arr.length; i++) {
-      if(arr[i].equals(currDir)){
-        return arr[(i+inc+arr.length) % arr.length];
+      if (arr[i].equals(currDir)) {
+        return arr[(i + inc + arr.length) % arr.length];
       }
     }
     return currDir;

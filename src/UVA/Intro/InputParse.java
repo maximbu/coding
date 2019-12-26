@@ -1,11 +1,11 @@
 package UVA.Intro;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
-
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 public class InputParse {
 
@@ -20,11 +20,11 @@ public class InputParse {
     12
     9
   */
-  public void testCasesGiven(){
+  public void testCasesGiven() {
     Scanner sc = new Scanner(in);
     int n = sc.nextInt();
     sc.nextLine();
-    while(n-- > 0){
+    while (n-- > 0) {
       String[] input = sc.nextLine().split("\\s+");
       int[] line = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
       int result = solve(line);
@@ -43,12 +43,12 @@ public class InputParse {
    12
    9
  */
-  public void endsWithZeroes(){
+  public void endsWithZeroes() {
     Scanner sc = new Scanner(in);
-    while(true){
+    while (true) {
       String[] input = sc.nextLine().split("\\s+");
       int[] line = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
-      if(IntStream.of(line).noneMatch(t->t != 0)) return;
+      if (IntStream.of(line).noneMatch(t -> t != 0)) return;
       int result = solve(line);
       out.println(result);
     }
@@ -64,9 +64,9 @@ public class InputParse {
    12
    9
  */
-  public void endsWithEOF(){
+  public void endsWithEOF() {
     Scanner sc = new Scanner(in);
-    while(sc.hasNextLine()){
+    while (sc.hasNextLine()) {
       String[] input = sc.nextLine().split("\\s+");
       int[] line = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();
       int result = solve(line);
@@ -138,9 +138,9 @@ public class InputParse {
   21
   5
   */
-  public void variableNumOfInputs(){
+  public void variableNumOfInputs() {
     Scanner sc = new Scanner(in);
-    while(sc.hasNextLine()){
+    while (sc.hasNextLine()) {
       String[] input = sc.nextLine().split("\\s+");
       int[] line = Arrays.stream(input).skip(1).mapToInt(Integer::parseInt).toArray();
       int result = solve(line);
@@ -152,7 +152,7 @@ public class InputParse {
     return IntStream.of(line).sum();
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     InputParse p = new InputParse();
     //p.testCasesGiven();
     //p.endsWithZeroes();

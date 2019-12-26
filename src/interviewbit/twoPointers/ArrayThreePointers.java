@@ -28,10 +28,10 @@ public class ArrayThreePointers {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int minimize(final List<Integer> A, final List<Integer> B, final List<Integer> C) {
         int ans = Integer.MAX_VALUE;
-        int Ai =0;
-        int Bi =0;
-        int Ci =0;
-        while(Ai < A.size() && Bi < B.size() && Ci < C.size()) {
+        int Ai = 0;
+        int Bi = 0;
+        int Ci = 0;
+        while (Ai < A.size() && Bi < B.size() && Ci < C.size()) {
             int a = A.get(Ai);
             int b = B.get(Bi);
             int c = C.get(Ci);
@@ -49,16 +49,17 @@ public class ArrayThreePointers {
         }
         return ans;
     }
-    int calc(int a,int b, int c){
-        int ans = Math.abs(a-b);
-        ans = Math.max(ans,Math.abs(b-c));
-        ans = Math.max(ans,Math.abs(c-a));
+
+    int calc(int a, int b, int c) {
+        int ans = Math.abs(a - b);
+        ans = Math.max(ans, Math.abs(b - c));
+        ans = Math.max(ans, Math.abs(c - a));
         return ans;
     }
 
-    public static void main(String st[]){
+    public static void main(String st[]) {
         ArrayThreePointers q = new ArrayThreePointers();
-        System.out.println(q.minimize(Arrays.asList(1),Arrays.asList(1),Arrays.asList(1)));
-        System.out.println(q.minimize(Arrays.asList(1,4,10),Arrays.asList(2,15,20),Arrays.asList(10,12)));
+        System.out.println(q.minimize(Arrays.asList(1), Arrays.asList(1), Arrays.asList(1)));
+        System.out.println(q.minimize(Arrays.asList(1, 4, 10), Arrays.asList(2, 15, 20), Arrays.asList(10, 12)));
     }
 }

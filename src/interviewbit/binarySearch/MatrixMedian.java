@@ -1,7 +1,6 @@
 package interviewbit.binarySearch;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Given a N cross M matrix in which each row is sorted, find the overall median of the matrix.
@@ -64,7 +63,7 @@ public class MatrixMedian {
     int max = Integer.MIN_VALUE;
     int m = A.size();
     int n = A.get(0).size();
-    int halfElements = (m*n+1)/2;
+    int halfElements = (m * n + 1) / 2;
 
     for (ArrayList<Integer> aA : A) {
       min = Math.min(aA.get(0), min);
@@ -72,13 +71,12 @@ public class MatrixMedian {
     }
 
     int mid;
-    while (min < max){
+    while (min < max) {
       mid = min + (max - min) / 2;
-      int cnt = countElementsSmallerOrEqualThen(mid,A);
-      if(cnt < halfElements){
+      int cnt = countElementsSmallerOrEqualThen(mid, A);
+      if (cnt < halfElements) {
         min = mid + 1;
-      }
-      else{
+      } else {
         max = mid;
       }
     }
@@ -91,15 +89,14 @@ public class MatrixMedian {
 
   private int countElementsSmallerOrEqualInRow(int elem, ArrayList<Integer> a) {
     int min = 0;
-    int max = a.size()-1;
+    int max = a.size() - 1;
     int mid;
-    while (min<=max){
+    while (min <= max) {
       mid = min + (max - min) / 2;
-      if(a.get(mid) <= elem){
-        min = mid+1;
-      }
-      else {
-        max = mid-1;
+      if (a.get(mid) <= elem) {
+        min = mid + 1;
+      } else {
+        max = mid - 1;
       }
     }
     return min;

@@ -2,7 +2,6 @@ package interviewbit.binarySearch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  *  N number of books are given.
@@ -13,7 +12,7 @@ import java.util.Collections;
  *
  */
 public class AllocateBooks {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     AllocateBooks q = new AllocateBooks();
 
     ArrayList<Integer> X = new ArrayList<>();
@@ -23,7 +22,7 @@ public class AllocateBooks {
     X.add(90);
 
     int numOfStudents = 2;
-    System.out.println(q.books(X,numOfStudents));
+    System.out.println(q.books(X, numOfStudents));
 
     X = new ArrayList<>();
     X.add(31);
@@ -32,7 +31,7 @@ public class AllocateBooks {
     X.add(75);
 
     numOfStudents = 12;
-    System.out.println(q.books(X,numOfStudents));
+    System.out.println(q.books(X, numOfStudents));
 
     X = new ArrayList<>();
     X.add(73);
@@ -45,11 +44,11 @@ public class AllocateBooks {
     X.add(9);
 
     numOfStudents = 5;
-    System.out.println(q.books(X,numOfStudents));
+    System.out.println(q.books(X, numOfStudents));
 
     X = new ArrayList<>(Arrays.asList(97, 26, 12, 67, 10, 33, 79, 49, 79, 21, 67, 72, 93, 36, 85, 45, 28, 91, 94, 57, 1, 53, 8, 44, 68, 90, 24));
     numOfStudents = 26;
-    System.out.println(q.books(X,numOfStudents));
+    System.out.println(q.books(X, numOfStudents));
   }
 
   public int books(ArrayList<Integer> a, int b) {
@@ -67,7 +66,7 @@ public class AllocateBooks {
       return -1;
     while (max >= min) {
       mid = min + (max - min) / 2;
-      if (canAllocate(mid, a, b,bookMax)) {
+      if (canAllocate(mid, a, b, bookMax)) {
         max = mid - 1;
         res = Math.min(res, mid);
       } else {
@@ -84,7 +83,7 @@ public class AllocateBooks {
     }
     int studentsNeeded = 1;
     int currTotal = 0;
-    int i=0;
+    int i = 0;
     while (i < a.size()) {
       if (currTotal + a.get(i) > pages) {
         currTotal = 0;

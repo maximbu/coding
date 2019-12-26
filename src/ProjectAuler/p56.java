@@ -17,8 +17,8 @@ Considering natural numbers of the form, ab, where a, b < 100, what is the maxim
         int biggestSum = 0;
         for (int a = 1; a < 100; a++) {
             for (int b = 1; b < 100; b++) {
-                int digSum = digitSum(a,b);
-                if(digSum > biggestSum){
+                int digSum = digitSum(a, b);
+                if (digSum > biggestSum) {
                     biggestSum = digSum;
                 }
             }
@@ -40,5 +40,5 @@ Considering natural numbers of the form, ab, where a, b < 100, what is the maxim
     public static void main(String[] st) {
         p56 q = new p56();
         System.out.println(q.questionNaive());
-}
+    }
 }

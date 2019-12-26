@@ -28,7 +28,7 @@ import java.util.Arrays;
  */
 public class MinJumps {
 
-  class DPData {
+  static class DPData {
 
     int fromInd;
     int cost;
@@ -81,7 +81,7 @@ public class MinJumps {
 
   public static void main(String[] st) {
     MinJumps q = new MinJumps();
-   // System.out.println(q.minJumps(new ArrayList<>(Arrays.asList(1, 2, 4, -1, 2)),2));
-    System.out.println(q.minJumps(new ArrayList<>(Arrays.asList(933, 815, -1, -1, -1, -1, -1, -1, -1, 469, 902, 228, 728, 764, 999, 818)),6));
+    // System.out.println(q.minJumps(new ArrayList<>(Arrays.asList(1, 2, 4, -1, 2)),2));
+    System.out.println(q.minJumps(new ArrayList<>(Arrays.asList(933, 815, -1, -1, -1, -1, -1, -1, -1, 469, 902, 228, 728, 764, 999, 818)), 6));
   }
 }

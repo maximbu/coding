@@ -1,8 +1,6 @@
 package ProjectAuler;
 
 
-import java.math.BigInteger;
-
 /**
  * Created by max on 1/27/2017.
  */
@@ -25,7 +23,7 @@ How many Lychrel numbers are there below ten-thousand?
         for (int i = 10; i < n; i++) {
             if (isLychrel(i)) {
                 cnt++;
-                System.out.println(i+", ");
+                System.out.println(i + ", ");
             }
         }
         return cnt;
@@ -33,22 +31,22 @@ How many Lychrel numbers are there below ten-thousand?
 
     private long inverse(long a) {
         long ans = 0;
-        while (a >0) {
+        while (a > 0) {
             ans = ans * 10 + a % 10;
             a /= 10;
         }
         return ans;
     }
 
-    private boolean isPalindrom(long x) {
+    private boolean isPalindrome(long x) {
         return x == inverse(x);
     }
 
     private boolean isLychrel(int x) {
-        long s = x ;
+        long s = x;
         for (int i = 0; i < 50; i++) {
             s += inverse(s);
-            if (isPalindrom(s)) return false;
+            if (isPalindrome(s)) return false;
         }
         return true;
     }

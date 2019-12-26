@@ -16,9 +16,9 @@ public class BinaryRepresentation {
     public String findDigitsInBinary(int a) {
         if (a == 0) return "0";
         StringBuilder sb = new StringBuilder();
-        while (a > 0){
-            sb.append(a%2);
-            a = a/2;
+        while (a > 0) {
+            sb.append(a % 2);
+            a = a / 2;
         }
         return sb.reverse().toString();
     }

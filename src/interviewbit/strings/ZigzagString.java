@@ -1,7 +1,6 @@
 package interviewbit.strings;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 /**
  * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
@@ -51,9 +50,9 @@ public class ZigzagString {
 
     public static void main(String[] st) {
         ZigzagString q = new ZigzagString();
-        System.out.println(q.convert("ABCDEFGHIJKLMNOPQRS",6));
-        System.out.println(q.convert("PAYPALISHIRING",3));
+        System.out.println(q.convert("ABCDEFGHIJKLMNOPQRS", 6));
+        System.out.println(q.convert("PAYPALISHIRING", 3));
 
-        System.out.println(q.convert("ABCD",2));
+        System.out.println(q.convert("ABCD", 2));
     }
 }

@@ -1,13 +1,9 @@
 package UVA.AdHoc.RealLife_easy;
 
+import java.util.*;
+
 import static java.lang.System.in;
 import static java.lang.System.out;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
 
 class Q10528_MajorScales {
 
@@ -16,19 +12,19 @@ class Q10528_MajorScales {
     p.solve();
   }
 
-  private String[] notes = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
-  private int[] jumps = {2,2,1,2,2,2,1};
+  private String[] notes = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+  private int[] jumps = {2, 2, 1, 2, 2, 2, 1};
 
   private void solve() {
     Scanner sc = new Scanner(in);
-    HashMap<String,List<String>> allOptions = generateAllScales();
+    HashMap<String, List<String>> allOptions = generateAllScales();
     while (true) {
       String line = sc.nextLine();
       if (line.equals("END"))
         return;
       String[] input = line.split("\\s+");
       List<String> optional = solve(input, allOptions);
-      out.println(String.join(" ",optional));
+      out.println(String.join(" ", optional));
     }
   }
 

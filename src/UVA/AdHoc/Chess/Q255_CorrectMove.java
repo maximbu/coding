@@ -42,7 +42,7 @@ class Q255_CorrectMove {
       return "Illegal move";
     if (rowMove && kingRow == queenCurrRow) {
       boolean kingInBetween = ((queenNewCol > kingCol && kingCol > queenCurrCol)
-          || (queenNewCol < kingCol && kingCol < queenCurrCol));
+              || (queenNewCol < kingCol && kingCol < queenCurrCol));
       if (kingInBetween)
         return "Illegal move";
       if (Math.abs(queenNewCol - kingCol) == 1)
@@ -50,7 +50,7 @@ class Q255_CorrectMove {
     }
     if (colMove && kingCol == queenCurrCol) {
       boolean kingInBetween = ((queenNewRow > kingRow && kingRow > queenCurrRow)
-          || (queenNewRow < kingRow && kingRow < queenCurrRow));
+              || (queenNewRow < kingRow && kingRow < queenCurrRow));
       if (kingInBetween)
         return "Illegal move";
       if (Math.abs(queenNewRow - kingRow) == 1)

@@ -63,7 +63,7 @@ public class WindowString {
     return best;
   }
 
-  private boolean contains(HashMap<Character,Integer> big, HashMap<Character,Integer> small) {
+  private boolean contains(HashMap<Character, Integer> big, HashMap<Character, Integer> small) {
     return small.entrySet().stream().noneMatch(e -> big.getOrDefault(e.getKey(), 0) < e.getValue());
   }
 

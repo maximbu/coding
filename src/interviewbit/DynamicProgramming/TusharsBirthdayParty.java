@@ -42,7 +42,7 @@ public class TusharsBirthdayParty {
       max = Math.max(max, a);
     }
     long[][] dp = calcDP(B, C, max);
-    return Arrays.stream(A).map(friend -> (int)dp[B.length - 1][friend]).sum();
+    return Arrays.stream(A).map(friend -> (int) dp[B.length - 1][friend]).sum();
   }
 
   private long[][] calcDP(int[] cap, int[] cost, int maxCap) {
@@ -73,6 +73,6 @@ public class TusharsBirthdayParty {
 
   public static void main(String[] st) {
     TusharsBirthdayParty q = new TusharsBirthdayParty();
-    System.out.println(q.solve(new int[]{2, 3, 1, 5, 4},new int[]{3, 2, 4, 1},new int[]{1, 2, 5, 10}));
+    System.out.println(q.solve(new int[]{2, 3, 1, 5, 4}, new int[]{3, 2, 4, 1}, new int[]{1, 2, 5, 10}));
   }
 }

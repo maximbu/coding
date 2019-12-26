@@ -31,8 +31,7 @@ public class ArrangeII {
     for (int i = 0; i < A.length(); i++) {
       if (A.charAt(i) == 'W') {
         w++;
-      }
-      else {
+      } else {
         b++;
       }
       dp[i][0] = b * w;
@@ -47,7 +46,7 @@ public class ArrangeII {
         dp[j][i] = getMinVal(A, dp, i, j);
       }
     }
-    return (dp[A.length() - 1][B - 1] > 0 ? dp[A.length() - 1][B - 1] : 0);
+    return (Math.max(dp[A.length() - 1][B - 1], 0));
   }
 
   private int getMinVal(String A, int[][] dp, int i, int j) {
@@ -55,10 +54,9 @@ public class ArrangeII {
     int b = 0;
     int minVal = Integer.MAX_VALUE;
     for (int k = j - 1; k >= 0; k--) {
-      if (A.charAt(k+1) == 'W') {
+      if (A.charAt(k + 1) == 'W') {
         w++;
-      }
-      else {
+      } else {
         b++;
       }
       int kVal = dp[k][i - 1] + w * b;

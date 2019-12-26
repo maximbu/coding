@@ -2,7 +2,6 @@ package interviewbit.DynamicProgramming;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,7 +19,7 @@ public class LengthOfLongestSubsequence {
     public int longestSubsequenceLength(final List<Integer> A) {
         if (A.size() == 0)
             return 0;
-        int inc[] = new int[A.size()];
+        int[] inc = new int[A.size()];
         inc[0] = 1;
         for (int i = 1; i < A.size(); i++) {
             inc[i] = 1;
@@ -31,7 +30,7 @@ public class LengthOfLongestSubsequence {
             }
         }
 
-        int dec[] = new int[A.size()];
+        int[] dec = new int[A.size()];
         dec[A.size() - 1] = 1;
         for (int i = A.size() - 1; i >= 0; i--) {
             dec[i] = 1;
@@ -52,10 +51,10 @@ public class LengthOfLongestSubsequence {
     public static void main(String[] st) {
         LengthOfLongestSubsequence q = new LengthOfLongestSubsequence();
 
-        var arr2 = new ArrayList<>(Arrays.asList(1 , 3 , 5 , 6 , 4 , 8 , 4 , 3 , 2 , 1 , 6));
+        var arr2 = new ArrayList<>(Arrays.asList(1, 3, 5, 6, 4, 8, 4, 3, 2, 1, 6));
         System.out.println(q.longestSubsequenceLength(arr2));
 
-        var arr = new ArrayList<>(Arrays.asList(1 ,11 ,2 ,10 ,4 ,5 ,2 ,1));
+        var arr = new ArrayList<>(Arrays.asList(1, 11, 2, 10, 4, 5, 2, 1));
         System.out.println(q.longestSubsequenceLength(arr));
         System.out.println(q.longestSubsequenceLength(new ArrayList<>()));
 

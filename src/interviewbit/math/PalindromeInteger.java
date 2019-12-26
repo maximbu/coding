@@ -19,13 +19,13 @@ public class PalindromeInteger {
     }
 
     public boolean isPalindrome(int a) {
-        if(a<0) return false;
+        if (a < 0) return false;
         int aVal = a;
         int b = 0;
-        while (a >0){
-            b = b*10 + a%10;
-            a/=10;
+        while (a > 0) {
+            b = b * 10 + a % 10;
+            a /= 10;
         }
-        return aVal==b;
+        return aVal == b;
     }
 }

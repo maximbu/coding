@@ -14,14 +14,14 @@ public class MaxSumContiguousSubarray {
     arr[0] = a.get(0);
     int max = arr[0];
     for (int i = 1; i < a.size(); i++) {
-      arr[i] = Math.max(a.get(i),arr[i-1]+a.get(i));
-      max = Math.max(arr[i],max);
+      arr[i] = Math.max(a.get(i), arr[i - 1] + a.get(i));
+      max = Math.max(arr[i], max);
     }
 
     return max;
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     MaxSumContiguousSubarray q = new MaxSumContiguousSubarray();
 
     ArrayList<Integer> X = new ArrayList<>();

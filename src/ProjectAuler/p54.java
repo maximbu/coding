@@ -74,16 +74,16 @@ How many hands does Player 1 win?
         List<PlayerHand> p2Hands = new ArrayList<>();
         try {
             List<String> strings = Files.readAllLines(Paths.get("C:\\Users\\max\\IdeaProjects\\CodingInterviews\\out\\production\\CodingInterviews\\ProjectAuler\\p054_poker.txt"));
-            for (String s:strings){
+            for (String s : strings) {
                 String[] cards = s.split(" ");
-                p1Hands.add(new PlayerHand(Arrays.copyOfRange(cards,0,5)));
-                p2Hands.add(new PlayerHand(Arrays.copyOfRange(cards,5,10)));
+                p1Hands.add(new PlayerHand(Arrays.copyOfRange(cards, 0, 5)));
+                p2Hands.add(new PlayerHand(Arrays.copyOfRange(cards, 5, 10)));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        System.out.println(q.questionNaive(p1Hands,p2Hands));
+        System.out.println(q.questionNaive(p1Hands, p2Hands));
     }
 
     private int questionNaive(List<PlayerHand> p1Hands, List<PlayerHand> p2Hands) {
@@ -91,7 +91,7 @@ How many hands does Player 1 win?
     }
 
     private static class PlayerHand {
-        public enum HandRank{
+        public enum HandRank {
             HIGH_CARD,
             ONE_PAIR,
             TWO_PAIRS,
@@ -111,15 +111,15 @@ How many hands does Player 1 win?
 
         @Override
         public String toString() {
-            return  "cards=" + cards +
+            return "cards=" + cards +
                     ", Rank=" + handRank +
                     ", Highest=" + rankHighest.getValue() +
-                    ", Second=" + rankSecond.getValue() ;
+                    ", Second=" + rankSecond.getValue();
         }
 
         public PlayerHand(String[] c) {
             cards = new ArrayList<>();
-            for (String s:c) {
+            for (String s : c) {
                 cards.add(new Card(s));
             }
             cards.sort(Card::compareTo);
@@ -139,22 +139,22 @@ How many hands does Player 1 win?
             }
             boolean isFlush = isFlush();
             boolean isStraight = (cards.get(4).getValue().ordinal() - cards.get(0).getValue().ordinal() == 4) && maxCnt == 1;
-            if(isFlush && isStraight){
+            if (isFlush && isStraight) {
                 handleStraightFlash();
                 return;
             }
-            if(isStraight){
+            if (isStraight) {
                 handRank = HandRank.STRAIGHT;
                 setHighest();
                 return;
             }
-            if(isFlush){
+            if (isFlush) {
                 handRank = HandRank.FLUSH;
                 setHighest();
                 return;
             }
 
-            switch (maxCnt){
+            switch (maxCnt) {
                 case 4:
                     handleFourOfAKind(cnt);
                     break;
@@ -171,31 +171,30 @@ How many hands does Player 1 win?
             }
 
 
-
         }
 
         private void handleTwoOfAKind(int[] cnt) {
             int twos = 0;
             for (int i = 0; i < 5; i++) {
-                if(cnt[i] == 2) twos++;
+                if (cnt[i] == 2) twos++;
             }
-            if(twos == 2) {
+            if (twos == 2) {
                 handRank = HandRank.ONE_PAIR;
             }
-            if(twos == 4) {
+            if (twos == 4) {
                 handRank = HandRank.TWO_PAIRS;
             }
             boolean foundRankSecond = false;
             for (int i = 0; i < 5; i++) {
-                if(twos == 4 &&  handRank == HandRank.TWO_PAIRS && !foundRankSecond){
+                if (twos == 4 && handRank == HandRank.TWO_PAIRS && !foundRankSecond) {
                     rankSecond = cards.get(i);
                     foundRankSecond = true;
                 }
-                if(cnt[i] == 2){
+                if (cnt[i] == 2) {
                     rankHighest = cards.get(i);
                 }
 
-                if(handRank == HandRank.ONE_PAIR && cnt[i]==1){
+                if (handRank == HandRank.ONE_PAIR && cnt[i] == 1) {
                     rankSecond = cards.get(i);
                 }
             }
@@ -204,14 +203,14 @@ How many hands does Player 1 win?
         private void handleThreeOfAKind(int[] cnt) {
             handRank = HandRank.THREE_OF_A_KIND;
             for (int i = 0; i < 5; i++) {
-                if(cnt[i] == 3){
+                if (cnt[i] == 3) {
                     rankHighest = cards.get(i);
                 }
-                if(cnt[i]==2){
+                if (cnt[i] == 2) {
                     handRank = HandRank.FULL_HOUSE;
                     rankSecond = cards.get(i);
                 }
-                if(cnt[i]==1){
+                if (cnt[i] == 1) {
                     rankSecond = cards.get(i);
                 }
             }
@@ -220,10 +219,10 @@ How many hands does Player 1 win?
         private void handleFourOfAKind(int[] cnt) {
             handRank = HandRank.FOUR_OF_A_KIND;
             for (int i = 0; i < 5; i++) {
-                if(cnt[i] == 4){
+                if (cnt[i] == 4) {
                     rankHighest = cards.get(i);
                 }
-                if(cnt[i]==1){
+                if (cnt[i] == 1) {
                     rankSecond = cards.get(i);
                 }
             }
@@ -242,7 +241,7 @@ How many hands does Player 1 win?
         private boolean isFlush() {
             Card.CardSuit suit = cards.get(0).getSuit();
             for (int i = 1; i < 5; i++) {
-                if(suit != cards.get(i).getSuit()) return false;
+                if (suit != cards.get(i).getSuit()) return false;
             }
             return true;
         }
@@ -251,29 +250,29 @@ How many hands does Player 1 win?
             if (handRank.ordinal() > otherHand.handRank.ordinal()) return true;
             if (handRank.ordinal() < otherHand.handRank.ordinal()) return false;
             int highest = rankHighest.compareTo(otherHand.rankHighest);
-            if(highest > 0) return true;
-            if(highest<0) return false;
+            if (highest > 0) return true;
+            if (highest < 0) return false;
             int secHighest = rankSecond.compareTo(otherHand.rankSecond);
-            if(secHighest > 0) return true;
-            if(secHighest<0) return false;
-            for (int i = 4; i >= 0 ; i--) {
+            if (secHighest > 0) return true;
+            if (secHighest < 0) return false;
+            for (int i = 4; i >= 0; i--) {
                 int cmp = cards.get(i).compareTo(otherHand.cards.get(i));
-                if(cmp > 0) return true;
-                if(cmp < 0) return false;
+                if (cmp > 0) return true;
+                if (cmp < 0) return false;
             }
             return false;
         }
     }
 
-    private static class Card implements Comparable<Card>{
-        public enum CardSuit{
+    private static class Card implements Comparable<Card> {
+        public enum CardSuit {
             HEARTS,
             SPADES,
             DIAMONDS,
             CLUBS
         }
 
-        public enum CardValue{
+        public enum CardValue {
             TWO,
             THREE,
             FOUR,
@@ -289,11 +288,11 @@ How many hands does Player 1 win?
             ACE
         }
 
-        public CardSuit getSuit(){
+        public CardSuit getSuit() {
             return suit;
         }
 
-        public CardValue getValue(){
+        public CardValue getValue() {
             return value;
         }
 
@@ -304,36 +303,72 @@ How many hands does Player 1 win?
         private CardSuit suit;
         private CardValue value;
 
-        public Card(String card){
-            switch (card.charAt(0)){
-                case '2': value = CardValue.TWO; break;
-                case '3': value = CardValue.THREE; break;
-                case '4': value = CardValue.FOUR; break;
-                case '5': value = CardValue.FIVE; break;
-                case '6': value = CardValue.SIX; break;
-                case '7': value = CardValue.SEVEN; break;
-                case '8': value = CardValue.EIGHT; break;
-                case '9': value = CardValue.NINE; break;
-                case 'T': value = CardValue.TEN; break;
-                case 'J': value = CardValue.JACK; break;
-                case 'Q': value = CardValue.QUEEN; break;
-                case 'K': value = CardValue.KING; break;
-                case 'A': value = CardValue.ACE; break;
-                default: throw new RuntimeException("Unknown value:" + card.charAt(0));
+        public Card(String card) {
+            switch (card.charAt(0)) {
+                case '2':
+                    value = CardValue.TWO;
+                    break;
+                case '3':
+                    value = CardValue.THREE;
+                    break;
+                case '4':
+                    value = CardValue.FOUR;
+                    break;
+                case '5':
+                    value = CardValue.FIVE;
+                    break;
+                case '6':
+                    value = CardValue.SIX;
+                    break;
+                case '7':
+                    value = CardValue.SEVEN;
+                    break;
+                case '8':
+                    value = CardValue.EIGHT;
+                    break;
+                case '9':
+                    value = CardValue.NINE;
+                    break;
+                case 'T':
+                    value = CardValue.TEN;
+                    break;
+                case 'J':
+                    value = CardValue.JACK;
+                    break;
+                case 'Q':
+                    value = CardValue.QUEEN;
+                    break;
+                case 'K':
+                    value = CardValue.KING;
+                    break;
+                case 'A':
+                    value = CardValue.ACE;
+                    break;
+                default:
+                    throw new RuntimeException("Unknown value:" + card.charAt(0));
             }
 
-            switch (card.charAt(1)){
-                case 'D': suit = CardSuit.DIAMONDS; break;
-                case 'S': suit = CardSuit.SPADES; break;
-                case 'H': suit = CardSuit.HEARTS; break;
-                case 'C': suit = CardSuit.CLUBS; break;
-                default: throw new RuntimeException("Unknown suit:" + card.charAt(1));
+            switch (card.charAt(1)) {
+                case 'D':
+                    suit = CardSuit.DIAMONDS;
+                    break;
+                case 'S':
+                    suit = CardSuit.SPADES;
+                    break;
+                case 'H':
+                    suit = CardSuit.HEARTS;
+                    break;
+                case 'C':
+                    suit = CardSuit.CLUBS;
+                    break;
+                default:
+                    throw new RuntimeException("Unknown suit:" + card.charAt(1));
             }
         }
 
         @Override
         public String toString() {
-            return suit +"," +value ;
+            return suit + "," + value;
         }
     }
 }

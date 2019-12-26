@@ -24,17 +24,20 @@ import java.util.List;
  *  Note that flipping the sign of 10 and 4 also gives the resultant sum 0 but flippings there are not minimum
  */
 public class FlipArray {
-    class dpHelper{
+    static class dpHelper {
         int val;
         int cnt;
-        public dpHelper(){
+
+        public dpHelper() {
 
         }
-        public dpHelper(int v , int c){
+
+        public dpHelper(int v, int c) {
             val = v;
             cnt = c;
         }
     }
+
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int solve(final List<Integer> A) {
         int sum = A.stream().mapToInt(Integer::intValue).sum();
@@ -57,7 +60,7 @@ public class FlipArray {
                 if (i - B.get(j) >= 0) {
                     int valWithNewElem = dp[i - B.get(j)][j - 1].val + B.get(j);
                     int cntWithNewElem = dp[i - B.get(j)][j - 1].cnt + 1;
-                    if ( valWithNewElem > dp[i][j].val) {
+                    if (valWithNewElem > dp[i][j].val) {
                         dp[i][j] = new dpHelper(valWithNewElem, cntWithNewElem);
                     }
                     if (valWithNewElem == dp[i][j].val) {
@@ -69,7 +72,7 @@ public class FlipArray {
         return dp[sum / 2][A.size() - 1].cnt;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         FlipArray q = new FlipArray();
         System.out.println(q.solve(Arrays.asList(11, 37, 7, 23, 13, 4, 32, 47, 5, 21, 25, 19, 41, 41, 35, 18, 28, 6, 7, 5, 7)));
         System.out.println(q.solve(Arrays.asList(15, 10, 6)));

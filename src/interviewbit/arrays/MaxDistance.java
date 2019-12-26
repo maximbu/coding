@@ -1,10 +1,7 @@
 package interviewbit.arrays;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * Created by max on 7/2/2017.
@@ -74,15 +71,15 @@ public class MaxDistance {
     int maxDist = -1;
     for (int i = 0; i < a.size(); i++) {
       for (int j = i; j < a.size(); j++) {
-        if(a.get(j)>=a.get(i)){
-          maxDist = Math.max(j-i,maxDist);
+        if (a.get(j) >= a.get(i)) {
+          maxDist = Math.max(j - i, maxDist);
         }
       }
     }
     return maxDist;
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     MaxDistance q = new MaxDistance();
 
     ArrayList<Integer> X = new ArrayList<>();

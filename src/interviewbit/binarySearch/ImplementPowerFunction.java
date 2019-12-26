@@ -1,7 +1,5 @@
 package interviewbit.binarySearch;
 
-import java.util.ArrayList;
-
 /***
  * Implement pow(x, n) % d.
 
@@ -43,21 +41,20 @@ public class ImplementPowerFunction {
   }
 
   public int pow(int x, int n, int d) {
-    if(x == 0) return 0;
-    if(x < 0) x =(d + x)%d;
-    return (int) powRec(x,n,d);
+    if (x == 0) return 0;
+    if (x < 0) x = (d + x) % d;
+    return (int) powRec(x, n, d);
   }
 
   public long powRec(long x, long n, long d) {
-    if(n == 0) return 1;
-    if(n == 1) return x%d;
-    if (n%2 == 0){
-      long y = powRec(x,n/2,d);
-      return ((y%d)*(y%d))%d;
-    }
-    else{
-      long y = powRec(x,(n-1)/2,d);
-      return (((y%d)*(y%d))%d * x%d)%d;
+    if (n == 0) return 1;
+    if (n == 1) return x % d;
+    if (n % 2 == 0) {
+      long y = powRec(x, n / 2, d);
+      return ((y % d) * (y % d)) % d;
+    } else {
+      long y = powRec(x, (n - 1) / 2, d);
+      return (((y % d) * (y % d)) % d * x % d) % d;
     }
   }
 }

@@ -1,11 +1,11 @@
 package UVA.AdHoc.RealLife_easy;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 class Q11984_AChangeInThermalUnit {
 
@@ -22,8 +22,8 @@ class Q11984_AChangeInThermalUnit {
       sc.nextLine();
       int cel = sc.nextInt();
       int f = sc.nextInt();
-      double totalF = 9.0*cel/5+32 + f;
-      double total = (totalF-32)/1.8;
+      double totalF = 9.0 * cel / 5 + 32 + f;
+      double total = (totalF - 32) / 1.8;
 
       out.println(String.format("Case %d: %.2f", i++, round(total, 2)));
     }

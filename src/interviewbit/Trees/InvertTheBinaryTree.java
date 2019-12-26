@@ -22,7 +22,7 @@ package interviewbit.Trees;
  */
 public class InvertTheBinaryTree {
     public TreeNode invertTree(TreeNode A) {
-        if(A == null) return null;
+        if (A == null) return null;
         TreeNode tmp = invertTree(A.left);
         A.left = invertTree(A.right);
         A.right = tmp;

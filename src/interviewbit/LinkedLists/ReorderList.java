@@ -18,7 +18,7 @@ public class ReorderList {
         ListNode slow = A;
         ListNode fast = A;
         ListNode beforeSlow = A;
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             beforeSlow = slow;
             slow = slow.next;
@@ -26,17 +26,17 @@ public class ReorderList {
         beforeSlow.next = null;
         ListNode helper = slow;
         ListNode prev = null;
-        while(slow != null){
+        while (slow != null) {
             helper = slow.next;
             slow.next = prev;
             prev = slow;
             slow = helper;
         }
         ListNode end = prev;
-        if(head == end) return head;
+        if (head == end) return head;
 
         helper = head;
-        while(head != null && end != null){
+        while (head != null && end != null) {
             prev = head.next;
             head.next = end;
             slow = end.next;
@@ -46,7 +46,7 @@ public class ReorderList {
             // 1->2->3     6->5->4
             //1->6->2
         }
-        if(end != null){
+        if (end != null) {
             beforeSlow.next.next = end;
         }
 
@@ -58,7 +58,7 @@ public class ReorderList {
         ReorderList q = new ReorderList();
         ListNode l = new ListNode(1);
         ListNode h = l;
-        for(int i = 2;i<8;i++){
+        for (int i = 2; i < 8; i++) {
             l.next = new ListNode(i);
             l = l.next;
         }

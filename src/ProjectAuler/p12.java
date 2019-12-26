@@ -19,19 +19,19 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
      */
     public static long questionNaive(int divisors) {
-       int i = 1;
-       long n = 0;
-        while (true){
-          n += i;
-          i++;
-          if(numOfDivisors(n)>= divisors) return n;
-       }
+        int i = 1;
+        long n = 0;
+        while (true) {
+            n += i;
+            i++;
+            if (numOfDivisors(n) >= divisors) return n;
+        }
     }
 
     private static int numOfDivisors(long n) {
         int d = 2;
         for (long i = 2; i < Math.sqrt(n); i++) {
-            if(n%i==0) d+=2;
+            if (n % i == 0) d += 2;
         }
         return d;
     }

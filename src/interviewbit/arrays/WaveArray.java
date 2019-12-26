@@ -9,7 +9,7 @@ import java.util.Collections;
  In other words, arrange the elements into a sequence such that a1 >= a2 <= a3 >= a4 <= a5.....
  */
 public class WaveArray {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     WaveArray q = new WaveArray();
 
     ArrayList<Integer> X = new ArrayList<>();
@@ -28,14 +28,14 @@ public class WaveArray {
     X.add(4);
 
     System.out.println(q.wave(X));
-   }
+  }
 
   public ArrayList<Integer> wave(ArrayList<Integer> a) {
     Collections.sort(a);
-    for (int i = 0; i < a.size()-1; i+=2) {
+    for (int i = 0; i < a.size() - 1; i += 2) {
       int tmp = a.get(i);
-      a.set(i,a.get(i+1));
-      a.set(i+1,tmp);
+      a.set(i, a.get(i + 1));
+      a.set(i + 1, tmp);
     }
     return a;
   }

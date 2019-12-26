@@ -1,4 +1,4 @@
-package UVA.easy;
+package UVA.Intro.easy;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -26,6 +26,6 @@ class Q11942_LumberjackSequencing {
 
   private boolean solve(int[] line) {
     return IntStream.range(1, line.length).allMatch(i -> line[i] < line[i - 1])
-        || IntStream.range(1, line.length).allMatch(i -> line[i] > line[i - 1]);
+            || IntStream.range(1, line.length).allMatch(i -> line[i] > line[i - 1]);
   }
 }

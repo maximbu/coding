@@ -43,8 +43,8 @@ public class JustifiedText {
             words.add(aA);
             total += aA.length() + 1;
         }
-        if(total > 0){
-            ans.add(leftJustify(words,B));
+        if (total > 0) {
+            ans.add(leftJustify(words, B));
         }
         return ans;
     }
@@ -60,14 +60,14 @@ public class JustifiedText {
     }
 
     private String justify(ArrayList<String> A, int B) {
-        if(A.size() == 1) return leftJustify(A,B);
+        if (A.size() == 1) return leftJustify(A, B);
         int totalSize = 0;
         for (String s : A) {
             totalSize += s.length();
         }
         int totalMissingSpaces = B - totalSize;
-        int spacesToAdd = totalMissingSpaces / (A.size()-1);
-        int extrasOnes = totalMissingSpaces - spacesToAdd * (A.size()-1);
+        int spacesToAdd = totalMissingSpaces / (A.size() - 1);
+        int extrasOnes = totalMissingSpaces - spacesToAdd * (A.size() - 1);
         StringBuilder sb = new StringBuilder();
         for (int k = 0; k < A.size(); k++) {
             {
@@ -91,7 +91,7 @@ public class JustifiedText {
 
     public static void main(String[] st) {
         JustifiedText q = new JustifiedText();
-        System.out.println(q.fullJustify(new ArrayList<>(Arrays.asList("What", "must", "be", "shall", "be.")),12));
-        System.out.println(q.fullJustify(new ArrayList<>(Arrays.asList("glu", "muskzjyen", "ahxkp", "t", "djmgzzyh", "jzudvh", "raji", "vmipiz", "sg", "rv", "mekoexzfmq", "fsrihvdnt", "yvnppem", "gidia", "fxjlzekp", "uvdaj", "ua", "pzagn", "bjffryz", "nkdd", "osrownxj", "fvluvpdj", "kkrpr", "khp", "eef", "aogrl", "gqfwfnaen", "qhujt", "vabjsmj", "ji", "f", "opihimudj", "awi", "jyjlyfavbg", "tqxupaaknt", "dvqxay", "ny", "ezxsvmqk", "ncsckq", "nzlce", "cxzdirg", "dnmaxql", "bhrgyuyc", "qtqt", "yka", "wkjriv", "xyfoxfcqzb", "fttsfs", "m")),144));
+        System.out.println(q.fullJustify(new ArrayList<>(Arrays.asList("What", "must", "be", "shall", "be.")), 12));
+        System.out.println(q.fullJustify(new ArrayList<>(Arrays.asList("glu", "muskzjyen", "ahxkp", "t", "djmgzzyh", "jzudvh", "raji", "vmipiz", "sg", "rv", "mekoexzfmq", "fsrihvdnt", "yvnppem", "gidia", "fxjlzekp", "uvdaj", "ua", "pzagn", "bjffryz", "nkdd", "osrownxj", "fvluvpdj", "kkrpr", "khp", "eef", "aogrl", "gqfwfnaen", "qhujt", "vabjsmj", "ji", "f", "opihimudj", "awi", "jyjlyfavbg", "tqxupaaknt", "dvqxay", "ny", "ezxsvmqk", "ncsckq", "nzlce", "cxzdirg", "dnmaxql", "bhrgyuyc", "qtqt", "yka", "wkjriv", "xyfoxfcqzb", "fttsfs", "m")), 144));
     }
 }

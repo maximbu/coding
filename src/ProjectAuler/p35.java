@@ -1,11 +1,8 @@
 package ProjectAuler;
 
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * Created by max on 1/27/2017.
@@ -21,8 +18,8 @@ How many circular primes are there below one million?
     public int questionNaive(int n) {
         int cnt = 0;
         Set<Integer> primes = getPrimesTill(n);
-        for (int prime: primes) {
-            if(isAllRotationsPrime(prime,primes)){
+        for (int prime : primes) {
+            if (isAllRotationsPrime(prime, primes)) {
                 cnt++;
             }
         }
@@ -30,35 +27,35 @@ How many circular primes are there below one million?
     }
 
     private boolean isAllRotationsPrime(int prime, Set<Integer> primes) {
-        if(prime < 10) return true;
+        if (prime < 10) return true;
         int rotated = getNextRotation(prime);
-        while(prime != rotated){
-            if(!primes.contains(rotated)) return false;
+        while (prime != rotated) {
+            if (!primes.contains(rotated)) return false;
             rotated = getNextRotation(rotated);
         }
-            return true;
+        return true;
     }
 
     private int getNextRotation(int rotated) {
-        int lastD = rotated %10;
-        rotated/=10;
+        int lastD = rotated % 10;
+        rotated /= 10;
         int d = 1;
-        while (d<=rotated){
-            d*=10;
-            lastD*=10;
+        while (d <= rotated) {
+            d *= 10;
+            lastD *= 10;
         }
-        return rotated+lastD;
+        return rotated + lastD;
     }
 
-    private HashSet<Integer> getPrimesTill(int n){
-        boolean[] nonPrimes = new boolean[n+1];
+    private HashSet<Integer> getPrimesTill(int n) {
+        boolean[] nonPrimes = new boolean[n + 1];
         HashSet<Integer> list = new HashSet<>();
         list.add(2);
-        for (int i = 3; i < n+1; i+=2) {
-            if(!nonPrimes[i]){
+        for (int i = 3; i < n + 1; i += 2) {
+            if (!nonPrimes[i]) {
                 list.add(i);
-                for (int j = 2*i; j < n+1; j+=i) {
-                    nonPrimes[j]=true;
+                for (int j = 2 * i; j < n + 1; j += i) {
+                    nonPrimes[j] = true;
                 }
             }
         }
@@ -69,5 +66,5 @@ How many circular primes are there below one million?
     public static void main(String[] st) {
         p35 q = new p35();
         System.out.println(q.questionNaive(1000000));
-}
+    }
 }

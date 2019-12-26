@@ -19,7 +19,7 @@ package interviewbit.GreedyAlgorithm;
 public class Bulbs {
     public int bulbs(int[] A) {
         int times = 0;
-        for(int a:A){
+        for (int a : A) {
             if (a == times % 2) {
                 times++;
             }

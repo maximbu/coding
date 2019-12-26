@@ -1,6 +1,5 @@
 package ProjectAuler;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 
 /**
@@ -13,26 +12,25 @@ If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and e
 For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
 Evaluate the sum of all the amicable numbers under 10000.
      */
- private static HashMap<Integer,Integer> nums = new HashMap<>();
+    private static HashMap<Integer, Integer> nums = new HashMap<>();
 
 
     public static int questionNaive(int n) {
         int sum = 0;
         for (int i = 1; i < n; i++) {
             int divSum = divisorsSum(i);
-            if(nums.getOrDefault(divSum,-1)== i)
-            {
-                sum+=i+divSum;
+            if (nums.getOrDefault(divSum, -1) == i) {
+                sum += i + divSum;
             }
-            nums.put(i,divSum);
+            nums.put(i, divSum);
         }
         return sum;
     }
 
     private static int divisorsSum(int n) {
         int sum = 1;
-        for (int j = 2; j*j <= n; j++) {
-            if(n%j == 0) sum+=j+n/j;
+        for (int j = 2; j * j <= n; j++) {
+            if (n % j == 0) sum += j + n / j;
         }
         return sum;
     }

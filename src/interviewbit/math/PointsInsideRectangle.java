@@ -83,7 +83,7 @@ public class PointsInsideRectangle {
 
     }
 
-    public class Point{
+    public class Point {
         long x;
         long y;
 
@@ -93,25 +93,25 @@ public class PointsInsideRectangle {
         }
     }
 
-    public class Rectangle{
+    public class Rectangle {
 
         private final double area;
         private ArrayList<Point> points;
 
         public Rectangle(ArrayList<Point> points) {
             this.points = points;
-            this.area = calcuteArea();
+            this.area = calculateArea();
         }
 
-        private double calcuteArea() {
+        private double calculateArea() {
             Point p1 = points.get(0);
             Point p2 = points.get(1);
             Point p3 = points.get(2);
             Point p4 = points.get(3);
-            return calculateTraingleArea(p1, p2, p3) + calculateTraingleArea(p2, p3, p4);
+            return calculateTriangleArea(p1, p2, p3) + calculateTriangleArea(p2, p3, p4);
         }
 
-        double calculateTraingleArea(Point p1, Point p2,Point p3) {
+        double calculateTriangleArea(Point p1, Point p2, Point p3) {
             return 0.5 * Math.abs(p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
         }
 
@@ -122,30 +122,29 @@ public class PointsInsideRectangle {
             Point p4 = points.get(3);
             double trianglesArea = 0;
             double triangleArea = 0;
-            triangleArea = calculateTraingleArea(p1, p, p2);
-            if(triangleArea < 1){
+            triangleArea = calculateTriangleArea(p1, p, p2);
+            if (triangleArea < 1) {
                 return false;
             }
             trianglesArea += triangleArea;
-            triangleArea = calculateTraingleArea(p2, p, p3);
-            if(triangleArea < 1){
+            triangleArea = calculateTriangleArea(p2, p, p3);
+            if (triangleArea < 1) {
                 return false;
             }
             trianglesArea += triangleArea;
-            triangleArea = calculateTraingleArea(p3, p, p4);
-            if(triangleArea < 1){
+            triangleArea = calculateTriangleArea(p3, p, p4);
+            if (triangleArea < 1) {
                 return false;
             }
             trianglesArea += triangleArea;
-            triangleArea = calculateTraingleArea(p4, p, p1);
-            if(triangleArea < 1){
+            triangleArea = calculateTriangleArea(p4, p, p1);
+            if (triangleArea < 1) {
                 return false;
             }
             trianglesArea += triangleArea;
             return trianglesArea - area < 0.1;
         }
     }
-
 
 
     public int solve(ArrayList<Integer> A, ArrayList<Integer> B, ArrayList<Integer> C,

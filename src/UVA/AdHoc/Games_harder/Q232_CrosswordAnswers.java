@@ -14,7 +14,7 @@ class Q232_CrosswordAnswers {
     int puzzleNum = 1;
     while (true) {
       int rows = sc.nextInt();
-      if(rows == 0) return;
+      if (rows == 0) return;
       int cols = sc.nextInt();
       sc.nextLine();
       char[][] board = new char[rows][cols];
@@ -35,7 +35,7 @@ class Q232_CrosswordAnswers {
     int currNum = 1;
     for (int r = 0; r < board.length; r++) {
       for (int c = 0; c < board[r].length; c++) {
-        if(board[r][c]!='*' && (r == 0 || c==0 || board[r-1][c]=='*'||board[r][c-1]=='*')){
+        if (board[r][c] != '*' && (r == 0 || c == 0 || board[r - 1][c] == '*' || board[r][c - 1] == '*')) {
           numbers[r][c] = currNum++;
         }
       }
@@ -43,9 +43,9 @@ class Q232_CrosswordAnswers {
     System.out.println("Across");
     for (int r = 0; r < board.length; r++) {
       for (int c = 0; c < board[r].length; c++) {
-        if(numbers[r][c]!=0){
+        if (numbers[r][c] != 0) {
           System.out.printf(" %2d.", numbers[r][c]);
-          while (c < board[r].length && board[r][c]!='*'){
+          while (c < board[r].length && board[r][c] != '*') {
             System.out.print(board[r][c]);
             c++;
           }
@@ -56,12 +56,12 @@ class Q232_CrosswordAnswers {
     System.out.println("Down");
     for (int r = 0; r < board.length; r++) {
       for (int c = 0; c < board[r].length; c++) {
-        if(numbers[r][c]!=0){
+        if (numbers[r][c] != 0) {
           System.out.printf(" %2d.", numbers[r][c]);
-          int t=r;
-          while (t < board.length && board[t][c]!='*'){
+          int t = r;
+          while (t < board.length && board[t][c] != '*') {
             System.out.print(board[t][c]);
-            numbers[t][c]= 0;
+            numbers[t][c] = 0;
             t++;
           }
           System.out.println();

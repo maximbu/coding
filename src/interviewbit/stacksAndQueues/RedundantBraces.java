@@ -21,17 +21,16 @@ public class RedundantBraces {
     public int braces(String A) {
         char[] chars = A.toCharArray();
         Stack<Character> stack = new Stack<>();
-        for(char c:chars){
-            if(c == ')'){
+        for (char c : chars) {
+            if (c == ')') {
                 char bracket = stack.pop();
-                if(bracket == '('){
+                if (bracket == '(') {
                     return 1;
                 }
-                while(bracket != '('){
+                while (bracket != '(') {
                     bracket = stack.pop();
                 }
-            }
-            else if(c=='(' || c=='+' || c=='-' || c=='*' || c=='/'){
+            } else if (c == '(' || c == '+' || c == '-' || c == '*' || c == '/') {
                 stack.push(c);
             }
         }

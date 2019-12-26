@@ -2,7 +2,6 @@ package ProjectAuler;
 
 
 import java.math.BigInteger;
-import java.util.Arrays;
 
 /**
  * Created by max on 1/27/2017.
@@ -26,17 +25,17 @@ How many, not necessarily distinct, values of  nCr, for 1 ≤ n ≤ 100, are gre
         int cnt = 0;
         BigInteger[] fact = getFact(101);
 
-        for (int n = 1 ;n <= 100; n++) {
+        for (int n = 1; n <= 100; n++) {
             for (int r = 1; r <= n; r++) {
-                BigInteger nCr = fact[n].divide(fact[r].multiply(fact[n-r]));
-                if(nCr.compareTo(BigInteger.valueOf(max))>0) cnt++;
+                BigInteger nCr = fact[n].divide(fact[r].multiply(fact[n - r]));
+                if (nCr.compareTo(BigInteger.valueOf(max)) > 0) cnt++;
             }
         }
         return cnt;
     }
 
     private BigInteger[] getFact(int n) {
-        BigInteger[] ans =  new BigInteger[n+1];
+        BigInteger[] ans = new BigInteger[n + 1];
         ans[0] = BigInteger.valueOf(1);
         for (int i = 1; i < n; i++) {
             ans[i] = ans[i - 1].multiply(BigInteger.valueOf(i));
@@ -45,9 +44,8 @@ How many, not necessarily distinct, values of  nCr, for 1 ≤ n ≤ 100, are gre
     }
 
 
-
     public static void main(String[] st) {
         p53 q = new p53();
         System.out.println(q.questionNaive(1000000));
-}
+    }
 }

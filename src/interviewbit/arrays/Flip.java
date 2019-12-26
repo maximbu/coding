@@ -1,7 +1,6 @@
 package interviewbit.arrays;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by max on 6/27/2017.
@@ -42,10 +41,10 @@ public class Flip {
       }
     }
 
-    if (initialCnt==A.length()) // all 1s
+    if (initialCnt == A.length()) // all 1s
       return new ArrayList<>();
 
-    if (initialCnt==0) { // all 0s
+    if (initialCnt == 0) { // all 0s
       ArrayList<Integer> ans = new ArrayList<>();
       ans.add(1);
       ans.add(A.length());
@@ -97,13 +96,12 @@ public class Flip {
     int bestJ = arr.length;
 
     for (int i = 0; i < arr.length; i++) {
-      if(arr[i] == '1') continue;
+      if (arr[i] == '1') continue;
       int numOfOnes = initialCnt;
       for (int j = i; j < arr.length; j++) {
-        if(arr[j] == '1') {
+        if (arr[j] == '1') {
           numOfOnes--;
-        }
-        else {
+        } else {
           numOfOnes++;
           if (numOfOnes > max) {
             max = numOfOnes;

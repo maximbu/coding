@@ -1,9 +1,9 @@
 package UVA.Intro.veryEasy;
 
+import java.util.Scanner;
+
 import static java.lang.System.in;
 import static java.lang.System.out;
-
-import java.util.Scanner;
 
 class Q12289_OneTwoThree {
   public static void main(String[] st) {
@@ -22,14 +22,14 @@ class Q12289_OneTwoThree {
   }
 
   private int solve(String line) {
-    if(line.length() == 5) return 3;
+    if (line.length() == 5) return 3;
     String oneStr = "one";
     String twoStr = "two";
     int one = 0;
     int two = 0;
     for (int i = 0; i < 3; i++) {
-      if(line.charAt(i)==oneStr.charAt(i)) one++;
-      if(line.charAt(i)==twoStr.charAt(i)) two++;
+      if (line.charAt(i) == oneStr.charAt(i)) one++;
+      if (line.charAt(i) == twoStr.charAt(i)) two++;
     }
     return one > two ? 1 : 2;
   }

@@ -17,7 +17,7 @@ import java.util.Stack;
 public class EvaluateExpression {
     public int evalRPN(ArrayList<String> A) {
         Stack<Integer> stack = new Stack<>();
-        for(String c:A){
+        for (String c : A) {
             switch (c) {
                 case "+": {
                     int x = stack.pop();

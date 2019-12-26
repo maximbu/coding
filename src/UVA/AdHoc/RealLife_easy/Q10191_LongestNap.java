@@ -1,11 +1,11 @@
 package UVA.AdHoc.RealLife_easy;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 class Q10191_LongestNap {
 
@@ -30,33 +30,33 @@ class Q10191_LongestNap {
       CalEntry sleep = solve(tasks);
 
       out.printf("Day #%d: the longest nap starts at %s and will last for %s%n", day,
-          sleep.getStartTime(), sleep.getLenAsString());
+              sleep.getStartTime(), sleep.getLenAsString());
     }
   }
 
   private CalEntry solve(List<CalEntry> tasks) {
-    if(tasks.size() == 0){
-      return new CalEntry("10:00","18:00");
+    if (tasks.size() == 0) {
+      return new CalEntry("10:00", "18:00");
     }
-    tasks.sort((t1,t2)->{
-      if(t1.startH != t2.startH){
+    tasks.sort((t1, t2) -> {
+      if (t1.startH != t2.startH) {
         return (t1.startH - t2.startH);
       }
       return t1.startM - t2.startM;
     });
-    CalEntry ans = new CalEntry("10:00",tasks.get(0).getStartTime());
+    CalEntry ans = new CalEntry("10:00", tasks.get(0).getStartTime());
     int diff = ans.len;
     for (int i = 1; i < tasks.size(); i++) {
       String end = tasks.get(i).getStartTime();
       String start = tasks.get(i - 1).getEndTime();
-      CalEntry a = new CalEntry(start,end);
-      if(a.len > diff){
+      CalEntry a = new CalEntry(start, end);
+      if (a.len > diff) {
         diff = a.len;
         ans = a;
       }
     }
     CalEntry end = new CalEntry(tasks.get(tasks.size() - 1).getEndTime(), "18:00");
-    if(end.len > diff){
+    if (end.len > diff) {
       ans = end;
     }
     return ans;
@@ -76,10 +76,10 @@ class Q10191_LongestNap {
     public CalEntry(String from, String to) {
       this.from = from;
       this.to = to;
-      startH = Integer.valueOf(from.substring(0, 2));
-      startM = Integer.valueOf(from.substring(3));
-      endH = Integer.valueOf(to.substring(0, 2));
-      endM = Integer.valueOf(to.substring(3));
+      startH = Integer.parseInt(from.substring(0, 2));
+      startM = Integer.parseInt(from.substring(3));
+      endH = Integer.parseInt(to.substring(0, 2));
+      endM = Integer.parseInt(to.substring(3));
       len = (endH - startH) * 60 + endM - startM;
     }
 
@@ -89,7 +89,7 @@ class Q10191_LongestNap {
 
     public String getLenAsString() {
       return len < 60 ? String.format("%d minutes.", len) : String
-          .format("%d hours and %d minutes.", len / 60, len % 60);
+              .format("%d hours and %d minutes.", len / 60, len % 60);
     }
 
     public String getEndTime() {

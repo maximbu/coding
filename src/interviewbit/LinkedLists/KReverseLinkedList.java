@@ -1,7 +1,5 @@
 package interviewbit.LinkedLists;
 
-import java.util.Random;
-
 /**
  * Given a singly linked list and an integer K, reverses the nodes of the
  *
@@ -23,8 +21,7 @@ public class KReverseLinkedList {
     ListNode next = null;
     ListNode prev = null;
 
-    for (int i=0;i < B && current != null;i++)
-    {
+    for (int i = 0; i < B && current != null; i++) {
       next = current.next;
       current.next = prev;
       prev = current;

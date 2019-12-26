@@ -65,16 +65,16 @@ public class LargestAreaOfRectangleWithPermutations {
     private int maxArea(int[] A) {
         int maxArea = 0;
         for (int i = 0; i < A.length; i++) {
-            maxArea = Math.max(maxArea, (i+1) * A[i]);
+            maxArea = Math.max(maxArea, (i + 1) * A[i]);
         }
         return maxArea;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         LargestAreaOfRectangleWithPermutations q = new LargestAreaOfRectangleWithPermutations();
-        int[][] A = {{1,0,1},{1,0,1},{1,0,1}};
+        int[][] A = {{1, 0, 1}, {1, 0, 1}, {1, 0, 1}};
         System.out.println(q.solve(A));
-        int[][] B = {{1,1,0},{1,0,1}};
+        int[][] B = {{1, 1, 0}, {1, 0, 1}};
         System.out.println(q.solve(B));
     }
 }

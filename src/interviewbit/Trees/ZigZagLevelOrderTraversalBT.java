@@ -27,25 +27,25 @@ import java.util.stream.Stream;
 public class ZigZagLevelOrderTraversalBT {
     public ArrayList<ArrayList<Integer>> zigzagLevelOrder(TreeNode A) {
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
-        if(A == null) return ans;
+        if (A == null) return ans;
         ArrayList<TreeNode> curr;
         ArrayList<TreeNode> prev = new ArrayList<>();
         prev.add(A);
         boolean leftToRight = true;
-        while(!prev.isEmpty()){
-            Stream<Integer> st = prev.stream().map(t->t.val);
+        while (!prev.isEmpty()) {
+            Stream<Integer> st = prev.stream().map(t -> t.val);
             ArrayList<Integer> tmp = st.collect(Collectors.toCollection(ArrayList::new));
-            if(!leftToRight){
+            if (!leftToRight) {
                 Collections.reverse(tmp);
             }
             ans.add(tmp);
             curr = new ArrayList<>();
             leftToRight = !leftToRight;
-            for(TreeNode p:prev){
-                if(p.left != null){
+            for (TreeNode p : prev) {
+                if (p.left != null) {
                     curr.add(p.left);
                 }
-                if(p.right != null){
+                if (p.right != null) {
                     curr.add(p.right);
                 }
             }

@@ -27,24 +27,23 @@ public class PopulateNextRightPointersTree {
     }
 
     private void handleChildren(TreeLinkNode currLvl) {
-        if(currLvl.left != null){
-            if(currLvl.right != null){
+        if (currLvl.left != null) {
+            if (currLvl.right != null) {
                 currLvl.left.next = currLvl.right;
-            }
-            else{
+            } else {
                 currLvl.left.next = nextRightForChildOf(currLvl);
             }
         }
-        if(currLvl.right != null){
+        if (currLvl.right != null) {
             currLvl.right.next = nextRightForChildOf(currLvl);
         }
     }
 
     private TreeLinkNode nextRightForChildOf(TreeLinkNode p) {
         p = p.next;
-        while(p != null){
-            if(p.left != null) return p.left;
-            if(p.right != null) return p.right;
+        while (p != null) {
+            if (p.left != null) return p.left;
+            if (p.right != null) return p.right;
             p = p.next;
         }
         return null;

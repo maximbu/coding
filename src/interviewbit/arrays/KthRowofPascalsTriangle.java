@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Pascal’s triangle : To generate A[C] in row R, sum up A’[C] and A’[C-1] from previous row R - 1.
  */
 public class KthRowofPascalsTriangle {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     KthRowofPascalsTriangle q = new KthRowofPascalsTriangle();
     System.out.println(q.getRow(3));
   }
@@ -21,7 +21,7 @@ public class KthRowofPascalsTriangle {
       ArrayList<Integer> row = new ArrayList<>();
       row.add(1);
       for (int j = 1; j < i; j++) {
-        row.add(prevRow.get(j)+prevRow.get(j-1));
+        row.add(prevRow.get(j) + prevRow.get(j - 1));
       }
       row.add(1);
       prevRow = row;

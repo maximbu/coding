@@ -23,15 +23,15 @@ public class MergeKSortedLists {
         ListNode head = new ListNode(0);
         ListNode curr = head;
         PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o.val));
-        for (ListNode l:a) {
-            if(l != null){
+        for (ListNode l : a) {
+            if (l != null) {
                 pq.add(l);
             }
         }
-        while(!pq.isEmpty()){
+        while (!pq.isEmpty()) {
             ListNode currMin = pq.poll();
             curr.next = new ListNode(currMin.val);
-            if(currMin.next != null) {
+            if (currMin.next != null) {
                 pq.add(currMin.next);
             }
             curr = curr.next;

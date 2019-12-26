@@ -46,18 +46,18 @@ public class Seats {
                 a.add(i);
             }
         }
-        if(a.size()==0) return 0;
-        int med = a.get(a.size()/2);
+        if (a.size() == 0) return 0;
+        int med = a.get(a.size() / 2);
         int dist = 0;
         for (int i = 0; i < a.size(); i++) {
             int alreadyOccupied = Math.abs(a.size() / 2 - i);
             int seatMoveCost = Math.abs(Math.abs(a.get(i) - med) - alreadyOccupied) % 10000003;
-            dist = (dist + seatMoveCost)% 10000003;
+            dist = (dist + seatMoveCost) % 10000003;
         }
         return dist;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         Seats q = new Seats();
         String a = "....x..xx...x..";
         System.out.println(q.seats(a));

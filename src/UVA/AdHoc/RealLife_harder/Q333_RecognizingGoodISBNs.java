@@ -1,11 +1,11 @@
 package UVA.AdHoc.RealLife_harder;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 class Q333_RecognizingGoodISBNs {
 
@@ -24,10 +24,10 @@ class Q333_RecognizingGoodISBNs {
   }
 
   private String solve(String s) {
-    if(s.length() < 10) return s+" is incorrect.";
+    if (s.length() < 10) return s + " is incorrect.";
     List<Integer> nums = new ArrayList<>();
     char[] chars = s.toCharArray();
-    for (char c:chars) {
+    for (char c : chars) {
       if (c == '-' || Character.isWhitespace(c))
         continue;
       if (Character.isDigit(c)) {
@@ -37,20 +37,20 @@ class Q333_RecognizingGoodISBNs {
       } else
         return s + " is incorrect.";
     }
-    if(nums.size() != 10) {
-      return s+" is incorrect.";
+    if (nums.size() != 10) {
+      return s + " is incorrect.";
     }
     List<Integer> partSums = new ArrayList<>();
     partSums.add(nums.get(0));
     for (int i = 1; i < nums.size(); i++) {
-      partSums.add(nums.get(i)+partSums.get(i-1));
+      partSums.add(nums.get(i) + partSums.get(i - 1));
     }
     List<Integer> sums = new ArrayList<>();
     sums.add(partSums.get(0));
     for (int i = 1; i < partSums.size(); i++) {
-      sums.add(partSums.get(i)+sums.get(i-1));
+      sums.add(partSums.get(i) + sums.get(i - 1));
     }
-    return s+" is "+(sums.get(9)%11==0?"":"in")+"correct.";
+    return s + " is " + (sums.get(9) % 11 == 0 ? "" : "in") + "correct.";
   }
 
 

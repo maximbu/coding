@@ -17,28 +17,28 @@ package interviewbit.DynamicProgramming;
  */
 public class EditDistance {
     public int minDistance(String A, String B) {
-        int[][] dist = new int[A.length()+1][B.length()+1];
-        for(int i=0;i<=A.length();i++){
-            for(int j=0;j<=B.length();j++){
-                if(i == 0){
+        int[][] dist = new int[A.length() + 1][B.length() + 1];
+        for (int i = 0; i <= A.length(); i++) {
+            for (int j = 0; j <= B.length(); j++) {
+                if (i == 0) {
                     dist[i][j] = j;
                     continue;
                 }
-                if(j == 0){
+                if (j == 0) {
                     dist[i][j] = i;
                     continue;
                 }
-                dist[i][j] = Math.min(dist[i-1][j-1],Math.min(dist[i][j-1],dist[i-1][j]))+1;
-                if(A.charAt(i-1) == B.charAt(j-1)){
-                    dist[i][j] = dist[i-1][j-1];
+                dist[i][j] = Math.min(dist[i - 1][j - 1], Math.min(dist[i][j - 1], dist[i - 1][j])) + 1;
+                if (A.charAt(i - 1) == B.charAt(j - 1)) {
+                    dist[i][j] = dist[i - 1][j - 1];
                 }
             }
         }
         return dist[A.length()][B.length()];
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         EditDistance q = new EditDistance();
-        System.out.println(q.minDistance("aa","aaa"));
+        System.out.println(q.minDistance("aa", "aaa"));
     }
 }

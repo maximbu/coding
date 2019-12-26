@@ -17,8 +17,8 @@ public class LongestSubstringWithoutRepeat {
         HashSet<Character> hashSet = new HashSet<>();
         int ans = 0;
         int from = 0;
-        for(char c : A.toCharArray()){
-            while(!hashSet.add(c)){
+        for (char c : A.toCharArray()) {
+            while (!hashSet.add(c)) {
                 hashSet.remove(A.charAt(from++));
             }
             ans = Math.max(ans, hashSet.size());

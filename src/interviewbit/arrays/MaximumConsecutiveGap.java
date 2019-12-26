@@ -15,7 +15,7 @@ import java.util.List;
  You may also assume that the difference will not overflow.
  */
 public class MaximumConsecutiveGap {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     MaximumConsecutiveGap q = new MaximumConsecutiveGap();
 
     ArrayList<Integer> X = new ArrayList<>();
@@ -29,7 +29,7 @@ public class MaximumConsecutiveGap {
 
   // DO NOT MODIFY THE LIST
   public int maximumGap(final List<Integer> a) {
-    if(a.size() < 2) return 0;
+    if (a.size() < 2) return 0;
     int max = Integer.MIN_VALUE;
     int min = Integer.MAX_VALUE;
 
@@ -37,15 +37,15 @@ public class MaximumConsecutiveGap {
       max = Math.max(max, anA);
       min = Math.min(min, anA);
     }
-    if( min == max) return 0;
-    int gap = (int)Math.ceil((double)(max - min)/(a.size() - 1));
+    if (min == max) return 0;
+    int gap = (int) Math.ceil((double) (max - min) / (a.size() - 1));
 
     int[] bucketsMIN = new int[a.size()];
     int[] bucketsMAX = new int[a.size()];
     Arrays.fill(bucketsMIN, Integer.MAX_VALUE);
     Arrays.fill(bucketsMAX, Integer.MIN_VALUE);
 
-    for (int i:a) {
+    for (int i : a) {
       int idx = (i - min) / gap;
       bucketsMIN[idx] = Math.min(i, bucketsMIN[idx]);
       bucketsMAX[idx] = Math.max(i, bucketsMAX[idx]);

@@ -17,15 +17,15 @@ import java.util.Map;
 public class SubsetsII {
 
     public ArrayList<ArrayList<Integer>> subsetsWithDup(ArrayList<Integer> A) {
-        Map<Integer,Integer> map = new HashMap<>();
-        for(int x:A){
-            map.put(x,map.getOrDefault(x,0)+1);
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int x : A) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
         }
-        ArrayList<Integer> sorted= new ArrayList<>(map.keySet());
+        ArrayList<Integer> sorted = new ArrayList<>(map.keySet());
         sorted.sort(Comparator.reverseOrder());
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         ArrayList<Integer> curr = new ArrayList<>();
-        subsetsWithDup(sorted,0,map,ans,curr);
+        subsetsWithDup(sorted, 0, map, ans, curr);
         ans.sort(SubsetsII::compareLists);
         return ans;
     }
@@ -40,8 +40,8 @@ public class SubsetsII {
         return Integer.compare(o1.size(), o2.size());
     }
 
-    private void subsetsWithDup(ArrayList<Integer> A , int ind ,
-            Map<Integer,Integer> map , ArrayList<ArrayList<Integer>> ans , ArrayList<Integer> curr) {
+    private void subsetsWithDup(ArrayList<Integer> A, int ind,
+                                Map<Integer, Integer> map, ArrayList<ArrayList<Integer>> ans, ArrayList<Integer> curr) {
         if (ind == A.size()) {
             ArrayList<Integer> sorted = new ArrayList<>(curr);
             sorted.sort(Integer::compareTo);
@@ -56,8 +56,8 @@ public class SubsetsII {
         }
     }
 
-    private ArrayList<Integer> addCurrXToCurr(ArrayList<Integer> l , int x , int times){
-        for(int i=0;i<times;i++){
+    private ArrayList<Integer> addCurrXToCurr(ArrayList<Integer> l, int x, int times) {
+        for (int i = 0; i < times; i++) {
             l.add(x);
         }
         return l;

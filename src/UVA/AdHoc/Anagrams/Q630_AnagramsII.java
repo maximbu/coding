@@ -1,13 +1,8 @@
 package UVA.AdHoc.Anagrams;
 
-import static java.lang.System.in;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import static java.lang.System.in;
 
 class Q630_AnagramsII {
 
@@ -26,7 +21,7 @@ class Q630_AnagramsII {
       int wordsCnt = sc.nextInt();
       sc.nextLine();
       List<String> words = new ArrayList<>();
-      while (wordsCnt-- > 0){
+      while (wordsCnt-- > 0) {
         words.add(sc.nextLine());
       }
       List<String> testWords = new ArrayList<>();
@@ -35,14 +30,13 @@ class Q630_AnagramsII {
         testWords.add(word);
         word = sc.nextLine();
       }
-      Map<String, List<String>> ans = solve(words,testWords);
+      Map<String, List<String>> ans = solve(words, testWords);
       for (String testWord : testWords) {
         List<String> vals = ans.get(testWord);
-        System.out.println("Anagrams for: "+testWord);
-        if(vals == null){
-          System.out.println("No anagrams for: "+testWord);
-        }
-        else {
+        System.out.println("Anagrams for: " + testWord);
+        if (vals == null) {
+          System.out.println("No anagrams for: " + testWord);
+        } else {
           for (int i = 1; i <= vals.size(); i++) {
             System.out.printf("  %d) %s%n", i, vals.get(i - 1));
           }
@@ -57,7 +51,7 @@ class Q630_AnagramsII {
   }
 
   private Map<String, List<String>> solve(List<String> words,
-      List<String> testWords) {
+                                          List<String> testWords) {
     Map<String, List<String>> ans = new HashMap<>();
     List<String> sorted = new ArrayList<>();
     for (String word1 : words) {

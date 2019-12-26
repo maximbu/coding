@@ -21,7 +21,7 @@ public class MinSumPathInMatrix {
         int[][] tmp = new int[A.length][A[0].length];
         for (int i = 0; i < A.length; i++) {
             for (int j = 0; j < A[0].length; j++) {
-                if(i ==0 && j== 0){
+                if (i == 0 && j == 0) {
                     tmp[i][j] = A[i][j];
                     continue;
                 }

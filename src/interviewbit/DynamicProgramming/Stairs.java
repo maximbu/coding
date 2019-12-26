@@ -14,12 +14,12 @@ package interviewbit.DynamicProgramming;
  */
 public class Stairs {
     public int climbStairs(int A) {
-        int[] ops = new int[A+3];
+        int[] ops = new int[A + 3];
         ops[0] = 0;
         ops[1] = 1;
         ops[2] = 2;
-        for(int i=3;i<=A;i++){
-            ops[i] = ops[i-1]+ops[i-2];
+        for (int i = 3; i <= A; i++) {
+            ops[i] = ops[i - 1] + ops[i - 2];
         }
         return ops[A];
     }

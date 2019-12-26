@@ -27,48 +27,46 @@ By starting at the top of the triangle below and moving to adjacent numbers on t
     int len = triangle.length;
     int[] currLevelBest = new int[len];
     int[] prevLevelBest = new int[len];
-    for (int i = 0; i < len; i++) {
-      prevLevelBest[i]= triangle[len-1][i];
-    }
-    for (int i = triangle.length-2; i >= 0; i--) {
+    System.arraycopy(triangle[len - 1], 0, prevLevelBest, 0, len);
+    for (int i = triangle.length - 2; i >= 0; i--) {
       for (int j = 0; j <= i; j++) {
-        currLevelBest[j] = triangle[i][j]+Math.max(prevLevelBest[j],prevLevelBest[j+1]);
+        currLevelBest[j] = triangle[i][j] + Math.max(prevLevelBest[j], prevLevelBest[j + 1]);
       }
-      prevLevelBest= Arrays.copyOf(currLevelBest,currLevelBest.length);
+      prevLevelBest = Arrays.copyOf(currLevelBest, currLevelBest.length);
     }
-    
+
     return currLevelBest[0];
   }
 
-    public static void main(String[] st) {
-        p67 q = new p67();
-      int[][] triangle = new int[100][100];
-      try {
-          List<String> strings = Files.readAllLines(Paths.get("C:\\Users\\max\\IdeaProjects\\CodingInterviews\\out\\production\\CodingInterviews\\ProjectAuler\\p067_triangle.txt"));
-            int i=0;
-            for (String s:strings){
-                triangle[i] = Arrays.stream(s.split(" ")).mapToInt(Integer::parseInt).toArray();
-                i++;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-      try {
-        int[] input;
-        List<String> strings = Files.readAllLines(Paths.get("C:\\Users\\max\\IdeaProjects\\CodingInterviews\\out\\production\\CodingInterviews\\ProjectAuler\\qSort_killer2.txt"));
-        input = new int[strings.size()];
-        int i=0;
-        for (String s:strings){
-          input[i] = Integer.parseInt(s);
-          i++;
-        }
-        Arrays.sort(input);
-        int x = input.length;
-      } catch (IOException e) {
-        e.printStackTrace();
+  public static void main(String[] st) {
+    p67 q = new p67();
+    int[][] triangle = new int[100][100];
+    try {
+      List<String> strings = Files.readAllLines(Paths.get("C:\\Users\\max\\IdeaProjects\\CodingInterviews\\out\\production\\CodingInterviews\\ProjectAuler\\p067_triangle.txt"));
+      int i = 0;
+      for (String s : strings) {
+        triangle[i] = Arrays.stream(s.split(" ")).mapToInt(Integer::parseInt).toArray();
+        i++;
       }
-
-        System.out.println(q.questionNaive(triangle));
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+
+    try {
+      int[] input;
+      List<String> strings = Files.readAllLines(Paths.get("C:\\Users\\max\\IdeaProjects\\CodingInterviews\\out\\production\\CodingInterviews\\ProjectAuler\\qSort_killer2.txt"));
+      input = new int[strings.size()];
+      int i = 0;
+      for (String s : strings) {
+        input[i] = Integer.parseInt(s);
+        i++;
+      }
+      Arrays.sort(input);
+      int x = input.length;
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    System.out.println(q.questionNaive(triangle));
+  }
 }

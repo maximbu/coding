@@ -1,6 +1,5 @@
 package interviewbit.Trees;
 
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
@@ -30,7 +29,7 @@ public class BinaryTreeFromInorderAndPostorder {
     int rootV = B[bEnd];
     TreeNode root = new TreeNode(rootV);
     //int ind = Arrays.binarySearch(A, aStart, aEnd + 1, rootV);
-    int ind = findMid(A, aStart, aEnd , rootV);
+    int ind = findMid(A, aStart, aEnd, rootV);
     int rest = aEnd - ind;
     int bSplit = bEnd - rest;
     root.left = buildTree(A, aStart, ind - 1, B, bStart, bSplit - 1);
@@ -42,9 +41,9 @@ public class BinaryTreeFromInorderAndPostorder {
     return IntStream.rangeClosed(start, end).filter(i -> arr[i] == key).findFirst().getAsInt();
   }
 
-  public static void main(String[] st){
-    BinaryTreeFromInorderAndPostorder q =new BinaryTreeFromInorderAndPostorder();
-    TreeNode t = q.buildTree(new int[]{2,1,3},new int[]{2,3,1});
-    t = q.buildTree(new int[]{7, 5, 6, 2, 3, 1, 4 },new int[]{5, 6, 3, 1, 4, 2, 7});
+  public static void main(String[] st) {
+    BinaryTreeFromInorderAndPostorder q = new BinaryTreeFromInorderAndPostorder();
+    TreeNode t = q.buildTree(new int[]{2, 1, 3}, new int[]{2, 3, 1});
+    t = q.buildTree(new int[]{7, 5, 6, 2, 3, 1, 4}, new int[]{5, 6, 3, 1, 4, 2, 7});
   }
 }

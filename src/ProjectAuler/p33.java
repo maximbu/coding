@@ -1,8 +1,6 @@
 package ProjectAuler;
 
 
-import java.util.HashSet;
-
 /**
  * Created by max on 1/27/2017.
  */
@@ -25,35 +23,35 @@ If the product of these four fractions is given in its lowest common terms, find
                 if (j % 10 == 0) continue;
                 int up1 = j / 10;
                 int up2 = j % 10;
-                if(down1 == up1){
-                    mult*=multiplier(i, down2, j, up2);
+                if (down1 == up1) {
+                    mult *= multiplier(i, down2, j, up2);
                 }
-                if(down1 == up2){
-                    mult*=multiplier(i, down2, j, up1);
+                if (down1 == up2) {
+                    mult *= multiplier(i, down2, j, up1);
                 }
-                if(down2 == up1){
-                    mult*=multiplier(i, down1, j, up2);
+                if (down2 == up1) {
+                    mult *= multiplier(i, down1, j, up2);
                 }
-                if(down2 == up2){
-                    mult*=multiplier(i, down1, j, up1);
+                if (down2 == up2) {
+                    mult *= multiplier(i, down1, j, up1);
                 }
             }
 
         }
-        return 1/mult;
+        return 1 / mult;
     }
 
     private double multiplier(int i, int down, double j, int up) {
-        if(Math.abs((double) up/down - j /i)<0.0001){
-            System.out.print(j+"/"+i+"--->"+up+"/"+down);
+        if (Math.abs((double) up / down - j / i) < 0.0001) {
+            System.out.print(j + "/" + i + "--->" + up + "/" + down);
             for (int k = 2; k < 4; k++) {
-                while (up%k == 0 && down %k == 0){
-                    up/=k;
-                    down/=k;
+                while (up % k == 0 && down % k == 0) {
+                    up /= k;
+                    down /= k;
                 }
             }
-            System.out.println("--->"+up+"/"+down);
-            return (double) up/down;
+            System.out.println("--->" + up + "/" + down);
+            return (double) up / down;
 
         }
         return 1;
@@ -63,5 +61,5 @@ If the product of these four fractions is given in its lowest common terms, find
     public static void main(String[] st) {
         p33 q = new p33();
         System.out.println(q.questionNaive());
-}
+    }
 }

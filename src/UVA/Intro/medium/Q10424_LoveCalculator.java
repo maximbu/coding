@@ -16,7 +16,7 @@ class Q10424_LoveCalculator {
       String name2 = sc.nextLine();
       int val1 = evaluate(name1);
       int val2 = evaluate(name2);
-      double calc = 100.0 * Math.min(val1,val2) / Math.max(val1,val2);
+      double calc = 100.0 * Math.min(val1, val2) / Math.max(val1, val2);
       System.out.println(String.format("%.2f", calc) + " %");
     }
   }

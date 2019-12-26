@@ -52,7 +52,7 @@ class Q11225_TarotScores {
       }
       System.out.println("Hand #" + currCase);
       System.out.println(
-          "Game " + (wonBy < 0 ? "lost" : "won") + " by " + Math.abs(wonBy) + " point(s).");
+              "Game " + (wonBy < 0 ? "lost" : "won") + " by " + Math.abs(wonBy) + " point(s).");
     }
   }
 

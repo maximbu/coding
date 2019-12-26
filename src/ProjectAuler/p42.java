@@ -22,42 +22,41 @@ Using words.txt (right click and 'Save Link/Target As...'), a 16K text file cont
     public int questionNaive(String[] words) {
         int cnt = 0;
         HashSet<Integer> triangleNums = getTriangleNumbers(('Z' - 'A' + 1) * 20);
-        for (String s:words) {
-            if(triangleNums.contains(wordValue(s))) cnt++;
+        for (String s : words) {
+            if (triangleNums.contains(wordValue(s))) cnt++;
         }
         return cnt;
     }
 
 
-    private int wordValue(String word){
+    private int wordValue(String word) {
         int sum = 0;
-        for (char c:word.toCharArray()) {
-            sum+=c-'A'+1;
+        for (char c : word.toCharArray()) {
+            sum += c - 'A' + 1;
         }
         return sum;
     }
 
-    private HashSet<Integer> getTriangleNumbers(int limit){
+    private HashSet<Integer> getTriangleNumbers(int limit) {
         HashSet<Integer> nums = new HashSet<>();
         for (int i = 1; i < limit; i++) {
-            nums.add((i*(i+1))/2);
+            nums.add((i * (i + 1)) / 2);
         }
         return nums;
     }
 
-    private  String[] readWords(){
+    private String[] readWords() {
         try {
             List<String> words = Files.readAllLines(Paths.get("C:\\Users\\max\\IdeaProjects\\CodingInterviews\\out\\production\\CodingInterviews\\ProjectAuler\\p042_words.txt"));
-            return words.get(0).replace("\"","").split(",");
+            return words.get(0).replace("\"", "").split(",");
         } catch (IOException e) {
             throw new RuntimeException();
         }
     }
 
 
-
     public static void main(String[] st) {
         p42 q = new p42();
-        System.out.println(q.questionNaive( q.readWords()));
-}
+        System.out.println(q.questionNaive(q.readWords()));
+    }
 }

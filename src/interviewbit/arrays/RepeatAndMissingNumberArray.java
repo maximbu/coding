@@ -31,8 +31,8 @@ public class RepeatAndMissingNumberArray {
       Integer anA = a.get(i);
       sum += anA;
       sumSq += anA * anA;
-      expectedSum+= i+1;
-      expectedSumSq += (i+1)*(i+1) ;
+      expectedSum += i + 1;
+      expectedSumSq += (i + 1) * (i + 1);
     }
     // repeated - missing = sum - expectedSum
     // repeated = sum - expectedSum + missing
@@ -42,12 +42,12 @@ public class RepeatAndMissingNumberArray {
     // X^2 + 2*X*missing = sumSq - expectedSumSq
     // missing = (sumSq - expectedSumSq) - (sum - expectedSum)^2)/(2*(sum - expectedSum))
 
-    long x =  sum - expectedSum;
-    missing = ((sumSq - expectedSumSq) - (x*x))/(2*x);
+    long x = sum - expectedSum;
+    missing = ((sumSq - expectedSumSq) - (x * x)) / (2 * x);
     repeated = sum - expectedSum + missing;
     ArrayList<Integer> ans = new ArrayList<>();
-    ans.add((int)repeated);
-    ans.add((int)missing);
+    ans.add((int) repeated);
+    ans.add((int) missing);
     return ans;
   }
 
@@ -61,7 +61,7 @@ public class RepeatAndMissingNumberArray {
       }
     }
     for (int i = 1; i <= a.size(); i++) {
-      if(!nums.contains(i)){
+      if (!nums.contains(i)) {
         missing = i;
         break;
       }
@@ -73,7 +73,7 @@ public class RepeatAndMissingNumberArray {
   }
 
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     RepeatAndMissingNumberArray q = new RepeatAndMissingNumberArray();
 
     ArrayList<Integer> X = new ArrayList<>();

@@ -33,7 +33,7 @@ class Q947_MasterMindHelper {
     long cnt = 0;
     int[] guessArr = new int[guess.length()];
     for (int i = 0; i < guess.length(); i++) {
-      guessArr[i] = guess.charAt(i)-'0';
+      guessArr[i] = guess.charAt(i) - '0';
     }
     List<int[]> options = allOptions(guess.length());
     for (int[] option : options) {
@@ -108,7 +108,7 @@ class Q947_MasterMindHelper {
   }
 
 
-  private boolean isMatch(int[] cypher, int[] guess ,int expectedStrong , int expectedWeak) {
+  private boolean isMatch(int[] cypher, int[] guess, int expectedStrong, int expectedWeak) {
     int strong = 0;
     Set<Integer> usedCypher = new HashSet<>();
     Set<Integer> usedLine = new HashSet<>();

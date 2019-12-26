@@ -22,7 +22,7 @@ import java.util.Collections;
  1 -> Yes there are enough rooms for N booking.
  */
 public class HotelBookingsPossible {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     HotelBookingsPossible q = new HotelBookingsPossible();
 
     ArrayList<Integer> arrive = new ArrayList<>();
@@ -37,7 +37,7 @@ public class HotelBookingsPossible {
 
     int K = 1;
 
-    System.out.println(q.hotel(arrive,depart,K));
+    System.out.println(q.hotel(arrive, depart, K));
   }
 
   public boolean hotel(ArrayList<Integer> arrive, ArrayList<Integer> depart, int K) {
@@ -47,18 +47,17 @@ public class HotelBookingsPossible {
     int nextDep = 0;
     int guests = 0;
     while (nextDep < depart.size() && nextArr < arrive.size()) {
-      if(arrive.get(nextArr) < depart.get(nextDep)){
+      if (arrive.get(nextArr) < depart.get(nextDep)) {
         nextArr++;
         guests++;
-      }else if (arrive.get(nextArr) > depart.get(nextDep)){
+      } else if (arrive.get(nextArr) > depart.get(nextDep)) {
         nextDep++;
         guests--;
-      }
-      else{
+      } else {
         nextArr++;
         nextDep++;
       }
-      if(guests < 0 || guests > K) return false;
+      if (guests < 0 || guests > K) return false;
     }
     return true;
   }

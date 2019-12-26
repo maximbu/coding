@@ -14,32 +14,32 @@ public class GenerateAllParenthesesII {
     public ArrayList<String> generateParenthesis(int A) {
         ArrayList<String> ans = new ArrayList<>();
         StringBuilder curr = new StringBuilder();
-        generateParenthesis(A,A,curr,ans);
+        generateParenthesis(A, A, curr, ans);
         ans.sort(String::compareTo);
         return ans;
     }
 
-    private void generateParenthesis(int left , int right , StringBuilder curr , ArrayList<String> ans) {
-        if(left == 0 && right == 0)  {
+    private void generateParenthesis(int left, int right, StringBuilder curr, ArrayList<String> ans) {
+        if (left == 0 && right == 0) {
             ans.add(curr.toString());
             return;
         }
-        if(left == 0){
+        if (left == 0) {
             StringBuilder st = new StringBuilder(curr.toString());
-            while(right-- > 0){
+            while (right-- > 0) {
                 st.append(')');
             }
             ans.add(st.toString());
             return;
         }
-        if(left < right){
+        if (left < right) {
             curr.append(')');
-            generateParenthesis(left,right-1,curr,ans);
-            curr.deleteCharAt(curr.length()-1);
+            generateParenthesis(left, right - 1, curr, ans);
+            curr.deleteCharAt(curr.length() - 1);
         }
         curr.append('(');
-        generateParenthesis(left-1,right,curr,ans);
-        curr.deleteCharAt(curr.length()-1);
+        generateParenthesis(left - 1, right, curr, ans);
+        curr.deleteCharAt(curr.length() - 1);
     }
 
     public static void main(String[] st) {

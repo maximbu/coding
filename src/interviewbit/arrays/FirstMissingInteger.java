@@ -1,7 +1,6 @@
 package interviewbit.arrays;
 
 import java.util.ArrayList;
-import java.util.BitSet;
 
 
 /**
@@ -59,7 +58,7 @@ public class FirstMissingInteger {
         a.set(newInd - 1, -1 * valAtIndex);
       }
       if (valAtIndex == 0) {
-        a.set(newInd - 1, Integer.MAX_VALUE*-1);
+        a.set(newInd - 1, Integer.MAX_VALUE * -1);
       }
     }
 
@@ -69,6 +68,6 @@ public class FirstMissingInteger {
       }
     }
 
-    return a.size()+1;
+    return a.size() + 1;
   }
 }

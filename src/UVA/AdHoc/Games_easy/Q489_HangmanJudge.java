@@ -66,6 +66,7 @@ class Q489_HangmanJudge {
     for (boolean l : correct) {
       if (!l) {
         allCorrect = false;
+        break;
       }
     }
     return allCorrect;

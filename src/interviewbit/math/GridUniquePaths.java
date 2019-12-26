@@ -17,11 +17,11 @@ public class GridUniquePaths {
 
         int N = 2;
         int M = 2;
-        System.out.println(q.uniquePaths(N,M));
+        System.out.println(q.uniquePaths(N, M));
 
         N = 5;
         M = 6;
-        System.out.println(q.uniquePaths(N,M));
+        System.out.println(q.uniquePaths(N, M));
     }
 
     public int uniquePaths(int a, int b) {
@@ -34,9 +34,9 @@ public class GridUniquePaths {
         }
         for (int i = 1; i < a; i++) {
             for (int j = 1; j < b; j++) {
-                options[i][j] = options[i-1][j]+options[i][j-1];
+                options[i][j] = options[i - 1][j] + options[i][j - 1];
             }
         }
-        return options[a-1][b-1];
+        return options[a - 1][b - 1];
     }
 }

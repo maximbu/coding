@@ -29,7 +29,7 @@ package interviewbit.Trees;
 public class ValidBinarySearchTree {
 
   public int isValidBST(TreeNode A) {
-    return isValidBST(A, Integer.MIN_VALUE, Integer.MAX_VALUE)?1:0;
+    return isValidBST(A, Integer.MIN_VALUE, Integer.MAX_VALUE) ? 1 : 0;
   }
 
   private boolean isValidBST(TreeNode A, int min, int max) {

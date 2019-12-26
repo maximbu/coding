@@ -15,11 +15,11 @@ class Q10284_ChessboardInFEN {
   private void solve() {
     Scanner sc = new Scanner(System.in);
     while (sc.hasNextLine()) {
-      char board[] = new char[64];
+      char[] board = new char[64];
       int ind = 0;
       char[] rep = sc.nextLine().toCharArray();
       for (char cell : rep) {
-        if(cell=='/') continue;
+        if (cell == '/') continue;
         if (Character.isDigit(cell)) {
           for (int j = 0; j < cell - '0'; j++) {
             board[ind++] = '.';
@@ -34,21 +34,21 @@ class Q10284_ChessboardInFEN {
   }
 
   private int solve(char[] board) {
-    return (int)IntStream.range(0, board.length)
-        .filter(i -> board[i] == '.' && !isUnderAttack(i, board)).count();
+    return (int) IntStream.range(0, board.length)
+            .filter(i -> board[i] == '.' && !isUnderAttack(i, board)).count();
   }
 
   private boolean isUnderAttack(int cell, char[] board) {
     return IntStream.range(0, board.length).
-        anyMatch(i ->  isThreatens(i, cell, board));
+            anyMatch(i -> isThreatens(i, cell, board));
   }
 
   private boolean isThreatens(int attackerCell, int attackedCell, char[] board) {
     switch (Character.toLowerCase(board[attackerCell])) {
       case 'p': {
-        boolean a=  pawnThreatens(attackerCell, attackedCell, board);
-        if(DEBUG && a){
-          System.out.println(board[attackerCell]+" on: "+attackerCell+" attackedCell: "+attackedCell);
+        boolean a = pawnThreatens(attackerCell, attackedCell, board);
+        if (DEBUG && a) {
+          System.out.println(board[attackerCell] + " on: " + attackerCell + " attackedCell: " + attackedCell);
         }
         return a;
       }
@@ -63,8 +63,8 @@ class Q10284_ChessboardInFEN {
       }
       case 'q': {
         boolean a = queenThreatens(attackerCell, attackedCell, board);
-        if(DEBUG && a){
-          System.out.println(board[attackerCell]+" on: "+attackerCell+" attackedCell: "+attackedCell);
+        if (DEBUG && a) {
+          System.out.println(board[attackerCell] + " on: " + attackerCell + " attackedCell: " + attackedCell);
         }
         return a;
       }
@@ -83,30 +83,30 @@ class Q10284_ChessboardInFEN {
   }
 
   private boolean pawnThreatens(int attackerCell, int attackedCell, char[] board) {
-    int diff = attackedCell-attackerCell;
+    int diff = attackedCell - attackerCell;
     if (Character.isUpperCase(board[attackerCell])) {
       diff *= -1;
     }
-    int rowDiff = Math.abs(attackedCell/8-attackerCell/8);
-    return (rowDiff==1)&&(diff == 9 || diff == 7);
+    int rowDiff = Math.abs(attackedCell / 8 - attackerCell / 8);
+    return (rowDiff == 1) && (diff == 9 || diff == 7);
   }
 
   private boolean knightThreatens(int attackerCell, int attackedCell) {
-    int rowDiff = Math.abs(attackerCell/8-attackedCell/8);
-    int colDiff = Math.abs(attackerCell%8-attackedCell%8);
-    return (rowDiff+colDiff==3) && (rowDiff*colDiff==2);
+    int rowDiff = Math.abs(attackerCell / 8 - attackedCell / 8);
+    int colDiff = Math.abs(attackerCell % 8 - attackedCell % 8);
+    return (rowDiff + colDiff == 3) && (rowDiff * colDiff == 2);
   }
 
   private boolean queenThreatens(int attackerCell, int attackedCell, char[] board) {
     return rookThreatens(attackerCell, attackedCell, board) || bishopThreatens(attackerCell, attackedCell,
-        board);
+            board);
   }
 
   private boolean bishopThreatens(int attackerCell, int attackedCell, char[] board) {
     boolean sameLeftDiagonal = ((attackerCell / 8 - attackedCell / 8) == (attackerCell % 8
-        - attackedCell % 8));
+            - attackedCell % 8));
     boolean sameRightDiagonal = ((attackerCell / 8 - attackedCell / 8) == -1 * (attackerCell % 8
-        - attackedCell % 8));
+            - attackedCell % 8));
     if (sameLeftDiagonal) {
       return hasFreeAttackLine(attackerCell, attackedCell, board, 9);
     }

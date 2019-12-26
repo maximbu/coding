@@ -3,7 +3,6 @@ package interviewbit.Backtracking;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.stream.Collectors;
 
 /**
  * Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
@@ -47,16 +46,16 @@ public class CombinationSumII {
             return;
         }
         for (int i = from; i < A.size(); i++) {
-            int cnt =1;
-            while(i+1 < A.size() && A.get(i).equals(A.get(i + 1))){
+            int cnt = 1;
+            while (i + 1 < A.size() && A.get(i).equals(A.get(i + 1))) {
                 cnt++;
                 i++;
             }
-            for(int k=1;k<=cnt;k++) {
+            for (int k = 1; k <= cnt; k++) {
                 for (int j = 0; j < k; j++) {
                     curr.addLast(A.get(i));
                 }
-                combinationSum(A, i + 1, B - k*A.get(i), curr, ans);
+                combinationSum(A, i + 1, B - k * A.get(i), curr, ans);
                 for (int j = 0; j < k; j++) {
                     curr.removeLast();
                 }
@@ -66,7 +65,7 @@ public class CombinationSumII {
 
     public static void main(String[] st) {
         CombinationSumII q = new CombinationSumII();
-        ArrayList<ArrayList<Integer>> ans = q.combinationSum(new ArrayList<>(Arrays.asList(10,1,2,7,6,1,5)),8);
+        ArrayList<ArrayList<Integer>> ans = q.combinationSum(new ArrayList<>(Arrays.asList(10, 1, 2, 7, 6, 1, 5)), 8);
         System.out.println(ans);
     }
 }

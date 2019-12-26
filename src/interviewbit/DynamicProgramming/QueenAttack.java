@@ -43,7 +43,7 @@ public class QueenAttack {
 
         for (int i = 0; i < A.length; i++) {
             for (int j = 0; j < A[0].length(); j++) {
-                ans[i][j] = rowsLeft[i][j] + rowsRight[i][j] + colsUp[i][j] + colsDown[i][j] + diag1Up[i][j] + diag1Down[i][j]+diag2Up[i][j]+diag2Down[i][j];
+                ans[i][j] = rowsLeft[i][j] + rowsRight[i][j] + colsUp[i][j] + colsDown[i][j] + diag1Up[i][j] + diag1Down[i][j] + diag2Up[i][j] + diag2Down[i][j];
             }
         }
         return ans;
@@ -53,7 +53,7 @@ public class QueenAttack {
         int[][] tmp = new int[A.length][A[0].length()];
         for (int i = A.length - 1; i > 0; i--) {
             for (int j = 0; j < A[0].length() - 1; j++) {
-                tmp[i-1][j+1] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
+                tmp[i - 1][j + 1] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
             }
         }
         return tmp;
@@ -61,9 +61,9 @@ public class QueenAttack {
 
     private int[][] diag2Up(String[] A) {
         int[][] tmp = new int[A.length][A[0].length()];
-        for (int i = 0; i < A.length-1; i++) {
+        for (int i = 0; i < A.length - 1; i++) {
             for (int j = A[0].length() - 1; j > 0; j--) {
-                tmp[i+1][j-1] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
+                tmp[i + 1][j - 1] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
             }
         }
         return tmp;
@@ -73,7 +73,7 @@ public class QueenAttack {
         int[][] tmp = new int[A.length][A[0].length()];
         for (int i = A.length - 1; i > 0; i--) {
             for (int j = A[0].length() - 1; j > 0; j--) {
-                tmp[i-1][j-1] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
+                tmp[i - 1][j - 1] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
             }
         }
         return tmp;
@@ -81,9 +81,9 @@ public class QueenAttack {
 
     private int[][] diag1Up(String[] A) {
         int[][] tmp = new int[A.length][A[0].length()];
-        for (int i = 0; i < A.length-1; i++) {
-            for (int j = 0; j < A[0].length()-1; j++) {
-                tmp[i+1][j+1] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
+        for (int i = 0; i < A.length - 1; i++) {
+            for (int j = 0; j < A[0].length() - 1; j++) {
+                tmp[i + 1][j + 1] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
             }
         }
         return tmp;
@@ -101,7 +101,7 @@ public class QueenAttack {
 
     private int[][] colsUp(String[] A) {
         int[][] tmp = new int[A.length][A[0].length()];
-        for (int j = 0; j < A[0].length()-1; j++) {
+        for (int j = 0; j < A[0].length() - 1; j++) {
             for (int i = 0; i < A.length; i++) {
                 tmp[i][j + 1] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
             }
@@ -121,7 +121,7 @@ public class QueenAttack {
 
     private int[][] rowsLeft(String[] A) {
         int[][] tmp = new int[A.length][A[0].length()];
-        for (int i = 0; i < A.length-1; i++) {
+        for (int i = 0; i < A.length - 1; i++) {
             for (int j = 0; j < A[0].length(); j++) {
                 tmp[i + 1][j] = A[i].charAt(j) == '1' ? 1 : tmp[i][j];
             }
@@ -129,9 +129,9 @@ public class QueenAttack {
         return tmp;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         QueenAttack q = new QueenAttack();
-        String[] a = {"111","111","111"};
+        String[] a = {"111", "111", "111"};
         System.out.println(Arrays.deepToString(q.queenAttack(a)));
     }
 }

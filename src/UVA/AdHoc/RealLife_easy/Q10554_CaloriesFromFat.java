@@ -1,11 +1,11 @@
 package UVA.AdHoc.RealLife_easy;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 class Q10554_CaloriesFromFat {
 
@@ -18,27 +18,27 @@ class Q10554_CaloriesFromFat {
     Scanner sc = new Scanner(in);
     while (true) {
       String line = sc.nextLine();
-      if(line.equals("-")) return;
+      if (line.equals("-")) return;
       List<Product> prod = new ArrayList<>();
 
-      while (!line.equals("-")){
+      while (!line.equals("-")) {
         String[] input = line.split("\\s+");
-        prod.add(new Product(input[0],input[1],input[2],input[3],input[4]));
+        prod.add(new Product(input[0], input[1], input[2], input[3], input[4]));
         line = sc.nextLine();
       }
       int ans = solve(prod);
-      out.println(ans+"%");
+      out.println(ans + "%");
     }
   }
 
   private int solve(List<Product> prod) {
-    double totalFat = prod.stream().mapToDouble(t->t.fatCal).sum();
-    double totalAll = prod.stream().mapToDouble(t->t.totalCal).sum();
-    return (int)Math.round(100.0*totalFat/totalAll);
+    double totalFat = prod.stream().mapToDouble(t -> t.fatCal).sum();
+    double totalAll = prod.stream().mapToDouble(t -> t.totalCal).sum();
+    return (int) Math.round(100.0 * totalFat / totalAll);
   }
 
 
-  private class Product {
+  private static class Product {
 
     private double fatCal;
     private double totalCal;
@@ -74,17 +74,17 @@ class Q10554_CaloriesFromFat {
       return -1 * fromProt;
     }
 
-    private int extractVal(String input,int mult) {
-      int val = Integer.valueOf(input.substring(0,input.length()-1));
-      switch (input.charAt(input.length()-1)){
-        case 'g':{
-          return val*mult;
+    private int extractVal(String input, int mult) {
+      int val = Integer.parseInt(input.substring(0, input.length() - 1));
+      switch (input.charAt(input.length() - 1)) {
+        case 'g': {
+          return val * mult;
         }
-        case 'C':{
+        case 'C': {
           return val;
         }
-        default:{
-          return -1*val;
+        default: {
+          return -1 * val;
         }
 
       }

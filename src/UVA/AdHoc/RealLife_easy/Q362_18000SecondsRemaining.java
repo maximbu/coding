@@ -1,11 +1,11 @@
 package UVA.AdHoc.RealLife_easy;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 class Q362_18000SecondsRemaining {
 
@@ -23,15 +23,15 @@ class Q362_18000SecondsRemaining {
       if (fileSize == 0)
         return;
       List<Double> rates = new ArrayList<>();
-      int ind=0;
+      int ind = 0;
       int sum = 0;
       int currSum = 0;
       while (sum < fileSize) {
         ind++;
         int t = sc.nextInt();
-        currSum+= t;
+        currSum += t;
         sum += t;
-        if(ind % 5 == 0){
+        if (ind % 5 == 0) {
           int left = fileSize - sum;
           double newRate = currSum == 0 ? -1 : left / (currSum * 0.2);
           rates.add(newRate);

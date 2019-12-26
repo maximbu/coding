@@ -1,4 +1,4 @@
-package UVA.easy;
+package UVA.Intro.easy;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -34,7 +34,7 @@ class Q11559_EventPlanning {
   }
 
   private Optional<Integer> solve(int participants, int budget, int[] hotelPrices,
-      int[][] hotelNumOfBedsPerWeek) {
+                                  int[][] hotelNumOfBedsPerWeek) {
     int minPrice = Integer.MAX_VALUE;
     for (int i = 0; i < hotelNumOfBedsPerWeek.length; i++) {
       for (int j = 0; j < hotelNumOfBedsPerWeek[0].length; j++) {

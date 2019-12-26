@@ -41,7 +41,7 @@ public class CountPermutationsOfBst {
     return (int) dp[A][B];
   }
 
-  private long getHeightDP(int till,  long[] dp, long constLen) {
+  private long getHeightDP(int till, long[] dp, long constLen) {
     long rightHeight = 0;
     for (int h = 0; h <= till; h++) {
       rightHeight = add(rightHeight, mul(dp[h], constLen));
@@ -97,12 +97,12 @@ public class CountPermutationsOfBst {
   }
 
   private long choose(int n, int k, long[] facts) {
-    return facts[n] / mul(facts[k] , facts[n - k]);
+    return facts[n] / mul(facts[k], facts[n - k]);
   }
 
-  public static BigInteger choose2(int x, int y){
+  public static BigInteger choose2(int x, int y) {
     BigInteger res = fact(x);
-    res = res.divide(fact(x-y));
+    res = res.divide(fact(x - y));
     res = res.divide(fact(y));
     res = res.remainder(BigInteger.valueOf(1000000007));
     return res;
@@ -110,7 +110,7 @@ public class CountPermutationsOfBst {
 
   public static BigInteger fact(int x) {
     BigInteger temp = BigInteger.ONE;
-    for (int i = 1; i <=x ; i++) {
+    for (int i = 1; i <= x; i++) {
       temp = temp.multiply(BigInteger.valueOf(i));
     }
     return temp;

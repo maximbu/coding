@@ -1,11 +1,5 @@
 package ProjectAuler;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-
 /**
  * Created by max on 1/27/2017.
  */
@@ -23,15 +17,13 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 
 
     public int questionNaive(int n) {
-       if(n == 1) return 1;
-       int topRight = n*n;
-       int bottomRight = (n-2)*(n-2)+(n-1);
-       int bottomLeft = (n-2)*(n-2)+2*(n-1);
-       int topLeft = topRight-(n-1);
-       return questionNaive(n-2)+topRight+bottomLeft+bottomRight+topLeft;
+        if (n == 1) return 1;
+        int topRight = n * n;
+        int bottomRight = (n - 2) * (n - 2) + (n - 1);
+        int bottomLeft = (n - 2) * (n - 2) + 2 * (n - 1);
+        int topLeft = topRight - (n - 1);
+        return questionNaive(n - 2) + topRight + bottomLeft + bottomRight + topLeft;
     }
-
-
 
 
     public static void main(String[] st) {

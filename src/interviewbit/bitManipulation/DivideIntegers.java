@@ -25,10 +25,10 @@ public class DivideIntegers {
         return ans;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         DivideIntegers q = new DivideIntegers();
 
-        System.out.println(q.divide(-2147483648,-10000000));
-        System.out.println(q.divide(-1239030549,-11630));
+        System.out.println(q.divide(-2147483648, -10000000));
+        System.out.println(q.divide(-1239030549, -11630));
     }
 }

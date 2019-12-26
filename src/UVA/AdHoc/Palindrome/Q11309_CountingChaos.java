@@ -1,9 +1,9 @@
 package UVA.AdHoc.Palindrome;
 
-import static java.lang.System.in;
-
 import java.util.Scanner;
 import java.util.stream.IntStream;
+
+import static java.lang.System.in;
 
 class Q11309_CountingChaos {
 
@@ -14,7 +14,7 @@ class Q11309_CountingChaos {
 
   private void solve() {
     Scanner sc = new Scanner(in);
-    int cases = Integer.valueOf(sc.nextLine());
+    int cases = Integer.parseInt(sc.nextLine());
     int c = 0;
     while (c++ < cases) {
       String input = sc.nextLine().trim();
@@ -42,7 +42,7 @@ class Q11309_CountingChaos {
         String time = String.valueOf(i) + (j < 10 ? "0" : "") + String.valueOf(j);
         if (isPalindrome(time)) {
           return (i < 10 ? "0" : "") + String.valueOf(i) + (j < 10 ? ":0" : ":") + String
-              .valueOf(j);
+                  .valueOf(j);
         }
       }
     }
@@ -51,7 +51,7 @@ class Q11309_CountingChaos {
 
   private boolean isPalindrome(String st) {
     return IntStream.range(0, st.length() / 2)
-        .allMatch(i -> st.charAt(i) == st.charAt(st.length() - i - 1));
+            .allMatch(i -> st.charAt(i) == st.charAt(st.length() - i - 1));
   }
 
 }

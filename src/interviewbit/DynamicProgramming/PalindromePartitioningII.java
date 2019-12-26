@@ -12,8 +12,8 @@ package interviewbit.DynamicProgramming;
  */
 public class PalindromePartitioningII {
     public int minCut(String A) {
-        boolean dp[][] = new boolean[A.length()][A.length()];
-        int cut[] = new int[A.length()];
+        boolean[][] dp = new boolean[A.length()][A.length()];
+        int[] cut = new int[A.length()];
 
         for (int j = 0; j < A.length(); j++) {
             cut[j] = j;
@@ -25,6 +25,6 @@ public class PalindromePartitioningII {
             }
         }
 
-        return cut[cut.length-1];
+        return cut[cut.length - 1];
     }
 }

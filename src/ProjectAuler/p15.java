@@ -1,7 +1,5 @@
 package ProjectAuler;
 
-import java.util.HashMap;
-
 /**
  * Created by max on 1/27/2017.
  */
@@ -14,11 +12,11 @@ How many such routes are there through a 20×20 grid?
 
     public static long questionNaive(int size) {
         double ans = 1;
-        for (int i = size+1; i <= 2*size; i++) {
-            ans*=i;
-            ans/=(i-size);
+        for (int i = size + 1; i <= 2 * size; i++) {
+            ans *= i;
+            ans /= (i - size);
         }
-        return (long)ans;
+        return (long) ans;
     }
 
 

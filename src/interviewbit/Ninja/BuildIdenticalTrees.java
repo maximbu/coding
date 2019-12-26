@@ -1,7 +1,6 @@
 package interviewbit.Ninja;
 
 import interviewbit.Trees.TreeNode;
-import java.util.PriorityQueue;
 
 /**
  * Given two binary trees T1 and T2, you have to find minimum number of insertions to be done in T1 to make it structurally identical to T2. Return -1 if not possible.
@@ -62,17 +61,17 @@ public class BuildIdenticalTrees {
     return 1 + countNodes(b.left) + countNodes(b.right);
   }
 
-  class Data{
+  class Data {
     int num;
     int cnt;
 
-    public Data(int n,int c){
+    public Data(int n, int c) {
       num = n;
       cnt = c;
     }
   }
 
-  public static void main(String[] st){
+  public static void main(String[] st) {
     BuildIdenticalTrees q = new BuildIdenticalTrees();
     TreeNode A = new TreeNode(3);
     A.left = new TreeNode(999);

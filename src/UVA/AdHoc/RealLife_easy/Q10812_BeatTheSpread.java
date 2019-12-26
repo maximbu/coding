@@ -1,9 +1,9 @@
 package UVA.AdHoc.RealLife_easy;
 
+import java.util.Scanner;
+
 import static java.lang.System.in;
 import static java.lang.System.out;
-
-import java.util.Scanner;
 
 class Q10812_BeatTheSpread {
 
@@ -19,11 +19,11 @@ class Q10812_BeatTheSpread {
       sc.nextLine();
       int sum = sc.nextInt();
       int diff = sc.nextInt();
-      long b = diff+(sum-diff)/2;
-      long s = sum-b;
-      if((b-s)==diff && b >=0 && s>=0) {
-        out.println(b + " "+ s);
-      }else{
+      long b = diff + (sum - diff) / 2;
+      long s = sum - b;
+      if ((b - s) == diff && b >= 0 && s >= 0) {
+        out.println(b + " " + s);
+      } else {
         out.println("impossible");
       }
     }

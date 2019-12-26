@@ -25,7 +25,7 @@ public class Substitute {
         }
         if (st.length() == 0)
             return 0;
-        return Integer.valueOf(st.toString());
+        return Integer.parseInt(st.toString());
     }
 
 

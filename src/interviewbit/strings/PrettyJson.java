@@ -51,38 +51,38 @@ public class PrettyJson {
         ArrayList<String> ans = new ArrayList<>();
         int tabs = 0;
         StringBuilder word = new StringBuilder();
-        for(int i=0;i<A.length();i++){
+        for (int i = 0; i < A.length(); i++) {
             char x = A.charAt(i);
-            if(x==' ') continue;
-            if(x=='[' || x=='{'){
-                if(word.toString().length() > 0){
-                    ans.add(tabbed(word.toString(),tabs));
+            if (x == ' ') continue;
+            if (x == '[' || x == '{') {
+                if (word.toString().length() > 0) {
+                    ans.add(tabbed(word.toString(), tabs));
                 }
-                ans.add(tabbed(""+x,tabs++));
+                ans.add(tabbed("" + x, tabs++));
                 word = new StringBuilder();
                 continue;
             }
-            if(x==']' || x=='}'){
-                if(word.toString().length() > 0) {
+            if (x == ']' || x == '}') {
+                if (word.toString().length() > 0) {
                     ans.add(tabbed(word.toString(), tabs));
                 }
-                String ending = ""+x;
-                if(i+1 < A.length() && A.charAt(i+1)==','){
-                    ending+=",";
+                String ending = "" + x;
+                if (i + 1 < A.length() && A.charAt(i + 1) == ',') {
+                    ending += ",";
                     i++;
                 }
-                ans.add(tabbed(ending,--tabs));
+                ans.add(tabbed(ending, --tabs));
                 word = new StringBuilder();
                 continue;
             }
             word = new StringBuilder();
-            while(i < A.length() &&
-                    A.charAt(i)!= '[' && A.charAt(i)!='{'
-                    && A.charAt(i)!= ']' && A.charAt(i)!='}'){
-                if(A.charAt(i)!=' '){
+            while (i < A.length() &&
+                    A.charAt(i) != '[' && A.charAt(i) != '{'
+                    && A.charAt(i) != ']' && A.charAt(i) != '}') {
+                if (A.charAt(i) != ' ') {
                     word.append(A.charAt(i));
-                    if(A.charAt(i)==','){
-                        ans.add(tabbed(word.toString(),tabs));
+                    if (A.charAt(i) == ',') {
+                        ans.add(tabbed(word.toString(), tabs));
                         word = new StringBuilder();
                     }
                 }
@@ -93,16 +93,16 @@ public class PrettyJson {
         return ans;
     }
 
-    private String tabbed(String s,int tabs){
+    private String tabbed(String s, int tabs) {
         StringBuilder sb = new StringBuilder();
-        while(tabs-- > 0){
+        while (tabs-- > 0) {
             sb.append('\t');
         }
         sb.append(s);
         return sb.toString();
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         PrettyJson q = new PrettyJson();
         System.out.println(q.prettyJSON("{A:\"B\",C:{D:\"E\",F:{G:\"H\",I:\"J\"}}}"));
         System.out.println(q.prettyJSON("{\"id\":100,\"firstName\":\"Jack\",\"lastName\":\"Jones\",\"age\":12}"));

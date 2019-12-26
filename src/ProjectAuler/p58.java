@@ -1,6 +1,5 @@
 package ProjectAuler;
 
-import java.math.BigInteger;
 import java.util.HashSet;
 
 /**
@@ -30,55 +29,54 @@ If one complete new layer is wrapped around the spiral above, a square spiral wi
 
     }
 
-    private HashSet<Long> getPrimesTill(int n){
-        boolean[] nonPrimes = new boolean[n+1];
+    private HashSet<Long> getPrimesTill(int n) {
+        boolean[] nonPrimes = new boolean[n + 1];
         HashSet<Long> list = new HashSet<>();
         list.add(2L);
-        for (long i = 3; i < n+1; i+=2) {
-            if(!nonPrimes[(int)i]){
+        for (long i = 3; i < n + 1; i += 2) {
+            if (!nonPrimes[(int) i]) {
                 list.add(i);
-                for (long j = 2*i; j < n+1; j+=i) {
-                    nonPrimes[(int)j]=true;
+                for (long j = 2 * i; j < n + 1; j += i) {
+                    nonPrimes[(int) j] = true;
                 }
             }
         }
         return list;
     }
 
-    private int questionNaive( HashSet<Long> primeNums) {
-       double percentage = 100;
-       int side = 1;
-        while (percentage>=10){
-            side+=2;
+    private int questionNaive(HashSet<Long> primeNums) {
+        double percentage = 100;
+        int side = 1;
+        while (percentage >= 10) {
+            side += 2;
             long i = 3;
             int jump = 2;
             int diag = 1;
             int total = 1;
             int primes = 0;
-            while (i<=side*side)
-            {
+            while (i <= side * side) {
                 total++;
-                if(primeNums.contains(i) || (i>100000 && isPrime(i))){
+                if (primeNums.contains(i) || (i > 100000 && isPrime(i))) {
                     primes++;
                 }
-                i+=jump;
+                i += jump;
                 diag++;
-                if(diag == 4){
+                if (diag == 4) {
                     diag = 0;
-                    jump+=2;
+                    jump += 2;
                 }
 
             }
-            percentage = 100*primes/(double)(total);
+            percentage = 100 * primes / (double) (total);
         }
         return side;
     }
 
     private boolean isPrime(long n) {
-        if(n%2 == 0) return n==2;
-        if(n%3 == 0) return n==3;
-        for (long i = 5; i*i <=n ; i+=2) {
-            if(n%i == 0) return false;
+        if (n % 2 == 0) return n == 2;
+        if (n % 3 == 0) return n == 3;
+        for (long i = 5; i * i <= n; i += 2) {
+            if (n % i == 0) return false;
         }
         return true;
     }

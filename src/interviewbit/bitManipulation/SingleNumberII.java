@@ -22,8 +22,8 @@ public class SingleNumberII {
         int oneOcc = 0;
         int twoOcc = 0;
         int threeOcc;
-        for(int x:A){
-            twoOcc |= x&oneOcc;
+        for (int x : A) {
+            twoOcc |= x & oneOcc;
             oneOcc ^= x;
             threeOcc = oneOcc & twoOcc;
             oneOcc &= ~threeOcc;

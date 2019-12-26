@@ -65,7 +65,7 @@ class Q162_BeggarMyNeighbour {
 
       }
 
-      String ans = p2.isEmpty() ? "1 " + String.format("%2d",dealer.size()) : "2 " + String.format("%2d",p2.size());
+      String ans = p2.isEmpty() ? "1 " + String.format("%2d", dealer.size()) : "2 " + String.format("%2d", p2.size());
       System.out.println(ans);
     }
   }

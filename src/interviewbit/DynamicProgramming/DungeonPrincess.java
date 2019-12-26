@@ -32,35 +32,34 @@ import java.util.Arrays;
  */
 public class DungeonPrincess {
     public int calculateMinimumHP(int[][] A) {
-        long[]curr = new long[A[0].length];
-        for(int i = A.length - 1; i >= 0; i--)
-        {
-            long[] prev = Arrays.copyOf(curr,curr.length);
+        long[] curr = new long[A[0].length];
+        for (int i = A.length - 1; i >= 0; i--) {
+            long[] prev = Arrays.copyOf(curr, curr.length);
             curr = new long[A[0].length];
-            for(int j = A[0].length - 1; j >= 0; j--){
-                if(i==A.length-1 && j==A[0].length-1) {
-                    curr[j]=A[i][j];
+            for (int j = A[0].length - 1; j >= 0; j--) {
+                if (i == A.length - 1 && j == A[0].length - 1) {
+                    curr[j] = A[i][j];
                     continue;
                 }
-                if(i<A.length-1 && j <A[0].length-1){
-                    curr[j]+=Math.max(prev[j],curr[j+1]);
+                if (i < A.length - 1 && j < A[0].length - 1) {
+                    curr[j] += Math.max(prev[j], curr[j + 1]);
                 }
-                if(i==A.length-1){
-                    curr[j]+=curr[j+1];
+                if (i == A.length - 1) {
+                    curr[j] += curr[j + 1];
                 }
-                if(j==A[0].length-1){
-                    curr[j]+=prev[j];
+                if (j == A[0].length - 1) {
+                    curr[j] += prev[j];
                 }
-                curr[j]+=A[i][j];
-                curr[j] = Math.min(curr[j],A[i][j]);
+                curr[j] += A[i][j];
+                curr[j] = Math.min(curr[j], A[i][j]);
             }
         }
-        return Math.max((int)(-1*(curr[0]-1)),1);
+        return Math.max((int) (-1 * (curr[0] - 1)), 1);
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         DungeonPrincess q = new DungeonPrincess();
-        int[][] a = {{0,0,0},{-1,-1,-1},{-1,-1,100}};
+        int[][] a = {{0, 0, 0}, {-1, -1, -1}, {-1, -1, 100}};
         System.out.println(q.calculateMinimumHP(a));
     }
 }

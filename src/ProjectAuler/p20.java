@@ -1,7 +1,6 @@
 package ProjectAuler;
 
 import java.math.BigInteger;
-import java.util.Calendar;
 
 /**
  * Created by max on 1/27/2017.
@@ -15,21 +14,19 @@ Find the sum of the digits in the number 100!
      */
 
 
-
     public static int questionNaive(int n) {
         BigInteger b = new BigInteger("1");
-        for (int i = 2; i < n+1; i++) {
-            b= b.multiply(new BigInteger(String.valueOf(i)));
+        for (int i = 2; i < n + 1; i++) {
+            b = b.multiply(new BigInteger(String.valueOf(i)));
         }
         int sum = 0;
-        BigInteger ten =new BigInteger("10");
-        while (!b.equals(new BigInteger("0"))){
-            sum+=b.mod(ten).intValue();
+        BigInteger ten = new BigInteger("10");
+        while (!b.equals(new BigInteger("0"))) {
+            sum += b.mod(ten).intValue();
             b = b.divide(ten);
         }
         return sum;
     }
-
 
 
     public static void main(String[] st) {

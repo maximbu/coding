@@ -25,10 +25,10 @@ import java.util.HashMap;
 public class EvaluateExpressionToTrue {
 
   public int cnttrue(String A) {
-    return cntval(A,true, new HashMap<>(),new HashMap<>());
+    return cntval(A, true, new HashMap<>(), new HashMap<>());
   }
 
-  private int cntval(String A, boolean t, HashMap<String, Integer> trueMap ,HashMap<String, Integer> falseMap) {
+  private int cntval(String A, boolean t, HashMap<String, Integer> trueMap, HashMap<String, Integer> falseMap) {
     if (A.length() < 2) {
       return A.equals("T") ^ t ? 0 : 1;
     }
@@ -46,20 +46,20 @@ public class EvaluateExpressionToTrue {
       int val = 0;
       switch (A.charAt(i)) {
         case '|':
-          val= total - (leftFalse * rightFalse);
+          val = total - (leftFalse * rightFalse);
           break;
         case '^':
-          val= (leftTrue * rightFalse) + (leftFalse * rightTrue);
+          val = (leftTrue * rightFalse) + (leftFalse * rightTrue);
           break;
         case '&':
-          val= leftTrue * rightTrue;
+          val = leftTrue * rightTrue;
           break;
 
       }
       if (!t) {
         val = total - val;
       }
-      ways = (val+ways) % 1003;
+      ways = (val + ways) % 1003;
     }
     map.put(A, ways);
     return ways;

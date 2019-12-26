@@ -9,7 +9,7 @@ import java.util.ArrayList;
  Do it in place
  */
 public class SetMatrixZeros {
-  public static void main(String[] st){
+  public static void main(String[] st) {
     SetMatrixZeros q = new SetMatrixZeros();
 
     ArrayList<ArrayList<Integer>> input = new ArrayList<>(3);
@@ -53,7 +53,7 @@ public class SetMatrixZeros {
 
     for (int i = 1; i < a.size(); i++) {
       for (int j = 1; j < firstRow.size(); j++) {
-        if(a.get(i).get(j)==0){
+        if (a.get(i).get(j) == 0) {
           a.get(i).set(0, 0);
           firstRow.set(j, 0);
         }
@@ -62,21 +62,21 @@ public class SetMatrixZeros {
 
     for (int i = 1; i < a.size(); i++) {
       for (int j = 1; j < firstRow.size(); j++) {
-        if(a.get(i).get(0)==0 || firstRow.get(j)==0){
+        if (a.get(i).get(0) == 0 || firstRow.get(j) == 0) {
           a.get(i).set(j, 0);
         }
       }
     }
 
-    if(firstColumnZero){
+    if (firstColumnZero) {
       for (ArrayList<Integer> anA : a) {
         anA.set(0, 0);
       }
     }
 
-    if(firstRowZero){
+    if (firstRowZero) {
       for (int i = 0; i < firstRow.size(); i++) {
-        firstRow.set(i,0);
+        firstRow.set(i, 0);
       }
     }
 

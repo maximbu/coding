@@ -24,16 +24,16 @@ Find the next triangle number that is also pentagonal and hexagonal.
         long t = 286;
         long p = 160;
         long h = 140;
-        while (true){
-            Long nextT = (t*(t+1))/2;
-            Long nextP = (p*(3*p-1))/2;
-            Long nextH = h*(2*h-1);
+        while (true) {
+            Long nextT = (t * (t + 1)) / 2;
+            Long nextP = (p * (3 * p - 1)) / 2;
+            Long nextH = h * (2 * h - 1);
             triangle.add(nextT);
             pentagonal.add(nextP);
             hexagonal.add(nextH);
-            if(triangle.contains(nextH) && pentagonal.contains(nextH) && hexagonal.contains(nextH)) return nextH;
-            if(triangle.contains(nextT) && pentagonal.contains(nextT) && hexagonal.contains(nextT)) return nextT;
-            if(triangle.contains(nextP) && pentagonal.contains(nextP) && hexagonal.contains(nextP)) return nextP;
+            if (triangle.contains(nextH) && pentagonal.contains(nextH) && hexagonal.contains(nextH)) return nextH;
+            if (triangle.contains(nextT) && pentagonal.contains(nextT) && hexagonal.contains(nextT)) return nextT;
+            if (triangle.contains(nextP) && pentagonal.contains(nextP) && hexagonal.contains(nextP)) return nextP;
             t++;
             h++;
             p++;
@@ -41,9 +41,8 @@ Find the next triangle number that is also pentagonal and hexagonal.
     }
 
 
-
     public static void main(String[] st) {
         p45 q = new p45();
         System.out.println(q.questionNaive());
-}
+    }
 }

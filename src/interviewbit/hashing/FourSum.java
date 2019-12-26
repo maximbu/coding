@@ -23,14 +23,16 @@ import java.util.stream.IntStream;
  * Solution[i] < Solution[j] iff Solution[i][0] < Solution[j][0] OR (Solution[i][0] == Solution[j][0] AND ... Solution[i][k] < Solution[j][k])
  */
 public class FourSum {
-    private class Ind{
+    private static class Ind {
         int i;
         int j;
-        Ind(int i,int j){
+
+        Ind(int i, int j) {
             this.i = i;
             this.j = j;
         }
     }
+
     public ArrayList<ArrayList<Integer>> fourSum(ArrayList<Integer> A, int B) {
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         HashMap<Integer, List<Ind>> map = new HashMap<>();
@@ -38,18 +40,18 @@ public class FourSum {
             for (int j = i + 1; j < A.size(); j++) {
                 int key = A.get(i) + A.get(j);
                 if (map.containsKey(B - key)) {
-                    for (Ind option : map.get(B-key)) {
-                        if(i == option.i || j == option.j || i == option.j || j == option.i){
+                    for (Ind option : map.get(B - key)) {
+                        if (i == option.i || j == option.j || i == option.j || j == option.i) {
                             continue;
                         }
-                        ArrayList<Integer> newSolution = new ArrayList<>(Arrays.asList(A.get(option.i),A.get(option.j), A.get(i), A.get(j)));
+                        ArrayList<Integer> newSolution = new ArrayList<>(Arrays.asList(A.get(option.i), A.get(option.j), A.get(i), A.get(j)));
                         newSolution.sort(Integer::compareTo);
                         if (!containsSolution(ans, newSolution)) {
                             ans.add(newSolution);
                         }
                     }
                 }
-                if(!map.containsKey(key)){
+                if (!map.containsKey(key)) {
                     map.put(key, new ArrayList<>());
                 }
                 map.get(key).add(new Ind(i, j));
@@ -57,8 +59,8 @@ public class FourSum {
         }
         ans.sort((o1, o2) -> {
             for (int i = 0; i < o1.size(); i++) {
-                int comp = Integer.compare(o1.get(i),o2.get(i));
-                if(comp != 0){
+                int comp = Integer.compare(o1.get(i), o2.get(i));
+                if (comp != 0) {
                     return comp;
                 }
             }
@@ -68,15 +70,15 @@ public class FourSum {
     }
 
     private boolean containsSolution(ArrayList<ArrayList<Integer>> solutions, ArrayList<Integer> newSolution) {
-        for (ArrayList<Integer> sol:solutions) {
+        for (ArrayList<Integer> sol : solutions) {
             boolean contains = IntStream.range(0, sol.size()).allMatch(i -> sol.get(i).equals(newSolution.get(i)));
-            if(contains) return true;
+            if (contains) return true;
         }
         return false;
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         FourSum q = new FourSum();
-        System.out.println(q.fourSum(new ArrayList<>(Arrays.asList(9, -8, -10, -7, 7, -8, 2, -7, 4, 7, 0, -3, -4, -5, -1, -4, 5, 8, 1, 9, -2, 5, 10, -5, -7, -1, -6, 4, 1, -5, 3, 8, -4, -10, -9, -3, 10, 0, 7, 9, -8, 10, -9, 7, 8, 0, 6, -6, -7, 6, -4, 2, 0, 10, 1, -2, 5, -2)),0));
+        System.out.println(q.fourSum(new ArrayList<>(Arrays.asList(9, -8, -10, -7, 7, -8, 2, -7, 4, 7, 0, -3, -4, -5, -1, -4, 5, 8, 1, 9, -2, 5, 10, -5, -7, -1, -6, 4, 1, -5, 3, 8, -4, -10, -9, -3, 10, 0, 7, 9, -8, 10, -9, 7, 8, 0, 6, -6, -7, 6, -4, 2, 0, 10, 1, -2, 5, -2)), 0));
     }
 }

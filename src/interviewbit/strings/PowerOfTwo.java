@@ -21,9 +21,9 @@ import java.math.BigInteger;
 public class PowerOfTwo {
     public int power(String A) {
         BigInteger b = new BigInteger(A);
-        if(b.bitLength() == 1) return 0;
-        for (int i = 0; i < b.bitLength()-1; i++) {
-            if(b.testBit(i)){
+        if (b.bitLength() == 1) return 0;
+        for (int i = 0; i < b.bitLength() - 1; i++) {
+            if (b.testBit(i)) {
                 return 0;
             }
         }

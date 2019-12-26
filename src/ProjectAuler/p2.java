@@ -9,38 +9,38 @@ public class p2 {
     1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
     By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
      */
-    public static long questionNaive(int max){
-        long nMin2=1;
-        long nMin1=2;
+    public static long questionNaive(int max) {
+        long nMin2 = 1;
+        long nMin1 = 2;
         long sum = 2;
         long n;
-        for(int i=2;i<max;i++){
-           n = nMin1 + nMin2;
-           if(n > max) return sum;
-           if(n%2 ==0) sum+= n;
-           nMin2 = nMin1;
-           nMin1=n;
-        }
-        return 0;
-    }
-
-    public static long question(int max){
-        //for even : E(n)=4*E(n-1)+E(n-2).
-        long nMin2=0;
-        long nMin1=2;
-        long sum = 2;
-        long n;
-        for(int i=2;i<max;i++){
-            n = 4*nMin1 + nMin2;
-            if(n > max) return sum;
-            sum+= n;
+        for (int i = 2; i < max; i++) {
+            n = nMin1 + nMin2;
+            if (n > max) return sum;
+            if (n % 2 == 0) sum += n;
             nMin2 = nMin1;
-            nMin1=n;
+            nMin1 = n;
         }
         return 0;
     }
 
-    public static void main(String[] st){
+    public static long question(int max) {
+        //for even : E(n)=4*E(n-1)+E(n-2).
+        long nMin2 = 0;
+        long nMin1 = 2;
+        long sum = 2;
+        long n;
+        for (int i = 2; i < max; i++) {
+            n = 4 * nMin1 + nMin2;
+            if (n > max) return sum;
+            sum += n;
+            nMin2 = nMin1;
+            nMin1 = n;
+        }
+        return 0;
+    }
+
+    public static void main(String[] st) {
         p2 q = new p2();
         System.out.println(questionNaive(4000000));
         System.out.println(question(4000000));

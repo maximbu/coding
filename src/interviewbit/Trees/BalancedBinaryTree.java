@@ -28,14 +28,14 @@ package interviewbit.Trees;
  */
 public class BalancedBinaryTree {
     public int isBalanced(TreeNode A) {
-        if(A == null) return 1;
-        if (Math.abs(maxDepth(A.left)-maxDepth(A.right))>1)
+        if (A == null) return 1;
+        if (Math.abs(maxDepth(A.left) - maxDepth(A.right)) > 1)
             return 0;
         return isBalanced(A.left) * isBalanced(A.right);
     }
 
     private int maxDepth(TreeNode A) {
-        if(A == null) return 0;
-        return Math.max(maxDepth(A.left),maxDepth(A.right))+1;
+        if (A == null) return 0;
+        return Math.max(maxDepth(A.left), maxDepth(A.right)) + 1;
     }
 }

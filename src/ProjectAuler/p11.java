@@ -31,27 +31,27 @@ What is the greatest product of four adjacent numbers in the same direction (up,
      */
     public static long questionNaive(int[][] s) {
         long best = 0;
-        for (int i = 0; i < s.length-3; i++) {
-            for (int j = 0; j < s[0].length-3; j++) {
-                int rowsMul = s[i][j]*s[i+1][j]*s[i+2][j]*s[i+3][j];
-                int colsMul = s[i][j]*s[i][j+1]*s[i][j+2]*s[i][j+3];
-                int diagMul = s[i][j]*s[i+1][j+1]*s[i+2][j+2]*s[i+3][j+3];
-                if(rowsMul > best){
+        for (int i = 0; i < s.length - 3; i++) {
+            for (int j = 0; j < s[0].length - 3; j++) {
+                int rowsMul = s[i][j] * s[i + 1][j] * s[i + 2][j] * s[i + 3][j];
+                int colsMul = s[i][j] * s[i][j + 1] * s[i][j + 2] * s[i][j + 3];
+                int diagMul = s[i][j] * s[i + 1][j + 1] * s[i + 2][j + 2] * s[i + 3][j + 3];
+                if (rowsMul > best) {
                     best = rowsMul;
                 }
-                if(colsMul > best){
+                if (colsMul > best) {
                     best = colsMul;
                 }
-                if(diagMul > best){
+                if (diagMul > best) {
                     best = diagMul;
                 }
             }
         }
 
         for (int i = 3; i < s.length; i++) {
-            for (int j = 0; j < s[0].length-3; j++) {
-                int diagMul = s[i][j]*s[i-1][j+1]*s[i-2][j+2]*s[i-3][j+3];
-                if(diagMul > best){
+            for (int j = 0; j < s[0].length - 3; j++) {
+                int diagMul = s[i][j] * s[i - 1][j + 1] * s[i - 2][j + 2] * s[i - 3][j + 3];
+                if (diagMul > best) {
                     best = diagMul;
                 }
             }
@@ -63,7 +63,7 @@ What is the greatest product of four adjacent numbers in the same direction (up,
 
     public static void main(String[] st) {
         p11 q = new p11();
-        int a[][] =
+        int[][] a =
                 {
                         {8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8},
                         {49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0},

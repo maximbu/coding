@@ -1,15 +1,9 @@
 package UVA.AdHoc.Anagrams;
 
-import static java.lang.System.in;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.lang.System.in;
 
 class Q454_Anagrams {
 
@@ -29,7 +23,7 @@ class Q454_Anagrams {
       String word = sc.nextLine();
       while (word.length() > 0) {
         words.add(word);
-        if(!sc.hasNextLine()) break;
+        if (!sc.hasNextLine()) break;
         word = sc.nextLine();
       }
       Map<String, List<String>> ans = solve(words);

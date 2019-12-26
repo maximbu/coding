@@ -47,19 +47,19 @@ import java.util.stream.Collectors;
 public class HotelReviews {
     public ArrayList<Integer> solve(String A, ArrayList<String> B) {
         HashSet<String> set = new HashSet<>(Arrays.asList(A.split("_")));
-        HashMap<Integer,Integer> map = new HashMap<>(B.size());
-        for(int i=0;i<B.size();i++){
-            map.put(i,occ(B.get(i).split("_"),set));
+        HashMap<Integer, Integer> map = new HashMap<>(B.size());
+        for (int i = 0; i < B.size(); i++) {
+            map.put(i, occ(B.get(i).split("_"), set));
         }
         return map.entrySet().stream()
-                .sorted(Comparator.comparingInt((ToIntFunction<Entry<Integer, Integer>>) e -> -1*e.getValue())
+                .sorted(Comparator.comparingInt((ToIntFunction<Entry<Integer, Integer>>) e -> -1 * e.getValue())
                         .thenComparingInt(Entry::getKey))
                 .map(Entry::getKey)
                 .collect(Collectors.toCollection(ArrayList::new));
 
     }
 
-    private int occ(String[] words , HashSet<String> good){
+    private int occ(String[] words, HashSet<String> good) {
         return (int) Arrays.stream(words).filter(good::contains).count();
     }
 

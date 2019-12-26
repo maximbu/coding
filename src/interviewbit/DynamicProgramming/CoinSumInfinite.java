@@ -37,9 +37,9 @@ public class CoinSumInfinite {
         return ans[B];
     }
 
-    public static void main(String[] st){
+    public static void main(String[] st) {
         CoinSumInfinite q = new CoinSumInfinite();
         ArrayList<Integer> a = new ArrayList<>(Arrays.asList(1, 2, 3));
-        System.out.println(q.coinchange2(a,4));
+        System.out.println(q.coinchange2(a, 4));
     }
 }

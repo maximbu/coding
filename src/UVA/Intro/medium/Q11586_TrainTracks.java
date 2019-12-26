@@ -22,21 +22,21 @@ class Q11586_TrainTracks {
 
   private String solve(String[] input) {
     boolean canLoop = false;
-    if(input.length > 1) {
+    if (input.length > 1) {
       int leftM = 0;
       int leftF = 0;
       int rightM = 0;
       int rightF = 0;
       for (String piece : input) {
-        if(piece.charAt(0) == 'M')leftM++;
+        if (piece.charAt(0) == 'M') leftM++;
         else leftF++;
-        if(piece.charAt(1) == 'M')rightM++;
+        if (piece.charAt(1) == 'M') rightM++;
         else rightF++;
       }
-      canLoop = ((leftF==rightM) || (leftM==rightF));
+      canLoop = ((leftF == rightM) || (leftM == rightF));
     }
 
-    return (canLoop?"":"NO ") + "LOOP";
+    return (canLoop ? "" : "NO ") + "LOOP";
   }
 
 

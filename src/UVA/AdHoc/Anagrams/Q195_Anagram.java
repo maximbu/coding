@@ -1,14 +1,9 @@
 package UVA.AdHoc.Anagrams;
 
-import static java.lang.System.in;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.lang.System.in;
 
 class Q195_Anagram {
 
@@ -44,18 +39,18 @@ class Q195_Anagram {
     Set<String> comb = new HashSet<>();
     char[] ch = s.toCharArray();
     Arrays.sort(ch);
-    while (comb.add(new String(ch))){
+    while (comb.add(new String(ch))) {
       nextPermutation(ch);
     }
 
-    return comb.stream().sorted((o1,o2)->{
+    return comb.stream().sorted((o1, o2) -> {
       for (int i = 0; i < o1.length(); i++) {
         int diff = Character.toLowerCase(o1.charAt(i)) - Character.toLowerCase(o2.charAt(i));
         if (diff != 0) {
           return diff;
         }
         diff = o1.charAt(i) - o2.charAt(i);
-        if(diff != 0){
+        if (diff != 0) {
           return diff;
         }
       }
@@ -88,7 +83,7 @@ class Q195_Anagram {
 
   private void swap(char[] a, int startInd, int j) {
     char tmp = a[startInd];
-    a[startInd]= a[j];
+    a[startInd] = a[j];
     a[j] = tmp;
   }
 
