@@ -24,6 +24,7 @@ public class q8_7 {
 
     public static void main(String[] st) {
         var ans = permWithoutDups("abcde");
+        System.out.println(ans.size());
     }
 
 }

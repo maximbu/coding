@@ -32,7 +32,7 @@ public class q8_13 {
     private static double stackOfBoxes(List<Box> boxes) {
         if (boxes == null || boxes.isEmpty())
             return 0;
-        Collections.sort(boxes, Collections.reverseOrder());
+        boxes.sort(Collections.reverseOrder());
         return stackOfBoxes(boxes, 0, 0, new Box(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
     }
 

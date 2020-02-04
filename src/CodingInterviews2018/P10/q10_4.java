@@ -20,7 +20,7 @@ public class q10_4 {
     }
 
     private static int listySearch(Listy l, int x) {
-        int maxSize = getMaxSize(l);
+        int maxSize = getMaxSize(l,x);
         return listySearch(l, x, 0, maxSize);
     }
 
@@ -37,9 +37,9 @@ public class q10_4 {
         return listySearch(l, x, from, mid - 1);
     }
 
-    private static int getMaxSize(Listy l) {
+    private static int getMaxSize(Listy l,int x) {
         int max = 1;
-        while (l.get(max) != -1) {
+        while (l.get(max) != -1 && l.get(max) < x) {
             max *= 2;
         }
         return max;

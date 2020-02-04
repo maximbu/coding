@@ -50,7 +50,6 @@ public class q8_2 {
             }
         }
         return false;
-
     }
 
 }

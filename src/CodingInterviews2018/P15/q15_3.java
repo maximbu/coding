@@ -22,11 +22,11 @@ public class q15_3 {
         }
     }
 
-    private static class Philiosoper extends Thread {
+    private static class Philosopher extends Thread {
         private int bites = 10;
         private Chopstick left, right;
 
-        public Philiosoper(Chopstick left, Chopstick right) {
+        public Philosopher(Chopstick left, Chopstick right) {
             this.left = left;
             this.right = right;
         }
@@ -72,7 +72,7 @@ public class q15_3 {
     public static void main(String[] st) {
         int n = 8;
         var ch = IntStream.range(0, n).mapToObj(i -> new Chopstick()).toArray(Chopstick[]::new);
-        var ph = IntStream.range(0, n).mapToObj(i -> new Philiosoper(ch[i], ch[(i + 1) % n])).toArray(Philiosoper[]::new);
+        var ph = IntStream.range(0, n).mapToObj(i -> new Philosopher(ch[i], ch[(i + 1) % n])).toArray(Philosopher[]::new);
 
         for (var p : ph) {
             p.start();

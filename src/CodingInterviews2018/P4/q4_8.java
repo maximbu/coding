@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 import static CodingInterviews2018.P4.q4_2.minimalTree;
 
 public class q4_8 {
-    private static <T> ParentBinTreeNode<T> commonAncessor(ParentBinTreeNode<T> a, ParentBinTreeNode<T> b) {
+    private static <T> ParentBinTreeNode<T> commonAncestor(ParentBinTreeNode<T> a, ParentBinTreeNode<T> b) {
         int hA = getHeight(a);
         int hB = getHeight(b);
         while (hA > hB) {
@@ -27,7 +27,7 @@ public class q4_8 {
     }
 
 
-    private static <T> BinTreeNode<T> commonAncessorNoParent(BinTreeNode<T> root, BinTreeNode<T> a, BinTreeNode<T> b) {
+    private static <T> BinTreeNode<T> commonAncestorNoParent(BinTreeNode<T> root, BinTreeNode<T> a, BinTreeNode<T> b) {
         if (root == null || a == null || b == null || root == a || root == b)
             return root;
         boolean isAOnLeft = reachable(root.getLeft(), a);
@@ -36,7 +36,7 @@ public class q4_8 {
         if (isAOnLeft != isBOnLeft)
             return root;
 
-        return commonAncessorNoParent(isAOnLeft ? root.getLeft() : root.getRight(), a, b);
+        return commonAncestorNoParent(isAOnLeft ? root.getLeft() : root.getRight(), a, b);
     }
 
     private static <T> boolean reachable(BinTreeNode<T> root, BinTreeNode<T> a) {
@@ -69,13 +69,13 @@ public class q4_8 {
         n12.setLeft(n10);
         n12.setRight(n14);
 
-        ParentBinTreeNode<Integer> e8 = commonAncessor(n4, n12);
-        ParentBinTreeNode<Integer> e8_ = commonAncessor(n4, n14);
-        ParentBinTreeNode<Integer> e20 = commonAncessor(n22, n14);
+        ParentBinTreeNode<Integer> e8 = commonAncestor(n4, n12);
+        ParentBinTreeNode<Integer> e8_ = commonAncestor(n4, n14);
+        ParentBinTreeNode<Integer> e20 = commonAncestor(n22, n14);
 
 
         BinTreeNode<Integer> tree = minimalTree(IntStream.range(0, 27).toArray());
-        BinTreeNode<Integer> t = commonAncessorNoParent(tree, tree.getLeft().getLeft().getLeft(), tree.getLeft().getRight().getLeft());
+        BinTreeNode<Integer> t = commonAncestorNoParent(tree, tree.getLeft().getLeft().getLeft(), tree.getLeft().getRight().getLeft());
 
 
         BinTreeNode<Integer> n_20 = new BinTreeNode<>(20);
@@ -86,7 +86,7 @@ public class q4_8 {
         n_20.setLeft(n_10);
         n_20.setRight(n_30);
         n_10.setRight(n_25);
-        BinTreeNode<Integer> t2 = commonAncessorNoParent(n_20, n_10, n_25);
+        BinTreeNode<Integer> t2 = commonAncestorNoParent(n_20, n_10, n_25);
 
     }
 }

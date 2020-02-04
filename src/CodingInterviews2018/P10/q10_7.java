@@ -25,6 +25,7 @@ public class q10_7 {
         for (int x : arr) {
             bits.set(x);
         }
+
         for (int i = 0; i < bits.length(); i++) {
             if (!bits.get(i)) {
                 return i;
