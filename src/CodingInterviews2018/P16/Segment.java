@@ -1,8 +1,8 @@
 package CodingInterviews2018.P16;
 
 public class Segment {
-    Point start;
-    Point end;
+    private Point start;
+    private Point end;
 
     public Segment(Point start, Point end) {
         this.start = start;
@@ -13,16 +13,8 @@ public class Segment {
         return start;
     }
 
-    public void setStart(Point start) {
-        this.start = start;
-    }
-
     public Point getEnd() {
         return end;
-    }
-
-    public void setEnd(Point end) {
-        this.end = end;
     }
 
     @Override

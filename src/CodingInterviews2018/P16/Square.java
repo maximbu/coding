@@ -1,11 +1,11 @@
 package CodingInterviews2018.P16;
 
 public class Square {
-    Point topLeft;
-    Point topRight;
-    Point bottomRight;
-    Point bottomLeft;
-    double len;
+    private Point topLeft;
+    private Point topRight;
+    private Point bottomRight;
+    private Point bottomLeft;
+    private double len;
 
     public Square(Point topLeft, Point topRight, Point bottomRight, Point bottomLeft) {
         this.topLeft = topLeft;
@@ -23,8 +23,8 @@ public class Square {
     }
 
     private double dist(Point a,Point b){
-        double ac = Math.abs(a.y - b.y);
-        double cb = Math.abs(a.x - b.x);
+        double ac = Math.abs(a.getY() - b.getY());
+        double cb = Math.abs(a.getX() - b.getX());
         return Math.hypot(ac, cb);
     }
 
@@ -36,32 +36,16 @@ public class Square {
         return topLeft;
     }
 
-    public void setTopLeft(Point topLeft) {
-        this.topLeft = topLeft;
-    }
-
     public Point getTopRight() {
         return topRight;
-    }
-
-    public void setTopRight(Point topRight) {
-        this.topRight = topRight;
     }
 
     public Point getBottomRight() {
         return bottomRight;
     }
 
-    public void setBottomRight(Point bottomRight) {
-        this.bottomRight = bottomRight;
-    }
-
     public Point getBottomLeft() {
         return bottomLeft;
-    }
-
-    public void setBottomLeft(Point bottomLeft) {
-        this.bottomLeft = bottomLeft;
     }
 
     @Override

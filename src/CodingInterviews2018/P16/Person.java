@@ -1,11 +1,20 @@
 package CodingInterviews2018.P16;
 
 public class Person {
-    public int birth;
-    public int death;
+    private int birth;
+    private int death;
+
     public Person(int birthYear, int deathYear) {
         birth = birthYear;
         death = deathYear;
+    }
+
+    public int getBirth() {
+        return birth;
+    }
+
+    public int getDeath() {
+        return death;
     }
 
     @Override

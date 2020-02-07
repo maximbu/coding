@@ -5,13 +5,13 @@ import java.util.Arrays;
 public class q16_10 {
 
     private static int mostAlivePeople(Person[] a) {
-        int from = Arrays.stream(a).map(t -> t.birth).min(Integer::compareTo).get();
-        int to = Arrays.stream(a).map(t -> t.death).max(Integer::compareTo).get();
+        int from = Arrays.stream(a).map(Person::getBirth).min(Integer::compareTo).get();
+        int to = Arrays.stream(a).map(Person::getDeath).max(Integer::compareTo).get();
 
         int[] years = new int[to - from + 1];
         for (Person p : a) {
-            years[p.birth - from]++;
-            years[p.death - from]--;
+            years[p.getBirth() - from]++;
+            years[p.getDeath() - from]--;
         }
         int max = years[0];
         int bestYear = from;

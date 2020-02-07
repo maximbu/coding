@@ -4,7 +4,7 @@ public class IntWrapper {
     public int x;
 
     public IntWrapper(int i) {
-        x=i;
+        x = i;
     }
 
     @Override

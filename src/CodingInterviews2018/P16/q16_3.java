@@ -5,19 +5,19 @@ import java.util.Optional;
 public class q16_3 {
 
     private static Optional<Point> intersection(Segment s1, Segment s2) {
-        double a1 = (s1.start.y - s1.end.y) / (s1.start.x - s1.end.x);
-        double a2 = (s2.start.y - s2.end.y) / (s2.start.x - s2.end.x);
-        double b1 = (s1.start.y - a1 * s1.start.x);
-        double b2 = (s2.start.y - a2 * s2.start.x);
+        double a1 = (s1.getStart().getY() - s1.getEnd().getY()) / (s1.getStart().getX() - s1.getEnd().getX());
+        double a2 = (s2.getStart().getY() - s2.getEnd().getY()) / (s2.getStart().getX() - s2.getEnd().getX());
+        double b1 = (s1.getStart().getY() - a1 * s1.getStart().getX());
+        double b2 = (s2.getStart().getY() - a2 * s2.getStart().getX());
         if (Double.isInfinite(a1) && Double.isInfinite(a2)) {
             return Optional.empty();
         }
         if (Math.abs(a1 - a2) < 0.00001) return Optional.empty();
         if(Double.isInfinite(a1)){
-            return Optional.of(new Point(s1.start.x, a2*s1.start.x+b2));
+            return Optional.of(new Point(s1.getStart().getX(), a2*s1.getStart().getX()+b2));
         }
         if(Double.isInfinite(a2)){
-            return Optional.of(new Point(s2.start.x, a1*s2.start.x+b1));
+            return Optional.of(new Point(s2.getStart().getX(), a1*s2.getStart().getX()+b1));
         }
         double interX = (b2 - b1) / (a1 - a2);
         double interY = a1 * interX + b1;
