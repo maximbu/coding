@@ -2,12 +2,13 @@ package CodingInterviews2018.P17;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class q17_3 {
 
     private static int[] pickM(int[] arr , int m) {
         int[] ans = arr.clone();
-        Random rand = new Random();
+        Random rand = ThreadLocalRandom.current();
         for (int i = ans.length - 1; i >= 0; i--) {
             swap(ans, i, rand.nextInt(i + 1));
         }
